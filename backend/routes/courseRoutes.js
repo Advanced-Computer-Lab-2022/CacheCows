@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { getcourses, setcourse, updatecourse, deletecourse } = require('../controllers/coursesController')
+const { getCourses, setCourse, updateCourse, deleteCourse } = require('../controllers/coursesController')
 
-router.route('/').get(getcourses).post(setcourse)
-router.route('/:id').delete(deletecourse).put(updatecourse)
-
+router.route('/').get(getCourses).post(setCourse)
+router.route('/').delete(deleteCourse).put(updateCourse)
 
 
 module.exports = router  

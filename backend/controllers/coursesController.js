@@ -7,21 +7,21 @@ const courses = require('../models/coursesModel')
 // @access Private 
 const getCourses = asyncHandler(async (req, res) => {
 
-    const courses = await courses.find()
-    res.status(200).json(courses)
+    const allcourses = await courses.find()
+    res.status(200).json(allcourses)
 })
 
 // @desc Set courses
 // @routes POST /api/courses
 // @access Private 
 const setCourse = asyncHandler(async(req, res) => {
-    if (!req.body.text){
+    if (!req.body.course_name){
         res.status(400)
         throw new Error('Please add a text field')
     }
 
     const course = await courses.create({
-        text: req.body.text,
+        course_name: req.body.course_name,
     })
     res.status(200).json(course)
 })
@@ -47,15 +47,44 @@ const updateCourse = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteCourse =  asyncHandler(async (req, res) => {
     
+    const course = await courses.find(req.params.course_name)
+    if (!course){
+        res.status(400)
+        throw new Error ('courses not found')
+    }
+     await courses.remove(course)
+     res.status(200).json({name : req.params.course_name })
+
+    })
+
+    // @desc Preview courses
+// @routes GET /api/courses
+// @access Private 
+const previewCourses = asyncHandler(async (req, res) => {
+
     const course = await courses.findById(req.params.id)
     if (!course){
         res.status(400)
         throw new Error ('courses not found')
     }
-     await courses.remove()
-     res.status(200).json({id : req.params.id })
+    
+     res.status(200).json({preview : req.params.preview })
 
     })
+
+
+    const filterCourses = asyncHandler(async (req, res) => {
+
+        const course = await courses.findById
+        if (!course){
+            res.status(400)
+            throw new Error ('courses not found')
+        }
+        
+         res.status(200).json({preview : req.params.preview })
+    
+        })
+
 
 
 
@@ -65,4 +94,5 @@ module.exports = {
     setCourse,
     updateCourse,
     deleteCourse,
+    previewCourses,
 }
