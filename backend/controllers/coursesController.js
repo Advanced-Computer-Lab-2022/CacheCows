@@ -11,6 +11,17 @@ const getCourses = asyncHandler(async (req, res) => {
     res.status(200).json(allcourses)
 })
 
+const getCourse =  asyncHandler(async (req, res) => {
+    
+    const course = await courses.find({course_name: req.body.course_name})
+    if (course.toString() === ""){
+        res.status(400)
+        throw new Error ('course not found')
+    }
+     res.status(200).json({course})
+     
+    })
+
 // @desc Set courses
 // @routes POST /api/courses
 // @access Private 
@@ -31,13 +42,13 @@ const setCourse = asyncHandler(async(req, res) => {
 // @access Private 
 const updateCourse = asyncHandler(async (req, res) => {
     
-    const course = await courses.findById(req.params.id)
+    const course = await courses.find({_id: req.body._id})
     
-    if (!course){
+    if (course.toString() === ""){
         res.status(400)
         throw new Error ('course not found')
     }
-    const updatedcourse = await courses.findByIdAndUpdate(req.params.id, req.body ,{
+    const updatedcourse = await courses.findByIdAndUpdate({_id: req.body._id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedcourse)
@@ -47,14 +58,14 @@ const updateCourse = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteCourse =  asyncHandler(async (req, res) => {
     
-    const course = await courses.find(req.params.course_name)
-    if (!course){
+    const course = await courses.find({course_name: req.body.course_name})
+    if (course.toString() === ""){
         res.status(400)
-        throw new Error ('courses not found')
+        throw new Error ('course not found')
     }
-     await courses.remove(course)
-     res.status(200).json({name : req.params.course_name })
-
+     await courses.deleteOne({course_name: req.body.course_name})
+     res.status(200).json({course})
+     
     })
 
     // @desc Preview courses
