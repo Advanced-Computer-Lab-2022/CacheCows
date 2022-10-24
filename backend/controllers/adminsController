@@ -1,0 +1,83 @@
+const asyncHandler = require('express-async-handler')
+
+const admins = require('../models/adminsModel')
+
+// @desc Get Admins
+// @routes GET /api/Admins
+// @access Private 
+const getAdmins = asyncHandler(async (req, res) => {
+
+    const allAdmins = await admins.find()
+    res.status(200).json(allAdmins)
+})
+
+const getAdmin =  asyncHandler(async (req, res) => {
+    
+    const Admin = await admins.find({Admin_name: req.body.Admin_name})
+    if (Admin.toString() === ""){
+        res.status(400)
+        throw new Error ('Admin not found')
+    }
+     res.status(200).json({Admin})
+     
+    })
+
+// @desc Set Admins
+// @routes POST /api/Admins
+// @access Private 
+const setAdmin = asyncHandler(async(req, res) => {
+    if (!req.body.Admin_name){
+        res.status(400)
+        throw new Error('Please add a text field')
+    }
+
+    const Admin = await admins.create({
+        Admin_name: req.body.Admin_name,
+    })
+    res.status(200).json(Admin)
+})
+
+// @desc Update Admins
+// @routes PUT /api/Admins
+// @access Private 
+const updateAdmin = asyncHandler(async (req, res) => {
+    
+    const Admin = await admins.find({_id: req.body._id})
+    
+    if (Admin.toString() === ""){
+        res.status(400)
+        throw new Error ('Admin not found')
+    }
+    const updatedAdmin = await admins.findByIdAndUpdate({_id: req.body._id}, req.body ,{
+        new : true,
+    })
+    res.status(200).json(updatedAdmin)
+})
+// @desc DELTE Admins
+// @routes DELETE /api/Admins
+// @access Private 
+const deleteAdmin =  asyncHandler(async (req, res) => {
+    
+    const Admin = await admins.find({Admin_name: req.body.Admin_name})
+    if (Admin.toString() === ""){
+        res.status(400)
+        throw new Error ('Admin not found')
+    }
+     await admins.deleteOne({Admin_name: req.body.Admin_name})
+     res.status(200).json({Admin})
+     
+    })
+
+
+
+
+
+
+
+module.exports = {
+    getAdmins,
+    setAdmin,
+    updateAdmin,
+    deleteAdmin,
+    getAdmin,
+}
