@@ -1,9 +1,0 @@
-const express = require('express')
-const router = express.Router()
-const { getInstructors, setInstructor, updateInstructor, deleteInstructor } = require('../controllers/instructorsController')
-
-router.route('/').get(getInstructors).post(setInstructor)
-router.route('/').delete(deleteInstructor).put(updateInstructor)
-
-
-module.exports = router  

@@ -26,7 +26,7 @@ const getAdmin =  asyncHandler(async (req, res) => {
 // @routes POST /api/Admins
 // @access Private 
 const setAdmin = asyncHandler(async(req, res) => {
-    if (!req.body.Admin_name){
+    if (!req.body.admin_name){
         res.status(400)
         throw new Error('Please add a text field')
     }

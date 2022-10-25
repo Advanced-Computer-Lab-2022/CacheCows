@@ -26,7 +26,7 @@ const getCourse =  asyncHandler(async (req, res) => {
 // @routes POST /api/courses
 // @access Private 
 const setCourse = asyncHandler(async(req, res) => {
-    if (!req.body.course_name){
+    if (req.body.course_name === ""){
         res.status(400)
         throw new Error('Please add a text field')
     }

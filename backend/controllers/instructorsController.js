@@ -7,8 +7,8 @@ const instructors = require('../models/InstructorsModel')
 // @access Private 
 const getInstructors = asyncHandler(async (req, res) => {
 
-    const allInstructors = await Instructors.find()
-    res.status(200).json(allinstructors)
+    const allInstructors = await instructors.find()
+    res.status(200).json(allInstructors)
 })
 
 const getInstructor =  asyncHandler(async (req, res) => {
@@ -26,7 +26,7 @@ const getInstructor =  asyncHandler(async (req, res) => {
 // @routes POST /api/Instructors
 // @access Private 
 const setInstructor = asyncHandler(async(req, res) => {
-    if (!req.body.Instructor_name){
+    if (!req.body.instructor_name){
         res.status(400)
         throw new Error('Please add a text field')
     }
@@ -36,7 +36,7 @@ const setInstructor = asyncHandler(async(req, res) => {
         instructor_id : req.body.instructor_id,
         instructor_email : req.body.instructor_email,
         country : req.body.country,
-        instructor_bd : req.body,instructor_bd
+        instructor_bd : req.body.instructor_bd
     })
     res.status(200).json(Instructor)
 })
@@ -71,10 +71,6 @@ const deleteInstructor =  asyncHandler(async (req, res) => {
      res.status(200).json({Instructor})
      
     })
-
-
-
-
 
 
 
