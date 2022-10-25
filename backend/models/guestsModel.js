@@ -6,7 +6,7 @@ const guestSchema = new mongoose.Schema({
 
      
      guest_name:{type: String, required: [true, 'Please add a text value'],timestamps : true},
-     country : {type: String , required : [true, 'Please add a text value']},
+     country : {type: String , required : [true, 'Please add a text value']}
      
 
 })

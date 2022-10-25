@@ -33,6 +33,7 @@ const setGuest = asyncHandler(async(req, res) => {
 
     const guest = await guests.create({
         guest_name: req.body.guest_name,
+        country: req.body.country
     })
     res.status(200).json(guest)
 })

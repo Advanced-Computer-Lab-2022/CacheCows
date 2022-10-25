@@ -32,7 +32,21 @@ const setCourse = asyncHandler(async(req, res) => {
     }
 
     const course = await courses.create({
-        course_name: req.body.course_name,
+     course_id :req.body.course_id,
+     course_name :req.body.course_name,
+     instructor_name:req.body.instructor_name,
+     instructor_id:req.body.instructor_id,
+     course_rating:req.body.course_rating,
+     course_discount:req.body.course_discount,
+     course_price:req.body.course_price,  
+     course_summary:req.body.course_summary,
+     course_total_hours:req.body.course_total_hours,  
+     course_subject:req.body.course_subject,
+     course_exercise:req.body.course_exercise,
+     course_outline:req.body.course_outline,
+     course_video:req.body.course_video,
+     course_preview:req.body.course_preview,
+     
     })
     res.status(200).json(course)
 })

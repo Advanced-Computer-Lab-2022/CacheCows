@@ -32,7 +32,11 @@ const setInstructor = asyncHandler(async(req, res) => {
     }
 
     const Instructor = await instructors.create({
-        Instructor_name: req.body.Instructor_name,
+        instructor_name : req.body.instructor_name,
+        instructor_id : req.body.instructor_id,
+        instructor_email : req.body.instructor_email,
+        country : req.body.country,
+        instructor_bd : req.body,instructor_bd
     })
     res.status(200).json(Instructor)
 })

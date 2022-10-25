@@ -32,7 +32,11 @@ const setAdmin = asyncHandler(async(req, res) => {
     }
 
     const Admin = await admins.create({
-        Admin_name: req.body.Admin_name,
+        admin_name : req.body.admin_name,
+        admin_id : req.body.admin_id,
+        admin_email : req.body,admin_email,
+        country : req.body.country,
+        admin_bd : req.body.admin_bd
     })
     res.status(200).json(Admin)
 })
