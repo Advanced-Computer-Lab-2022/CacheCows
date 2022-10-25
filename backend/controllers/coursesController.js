@@ -119,20 +119,7 @@ const previewCourses = asyncHandler(async (req, res) => {
 
     })
 
-
-    const filterCourses = asyncHandler(async (req, res) => {
-
-        const course = await courses.findById
-        if (!course){
-            res.status(400)
-            throw new Error ('courses not found')
-        }
-        
-         res.status(200).json({preview : req.params.preview })
-    
-        })
-
-    const filterCoursesSubject = asyncHandler(async (req, res) => {
+    const filterCourseBySubject = asyncHandler(async (req, res) => {
 
         const course = await courses.findById({subject : req.body.course_subject})
         if (!course){
@@ -156,7 +143,7 @@ const previewCourses = asyncHandler(async (req, res) => {
         
             })
           
-            const filterCoursesPrice = asyncHandler(async (req, res) => {
+            const filterCourseByPrice = asyncHandler(async (req, res) => {
 
                 const course = await courses.findById({course_price : req.body.course_price})
                 if (!course){
@@ -168,7 +155,7 @@ const previewCourses = asyncHandler(async (req, res) => {
             
                 })   
                 
-                const SearchCourseTitle = asyncHandler(async (req, res) => {
+                const SearchInstCourseTitle = asyncHandler(async (req, res) => {
 
                     const course = await courses.find({course_name : req.body.course_name, instructor_id : req.body.instructor_id })
                     if (!course){
@@ -179,7 +166,7 @@ const previewCourses = asyncHandler(async (req, res) => {
                     })
 
 
-                    const SearchCourseSubject = asyncHandler(async (req, res) => {
+                    const SearchInstCourseSubject = asyncHandler(async (req, res) => {
 
                         const course = await courses.find({course_subject : req.body.course_subject, instructor_id : req.body.instructor_id })
                         if (!course){
@@ -188,8 +175,32 @@ const previewCourses = asyncHandler(async (req, res) => {
                         }
                          res.status(200).json(course)
                         })
+
+                        const SearchCourseBySubject = asyncHandler(async (req, res) => {
+
+                            const subj = req.body.course_subject;
+                            const rating = req.body.course_rating;
+                            if(!rating){
+                                const course = await courses.find({course_subject : req.body.course_subject})
+                                if (!course){
+                                res.status(400)
+                                throw new Error ('No Courses Matches Search!')
+                                }
+                                res.status(200).json(course)
+                            }if(!subj){
+                                const course = await courses.find({course_rating : req.body.course_rating})
+                                if (!course){
+                                res.status(400)
+                                throw new Error ('No Courses Matches Search!')
+                                }
+                                res.status(200).json(course)
+                            }
+                            })
                         
-                        const SearchCourseInstructor = asyncHandler(async (req, res) => {
+                        
+
+
+                          const SearchCourseInstructor = asyncHandler(async (req, res) => {
 
                             const course = await courses.find({instructor_name : req.body.instructor_name, instructor_id : req.body.instructor_id })
                             if (!course){
@@ -198,6 +209,16 @@ const previewCourses = asyncHandler(async (req, res) => {
                             }
                              res.status(200).json(course)
                             })
+
+                            const SearchCourseByInstructor = asyncHandler(async (req, res) => {
+
+                                const course = await courses.find({instructor_name : req.body.instructor_name})
+                                if (!course){
+                                    res.status(400)
+                                    throw new Error ('No Courses Matches Search!')
+                                }
+                                 res.status(200).json(course)
+                                })
 
 
 
@@ -211,11 +232,13 @@ module.exports = {
     deleteCourse,
     previewCourses,
     SearchCourseInstructor,
-    SearchCourseTitle,
-    SearchCourseSubject,
+    SearchCourseByInstructor,
+    SearchInstCourseTitle,
+    SearchCourseBySubject,
     findInstCourse,
-    filterCoursesPrice,
-    filterCoursesSubject,
+    filterCourseByPrice,
+    filterCourseBySubject,
+    SearchInstCourseSubject
 
 }
 
