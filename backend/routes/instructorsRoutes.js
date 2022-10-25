@@ -1,9 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const { getInstructors, setInstructor, updateInstructor, deleteInstructor, getInstructor } = require('../controllers/instructorsController.js')
+const controlls=require('../controllers/instructorsController')
 
-router.route('/').get(getInstructors).post(setInstructor).get(getInstructor)
-router.route('/').delete(deleteInstructor).put(updateInstructor)
+
+router.get('/getInstructors',controlls.getInstructors);
+router.post('/setInstructor',controlls.setInstructor);
+router.get('/getInstructor',controlls.getInstructor);
+router.delete('/deleteInstructor/:id',controlls.deleteInstructor);
+router.put('/updateInstructor/:id',controlls.updateInstructor);
 
 
 module.exports = router  
+
+
+
