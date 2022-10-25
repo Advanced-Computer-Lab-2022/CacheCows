@@ -10,6 +10,22 @@ const indvTraineeSchema= new mongoose.Schema(
         Country:{
             type:String,
             required:false,
+        },
+        indv_user:{
+            type:String,
+            required:false,
+        },
+        indv_pass:{
+            type:String,
+            required:false,
+        },
+        indv_email:{
+            type:String,
+            required:false,
+        },
+        indv_bd:{
+            type:String,
+            required:false,
         }
     }
 

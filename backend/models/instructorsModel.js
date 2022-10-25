@@ -6,6 +6,8 @@ const InstructorSchema = new mongoose.Schema({
 
      
      instructor_name:{type: String, required: [true, 'Please add a text value'],timestamps : true},
+     instructor_user:{type: String, required: [true, 'Please add a text value'],timestamps : true},
+     instructor_pass:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      instructor_id:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      instructor_email:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      instructor_bd:{type: String, required: [true, 'Please add a text value'],timestamps : true},

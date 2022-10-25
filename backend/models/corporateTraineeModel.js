@@ -10,6 +10,22 @@ const corpTraineeSchema= new mongoose.Schema(
         Country:{
             type:String,
             required:false,
+        },
+        corp_user:{
+            type:String,
+            required:false,
+        },
+        corp_pass:{
+            type:String,
+            required:false,
+        },
+        corp_bd:{
+            type:String,
+            required:false,
+        },
+        corp_email:{
+            type:String,
+            required:false,
         }
     }
 
