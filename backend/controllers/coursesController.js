@@ -28,20 +28,21 @@ const setCourse = asyncHandler(async(req, res) => {
     }
 
     const course = await courses.create({
-     course_id :req.body.course_id,
-     course_name :req.body.course_name,
-     instructor_name:req.body.instructor_name,
-     instructor_id:req.body.instructor_id,
-     course_rating:req.body.course_rating,
-     course_discount:req.body.course_discount,
-     course_price:req.body.course_price,  
-     course_summary:req.body.course_summary,
-     course_total_hours:req.body.course_total_hours,  
-     course_subject:req.body.course_subject,
-     course_exercise:req.body.course_exercise,
-     course_outline:req.body.course_outline,
-     course_video:req.body.course_video,
-     course_preview:req.body.course_preview,
+     course_id : req.body.course_id,
+     course_name : req.body.course_name,
+     instructor_name : req.body.instructor_name,
+     instructor_id : req.body.instructor_id,
+     course_rating : req.body.course_rating,
+     course_discount : req.body.course_discount,
+     course_price : req.body.course_price,  
+     course_summary : req.body.course_summary,
+     course_total_hours : req.body.course_total_hours,  
+     course_subject : req.body.course_subject,
+     course_exercise : req.body.course_exercise,
+     course_outline : req.body.course_outline,
+     course_video : req.body.course_video,
+     course_preview : req.body.course_preview,
+     course_subtitles : req.body.course_subtitles
      
     })
     res.status(200).json(course)
@@ -100,13 +101,29 @@ const viewCourses =  asyncHandler(async (req, res) => {
 //GET SPECIFIC COURSE PREVIEW    
 const previewCourses = asyncHandler(async (req, res) => {
 
-    const course = await courses.findById(req.params.id)
+    const course = await courses.findById(req.params._id)
         if (!course){
             res.status(400)
             throw new Error ('courses not found')
         }
     
        res.status(200).json({preview : req.params.preview })
+
+})
+//GET SPECIFIC COURSE DATA   
+const CourseData = asyncHandler(async (req, res) => {
+
+    const course = await courses.findById(req.params._id)
+        if (!course){
+            res.status(400)
+            throw new Error ('courses not found')
+        }
+    
+       res.status(200).json({
+        course_subtitles : req.body.course_subtitles,
+        course_exercise : req.body.course_exercise,
+        preview : req.params.preview,
+        })
 
 })
 //////////////////////////////////////////////////////////////////////////
@@ -218,7 +235,7 @@ const filterInstCourse = asyncHandler(async (req, res) => {
 //USER SEARCH
 ///////////////////////////////////////////////////////////////////////// 
 //SEARCH COURSES BY SUBJECT OR TITLE OR INST
-const SearchCourseBySubject = asyncHandler(async (req, res) => {
+const SearchCourseByOpt = asyncHandler(async (req, res) => {
 
     const subj = req.body.course_subject;
     const title = req.body.course_rating;
@@ -258,8 +275,7 @@ module.exports = {
     updateCourse,
     deleteCourse,
     previewCourses,
-    SearchCourseByInstructor,
-    SearchCourseBySubject,  
+    SearchCourseByOpt,  
     SearchInstCourseTitle,
     SearchInstCourseSubject,
     SearchCourseInstructor,
