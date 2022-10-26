@@ -1,11 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const { getAdmins, setAdmin, updateAdmin, deleteAdmin } = require('../controllers/adminsController.js')
+const controlls = require('../controllers/adminsController.js')
 
-router.route('/').get(getAdmins)
-router.route('/').post(setAdmin)
-router.route('/').delete(deleteAdmin)
-router.route('/').put(updateAdmin)
+router.get('/getAdmins',controlls.getAdmins);
+router.get('/getAdmin',controlls.getAdmin);
+router.post('/',controlls.setAdmin);
+router.put('/',controlls.updateAdmin);
+router.delete('/',controlls.deleteAdmin);
+router.delete('/createAdmin',controlls.createAdmin);
+router.delete('/createInstructor',controlls.createInstructor);
+router.delete('/createCorpTrainee',controlls.createCorpTrainee);
 
 
 module.exports = router  

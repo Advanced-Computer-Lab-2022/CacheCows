@@ -284,7 +284,8 @@ module.exports = {
     filterCourseBySubjectOrRating,
     viewCoursePrice,
     viewCourses,
-    filterInstCourse
+    filterInstCourse,
+    CourseData
 
 }
 
