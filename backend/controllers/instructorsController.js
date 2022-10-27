@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const instructors = require('../models/InstructorsModel')
-
+const course=require('../models/coursesModel');
 // @desc Get Instructors
 // @routes GET /api/Instructors
 // @access Private 
@@ -72,7 +72,30 @@ const deleteInstructor =  asyncHandler(async (req, res) => {
      
     })
 
+// instructor creating a new course 
+const createCourse=async (req,res)=>
+{
+ try{
+ const inst=instructors.findById(req.params.id)}
+ catch(error){
+     res.status(400).json({error:error.message})
+ }
 
+ const course_name=req.body.course_name;
+ const instructor_name=inst.instructor_name;
+ const instructor_id=req.params.id;
+ const course_price=req.body.course_price;
+ const course_summary=req.body.course_summary;
+ const course_subtitles=req.body.course_subtitle;
+
+try{
+ course.create({course_name,instructor_name,instructor_id,course_price,course_summary,course_subtitles})
+ res.status(200).json("course created!")
+}
+catch(error){
+ res.status(400).json({error:error.message})
+}
+}
 
 module.exports = {
     getInstructors,
@@ -80,4 +103,6 @@ module.exports = {
     updateInstructor,
     deleteInstructor,
     getInstructor,
+    createCourse
 }
+
