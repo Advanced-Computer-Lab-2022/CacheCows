@@ -25,6 +25,7 @@ const Admin = () => {
       }
     }
 
+
     fetchadmins()
   }, [])
 
@@ -86,6 +87,8 @@ const Admin = () => {
 
     
   )
+}
+  }
 }
 
 export default Admin
