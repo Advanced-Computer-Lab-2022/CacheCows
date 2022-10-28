@@ -37,8 +37,7 @@ const CourseForm = () => {
             course_outline,
             course_video,
             course_preview,
-            course_subtitles
-            
+            course_subtitles    
         }
 
         const response = await fetch('/api/courses', {
@@ -50,7 +49,7 @@ const CourseForm = () => {
         })
         const json = await response.json()
 
-        if(!response) {
+        if(!response.ok) {
             setError(json.error)
         }
         if(response.ok) {
@@ -59,6 +58,7 @@ const CourseForm = () => {
         setInstName('')
         setInstID('')
         setRating('')
+        setDiscount('')
         setPrice('')
         setSumm('')
         setTot ('')

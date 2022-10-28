@@ -4,10 +4,10 @@ const { serializeInteger } = require('whatwg-url')
 
 const CoursesSchema = new mongoose.Schema({
 
-     course_id :{type: String,      },
+     course_id :{type: Number, required: true},
      course_name :{type: String,       },
      instructor_name:{type: String,      },
-     instructor_id:{type: String,      },
+     instructor_id:{type: Number,      },
      course_rating:{type: Number,      },
      course_discount:{type: Number, required: false,  },
      course_price:{type: Number, },  
