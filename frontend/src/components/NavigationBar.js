@@ -4,7 +4,7 @@ const NavigationBar = () =>{
             <div className="container">
                 <Link to ="/">
                     <h1>
-                        Workout Buddy
+                        Rubix
                     </h1>
                 </Link>
 
