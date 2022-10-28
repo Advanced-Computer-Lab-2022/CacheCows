@@ -50,13 +50,13 @@ const setCourse = asyncHandler(async(req, res) => {
 //UPDATE COURSE
 const updateCourse = asyncHandler(async (req, res) => {
     
-    const course = await courses.find({_id: req.body._id})
+    const course = await courses.find({course_id : req.body.course_id})
     
     if (course.toString() === ""){
         res.status(400)
         throw new Error ('course not found')
     }
-    const updatedcourse = await courses.findByIdAndUpdate({_id: req.body._id}, req.body ,{
+    const updatedcourse = await courses.findByIdAndUpdate({course_id : req.body.course_id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedcourse)
