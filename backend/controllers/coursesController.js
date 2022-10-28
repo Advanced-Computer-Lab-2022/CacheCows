@@ -22,8 +22,8 @@ const getCourse =  asyncHandler(async (req, res) => {
 })
 //ADD COURSE
 const setCourse = asyncHandler(async(req, res) => {
-    if (!req.body.course_name){
-        res.status(400)
+    if (!req.body.course_id){
+        res.status(400).json({error: "Please add an ID"})
         throw new Error('Please add a text field')
     }
 
