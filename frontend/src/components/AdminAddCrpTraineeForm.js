@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { json } from "react-router-dom";
 
 const AdminAddCrpTraineeForm = () => {
     const [Name, setName] = useState('')
@@ -15,7 +14,7 @@ const AdminAddCrpTraineeForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        const inst = {
+        const crp = {
             Name, 
             corp_user,
             corp_pass, 
@@ -26,7 +25,7 @@ const AdminAddCrpTraineeForm = () => {
 
         const response = await fetch('/api/corpTrainee', {
             method: 'POST',
-            body: JSON.stringify(admin),
+            body: JSON.stringify(crp),
             headers: {
                 'Content-Type' : 'application/json'
             }

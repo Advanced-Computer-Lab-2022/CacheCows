@@ -12,6 +12,10 @@ import AdminDetails from "../components/AdminDetails"
 import AdminForm from "../components/AdminForm"
 
 
+var Aflag = true;
+var Cflag = false;
+var Iflag = false;
+
 const Admin = () => {
   const [admins, setadmins] = useState(null)
 
@@ -28,8 +32,7 @@ const Admin = () => {
 
     fetchadmins()
   }, [])
-
-  const Instructor = () => {
+///////////////////////////////////////////////////////////
     const [instructors, setinstructors] = useState(null)
   
     useEffect(() => {
@@ -44,9 +47,8 @@ const Admin = () => {
   
       fetchinstructors()
     }, [])
-
-    const CrpTrainee = () => {
-        const [crptrainees, setcrpTrainee] = useState(null)
+///////////////////////////////////////////////////////////
+    const [crptrainees, setcrpTrainee] = useState(null)
       
         useEffect(() => {
           const fetchcorptrainees = async () => {
@@ -60,35 +62,52 @@ const Admin = () => {
       
           fetchcorptrainees()
         }, [])
+        
 
-  return (
-    <div className="Admin">
-      <div className="All admins">
-        {admins && admins.map((admin) => (
-          <AdminDetails admin={admin} key={admin._id} />
-        ))}
-      </div> 
-      <AdminForm />
+  
+  if(Aflag){
+    return (
+      <div className="Admin">
+        <div className="All admins">
+        <button onClick={() => {
+          Aflag = false;
+          Cflag = true;
+        }} > Click Me </button>
+          {admins && admins.map((admin) => (
+            <AdminDetails admin={admin} key={admin._id} />
+          ))}
+        </div> 
+        <AdminForm />
+      </div>
+      )
+    }
 
-      <div className="All Instructors">
-        {instructors && instructors.map((instructor) => (
-          <InstructorDetails instructor={instructor} key={instructor._id} />
-        ))}
-      </div> 
-      <AdminAddInstForm />
-
+  if(Cflag){
+    return(
+      <div>
       <div className="All Corporate Trainees">
         {crptrainees && crptrainees.map((crptrainee) => (
           <CrpTraineeDetails crptrainee={crptrainee} key={crptrainee._id} />
         ))}
       </div> 
       <AdminAddCrpTraineeForm />
-    </div>
-
-    
-  )
-}
+      </div>
+    )
   }
-}
+
+  if(Iflag){
+    return(
+      <div>
+      <div className="All Instructors">
+        {instructors && instructors.map((instructor) => (
+          <InstructorDetails instructor={instructor} key={instructor._id} />
+        ))}
+      </div> 
+      <AdminAddInstForm />
+      </div>
+    )
+  }
+  }
+
 
 export default Admin

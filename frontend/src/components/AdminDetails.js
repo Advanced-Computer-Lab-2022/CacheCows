@@ -1,11 +1,11 @@
-const adminDetails = ({ admin }) => {
+const AdminDetails = ({ admin }) => {
 
     return (
-      <div className="Admin Details">
+      <div className="admin-details">
         <h4>{admin.title}</h4>
         <p><strong>admin Name: </strong>{admin.admin_name}</p>
         <p><strong>Admin ID: </strong>{admin.admin_id}</p>
-        <p><strong>admin Email: </strong>{admin.  admin_email}</p>
+        <p><strong>admin Email: </strong>{admin.admin_email}</p>
         <p><strong>Country: </strong>{admin.country}</p>
         <p><strong>Admin Birthday: </strong>{admin.admin_bd}</p>
 
@@ -14,7 +14,7 @@ const adminDetails = ({ admin }) => {
     )
   }
   
-  export default adminDetails
+  export default AdminDetails
 
 
 

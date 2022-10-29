@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { json } from "react-router-dom";
 
-const adminForm = () => {
+
+const AdminForm = () => {
     const [admin_id, setID] = useState('')
     const [admin_name, setName] = useState('')
     const [admin_user, setUserName] = useState('')
@@ -84,6 +84,13 @@ const adminForm = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={admin_pass}
         />
+
+        <label>Email: </label>
+        <input
+            type = "text"
+            onChange={(e) => setEmail(e.target.value)}
+            value={admin_email}
+        />
         
         <label>Country: </label>
         <input
@@ -108,4 +115,4 @@ const adminForm = () => {
     )
 }   
 
-export default adminForm
+export default AdminForm

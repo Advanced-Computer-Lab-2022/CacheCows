@@ -2,7 +2,7 @@ const InstructorDetails = ({ instructor }) => {
 
     return (
       <div className="Instructor Details">
-        <h4>{adinstructormin.title}</h4>
+        <h4>{instructor.title}</h4>
         <p><strong>Name: </strong>{instructor.Name}</p>
         <p><strong>Instructor Username: </strong>{instructor.corp_user}</p>
         <p><strong>Instructor Password: </strong>{instructor.corp_pass}</p>
