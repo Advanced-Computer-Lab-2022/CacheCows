@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseDetails from "../components/CourseDetails"
@@ -48,3 +49,15 @@ const navigate=useNavigate();
 
 }
 export default Instructor
+=======
+import React from "react";
+
+function Instructor() {
+  return <strong>
+    I am an Instructor
+</strong>
+
+}
+
+export default Instructor;
+>>>>>>> ff464903f10f171ed24842db3b68fde55235713c

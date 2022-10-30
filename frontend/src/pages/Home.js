@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 // components
 import CourseDetails from "../components/CourseDetails"
@@ -31,5 +32,7 @@ const Home = () => {
     </div>
   )
 }
+
+
 
 export default Home
