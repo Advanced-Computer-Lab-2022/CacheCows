@@ -45,7 +45,7 @@ const setCourse = asyncHandler(async(req, res) => {
      course_subtitles : req.body.course_subtitles
      
     })
-    res.status(200).json(course)
+    res.status(200).json({course})
 })
 //UPDATE COURSE
 const updateCourse = asyncHandler(async (req, res) => {

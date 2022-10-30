@@ -46,13 +46,13 @@ const setInstructor = asyncHandler(async(req, res) => {
 // @access Private 
 const updateInstructor = asyncHandler(async (req, res) => {
     
-    const Instructor = await Instructors.find({_id: req.body._id})
+    const Instructor = await instructors.find({_id: req.body._id})
     
     if (Instructor.toString() === ""){
         res.status(400)
         throw new Error ('Instructor not found')
     }
-    const updatedInstructor = await Instructors.findByIdAndUpdate({_id: req.body._id}, req.body ,{
+    const updatedInstructor = await instructors.findByIdAndUpdate({_id: req.body._id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedInstructor)
@@ -62,12 +62,12 @@ const updateInstructor = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteInstructor =  asyncHandler(async (req, res) => {
     
-    const Instructor = await Instructors.find({Instructor_name: req.body.Instructor_name})
+    const Instructor = await instructors.find({Instructor_name: req.body.Instructor_name})
     if (Instructor.toString() === ""){
         res.status(400)
         throw new Error ('Instructor not found')
     }
-     await Instructors.deleteOne({Instructor_name: req.body.Instructor_name})
+     await instructors.deleteOne({Instructor_name: req.body.Instructor_name})
      res.status(200).json({Instructor})
      
     })
@@ -76,7 +76,7 @@ const deleteInstructor =  asyncHandler(async (req, res) => {
 const createCourse=async (req,res)=>
 {
  try{
- const inst=instructors.findById(req.params.id)}
+ const inst=await instructors.findById(req.params.id)}
  catch(error){
      res.status(400).json({error:error.message})
  }

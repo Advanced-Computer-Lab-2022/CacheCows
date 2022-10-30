@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { json } from "react-router-dom";
 
 const CourseForm = () => {
     const [course_id, setID] = useState('')
@@ -36,7 +37,8 @@ const CourseForm = () => {
             course_outline,
             course_video,
             course_preview,
-            course_subtitles    
+            course_subtitles
+            
         }
 
         const response = await fetch('/api/courses', {
@@ -48,7 +50,7 @@ const CourseForm = () => {
         })
         const json = await response.json()
 
-        if(!response.ok) {
+        if(!response) {
             setError(json.error)
         }
         if(response.ok) {
@@ -57,7 +59,6 @@ const CourseForm = () => {
         setInstName('')
         setInstID('')
         setRating('')
-        setDiscount('')
         setPrice('')
         setSumm('')
         setTot ('')
