@@ -2,7 +2,6 @@ const CrpTraineeDetails = ({ CrpTrainee }) => {
 
     return (
       <div className="Corporate Trainee Details">
-        <h4>{CrpTrainee.title}</h4>
         <p><strong>Name: </strong>{CrpTrainee.Name}</p>
         <p><strong>Corporate Trainee Username: </strong>{CrpTrainee.corp_user}</p>
         <p><strong>Corporate Trainee Password: </strong>{CrpTrainee.corp_pass}</p>
