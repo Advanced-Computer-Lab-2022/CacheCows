@@ -1,5 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
+
 
 //pages and components
 
@@ -14,6 +15,7 @@ import ErrorPage from "./pages/ErrorPage";
 import NavigationBar from './components/NavigationBar';
 import Instructor from './pages/Instructor'
 import InstructorcourseByprice from './pages/InstrutorcourseByprice'
+import Home from "./pages/Home"
 
 
 function App() {
@@ -38,19 +40,22 @@ function App() {
            <Route 
           path = "/instructorcourseByprice"
           element = { <InstructorcourseByprice /> }
+
           />
-        </Routes>
-        <Route path="/about" element={<About />} />
+           <Route path="/about" element={<About />} />
         <Route path="/CorpTrainee/" element={<CorpTrainee />} />
         <Route path="/IndTrainee/" element={<IndTrainee />} />
+        <Route path="/HomePage" element={<HomePage/>}/>
         <Route path="*" element={<ErrorPage />} />
+        </Routes>
+       
       </div>
       </BrowserRouter>
       </div>
-
+  );
       
    
   
-)}
+}
 
 export default App;
