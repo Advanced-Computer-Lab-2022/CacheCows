@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
   
     useEffect(()=>{
     const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourses')
+        const response= await fetch('/api/courses/getCourse')
         const json= await response.json()
 
         if(response.ok){
