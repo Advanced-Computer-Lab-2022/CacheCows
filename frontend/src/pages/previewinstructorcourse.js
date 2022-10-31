@@ -4,7 +4,6 @@ import CourseDetails from "../components/CourseDetails"
 
 const Prieviewinstructorcourse=()=>{
     const [courses,setCourses]=useState()
-    const [selectedLanguages, setSelectedLanguages] = useState([])
 useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getCourses')
