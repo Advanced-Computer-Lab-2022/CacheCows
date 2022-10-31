@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route
           path = "/"
-          element = { <Home /> }
+          element = { <HomePage /> }
           />
           <Route 
           path = "/admin"
@@ -45,7 +45,6 @@ function App() {
            <Route path="/about" element={<About />} />
         <Route path="/CorpTrainee/" element={<CorpTrainee />} />
         <Route path="/IndTrainee/" element={<IndTrainee />} />
-        <Route path="/HomePage" element={<HomePage/>}/>
         <Route path="*" element={<ErrorPage />} />
         </Routes>
        

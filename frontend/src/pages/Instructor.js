@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import CourseDetails from "../components/CourseDetails"
 import CourseForm from "../components/CourseForm"
 import CountryForm from "../components/CountryForm"
+import SearchBar from "../components/SearchBar";
+
+
 
 const Instructor=()=>{
     
@@ -24,13 +27,10 @@ useEffect(()=>{
 const navigate=useNavigate();
 
     return(
-<div classname="instructor">
-    <div classname="courses"> 
+    <div classname="instructor">
+     <div classname="courses"> 
     {courses && courses.map((course) =>(
-                  <CourseDetails course={course} key={course._id} />
-
-                  ))}
-                  
+    <CourseDetails course={course} key={course._id} />))}          
     </div>
     <CourseForm />
     <CountryForm/>

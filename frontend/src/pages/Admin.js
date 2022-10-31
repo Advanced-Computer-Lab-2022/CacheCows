@@ -11,11 +11,6 @@ import CrpTraineeDetails from "../components/CrpTraineeDetails"
 import AdminDetails from "../components/AdminDetails"
 import AdminForm from "../components/AdminForm"
 
-
-var Aflag = true;
-var Cflag = false;
-var Iflag = false;
-
 const Admin = () => {
   const [admins, setadmins] = useState(null)
 
@@ -65,39 +60,26 @@ const Admin = () => {
         
 
   
-  if(Aflag){
     return (
       <div className="Admin">
         <div className="All admins">
-        <button onClick={() => {
-          Aflag = false;
-          Cflag = true;
-        }} > Click Me </button>
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
         </div> 
         <AdminForm />
-      </div>
-      )
-    }
+ 
+      
 
-  if(Cflag){
-    return(
-      <div>
       <div className="All Corporate Trainees">
         {crptrainees && crptrainees.map((crptrainee) => (
           <CrpTraineeDetails crptrainee={crptrainee} key={crptrainee._id} />
         ))}
       </div> 
       <AdminAddCrpTraineeForm />
-      </div>
-    )
-  }
 
-  if(Iflag){
-    return(
-      <div>
+
+
       <div className="All Instructors">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />
@@ -106,7 +88,7 @@ const Admin = () => {
       <AdminAddInstForm />
       </div>
     )
-  }
+
   }
 
 

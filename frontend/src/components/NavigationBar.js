@@ -13,7 +13,6 @@ const NavigationBar = () =>{
         <Link to="/about"> About </Link>
 
             </div>
-
         </header>
        
 

@@ -21,21 +21,9 @@ const InstructorcourseByprice=()=>{
         <div classname="InstructorcourseByprice">
             <div classname="courses"> 
             {courses && courses.map((course) =>(
-                          <CoursepriceDetails course={course} key={course._id} />
-        
-                          ))}
-                          
+            <CoursepriceDetails course={course} key={course._id} />))}               
             </div>
-           
-          
         </div>
-        
-        
-        
-        
-        
-        
             )
-        
         }
         export default InstructorcourseByprice

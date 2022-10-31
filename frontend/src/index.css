@@ -135,3 +135,17 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+.container {
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.mini-bar {
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
