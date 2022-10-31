@@ -66,6 +66,12 @@ const navigate=useNavigate();
     navigate("/instructorcourseByprice");
    }}>
     show courses by price</button>
+
+    <button onClick={()=>{
+    navigate("/previewinstructorcourse");
+   }}>
+    Preview My Courses</button>
+
     <div>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
