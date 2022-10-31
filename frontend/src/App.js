@@ -18,7 +18,7 @@ import InstructorcourseByprice from './pages/InstrutorcourseByprice'
 import Home from "./pages/Home"
 import Guest from "./pages/Guest";
 import Courses from "./pages/Courses";
-
+import previewinstructorecourse  from "./pages/previewinstructorcourse"
 
 
 function App() {
@@ -57,6 +57,7 @@ function App() {
         <Route path="/CorpTrainee/" element={<CorpTrainee />} />
         <Route path="/IndTrainee/" element={<IndTrainee />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/prieviewinstructorcourse" element={<previewinstructorecourse />} />
         </Routes>
        
       </div>
