@@ -2,8 +2,12 @@ import React from "react";
 import SearchBar from "../components/SearchBar";
 import ListPage from "../components/ListPage";
 import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from "react-router-dom";
+
 
   function CorpTrainee() {
+    const navigate=useNavigate();
+
     const [courses,setCourses]=useState()
     const [searchResults, setSearchResults] = useState([])
   
@@ -32,8 +36,19 @@ import { useState, useEffect } from 'react'
     <strong>
     I am a corporate Trainee
 </strong>
+
+<button
+        onClick={() => {
+          navigate("/Courses");
+        }}
+      >
+        {" "}
+        Courses
+      </button>
+    
   </div>
   )
 }
 
 export default CorpTrainee;
+
