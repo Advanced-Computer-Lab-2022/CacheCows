@@ -1,14 +1,28 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+
+import CourseDetails from "../components/CourseDetails"
+import CourseForm from "../components/CourseForm"
+
+
+
 
 function HomePage() {
-  let navigate = useNavigate();
+
+
+const navigate=useNavigate();
+
+
   return (
     <div>
 
     <div>
       RUBIX!
       </div>
+      
       <div>
       <button
         onClick={() => {
@@ -62,8 +76,21 @@ function HomePage() {
         {" "}
         Individual Trainaee
       </button>
-      </div>
+
+      <button
+        onClick={() => {
+          navigate("/Courses");
+        }}
+      >
+        {" "}
+        Courses
+      </button>
+
+       
+
       
+
+</div>
 
     </div>
   );

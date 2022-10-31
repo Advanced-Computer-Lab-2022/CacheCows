@@ -16,6 +16,9 @@ import NavigationBar from './components/NavigationBar';
 import Instructor from './pages/Instructor'
 import InstructorcourseByprice from './pages/InstrutorcourseByprice'
 import Home from "./pages/Home"
+import Guest from "./pages/Guest";
+import Courses from "./pages/Courses";
+
 
 
 function App() {
@@ -36,6 +39,14 @@ function App() {
             <Route 
           path = "/instructor"
           element = { <Instructor /> }
+          />
+            <Route 
+          path = "/guest"
+          element = { <Guest /> }
+          />
+            <Route 
+          path = "/courses"
+          element = { <Courses /> }
           />
            <Route 
           path = "/instructorcourseByprice"

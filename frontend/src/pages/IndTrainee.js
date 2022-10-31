@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
 import CourseDetails from "../components/CourseDetails";
+import { useNavigate, useParams } from "react-router-dom";
 
 function IndTrainee() {
   const [query, setQuery] = useState("");
@@ -47,5 +48,6 @@ function IndTrainee() {
     </div>
   );
 }
+
 
 export default IndTrainee;
