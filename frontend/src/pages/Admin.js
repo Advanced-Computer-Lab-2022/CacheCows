@@ -78,7 +78,7 @@ const Admin = () => {
       
         useEffect(() => {
           const fetchcorptrainees = async () => {
-            const response = await fetch('/api/corpTrainee/getAllcrpTrainee')
+            const response = await fetch('/api/corpTrainee/alltrainees')
             const json = await response.json()
       
             if (response.ok) {

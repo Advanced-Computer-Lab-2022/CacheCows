@@ -23,7 +23,7 @@ const AdminAddCrpTraineeForm = () => {
             corp_bd
         }
 
-        const response = await fetch('/api/corpTrainee', {
+        const response = await fetch('/api/corpTrainee/addtrainee', {
             method: 'POST',
             body: JSON.stringify(crp),
             headers: {
@@ -61,7 +61,7 @@ const AdminAddCrpTraineeForm = () => {
         <input
             type = "text"
             onChange={(e) => setName(e.target.value)}
-            value={corp_user}
+            value={Name}
         />
 
         <label>Username: </label>
@@ -77,6 +77,13 @@ const AdminAddCrpTraineeForm = () => {
             type = "text"
             onChange={(e) => setPassword(e.target.value)}
             value={corp_pass}
+        />
+
+        <label>Email: </label>
+        <input
+            type = "text"
+            onChange={(e) => setEmail(e.target.value)}
+            value={corp_email}
         />
         
         <label>Country: </label>

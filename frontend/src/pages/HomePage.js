@@ -79,21 +79,25 @@ const navigate=useNavigate();
 
       <button
         onClick={() => {
-          navigate("/Guest");
-        }}
-      >
-        {" "}
-        I am a Guest
-      </button> 
-
-      <button
-        onClick={() => {
           navigate("/Courses");
         }}
       >
         {" "}
         Courses
-      </button>   
+      </button>
+
+      <button
+        onClick={() => {
+          navigate("/Guests");
+        }}
+      >
+        {" "}
+        Guests
+      </button>
+
+       
+
+      
 
 </div>
 

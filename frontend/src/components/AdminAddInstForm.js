@@ -26,7 +26,7 @@ const AdminAddInstForm = () => {
             instructor_bd
         }
 
-        const response = await fetch('/api/instructors', {
+        const response = await fetch('/api/instructors/setInstructor', {
             method: 'POST',
             body: JSON.stringify(inst),
             headers: {
@@ -86,6 +86,13 @@ const AdminAddInstForm = () => {
             value={instructor_pass}
         />
         
+        <label>Email: </label>
+        <input
+            type = "text"
+            onChange={(e) => setEmail(e.target.value)}
+            value={instructor_email}
+        />
+
         <label>Country: </label>
         <input
             type = "text"

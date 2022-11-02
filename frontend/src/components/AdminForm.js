@@ -25,7 +25,7 @@ const AdminForm = () => {
             admin_bd
         }
 
-        const response = await fetch('/api/admins', {
+        const response = await fetch('/api/admins/setAdmin', {
             method: 'POST',
             body: JSON.stringify(admin),
             headers: {
