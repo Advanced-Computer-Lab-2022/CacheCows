@@ -18,10 +18,6 @@ const navigate=useNavigate();
 
   return (
     <div>
-
-    <div>
-      RUBIX!
-      </div>
       
       <div>
       <button
@@ -76,7 +72,9 @@ const navigate=useNavigate();
         {" "}
         Individual Trainaee
       </button>
+      </div>
 
+      <div>
       <button
         onClick={() => {
           navigate("/Courses");
@@ -85,7 +83,9 @@ const navigate=useNavigate();
         {" "}
         Courses
       </button>
+      </div>
 
+      <div>
       <button
         onClick={() => {
           navigate("/Guests");
@@ -94,12 +94,7 @@ const navigate=useNavigate();
         {" "}
         Guests
       </button>
-
-       
-
-      
-
-</div>
+      </div>
 
     </div>
   );

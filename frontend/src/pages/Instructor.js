@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import CourseDetails from "../components/CourseDetails"
 import CourseForm from "../components/CourseForm"
 import CountryForm from "../components/CountryForm"
-import SearchBar from "../components/SearchBar";
 import CustomSelect from "../components/CustomSelect"
+import SearchBar from "../components/SearchBar";
 
 const languages = [
     {
@@ -56,6 +56,7 @@ const navigate=useNavigate();
 
     return(
     <div classname="instructor">
+      <SearchBar></SearchBar>
      <div classname="courses"> 
     {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))}          

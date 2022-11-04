@@ -3,7 +3,6 @@ import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseDetails from "../components/CourseDetails"
 import CourseForm from "../components/CourseForm"
-import SearchBar from "../components/SearchBar";
 
 
 

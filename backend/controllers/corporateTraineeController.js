@@ -1,18 +1,14 @@
+const asyncHandler = require('express-async-handler')
 const express = require("express");
 const mongoose = require('mongoose');
 const corp=require('../models/corporateTraineeModel');
 
 
-const getAllcrpTrainee= (req,res)=>{
-    corp.find((err,val)=>{
-        if(err){
-          console.log(err);
-        }
-        else{
-          res.status(200).json(val);
-        }
-        })
-}
+const getAllcrpTrainee = asyncHandler(async (req, res) => {
+
+    const val = await corp.find()
+    res.status(200).json(val)
+})
 
 const setcrpTrainee =async (req,res)=>{
 const Name=req.body.Name;

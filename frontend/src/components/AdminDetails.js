@@ -2,7 +2,6 @@ const AdminDetails = ({ admin }) => {
 
     return (
       <div className="admin-details">
-        <h4>{admin.title}</h4>
         <p><strong>admin Name: </strong>{admin.admin_name}</p>
         <p><strong>Admin ID: </strong>{admin.admin_id}</p>
         <p><strong>admin Email: </strong>{admin.admin_email}</p>

@@ -1,31 +1,62 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { useState } from "react";
+import { json } from "react-router-dom";
+import CourseDetails from "./CourseDetails";
 
-const SearchBar = ({ courses, setSearchResults }) => {
-    const handleSubmit = (e) => e.preventDefault()
 
-    const handleSearchChange = (e) => {
-        if (!e.target.value) return setSearchResults(courses)
+const SearchBar = () => {
+    const [text, setSearch] = useState('')
+    const [courses, setCourses] = useState('') 
+    const[error , setError] = useState(null)
 
-        const resultsArray = courses.filter(course => course.title.includes(e.target.value) || course.body.includes(e.target.value))
+   
+    const handleSubmit = async(e) => {
+        e.preventDefault()
 
-        setSearchResults(resultsArray)
+        const value = {
+            text
+        }
+
+        const response = await fetch('/api/courses/SearchCourseByOpt', {
+            method: 'POST',
+            body: JSON.stringify(value),
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        const json = await response.json()
+
+        if(!response.ok) {
+            setError(json.error)
+            setCourses('')  
+        }
+        if(response.ok) {  
+        setCourses(json)  
+        setError(null)
+            
+        console.log('Search Done!', json)
+        }
     }
 
     return (
-        <header>
-            <form className="search" onSubmit={handleSubmit}>
-                <input
-                    className="search__input"
-                    type="text"
-                    id="search"
-                    onChange={handleSearchChange}
-                />
-                <button className="search__button">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </form>
-        </header>
+       <form className="create" onSubmit={handleSubmit}>
+
+        <input
+          className="search"
+          placeholder="Search..."
+          type = "text"
+          onChange={(e) => setSearch(e.target.value)}
+          value={text}
+        />
+  
+        <button>Search</button>
+        {error && <div className="error">{error}</div>}
+
+        <div classname="courses"> 
+        {courses && courses.map((course) =>(
+        <CourseDetails course={course} key={course._id} />))}          
+        </div>
+       </form>
     )
-}
-export default SearchBar
+}   
+
+export default SearchBar;

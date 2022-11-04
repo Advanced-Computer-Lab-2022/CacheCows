@@ -12,6 +12,7 @@ import AdminDetails from "../components/AdminDetails"
 import AdminForm from "../components/AdminForm"
 
 import CustomSelect from "../components/CustomSelect"
+import SearchBar from "../components/SearchBar";
 
 const languages = [
   {
@@ -93,9 +94,10 @@ const Admin = () => {
   
     return (
       <div className="Admin">
+        <SearchBar></SearchBar>
         
         <strong></strong>
-        <div className="All admins">
+        <div className="All-Admins">
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
@@ -104,16 +106,16 @@ const Admin = () => {
  
       
 
-      <div className="All Corporate Trainees">
-        {crptrainees && crptrainees.map((crptrainee) => (
-          <CrpTraineeDetails crptrainee={crptrainee} key={crptrainee._id} />
+      <div className="All-CorporateTrainees">
+        {crptrainees && crptrainees.map((CrpTrainee) => (
+          <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
         ))}
       </div> 
       <AdminAddCrpTraineeForm />
 
 
 
-      <div className="All Instructors">
+      <div className="All-Instructors">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />
         ))}

@@ -60,7 +60,7 @@
     justify-content: center;
     color: white;
     align-items: center;
-    background-image: linear-gradient(to top, #8877ff 0%, #5588ff 100%);
+    background-image: linear-gradient(to top, #fffcfe 0%, #07fcd3 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
   }

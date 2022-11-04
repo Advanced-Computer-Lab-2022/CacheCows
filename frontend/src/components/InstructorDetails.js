@@ -1,8 +1,8 @@
 const InstructorDetails = ({ instructor }) => {
 
     return (
-      <div className="Instructor Details">
-        <p><strong>Name: </strong>{instructor.instructor_name}</p>
+      <div className="inst-details">
+        <h4>{instructor.instrucor_name}</h4>
         <p><strong>ID: </strong>{instructor.instructor_id}</p>
         <p><strong>Instructor Username: </strong>{instructor.instructor_user}</p>
         <p><strong>Instructor Password: </strong>{instructor.instructor_pass}</p>

@@ -1,9 +1,10 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
 import ListPage from "../components/ListPage";
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import CustomSelect from "../components/CustomSelect";
+import SearchBar from "../components/SearchBar";
+import CourseDetails from "../components/CourseDetails";
 
 const languages = [
   {
@@ -62,11 +63,8 @@ const languages = [
       <div>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
-    <strong>
-    I am a corporate Trainee
-</strong>
 
-<button
+      <button
         onClick={() => {
           navigate("/Courses");
         }}
@@ -74,7 +72,7 @@ const languages = [
         {" "}
         Courses
       </button>
-    
+      <SearchBar></SearchBar>
   </div>
   )
 }

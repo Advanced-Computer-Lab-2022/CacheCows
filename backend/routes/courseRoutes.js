@@ -5,22 +5,22 @@ const upload = require('../middleware/upload.js')
 
 
 router.get('/getCourses',controlls.getCourses);
-router.get('/getCourse',controlls.getCourse);
+router.post('/getCourse',controlls.getCourse);
 router.post('/',upload.single('course_preview'),controlls.setCourse);
 router.put('/',controlls.updateCourse);
 router.delete('/',controlls.deleteCourse);
-router.get('/previewCourses',controlls.previewCourses);
-router.get('/SearchCourseByOpt',controlls.SearchCourseByOpt);
-router.get('/SearchInstCourseTitle',controlls.SearchInstCourseTitle);
-router.get('/SearchInstCourseSubject',controlls.SearchInstCourseSubject);
-router.get('/SearchCourseInstructor',controlls.SearchCourseInstructor);
-router.get('/findInstCourse',controlls.findInstCourse);
-router.get('/filterCourseByPrice',controlls.filterCourseByPrice);
-router.get('/filterCourseBySubjectOrRating',controlls.filterCourseBySubjectOrRating);
-router.get('/viewCoursePrice',controlls.viewCoursePrice);
-router.get('/viewCourses',controlls.viewCourses);
-router.get('/filterInstCourse',controlls.filterInstCourse);
-router.get('/CourseData',controlls.CourseData);
+router.post('/previewCourses',controlls.previewCourses);
+router.post('/SearchCourseByOpt',controlls.SearchCourseByOpt);
+router.post('/SearchInstCourseTitle',controlls.SearchInstCourseTitle);
+router.post('/SearchInstCourseSubject',controlls.SearchInstCourseSubject);
+router.post('/SearchCourseInstructor',controlls.SearchCourseInstructor);
+router.post('/findInstCourse',controlls.findInstCourse);
+router.post('/filterCourseByPrice',controlls.filterCourseByPrice);
+router.post('/filterCourseBySubjectOrRating',controlls.filterCourseBySubjectOrRating);
+router.post('/viewCoursePrice',controlls.viewCoursePrice);
+router.post('/viewCourses',controlls.viewCourses);
+router.post('/filterInstCourse',controlls.filterInstCourse);
+router.post('/CourseData',controlls.CourseData);
 
 
 

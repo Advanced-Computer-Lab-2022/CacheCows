@@ -6,6 +6,7 @@ import CourseDetails from "../components/CourseDetails";
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
+import SearchBar from "../components/SearchBar";
 
 
 const languages = [
@@ -46,7 +47,7 @@ function IndTrainee() {
           
     
       const x = {query};
-      const response = await fetch('/api/courses/getCourse', {
+      const response = await fetch('/api/courses/SearchCourseByOpt', {
         method: 'GET',
         body: JSON.stringify(x),
         headers: {
@@ -69,17 +70,8 @@ function IndTrainee() {
 
   return (
     <div className="app" >
+      <SearchBar></SearchBar>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
-      <strong></strong>
-        <input
-          className="search"
-          placeholder="Search..."
-          onChange={(e) => setQuery(e.target.value.toLowerCase())}
-        />
-          <div classname="courses"> 
-          {courses && courses.map((course) =>(
-          <CourseDetails course={course} key={course._id} />))}          
-          </div>
     </div>
   );
 }

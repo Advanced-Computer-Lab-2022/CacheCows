@@ -17,7 +17,7 @@ const getCourse =  asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error ('course not found')
     }
-     res.status(200).json({course})
+     res.status(200).json(course)
      
 })
 //ADD COURSE
@@ -237,31 +237,19 @@ const filterInstCourse = asyncHandler(async (req, res) => {
 //SEARCH COURSES BY SUBJECT OR TITLE OR INST
 const SearchCourseByOpt = asyncHandler(async (req, res) => {
 
-    const subj = req.body.course_subject;
-    const title = req.body.course_rating;
-    const inst = req.body.instructor_name;
-        if(!subj){
-            const course = await courses.find({course_subject : req.body.course_subject})
-                if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
-                }
-            res.status(200).json(course)
-            }if(!title){
-                const course = await courses.find({course_name : req.body.course_name})
-                if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
-                }
-            res.status(200).json(course)
-            }if(!inst){
-                const course = await courses.find({instructor_name : req.body.instructor_name})
-                if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
-                }
-            res.status(200).json(course)
-        }
+    const course1 = await courses.find({course_subject : req.body.text})
+    const course2 = await courses.find({course_name : req.body.text})
+    const course3 = await courses.find({instructor_name : req.body.text})
+    if (course1.toString() === "" && course2.toString() === "" && course3.toString() === ""){
+        res.status(400).json({error: 'No Courses Matches Search!' })
+    }
+    if(course1.toString() != ""){
+        res.status(200).json(course1)
+    } else if(course2.toString() != ""){
+        res.status(200).json(course2)
+    }else if(course3.toString() != ""){ 
+        res.status(200).json(course3)
+    }
 })
 
 
