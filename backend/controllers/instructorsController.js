@@ -1,5 +1,8 @@
-const asyncHandler = require('express-async-handler')
 
+
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const asyncHandler = require('express-async-handler')
 const instructors = require('../models/InstructorsModel')
 const course=require('../models/coursesModel');
 // @desc Get Instructors
@@ -97,12 +100,139 @@ catch(error){
 }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//Authentication
+
+const registerInstructor = asyncHandler(async(req, res) => {
+  if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
+    || !req.body.country || !req.body.instructor_bd ){
+      res.status(400)
+      throw new Error('Please add all fields')
+  }
+  const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
+  
+    if (instructorExists) {
+      res.status(400)
+      throw new Error('Instructor already exists')
+    }
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
+
+
+
+const Instructor = await instructors.create({
+      instructor_name : req.body.instructor_name,
+      instructor_user : req.body.instructor_user,
+      instructor_email : req.body.instructor_email,
+      instructor_pass : hashedPassword,
+      country : req.body.country,
+      instructor_bd : req.body.instructor_bd,
+})
+
+if (Instructor) {
+  res.status(201).json({
+    _id: Instructor.id,
+    name: Instructor.instructor_name,
+    email: Instructor.instructor_email,
+    token: generateToken(Instructor._id),
+  })
+} else {
+  res.status(400)
+  throw new Error('Invalid user data')
+}
+})
+
+
+
+
+// const registerInstructor2 = asyncHandler(async (req, res) => {
+//     const { instructor_name, instructor_email, instructor_pass } = req.body
+  
+//     if (!instructor_name || !instructor_email || !instructor_pass) {
+//       res.status(400)
+//       throw new Error('Please add all fields')
+//     }
+  
+//     // Check if user exists
+//     const instructorExists = await instructors.findOne({ instructor_email })
+  
+//     if (instructorExists) {
+//       res.status(400)
+//       throw new Error('Instructor already exists')
+//     }
+  
+//     // Hash password
+//     const salt = await bcrypt.genSalt(10)
+//     const hashedPassword = await bcrypt.hash(instructor_pass, salt)
+  
+//     // Create user
+
+
+    
+//     const Instructor = await instructors.create({
+//       instructor_name, instructor_email, instructor_pass: hashedPassword,
+//     })
+  
+//     if (Instructor) {
+//       res.status(201).json({
+//         _id: Instructor.instructor_id,
+//         name: Instructor.instructor_name,
+//         email: Instructor.instructor_email,
+//         token: generateToken(Instructor._id),
+//       })
+//     } else {
+//       res.status(400)
+//       throw new Error('Invalid user data')
+//     }
+//   })
+  
+  // @desc    Authenticate a user
+  // @route   POST /api/instructors/login
+  // @access  Public
+  const loginInstructor = asyncHandler(async (req, res) => {
+    const { instructor_email, instructor_pass } = req.body
+  
+    // Check for user email
+    const Instructor = await instructors.findOne({ instructor_email })
+  
+    if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass))) {
+      res.json({
+        _id: Instructor.instructor_id,
+        name: Instructor.instructor_name,
+        email: Instructor.instructor_email,
+        token: generateToken(Instructor._id),
+      })
+    } else {
+      res.status(400)
+      throw new Error('Invalid credentials')
+    }
+  })
+  
+  // @desc    Get user data
+  // @route   GET /api/users/me
+  // @access  Private
+  const getMe = asyncHandler(async (req, res) => {
+    res.status(200).json(req.Instructor)
+  })
+  
+  // Generate JWT
+  const generateToken = (instructor_id) => {
+    return jwt.sign({ instructor_id }, process.env.JWT_SECRET, {
+      expiresIn: '30d',
+    })
+  } 
+
+
 module.exports = {
     getInstructors,
     setInstructor,
     updateInstructor,
     deleteInstructor,
     getInstructor,
-    createCourse
+    createCourse,
+    registerInstructor,
+    // registerInstructor2,
+    loginInstructor,
+    getMe
 }
 
