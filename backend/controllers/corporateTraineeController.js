@@ -63,4 +63,51 @@ const updatecrptrainee=async(req,res)=>{
 }
 
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee};
+//////////////
+//Authentication
+// Name, 
+// Country,
+// corp_user,
+// corp_pass,
+// corp_bd,
+// corp_email
+
+
+  
+  
+  
+    const loginCorpTrainee = asyncHandler(async (req, res) => {
+      const { indv_email, indv_pass } = req.body
+    
+      // Check for user email
+      const IndivTrainee = await indv.findOne({ indv_email })
+    
+      if (IndivTrainee && (await bcrypt.compare(indv_pass, IndivTrainee.indv_pass))) {
+        res.json({
+          _id: IndivTrainee.id,
+          name: IndivTrainee.Name,
+          email: IndivTrainee.indv_email,
+          token: generateToken(IndivTrainee._id),
+        })
+      } else {
+        res.status(400)
+        throw new Error('Invalid credentials')
+      }
+    })
+    
+    // @desc    Get user data
+    // @route   GET /api/users/me
+    // @access  Private
+    const getMe = asyncHandler(async (req, res) => {
+      res.status(200).json(req.IndivTrainee)
+    })
+    
+    // Generate JWT
+    const generateToken = (id) => {
+      return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+      })
+    } 
+  
+
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe};

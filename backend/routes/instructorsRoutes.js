@@ -8,7 +8,7 @@ const {
     // registerInstructor2,
     getMe,
   } = require('../controllers/instructorsController')
-  const { protect } = require('../middleware/authMiddleware')
+  const { protect } = require('../middleware/InstructorAuthMiddleware')
  
 
 router.get('/getInstructors',controlls.getInstructors);

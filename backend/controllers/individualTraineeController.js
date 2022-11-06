@@ -2,6 +2,11 @@ const express = require("express");
 const mongoose = require('mongoose');
 const indv=require('../models/individualTraineeModel');
 
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const asyncHandler = require('express-async-handler')
+
+
 
 
 const getAllinvdTrainee= (req,res)=>{
@@ -14,6 +19,13 @@ const getAllinvdTrainee= (req,res)=>{
         }
         })
 }
+const getAllinvdTrainees = asyncHandler(async (req, res) => {
+
+  const allindvtrainees = await indv.find()
+  res.status(200).json(allindvtrainees)
+})
+
+
 const setindvTrainee =async (req,res)=>{
   const Name=req.body.Name;
   const Country=req.body.Country;
@@ -57,7 +69,144 @@ const updateindvtrainee=async(req,res)=>{
   }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+//Authentication
+//Name, 
+// Country,
+// indv_user,
+// indv_pass,
+// indv_email,
+// indv_bd
+
+const registerIndTrainee = asyncHandler(async(req, res) => {
+  if (!req.body.Name || !req.body.indv_user || !req.body.indv_pass  || !req.body.indv_email 
+    || !req.body.Country || !req.body.indv_bd ){
+      res.status(400)
+      throw new Error('Please add all fields')
+  }
+  const indivExists = await indv.findOne({ indv_email: req.body.indv_email })
+  
+    if (indivExists) {
+      res.status(400)
+      throw new Error('Trainee already exists')
+    }
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
+
+
+
+const IndivTrainee = await indv.create({
+      Name : req.body.Name,
+      indv_user : req.body.indv_user,
+      indv_email : req.body.indv_email,
+      indiv_pass : hashedPassword,
+      Country : req.body.Country,
+      indv_bd : req.body.indv_bd,
+})
+
+if (IndivTrainee) {
+  res.status(201).json({
+    _id: IndivTrainee.id,
+    name: IndivTrainee.Name,
+    email: IndivTrainee.indv_email,
+    token: generateToken(IndivTrainee._id),
+  })
+} else {
+  res.status(400)
+  throw new Error('Invalid user data')
+}
+})
+
+
+
+
+// const registerInstructor2 = asyncHandler(async (req, res) => {
+//     const { instructor_name, instructor_email, instructor_pass } = req.body
+  
+//     if (!instructor_name || !instructor_email || !instructor_pass) {
+//       res.status(400)
+//       throw new Error('Please add all fields')
+//     }
+  
+//     // Check if user exists
+//     const instructorExists = await instructors.findOne({ instructor_email })
+  
+//     if (instructorExists) {
+//       res.status(400)
+//       throw new Error('Instructor already exists')
+//     }
+  
+//     // Hash password
+//     const salt = await bcrypt.genSalt(10)
+//     const hashedPassword = await bcrypt.hash(instructor_pass, salt)
+  
+//     // Create user
+
+
+    
+//     const Instructor = await instructors.create({
+//       instructor_name, instructor_email, instructor_pass: hashedPassword,
+//     })
+  
+//     if (Instructor) {
+//       res.status(201).json({
+//         _id: Instructor.instructor_id,
+//         name: Instructor.instructor_name,
+//         email: Instructor.instructor_email,
+//         token: generateToken(Instructor._id),
+//       })
+//     } else {
+//       res.status(400)
+//       throw new Error('Invalid user data')
+//     }
+//   })
+  
+  // @desc    Authenticate a user
+  // @route   POST /api/instructors/login
+  // @access  Public
+
+  //Name, 
+// Country,
+// indv_user,
+// indv_pass,
+// indv_email,
+// indv_bd
+
+  const loginIndTrainee = asyncHandler(async (req, res) => {
+    const { indv_email, indv_pass } = req.body
+  
+    // Check for user email
+    const IndivTrainee = await indv.findOne({ indv_email })
+  
+    if (IndivTrainee && (await bcrypt.compare(indv_pass, IndivTrainee.indv_pass))) {
+      res.json({
+        _id: IndivTrainee.id,
+        name: IndivTrainee.Name,
+        email: IndivTrainee.indv_email,
+        token: generateToken(IndivTrainee._id),
+      })
+    } else {
+      res.status(400)
+      throw new Error('Invalid credentials')
+    }
+  })
+  
+  // @desc    Get user data
+  // @route   GET /api/users/me
+  // @access  Private
+  const getMe = asyncHandler(async (req, res) => {
+    res.status(200).json(req.IndivTrainee)
+  })
+  
+  // Generate JWT
+  const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+      expiresIn: '30d',
+    })
+  } 
+
 
   
 
-module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteindvTrainee,updateindvtrainee};
+module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteindvTrainee, getAllinvdTrainees,
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe };

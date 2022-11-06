@@ -103,6 +103,7 @@ catch(error){
 ///////////////////////////////////////////////////////////////////////////////////////////
 //Authentication
 
+
 const registerInstructor = asyncHandler(async(req, res) => {
   if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
     || !req.body.country || !req.body.instructor_bd ){
