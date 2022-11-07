@@ -33,3 +33,5 @@ const corpTraineeSchema= new mongoose.Schema(
 
 const corporateTrainee=mongoose.model('corporateTrainee',corpTraineeSchema);
 module.exports=corporateTrainee;
+
+

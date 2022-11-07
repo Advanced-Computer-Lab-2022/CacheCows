@@ -79,7 +79,7 @@ const updateindvtrainee=async(req,res)=>{
 // indv_bd
 
 const registerIndTrainee = asyncHandler(async(req, res) => {
-  if (!req.body.Name || !req.body.indv_user || !req.body.indv_pass  || !req.body.indv_email 
+  if (!req.body.Name || !req.body.indv_user || !req.body.indv_email  || !req.body.indv_pass 
     || !req.body.Country || !req.body.indv_bd ){
       res.status(400)
       throw new Error('Please add all fields')
@@ -120,57 +120,7 @@ if (IndivTrainee) {
 
 
 
-// const registerInstructor2 = asyncHandler(async (req, res) => {
-//     const { instructor_name, instructor_email, instructor_pass } = req.body
-  
-//     if (!instructor_name || !instructor_email || !instructor_pass) {
-//       res.status(400)
-//       throw new Error('Please add all fields')
-//     }
-  
-//     // Check if user exists
-//     const instructorExists = await instructors.findOne({ instructor_email })
-  
-//     if (instructorExists) {
-//       res.status(400)
-//       throw new Error('Instructor already exists')
-//     }
-  
-//     // Hash password
-//     const salt = await bcrypt.genSalt(10)
-//     const hashedPassword = await bcrypt.hash(instructor_pass, salt)
-  
-//     // Create user
 
-
-    
-//     const Instructor = await instructors.create({
-//       instructor_name, instructor_email, instructor_pass: hashedPassword,
-//     })
-  
-//     if (Instructor) {
-//       res.status(201).json({
-//         _id: Instructor.instructor_id,
-//         name: Instructor.instructor_name,
-//         email: Instructor.instructor_email,
-//         token: generateToken(Instructor._id),
-//       })
-//     } else {
-//       res.status(400)
-//       throw new Error('Invalid user data')
-//     }
-//   })
-  
-  // @desc    Authenticate a user
-  // @route   POST /api/instructors/login
-  // @access  Public
-
-  //Name, 
-// Country,
-// indv_user,
-// indv_pass,
-// indv_email,
-// indv_bd
 
   const loginIndTrainee = asyncHandler(async (req, res) => {
     const { indv_email, indv_pass } = req.body

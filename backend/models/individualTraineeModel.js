@@ -17,11 +17,11 @@ const indvTraineeSchema= new mongoose.Schema(
         },
         indv_pass:{
             type:String,
-            required:false,
+            required:true,
         },
         indv_email:{
             type:String,
-            required:false,
+            required:true,
         },
         indv_bd:{
             type:String,
@@ -33,3 +33,4 @@ const indvTraineeSchema= new mongoose.Schema(
 
 const individualTrainee=mongoose.model('individualTrainee',indvTraineeSchema);
 module.exports=individualTrainee;
+
