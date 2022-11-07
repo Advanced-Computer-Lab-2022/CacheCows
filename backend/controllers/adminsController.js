@@ -4,6 +4,10 @@ const admins = require('../models/adminsModel')
 const instructors = require('../models/InstructorsModel')
 const corp=require('../models/corporateTraineeModel');
 
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+
+
 
 // @desc Get Admins
 // @routes GET /api/Admins
