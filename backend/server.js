@@ -17,7 +17,7 @@ app.use('/api/admins', require('./routes/adminsRoutes'))
 app.use('/api/instructors', require('./routes/instructorsRoutes'))
 app.use('/api/corpTrainee',require('./routes/corporateTraineeRoutes'))
 app.use('/api/indvtrainee',require('./routes/indvTraineeRoute'))
-
+app.use('/api/reviews',require('./routes/reviewRoutes'))
 
 app.use(errorHandler)
 

@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
-
+import ReviewForm from "../components/ReviewForm";
 
 const languages = [
   {
@@ -72,6 +72,7 @@ function IndTrainee() {
     <div className="app" >
       <SearchBar></SearchBar>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
+      <ReviewForm />
     </div>
   );
 }

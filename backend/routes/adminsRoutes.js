@@ -1,7 +1,8 @@
+
 const express = require('express')
 const router = express.Router()
 const controlls = require('../controllers/adminsController.js')
-const { protect } = require('../middleware/AdminAuthMiddleware,js')
+const { protect } = require('../middleware/AdminAuthMiddleware.js')
 
 
 router.get('/getAdmins',controlls.getAdmins);
@@ -14,7 +15,7 @@ router.post('/registerCorpTrainee',controlls.registerCorpTrainee);
 router.post('/registerInstructor',controlls.registerInstructor);
 router.post('/RegisterAdmin',controlls.RegisterAdmin);
 router.post('/loginAdmin',controlls.loginAdmin);
-router.get('/getMe',protect, controlls.getMe);
+router.get('/me',protect, controlls.getMe);
 
 
 
@@ -23,4 +24,4 @@ router.get('/getMe',protect, controlls.getMe);
 
 
 
-module.exports = router  
+module.exports = router

@@ -1,7 +1,11 @@
+
 const asyncHandler = require('express-async-handler')
 const express = require("express");
 const mongoose = require('mongoose');
 const corp=require('../models/corporateTraineeModel');
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+
 
 
 const getAllcrpTrainee = asyncHandler(async (req, res) => {
@@ -77,17 +81,17 @@ const updatecrptrainee=async(req,res)=>{
   
   
     const loginCorpTrainee = asyncHandler(async (req, res) => {
-      const { indv_email, indv_pass } = req.body
+      const { corp_email, corp_pass } = req.body
     
       // Check for user email
-      const IndivTrainee = await indv.findOne({ indv_email })
+      const CorpTrainee = await corp.findOne({ corp_email })
     
-      if (IndivTrainee && (await bcrypt.compare(indv_pass, IndivTrainee.indv_pass))) {
+      if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
         res.json({
-          _id: IndivTrainee.id,
-          name: IndivTrainee.Name,
-          email: IndivTrainee.indv_email,
-          token: generateToken(IndivTrainee._id),
+          _id: CorpTrainee.id,
+          name: CorpTrainee.Name,
+          email: CorpTrainee.corp_email,
+          token: generateToken(CorpTrainee._id),
         })
       } else {
         res.status(400)
@@ -99,7 +103,7 @@ const updatecrptrainee=async(req,res)=>{
     // @route   GET /api/users/me
     // @access  Private
     const getMe = asyncHandler(async (req, res) => {
-      res.status(200).json(req.IndivTrainee)
+      res.status(200).json(req.CorpTrainee)
     })
     
     // Generate JWT

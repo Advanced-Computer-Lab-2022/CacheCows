@@ -12,7 +12,7 @@ const getCourses = asyncHandler(async (req, res) => {
 //GET ONE COURSE
 const getCourse =  asyncHandler(async (req, res) => {
     
-    const course = await courses.find({course_name: req.body.course_name})
+    const course = await courses.find({course_id: req.body.course_id})
     if (course.toString() === ""){
         res.status(400)
         throw new Error ('course not found')
@@ -22,9 +22,15 @@ const getCourse =  asyncHandler(async (req, res) => {
 })
 //ADD COURSE
 const setCourse = asyncHandler(async(req, res) => {
-    if (!req.body.course_id){
+    if (req.body.course_id == ""){
         res.status(400).json({error: "Please add an ID"})
         throw new Error('Please add a text field')
+    }
+    const checkcourses = await courses.findOne({ course_id: req.body.course_id })
+  
+    if (checkcourses) {
+      res.status(400)
+      throw new Error('Course already exists')
     }
 
     const course = await courses.create({
@@ -56,7 +62,7 @@ const updateCourse = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error ('course not found')
     }
-    const updatedcourse = await courses.findByIdAndUpdate({course_id : req.body.course_id}, req.body ,{
+    const updatedcourse = await courses.findOneAndUpdate({course_id : req.body.course_id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedcourse)
@@ -64,12 +70,12 @@ const updateCourse = asyncHandler(async (req, res) => {
 //DELETE COURSE
 const deleteCourse =  asyncHandler(async (req, res) => {
     
-    const course = await courses.find({course_name: req.body.course_name})
+    const course = await courses.find({course_id: req.body.course_id})
     if (course.toString() === ""){
         res.status(400)
         throw new Error ('course not found')
     }
-     await courses.deleteOne({course_name: req.body.course_name})
+     await courses.deleteOne({course_id: req.body.course_id})
      res.status(200).json({course})
      
 })

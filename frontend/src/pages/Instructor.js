@@ -56,6 +56,10 @@ const navigate=useNavigate();
 
     return(
     <div classname="instructor">
+      <button onClick={()=>{
+      navigate("/Reviews");
+      }}>Show Reviews</button>
+
       <SearchBar></SearchBar>
      <div classname="courses"> 
     {courses && courses.map((course) =>(
@@ -78,12 +82,7 @@ const navigate=useNavigate();
       </div>
 </div>
 
-
-
-
-
-
-    )
+ )
 
 }
 export default Instructor

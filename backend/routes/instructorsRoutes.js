@@ -25,7 +25,7 @@ router.post('/registerInstructor', registerInstructor);
 
 router.post('/loginInstructor', loginInstructor);
 
-router.get('/me', protect, getMe);
+router.post('/me', protect, getMe);
 
 module.exports = router  
 

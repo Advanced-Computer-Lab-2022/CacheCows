@@ -120,7 +120,9 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
        })
 
      
-///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////REgistring
+
+
        const registerCorpTrainee = asyncHandler(async(req, res) => {
         if (!req.body.Name || !req.body.corp_user || !req.body.corp_pass  || !req.body.corp_email 
           || !req.body.Country || !req.body.corp_bd ){
@@ -138,10 +140,10 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       
       
       
-      const CorpTrainee = await indv.create({
+      const CorpTrainee = await corp.create({
             Name : req.body.Name,
-            indv_user : req.body.corp_user,
-            indv_email : req.body.corp_email,
+            corp_user : req.body.corp_user,
+            corp_email : req.body.corp_email,
             corp_pass : hashedPassword,
             Country : req.body.Country,
             corp_bd : req.body.corp_bd,
@@ -264,7 +266,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
         const { admin_email, admin_pass } = req.body
       
         // Check for user email
-        const Admin = await instructors.findOne({ admin_email })
+        const Admin = await admins.findOne({ admin_email })
       
         if (Admin && (await bcrypt.compare(admin_pass, Admin.admin_pass))) {
           res.json({
