@@ -198,7 +198,7 @@ if (Instructor) {
   
     if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass))) {
       res.json({
-        _id: Instructor.instructor_id,
+        _id: Instructor.id,
         name: Instructor.instructor_name,
         email: Instructor.instructor_email,
         token: generateToken(Instructor._id),
@@ -217,8 +217,8 @@ if (Instructor) {
   })
   
   // Generate JWT
-  const generateToken = (instructor_id) => {
-    return jwt.sign({ instructor_id }, process.env.JWT_SECRET, {
+  const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
       expiresIn: '30d',
     })
   } 
