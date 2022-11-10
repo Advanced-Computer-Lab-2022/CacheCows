@@ -99,7 +99,7 @@ const IndivTrainee = await indv.create({
       Name : req.body.Name,
       indv_user : req.body.indv_user,
       indv_email : req.body.indv_email,
-      indiv_pass : hashedPassword,
+      indv_pass : hashedPassword,
       Country : req.body.Country,
       indv_bd : req.body.indv_bd,
 })
