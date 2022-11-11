@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const controlls=require('../controllers/instructorsController')
+const controlls=require('../controllers/instructorsController.js')
 
 const {
     registerInstructor,
@@ -17,6 +17,8 @@ router.get('/getInstructor',controlls.getInstructor);
 router.delete('/deleteInstructor/:id',controlls.deleteInstructor);
 router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
+router.put('/changepassword/:id',controlls.changepassword);
+router.post('/forgetpassword/:id',controlls.sendEmailInstructor)
 
  
 router.post('/registerInstructor', registerInstructor);
