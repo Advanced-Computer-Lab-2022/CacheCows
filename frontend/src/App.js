@@ -1,5 +1,8 @@
 import "./App.css";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 
 //pages and components
@@ -20,11 +23,34 @@ import Guest from "./pages/Guest";
 import Courses from "./pages/Courses";
 import Previewinstructorcourse from "./pages/previewinstructorcourse"
 
+import Header from './components/Header'
+import Dashboard from './pages/Dashboard'
+import LoginInstructor from './pages/LoginInstructor'
+import RegisterInstructor from './pages/RegisterInstructor'
+
+
 
 function App() {
   return (
+
+    
     <div className="App">
+
+<BrowserRouter>
+
+<div >
+          <Header />
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/LoginInstructor' element={<LoginInstructor />} />
+            <Route path='/RegisterInstructor' element={<RegisterInstructor />} />
+          </Routes>
+        </div>
+        </BrowserRouter>
+
+
       <BrowserRouter>
+
       <NavigationBar/>
        <div className="pages">
         <Routes>
@@ -64,6 +90,7 @@ function App() {
        
       </div>
       </BrowserRouter>
+      <ToastContainer />
       </div>
   );
       
