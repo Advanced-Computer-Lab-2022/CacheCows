@@ -12,7 +12,9 @@ const InstructorSchema = new mongoose.Schema({
      instructor_email:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      instructor_bd:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      country : {type: String , required : [false, 'Please add a text value']},
-     instructor_rate : {type: String , required : [false, 'Please add a text value']}
+     instructor_rate : {type: Number , required : [false, 'Please add a text value']},
+     instructor_total_rate:{type:Number,required :false},
+     instructor_total_no_rate:{type:Number,required:false}
      
 
 })

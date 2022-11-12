@@ -1,4 +1,4 @@
-
+const nodemailer=require('nodemailer')
 const asyncHandler = require('express-async-handler')
 const express = require("express");
 const mongoose = require('mongoose');
@@ -7,7 +7,14 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
 
-
+var transporeter=nodemailer.createTransport({
+  service:'gmail',
+  
+  auth:{
+   user:process.env.MAIL,
+   pass:process.env.PASS
+  }
+});
 const getAllcrpTrainee = asyncHandler(async (req, res) => {
 
     const val = await corp.find()
@@ -66,6 +73,45 @@ const updatecrptrainee=async(req,res)=>{
     }
 }
 
+const changepassword=async(req,res)=>{
+
+  try{
+  await crop.findByIdAndUpdate(req.params.id,req.body,{new:true})
+  
+  res.status(200).json("updated")
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+
+
+const sendEmailcrop=async (req,res)=>{
+  try{
+    const croprate=await corp.findOne({crop_email:req.body.crop_email})
+    const email=croprate.crop_email
+    var MailOptions={
+      from:process.env.MAIL,
+      to:email,
+      subject:'password recovery',
+      text:'send link to change password  '
+    };
+    transporeter.sendMail(MailOptions,function(error,info){
+      if(error){
+          res.status(400).json({error:error.message})
+      }
+      else{
+          res.status(200).json(info)
+      }
+    })
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+
+}
+
 
 //////////////
 //Authentication
@@ -114,4 +160,4 @@ const updatecrptrainee=async(req,res)=>{
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop};
