@@ -57,8 +57,12 @@ const navigate=useNavigate();
     return(
     <div classname="instructor">
       <button onClick={()=>{
-      navigate("/Reviews");
-      }}>Show Reviews</button>
+      navigate("/ireviews");
+      }}>Show Instructor Reviews</button>
+
+     <button onClick={()=>{
+      navigate("/creviews");
+      }}>Show Course Reviews</button>
 
       <SearchBar></SearchBar>
      <div classname="courses"> 

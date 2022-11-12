@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 // components
-import ReviewDetails from "../components/ReviewDetails";
+import IReviewDetails from "../components/IReviewDetails";
+import IReviewForm from "../components/IReviewForm";
 
-const Reviews = () => {
+const IReviews = () => {
   const [reviews, setReview] = useState(null)
 
   useEffect(() => {
@@ -24,13 +25,15 @@ const Reviews = () => {
     <div className="course">
       <div classname="courses"> 
       <h3>Your Reviews!</h3>
-    {reviews && reviews.map((review) =>(
-    <ReviewDetails review={review} key={review._id} />))}          
-    </div>
+      {reviews && reviews.map((review) =>(
+      <IReviewDetails review={review} key={review._id} />))} 
+      <br />
+      <IReviewForm/>         
+      </div>
     </div>
   )
 }
 
 
 
-export default Reviews
+export default IReviews

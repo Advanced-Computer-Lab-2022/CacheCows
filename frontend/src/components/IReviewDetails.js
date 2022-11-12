@@ -1,7 +1,7 @@
-const ReviewDetails = ({ review }) => {
+const IReviewDetails = ({ review }) => {
 
     return (
-      <div className="review-details">
+      <div className="course-details">
         <p><strong>Instructor ID: </strong>{review.instructor_id}</p>
         <p><strong>User ID: </strong>{review.user_id}</p>
         <p><strong>Review: </strong>{review.review}</p>
@@ -12,7 +12,7 @@ const ReviewDetails = ({ review }) => {
     )
   }
   
-  export default ReviewDetails
+  export default IReviewDetails
 
 
 

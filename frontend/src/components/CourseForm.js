@@ -15,8 +15,12 @@ const CourseForm = () => {
     const [course_exercise, setEx] = useState('')
     const [course_outline, setOutline] = useState('')
     const [course_video, setVideo] = useState('')
-    const [course_preview, setPrev] = useState('')
-    const [course_subtitles, setSubt] = useState('')
+    const [course_preview1, setPrev1] = useState('')
+    const [course_preview2, setPrev2] = useState('')
+    const [course_preview3, setPrev3] = useState('')
+    const [course_subtitles1, setSubt1] = useState('')
+    const [course_subtitles2, setSubt2] = useState('')
+    const [course_subtitles3, setSubt3] = useState('')
     const[error , setError] = useState(null)
 
     const handleSubmit = async(e) => {
@@ -36,8 +40,12 @@ const CourseForm = () => {
             course_exercise,
             course_outline,
             course_video,
-            course_preview,
-            course_subtitles
+            course_preview1,
+            course_preview2,
+            course_preview3,
+            course_subtitles1,
+            course_subtitles2,
+            course_subtitles3
             
         }
 
@@ -66,8 +74,12 @@ const CourseForm = () => {
         setEx ('')
         setOutline('')
         setVideo('')
-        setPrev('')
-        setSubt('')
+        setPrev1('')
+        setPrev2('')
+        setPrev3('')
+        setSubt1('')
+        setSubt2('')
+        setSubt3('')
         setError(null)
             
         console.log('New Course Added', json)
@@ -179,19 +191,49 @@ const CourseForm = () => {
         />
 
 
-        <label>Course Preview: </label>
+        <label>Course Preview 1: </label>
         <input
             type = "text"
-            onChange={(e) => setPrev(e.target.value)}
-            value={course_preview}
+            onChange={(e) => setPrev1(e.target.value)}
+            value={course_preview1}
         />
 
 
-        <label>Course Subtitles: </label>
+        <label>Course Subtitle 1: </label>
         <input
             type = "text"
-            onChange={(e) => setSubt(e.target.value)}
-            value={course_subtitles}
+            onChange={(e) => setSubt1(e.target.value)}
+            value={course_subtitles1}
+        />
+
+        <label>Course Preview 2: </label>
+        <input
+            type = "text"
+            onChange={(e) => setPrev2(e.target.value)}
+            value={course_preview2}
+        />
+
+
+        <label>Course Subtitle 2: </label>
+        <input
+            type = "text"
+            onChange={(e) => setSubt2(e.target.value)}
+            value={course_subtitles2}
+        />
+
+        <label>Course Preview 3: </label>
+        <input
+            type = "text"
+            onChange={(e) => setPrev3(e.target.value)}
+            value={course_preview3}
+        />
+
+
+        <label>Course Subtitle 3: </label>
+        <input
+            type = "text"
+            onChange={(e) => setSubt3(e.target.value)}
+            value={course_subtitles3}
         />
 
         <button>Add Course</button>

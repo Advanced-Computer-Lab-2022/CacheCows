@@ -29,6 +29,7 @@ const navigate=useNavigate();
         About us
       </button>
       </div>
+      <br />
 
       <div>
       <button
@@ -40,6 +41,7 @@ const navigate=useNavigate();
         Admin
       </button>
       </div>
+      <br />
 
       <div>
       <button
@@ -51,6 +53,7 @@ const navigate=useNavigate();
         Instructor
       </button>
       </div>
+      <br />
 
       <div>
       <button
@@ -62,6 +65,7 @@ const navigate=useNavigate();
         Corporate Trinaee
       </button>
       </div>
+      <br />
 
       <div>
       <button
@@ -73,6 +77,7 @@ const navigate=useNavigate();
         Individual Trainaee
       </button>
       </div>
+      <br />
 
       <div>
       <button
@@ -84,11 +89,12 @@ const navigate=useNavigate();
         Courses
       </button>
       </div>
+      <br />
 
       <div>
       <button
         onClick={() => {
-          navigate("/Guests");
+          navigate("/guest");
         }}
       >
         {" "}

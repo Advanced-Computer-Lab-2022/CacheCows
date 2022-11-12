@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
 
-const ReviewForm = () => {
-    const [instructor_id, setID] = useState('')
+const CReviewForm = () => {
+    const [course_id, setID] = useState('')
     const [user_id, setUID] = useState('')
     const [review, setReview] = useState('')
     const[error , setError] = useState(null)
@@ -11,13 +11,13 @@ const ReviewForm = () => {
         e.preventDefault()
 
         const course = {
-            instructor_id,
+            course_id,
             user_id,
             review,
             
         }
 
-        const response = await fetch('/api/reviews', {
+        const response = await fetch('/api/reviews/addCReview', {
             method: 'POST',
             body: JSON.stringify(course),
             headers: {
@@ -44,11 +44,11 @@ const ReviewForm = () => {
        <form className="create" onSubmit={handleSubmit}>
         <h3>Add a New Review!</h3>
 
-        <label>Instructor ID: </label>
+        <label>Course ID: </label>
         <input
             type = "text"
             onChange={(e) => setID(e.target.value)}
-            value={instructor_id}
+            value={course_id}
         />
 
         <label>User ID: </label>
@@ -71,4 +71,4 @@ const ReviewForm = () => {
     )
 }   
 
-export default ReviewForm
+export default CReviewForm

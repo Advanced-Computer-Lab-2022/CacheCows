@@ -17,8 +17,12 @@ const CoursesSchema = new mongoose.Schema({
      course_exercise:{type: String,   },
      course_outline:{type: String,  },
      course_video:{type: String,  },
-     course_preview:{type: String,  },
-     course_subtitles:{type: String,  }
+     course_preview1:{type: String,  },
+     course_preview2:{type: String,  },
+     course_preview3:{type: String,  },
+     course_subtitles1:{type: String,  },
+     course_subtitles2:{type: String,  },
+     course_subtitles3:{type: String,  }
      
      
 } 
