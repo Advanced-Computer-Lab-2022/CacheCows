@@ -265,6 +265,22 @@ const SearchCourseByOpt = asyncHandler(async (req, res) => {
         res.status(200).json(course3)
     }
 })
+const rating=async(req,res)=>{
+    try{
+    const course=await instructors.findById(req.params.id)
+       var total_rating=course.course_total_ratings
+       
+      var  total_no_rate=course.total_no_ratings
+    total_rating+=req.body.instructor_rate
+    total_no_rate+=1
+    var total_rate=total_rating/total_no_rate
+    await courses.findByIdAndUpdate(req.params.id,{course_rating:total_rate,course_total_rating:total_rating,course_total_no_ratings:total_no_rate},{new:true})
+    res.status(200).json('rating added ')
+    }
+    catch(error){
+      res.status(400).json({error:error.message})
+    }
+}
 
 
 
@@ -287,7 +303,8 @@ module.exports = {
     viewCoursePrice,
     viewCourses,
     filterInstCourse,
-    CourseData
+    CourseData,
+    rating
 
 }
 

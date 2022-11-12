@@ -5,8 +5,15 @@ const indv=require('../models/individualTraineeModel');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
-
-
+const nodemailer=require('nodemailer')
+var transporeter=nodemailer.createTransport({
+  service:'gmail',
+  
+  auth:{
+   user:process.env.MAIL,
+   pass:process.env.PASS
+  }
+});
 
 
 const getAllinvdTrainee= (req,res)=>{
@@ -68,6 +75,46 @@ const updateindvtrainee=async(req,res)=>{
       res.status(400).json("not updated");
   }
 }
+
+const changepassword=async(req,res)=>{
+
+  try{
+  await indv.findByIdAndUpdate(req.params.id,req.body,{new:true})
+  
+  res.status(200).json("updated")
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+
+
+const sendEmailIndv=async (req,res)=>{
+  try{
+    const indvidual=await indv.findOne({indv_email_email:req.body.indv_email})
+    const email=indvidual.indv_email
+    var MailOptions={
+      from:process.env.MAIL,
+      to:email,
+      subject:'password recovery',
+      text:'send link to change password  '
+    };
+    transporeter.sendMail(MailOptions,function(error,info){
+      if(error){
+          res.status(400).json({error:error.message})
+      }
+      else{
+          res.status(200).json(info)
+      }
+    })
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //Authentication
@@ -159,4 +206,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteindvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv };

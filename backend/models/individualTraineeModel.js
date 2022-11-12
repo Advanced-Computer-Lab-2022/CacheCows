@@ -27,6 +27,7 @@ const indvTraineeSchema= new mongoose.Schema(
             type:String,
             required:false,
         }
+        
     }
 
 )

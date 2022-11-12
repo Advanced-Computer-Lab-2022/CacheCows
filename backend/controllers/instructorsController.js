@@ -5,6 +5,19 @@ const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const instructors = require('../models/InstructorsModel')
 const course=require('../models/coursesModel');
+const { findById, findByIdAndUpdate } = require('../models/InstructorsModel');
+const nodemailer=require('nodemailer')
+
+
+
+var transporeter=nodemailer.createTransport({
+  service:'gmail',
+  
+  auth:{
+   user:process.env.MAIL,
+   pass:process.env.PASS
+  }
+});
 // @desc Get Instructors
 // @routes GET /api/Instructors
 // @access Private 
@@ -39,7 +52,9 @@ const setInstructor = asyncHandler(async(req, res) => {
         instructor_id : req.body.instructor_id,
         instructor_email : req.body.instructor_email,
         country : req.body.country,
-        instructor_bd : req.body.instructor_bd
+        instructor_bd : req.body.instructor_bd,
+        instructor_total_no_rate:0,
+        instructor_total_rate:0
     })
     res.status(200).json(Instructor)
 })
@@ -99,6 +114,66 @@ catch(error){
  res.status(400).json({error:error.message})
 }
 }
+
+
+const changepassword=async(req,res)=>{
+
+  try{
+  await instructors.findByIdAndUpdate(req.params.id,req.body,{new:true})
+  
+  res.status(200).json("updated")
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+const rating=async(req,res)=>{
+  try{
+  const instructor=await instructors.findById(req.params.id)
+     var total_rating=instructor.instructor_total_rate
+     
+    var  total_no_rate=instructor.instructor_total_no_rate
+  total_rating+=req.body.instructor_rate
+  total_no_rate+=1
+  var total_rate=total_rating/total_no_rate
+  await instructors.findByIdAndUpdate(req.params.id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  res.status(200).json('rating added')
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+ 
+ 
+}
+
+const sendEmailInstructor=async(req,res)=>{
+  try{
+    const instructor=await instructors.findOne({instructor_email:req.body.instructor_email})
+    const email=instructor.instructor_email
+    var MailOptions={
+      from:process.env.MAIL,
+      to:email,
+      subject:'password recovery',
+      text:'send link to change password  '
+    };
+    transporeter.sendMail(MailOptions,function(error,info){
+      if(error){
+          res.status(400).json({error:error.message})
+      }
+      else{
+          res.status(200).json(info)
+      }
+    })
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+
+}
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //Authentication
@@ -234,6 +309,9 @@ module.exports = {
     registerInstructor,
     // registerInstructor2,
     loginInstructor,
-    getMe
+    getMe,
+    changepassword,
+    rating,
+    sendEmailInstructor
 }
 
