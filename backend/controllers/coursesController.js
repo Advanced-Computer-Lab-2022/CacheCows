@@ -47,8 +47,12 @@ const setCourse = asyncHandler(async(req, res) => {
      course_exercise : req.body.course_exercise,
      course_outline : req.body.course_outline,
      course_video : req.body.course_video,
-     course_preview : req.body.course_preview,
-     course_subtitles : req.body.course_subtitles
+     course_preview1 : req.body.course_preview1,
+     course_preview2 : req.body.course_preview2,
+     course_preview3 : req.body.course_preview3,
+     course_subtitles1 : req.body.course_subtitles1,
+     course_subtitles2 : req.body.course_subtitles2,
+     course_subtitles3 : req.body.course_subtitles3
      
     })
     res.status(200).json({course})
@@ -113,7 +117,7 @@ const previewCourses = asyncHandler(async (req, res) => {
             throw new Error ('courses not found')
         }
     
-       res.status(200).json({preview : req.params.preview })
+       res.status(200).json({preview1 : req.params.preview1 })
 
 })
 //GET SPECIFIC COURSE DATA   
@@ -126,9 +130,13 @@ const CourseData = asyncHandler(async (req, res) => {
         }
     
        res.status(200).json({
-        course_subtitles : req.body.course_subtitles,
+        course_subtitles1 : req.body.course_subtitles1,
+        course_subtitles2 : req.body.course_subtitles2,
+        course_subtitles3 : req.body.course_subtitles3,
         course_exercise : req.body.course_exercise,
-        preview : req.params.preview,
+        course_preview1 : req.params.course_preview1,
+        course_preview2 : req.body.course_preview2,
+        course_preview3 : req.body.course_preview3,
         })
 
 })
@@ -257,8 +265,6 @@ const SearchCourseByOpt = asyncHandler(async (req, res) => {
         res.status(200).json(course3)
     }
 })
-
-
 const rating=async(req,res)=>{
     try{
     const course=await instructors.findById(req.params.id)
@@ -275,6 +281,9 @@ const rating=async(req,res)=>{
       res.status(400).json({error:error.message})
     }
 }
+
+
+
 
 
 module.exports = {

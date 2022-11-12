@@ -7,7 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
-import ReviewForm from "../components/ReviewForm";
+import ReviewForm from "../components/IReviewForm";
+import BasicExample from "../components/CourseCard";
 
 const languages = [
   {

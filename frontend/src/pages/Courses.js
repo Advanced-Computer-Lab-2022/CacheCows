@@ -30,14 +30,7 @@ const navigate=useNavigate();
     {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))}          
     </div>
-
-</div>
-
-
-
-
-
-
+    </div>
     )
 
 }

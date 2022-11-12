@@ -63,6 +63,66 @@ const deleteIReview =  asyncHandler(async (req, res) => {
      res.status(200).json({review})
      
     })
+    /////////////////////////////////////////////////////////////////
+    const getCReviews = asyncHandler(async (req, res) => {
+
+        const allcreviews = await creviews.find()
+        res.status(200).json(allcreviews)
+    })
+    
+    const getCReview =  asyncHandler(async (req, res) => {
+        
+        const review = await creviews.find({review: req.body.review})
+        if (review.toString() === ""){
+            res.status(400)
+            throw new Error ('review not found')
+        }
+         res.status(200).json({review})
+         
+        })
+    
+     
+    const setCReview = asyncHandler(async(req, res) => {
+        if (req.body.review == ""){
+            res.status(400)
+            throw new Error('Please add a text field')
+        }
+    
+        const review = await creviews.create({
+            course_id: req.body.course_id,
+            user_id: req.body.user_id,
+            review: req.body.review
+        })
+        res.status(200).json(review)
+    })
+    
+    
+    const updateCReview = asyncHandler(async (req, res) => {
+        
+        const review = await creviews.find({_id: req.body._id})
+        
+        if (review.toString() === ""){
+            res.status(400)
+            throw new Error ('review not found')
+        }
+        const updatedIReview = await ireviews.findOneAndUpdate({course_id: req.body.course_id, user_id: req.body.user_id},
+             req.body ,{
+            new : true,
+        })
+        res.status(200).json(updatedIReview)
+    })
+    
+    const deleteCReview =  asyncHandler(async (req, res) => {
+        
+        const review = await ireviews.find({review: req.body.review})
+        if (review.toString() === ""){
+            res.status(400)
+            throw new Error ('review not found')
+        }
+         await ireviews.deleteOne({review: req.body.review})
+         res.status(200).json({review})
+         
+        })
 
 
 
@@ -72,8 +132,14 @@ const deleteIReview =  asyncHandler(async (req, res) => {
 
 module.exports = {
     getIReviews,
+    getIReview,
     setIReview,
     updateIReview,
     deleteIReview,
-    getIReview,
+    
+    getCReviews,
+    getCReview,
+    setCReview,
+    updateCReview,
+    deleteCReview
 }

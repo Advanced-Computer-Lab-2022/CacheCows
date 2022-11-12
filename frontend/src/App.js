@@ -22,6 +22,9 @@ import Home from "./pages/Home"
 import Guest from "./pages/Guest";
 import Courses from "./pages/Courses";
 import Previewinstructorcourse from "./pages/previewinstructorcourse"
+import IReviews from "./pages/IReviews";
+import CReviews from "./pages/CReviews";
+
 
 import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
@@ -78,13 +81,34 @@ function App() {
           path = "/instructorcourseByprice"
           element = { <InstructorcourseByprice /> }
           />
-          <Route path="/previewinstructorcourse" element={<Previewinstructorcourse/>} />
-
-          
-           <Route path="/about" element={<About />} />
-        <Route path="/CorpTrainee/" element={<CorpTrainee />} />
-        <Route path="/IndTrainee/" element={<IndTrainee />} />
-        <Route path="*" element={<ErrorPage />} />
+          <Route 
+          path="/previewinstructorcourse" 
+          element={<Previewinstructorcourse/>} 
+          />
+           <Route 
+           path="/about" 
+           element={<About />} 
+           />
+          <Route 
+          path="/CorpTrainee/" 
+          element={<CorpTrainee />} 
+          />
+          <Route 
+          path="/IndTrainee/" 
+          element={<IndTrainee />} 
+          />
+          <Route 
+          path="*" 
+          element={<ErrorPage />} 
+          />
+          <Route 
+          path = "/ireviews"
+          element = { <IReviews /> }
+          />
+          <Route 
+          path = "/creviews"
+          element = { <CReviews /> }
+          />
         
         </Routes>
        
