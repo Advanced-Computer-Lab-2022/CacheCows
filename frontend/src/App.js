@@ -36,9 +36,9 @@ function App() {
     
     <div className="App">
 
-<BrowserRouter>
+        <BrowserRouter>
 
-<div >
+          <div >
           <Header />
           <Routes>
             <Route path='/' element={<Dashboard />} />
