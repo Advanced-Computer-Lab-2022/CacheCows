@@ -38,20 +38,6 @@ function App() {
 
     
     <div className="App">
-
-        <BrowserRouter>
-
-          <div >
-          <Header />
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/LoginInstructor' element={<LoginInstructor />} />
-            <Route path='/RegisterInstructor' element={<RegisterInstructor />} />
-          </Routes>
-        </div>
-        </BrowserRouter>
-
-
       <BrowserRouter>
 
       <NavigationBar/>

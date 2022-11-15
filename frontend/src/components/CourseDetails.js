@@ -6,23 +6,35 @@ const CourseDetails = ({course}) => {
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
     const [prv3, setprv3] = useState(false);
+    const [disc1, setDisc1] = useState(true);
+    const [disc2, setDisc2] = useState(false);
+    const [disc3, setDisc3] = useState(false);
 
     function sub1() {
         setprv1(true) 
         setprv2(false) 
         setprv3(false)
+        setDisc1(true)
+        setDisc2(false)
+        setDisc3(false)
       }
 
       function sub2() {
         setprv1(false) 
         setprv2(true) 
         setprv3(false)
+        setDisc1(false)
+        setDisc2(true)
+        setDisc3(false)
       }
 
       function sub3() {
         setprv1(false) 
         setprv2(false) 
         setprv3(true)
+        setDisc1(false)
+        setDisc2(false)
+        setDisc3(true)
       }
 
     return(
@@ -40,6 +52,9 @@ const CourseDetails = ({course}) => {
             {isShown && (
              <p>
             <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
+            {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
+            {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
+            {disc3 && (<p><strong>Course Description: </strong>{course.course_description3}</p>)}
             <p><strong>Choose Subtitle: </strong></p>
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>

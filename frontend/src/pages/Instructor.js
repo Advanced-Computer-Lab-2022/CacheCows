@@ -64,8 +64,9 @@ const navigate=useNavigate();
       navigate("/creviews");
       }}>Show Course Reviews</button>
 
-      <SearchBar></SearchBar>
+      
      <div classname="courses"> 
+     <SearchBar></SearchBar>
     {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))}          
     </div>

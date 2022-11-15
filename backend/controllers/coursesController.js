@@ -52,7 +52,10 @@ const setCourse = asyncHandler(async(req, res) => {
      course_preview3 : req.body.course_preview3,
      course_subtitles1 : req.body.course_subtitles1,
      course_subtitles2 : req.body.course_subtitles2,
-     course_subtitles3 : req.body.course_subtitles3
+     course_subtitles3 : req.body.course_subtitles3,
+     course_description1 : req.body.course_description1,
+     course_description2 : req.body.course_description2,
+     course_description3 : req.body.course_description3
      
     })
     res.status(200).json({course})

@@ -21,6 +21,9 @@ const CourseForm = () => {
     const [course_subtitles1, setSubt1] = useState('')
     const [course_subtitles2, setSubt2] = useState('')
     const [course_subtitles3, setSubt3] = useState('')
+    const [course_discription1, setDisc1] = useState('')
+    const [course_discription2, setDisc2] = useState('')
+    const [course_discription3, setDisc3] = useState('')
     const[error , setError] = useState(null)
 
     const handleSubmit = async(e) => {
@@ -45,7 +48,10 @@ const CourseForm = () => {
             course_preview3,
             course_subtitles1,
             course_subtitles2,
-            course_subtitles3
+            course_subtitles3,
+            course_discription1,
+            course_discription2,
+            course_discription3
             
         }
 
@@ -80,6 +86,9 @@ const CourseForm = () => {
         setSubt1('')
         setSubt2('')
         setSubt3('')
+        setDisc1('')
+        setDisc2('')
+        setDisc3('')
         setError(null)
             
         console.log('New Course Added', json)
@@ -206,6 +215,13 @@ const CourseForm = () => {
             value={course_subtitles1}
         />
 
+        <label>Course Description 1: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc1(e.target.value)}
+            value={course_discription1}
+        />
+
         <label>Course Preview 2: </label>
         <input
             type = "text"
@@ -219,6 +235,14 @@ const CourseForm = () => {
             type = "text"
             onChange={(e) => setSubt2(e.target.value)}
             value={course_subtitles2}
+ 
+ />
+
+        <label>Course Description 2: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc2(e.target.value)}
+            value={course_discription2}
         />
 
         <label>Course Preview 3: </label>
@@ -234,6 +258,13 @@ const CourseForm = () => {
             type = "text"
             onChange={(e) => setSubt3(e.target.value)}
             value={course_subtitles3}
+        />
+
+        <label>Course Description 3: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc3(e.target.value)}
+            value={course_discription3}
         />
 
         <button>Add Course</button>

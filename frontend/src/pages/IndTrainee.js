@@ -10,6 +10,8 @@ import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
 import BasicExample from "../components/CourseCard";
 
+
+
 const languages = [
   {
     id: 0,
