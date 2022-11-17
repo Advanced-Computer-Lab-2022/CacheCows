@@ -1,4 +1,4 @@
-/*
+
 import { useState, useEffect } from 'react'
 import { FaSignInAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
@@ -49,7 +49,7 @@ function LoginInstructor() {
       password,
     }
 
-    dispatch(login(userData))
+    dispatch(loginInstructor(userData))
   }
 
   if (isLoading) {
@@ -58,14 +58,14 @@ function LoginInstructor() {
 
   return (
     <>
-      <section className='heading'>
+      <section className='Loginheading'>
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login and start setting goals</p>
+        <p>Login Now!</p>
       </section>
 
-      <section className='form'>
+      <section className='loginform'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
@@ -101,5 +101,5 @@ function LoginInstructor() {
   )
 }
 
-export default LoginInstructor
-*/
+
+export default LoginInstructor;

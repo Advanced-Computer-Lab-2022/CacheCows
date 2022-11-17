@@ -95,6 +95,9 @@ function App() {
           path = "/creviews"
           element = { <CReviews /> }
           />
+          <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/logininstructor" element={<LoginInstructor />} />
+            <Route path="/registerinstructor" element={<RegisterInstructor />} />
         
         </Routes>
        
