@@ -58,14 +58,14 @@ function LoginInstructor() {
 
   return (
     <>
-      <section className='Loginheading'>
+      <section className='heading'>
         <h1>
           <FaSignInAlt /> Login
         </h1>
         <p>Login Now!</p>
       </section>
 
-      <section className='loginform'>
+      <section className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
