@@ -2,7 +2,6 @@ import { useState } from "react";
 
 
 const AdminForm = () => {
-    const [admin_id, setID] = useState('')
     const [admin_name, setName] = useState('')
     const [admin_user, setUserName] = useState('')
     const [admin_pass, setPassword] = useState('')
@@ -16,7 +15,6 @@ const AdminForm = () => {
         e.preventDefault()
 
         const admin = {
-            admin_id,
             admin_name,
             admin_user,
             admin_pass,
@@ -38,7 +36,6 @@ const AdminForm = () => {
             setError(json.error)
         }
         if(response.ok) {
-        setID('')
         setName('')
         setUserName('')
         setPassword('')
@@ -56,12 +53,7 @@ const AdminForm = () => {
        <form className="create" onSubmit={handleSubmit}>
         <h3>Add a New admin!</h3>
 
-        <label>Admin ID: </label>
-        <input
-            type = "text"
-            onChange={(e) => setID(e.target.value)}
-            value={admin_id}
-        />
+        
 
         <label>Admin Name: </label>
         <input
@@ -80,7 +72,7 @@ const AdminForm = () => {
 
         <label>Password: </label>
         <input
-            type = "text"
+            type = "password"
             onChange={(e) => setPassword(e.target.value)}
             value={admin_pass}
         />

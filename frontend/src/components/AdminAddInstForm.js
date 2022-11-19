@@ -2,7 +2,6 @@ import { useState } from "react";
 import { json } from "react-router-dom";
 
 const AdminAddInstForm = () => {
-    const [instructor_id, setID] = useState('')
     const [instructor_name, setName] = useState('')
     const [instructor_user, setUserName] = useState('')
     const [instructor_pass, setPassword] = useState('')
@@ -17,7 +16,6 @@ const AdminAddInstForm = () => {
         e.preventDefault()
 
         const inst = {
-            instructor_id,
             instructor_name,
             instructor_user,
             instructor_pass,
@@ -39,7 +37,6 @@ const AdminAddInstForm = () => {
             setError(json.error)
         }
         if(response.ok) {
-        setID('')
         setName('')
         setUserName('')
         setPassword('')
@@ -55,14 +52,7 @@ const AdminAddInstForm = () => {
 
     return (
        <form className="create" onSubmit={handleSubmit}>
-        <h3>Add a New instructor!</h3>
-
-        <label> Instructor ID: </label>
-        <input
-            type = "text"
-            onChange={(e) => setID(e.target.value)}
-            value={instructor_id}
-        />
+        
 
         <label>instructor Name: </label>
         <input

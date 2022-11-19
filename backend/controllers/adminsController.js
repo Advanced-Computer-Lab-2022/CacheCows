@@ -161,7 +161,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
         res.status(201).json({
           _id: CorpTrainee.id,
           name: CorpTrainee.Name,
-          email: CorpTrainee.indv_email,
+          email: CorpTrainee.corp_email,
           token: generateToken(CorpTrainee._id),
         })
       } else {
