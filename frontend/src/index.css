@@ -269,6 +269,12 @@ nav button {
   font-size: 1em;
 }
 
+.hnav {
+  margin: 0;
+  font-size: 0.3em;
+  color: rgb(218, 205, 205);
+  align-items: center;
+}
 
 
 

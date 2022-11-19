@@ -1,6 +1,8 @@
 
 import { useState } from "react"
 import { useSignup } from "../hooks/IndTraineeSignup"
+import { Link } from 'react-router-dom'
+
 
 const Signup = () => {
   const [indv_email, setEmail] = useState('')
@@ -10,6 +12,7 @@ const Signup = () => {
   const [Country, setCountry] = useState('')
   const [indv_bd, setBirthday] = useState('')
   const {signup, error, isLoading} = useSignup()
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -59,8 +62,7 @@ const Signup = () => {
         value={indv_bd} 
       />
 
-      <button disabled={isLoading}>Sign up</button>
-      {error && <div className="error">{error}</div>}
+<Link to="/indTrainee"> <button disabled={isLoading}>Sign up</button> </Link>      {error && <div className="error">{error}</div>}
     </form>
   )
 }
