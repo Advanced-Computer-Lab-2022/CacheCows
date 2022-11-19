@@ -257,12 +257,18 @@ form.signup, form.login {
   background: #fff;
   border-radius: 4px;
 }
-.hnav {
-  margin: 0;
-  font-size: 0.3em;
-  color: rgb(218, 205, 205);
-  align-items: center;
+
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
 }
+
 
 
 
