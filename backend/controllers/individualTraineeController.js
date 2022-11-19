@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const nodemailer=require('nodemailer')
+const validator = require('validator')
+
 var transporeter=nodemailer.createTransport({
   service:'gmail',
   
@@ -131,6 +133,12 @@ const registerIndTrainee = asyncHandler(async(req, res) => {
       res.status(400)
       throw new Error('Please add all fields')
   }
+  if (!validator.isEmail(req.body.indv_email)) {
+    throw Error('Email not valid')
+  }
+  // if (!validator.isStrongPassword(req.body.indv_pass)) {
+  //   throw Error('Password not strong enough')
+  // }
   const indivExists = await indv.findOne({ indv_email: req.body.indv_email })
   
     if (indivExists) {

@@ -9,7 +9,7 @@ const InstructorSchema = new mongoose.Schema({
      instructor_user:{type: String, required: [false, 'Please add a text value'],timestamps : true},
      instructor_pass:{type: String, required: [false, 'Please add a text value'],timestamps : true},
      instructor_id:{type: String, required: [false, 'Please add a text value'],timestamps : true},
-     instructor_email:{type: String, required: [true, 'Please add a text value'],timestamps : true},
+     instructor_email:{type: String, required: [true, 'Please add a text value'],timestamps : true ,unique : true,}, 
      instructor_bd:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      country : {type: String , required : [false, 'Please add a text value']},
      instructor_rate : {type: Number , required : [false, 'Please add a text value']},

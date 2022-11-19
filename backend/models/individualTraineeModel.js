@@ -21,7 +21,8 @@ const indvTraineeSchema= new mongoose.Schema(
         },
         indv_email:{
             type:String,
-            required:true,
+            required:true
+            , unique : true,
         },
         indv_bd:{
             type:String,

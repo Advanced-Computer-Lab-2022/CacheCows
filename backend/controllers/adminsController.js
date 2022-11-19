@@ -6,6 +6,8 @@ const corp=require('../models/corporateTraineeModel');
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const validator = require('validator')
+
 
 
 
@@ -129,6 +131,12 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
             res.status(400)
             throw new Error('Please add all fields')
         }
+        if (!validator.isEmail(req.body.corp_email)) {
+          throw Error('Email not valid')
+        }
+        // if (!validator.isStrongPassword(req.body.corp_pass)) {
+        //   throw Error('Password not strong enough')
+        // }
         const corpExists = await corp.findOne({ corp_email: req.body.corp_email })
         
           if (corpExists) {
@@ -179,6 +187,12 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
             res.status(400)
             throw new Error('Please add all fields')
         }
+        if (!validator.isEmail(req.body.admin_email)) {
+          throw Error('Email not valid')
+        }
+        // if (!validator.isStrongPassword(req.body.admin_pass)) {
+        //   throw Error('Password not strong enough')
+        // }
         const adminExists = await admins.findOne({ admin_email: req.body.admin_email })
         
           if (adminExists) {
@@ -218,6 +232,12 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
           || !req.body.country || !req.body.instructor_bd ){
             res.status(400)
             throw new Error('Please add all fields')
+        }
+        if (!validator.isEmail(req.body.instructor_email)) {
+          throw Error('Email not valid')
+        }
+        if (!validator.isStrongPassword(req.body.instructor_pass)) {
+          throw Error('Password not strong enough')
         }
         const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
         

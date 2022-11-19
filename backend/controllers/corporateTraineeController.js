@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const corp=require('../models/corporateTraineeModel');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const validator = require('validator')
+
 
 
 var transporeter=nodemailer.createTransport({

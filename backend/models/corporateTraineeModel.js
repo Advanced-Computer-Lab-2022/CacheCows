@@ -26,6 +26,7 @@ const corpTraineeSchema= new mongoose.Schema(
         corp_email:{
             type:String,
             required:false,
+            unique : true,
         }
     }
 

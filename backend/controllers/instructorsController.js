@@ -7,6 +7,8 @@ const instructors = require('../models/InstructorsModel')
 const course=require('../models/coursesModel');
 const { findById, findByIdAndUpdate } = require('../models/InstructorsModel');
 const nodemailer=require('nodemailer')
+const validator = require('validator')
+
 
 
 
@@ -180,11 +182,19 @@ res.status(400).json({error:error.message})
 
 
 const registerInstructor = asyncHandler(async(req, res) => {
+
   if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
     || !req.body.country || !req.body.instructor_bd ){
       res.status(400)
       throw new Error('Please add all fields')
   }
+  if (!validator.isEmail(req.body.instructor_email)) {
+    throw Error('Email not valid')
+  }
+  // if (!validator.isStrongPassword(req.body.instructor_pass)) {
+  //   throw Error('Password not strong enough')
+  // }
+
   const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
   
     if (instructorExists) {
