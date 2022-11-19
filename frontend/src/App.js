@@ -31,6 +31,13 @@ import Dashboard from './pages/Dashboard'
 import LoginInstructor from './pages/LoginInstructor'
 import RegisterInstructor from './pages/RegisterInstructor'
 
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+
+import IndTraineeSignup from './pages/IndTraineeSignup'
+
+import InstSignup from './pages/InstSignup'
+
 
 
 function App() {
@@ -98,6 +105,23 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/logininstructor" element={<LoginInstructor />} />
             <Route path="/registerinstructor" element={<RegisterInstructor />} />
+
+            <Route 
+              path="/login" 
+              element={<Login />} 
+            />
+            <Route 
+              path="/instsignup" 
+              element={<InstSignup />} 
+            />
+            <Route 
+              path="/indtraineesignup" 
+              element={<IndTraineeSignup />} 
+            />
+            <Route 
+              path="/signup" 
+              element={<Signup />} 
+            />
         
         </Routes>
        
