@@ -1,35 +1,68 @@
-import { useState } from "react"
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+function Signup() {
 
-    console.log(email, password)
-  }
+
+const navigate=useNavigate();
+
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Log In</h3>
+    <div>
       
-      <label>Email address:</label>
-      <input 
-        type="email" 
-        onChange={(e) => setEmail(e.target.value)} 
-        value={email} 
-      />
-      <label>Password:</label>
-      <input 
-        type="password" 
-        onChange={(e) => setPassword(e.target.value)} 
-        value={password} 
-      />
+      <div>
+      <button
+        onClick={() => {
+          navigate("/InstLogin");
+        }}
+      >
+        {" "}
+        Login as Instructor!
+      </button>
+      </div>
+      <br />
 
-      <button>Log in</button>
-    </form>
-  )
+      <div>
+      <button
+        onClick={() => {
+          navigate("/IndTraineeLogin");
+        }}
+      >
+        {" "}
+        Log in as Individual Trainee!
+      </button>
+      </div>
+      <br />
+
+      <div>
+      <button
+        onClick={() => {
+          navigate("/AdminLogin");
+        }}
+      >
+        {" "}
+        Log in as Admin!
+      </button>
+      </div>
+      <br />
+      <div>
+      <button
+        onClick={() => {
+          navigate("/CorpTraineeLogin");
+        }}
+      >
+        {" "}
+        Login as Corporate Trainee!
+      </button>
+      </div>
+      <br />
+      
+
+      
+
+    </div>
+  );
 }
 
-export default Login
+export default Signup;

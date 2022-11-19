@@ -27,16 +27,20 @@ import CReviews from "./pages/CReviews";
 
 
 import Header from './components/Header'
-import Dashboard from './pages/Dashboard'
-import LoginInstructor from './pages/LoginInstructor'
-import RegisterInstructor from './pages/RegisterInstructor'
+
 
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 
 import IndTraineeSignup from './pages/IndTraineeSignup'
-
 import InstSignup from './pages/InstSignup'
+
+import InstLogin from './pages/InstLogin'
+import IndTraineeLogin from './pages/IndTraineeLogin'
+import CorpTraineeLogin from './pages/CorpTraineeLogin'
+import AdminLogin from './pages/AdminLogin'
+
+
 
 
 
@@ -102,13 +106,11 @@ function App() {
           path = "/creviews"
           element = { <CReviews /> }
           />
-          <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/logininstructor" element={<LoginInstructor />} />
-            <Route path="/registerinstructor" element={<RegisterInstructor />} />
-
+          
+          
             <Route 
-              path="/login" 
-              element={<Login />} 
+              path="/signup" 
+              element={<Signup />} 
             />
             <Route 
               path="/instsignup" 
@@ -118,9 +120,26 @@ function App() {
               path="/indtraineesignup" 
               element={<IndTraineeSignup />} 
             />
+            
             <Route 
-              path="/signup" 
-              element={<Signup />} 
+              path="/login" 
+              element={<Login />} 
+            />
+            <Route 
+              path="/InstLogin" 
+              element={<InstLogin />} 
+            />
+            <Route 
+              path="/IndTraineeLogin" 
+              element={<IndTraineeLogin />} 
+            />
+            <Route 
+              path="/CorpTraineeLogin" 
+              element={<CorpTraineeLogin />} 
+            />
+            <Route 
+              path="/AdminLogin" 
+              element={<AdminLogin />} 
             />
         
         </Routes>

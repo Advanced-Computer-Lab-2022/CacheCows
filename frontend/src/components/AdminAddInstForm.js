@@ -26,7 +26,7 @@ const AdminAddInstForm = () => {
             instructor_bd
         }
 
-        const response = await fetch('/api/instructors/setInstructor', {
+        const response = await fetch('/api/admins/registerInstructor', {
             method: 'POST',
             body: JSON.stringify(inst),
             headers: {

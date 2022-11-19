@@ -23,7 +23,7 @@ const AdminAddCrpTraineeForm = () => {
             corp_bd
         }
 
-        const response = await fetch('/api/corpTrainee/addtrainee', {
+        const response = await fetch('/api/admins/registerCorpTrainee', {
             method: 'POST',
             body: JSON.stringify(crp),
             headers: {
