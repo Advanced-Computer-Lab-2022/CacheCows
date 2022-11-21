@@ -13,7 +13,7 @@ router.post('/addtrainee',controlls.setcrpTrainee);
 router.get('/getOneTrainee/:id',controlls.getOnecrpTrainee);
 router.delete('/deletetrainee/:id',controlls.deletecrpTrainee);
 router.put('/updatecorptrainee/:id',controlls.updatecrptrainee);
-router.put('/changepassword/:id',controlls.changepassword);
+router.put('/changepassword',controlls.changepassword);
 router.put('rateInstructor/:id',instructorControlls.rating);
 router.put('../rateCourse/:id',coursesControlls.rating)
 router.post('/loginCorpTrainee',controlls.loginCorpTrainee);

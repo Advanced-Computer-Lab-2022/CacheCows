@@ -121,7 +121,8 @@ catch(error){
 const changepassword=async(req,res)=>{
 
   try{
-  await instructors.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    const inst_id=req.Instructor._id
+  await instructors.findByIdAndUpdate(inst_id,req.body,{new:true})
   
   res.status(200).json("updated")
   }
