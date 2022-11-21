@@ -57,6 +57,18 @@ const navigate=useNavigate();
       </button>
       </div>
       <br />
+      <div>
+      <button
+        onClick={() => {
+          navigate("/Signup");
+        }}
+      >
+        {" "}
+        New User ? Sign Up Now!
+      </button>
+      </div>
+      <br />
+      
       
 
       

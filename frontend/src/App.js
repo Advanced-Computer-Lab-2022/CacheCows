@@ -1,5 +1,7 @@
 import "./App.css";
-import { BrowserRouter , Routes, Route } from "react-router-dom";
+import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
+import { useAuthContext } from './hooks/useAuthContext'
+
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -44,6 +46,9 @@ import AdminLogin from './pages/AdminLogin'
 
 
 function App() {
+
+  const { user } = useAuthContext()
+
   return (
 
     
@@ -55,7 +60,7 @@ function App() {
         <Routes>
           <Route
           path = "/"
-          element = { <HomePage /> }
+          element={user ? <HomePage /> : <Navigate to="/login" />}
           />
           <Route 
           path = "/admin"
@@ -109,7 +114,7 @@ function App() {
           
             <Route 
               path="/signup" 
-              element={<Signup />} 
+              element={!user ? <Signup /> : <Navigate to="/" />} 
             />
             <Route 
               path="/instsignup" 
@@ -122,7 +127,7 @@ function App() {
             
             <Route 
               path="/login" 
-              element={<Login />} 
+              element={!user ? <Login /> : <Navigate to="/" />}
             />
             <Route 
               path="/InstLogin" 
