@@ -133,8 +133,10 @@ res.status(400).json({error:error.message})
     
       // Check for user email
       const CorpTrainee = await corp.findOne({ corp_user })
+      if(!CorpTrainee){res.status(400)
+        throw new Error('Trainee Does not Exist')}
     
-      if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
+      else if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
         res.json({
           _id: CorpTrainee.id,
           name: CorpTrainee.Name,
@@ -144,7 +146,7 @@ res.status(400).json({error:error.message})
         })
       } else {
         res.status(400)
-        throw new Error('Invalid credentials')
+        throw new Error('Wrong Password')
       }
     })
     

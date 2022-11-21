@@ -275,13 +275,40 @@ if (Instructor) {
   // @desc    Authenticate a user
   // @route   POST /api/instructors/login
   // @access  Public
+
+
+  // const loginInstructor = asyncHandler(async (req, res) => {
+  //   const { instructor_user, instructor_pass } = req.body
+  
+  //   // Check for user email
+  //   const Instructor = await instructors.findOne({ instructor_user })
+
+  //   if(!Instructor){res.status(400)
+  //     throw new Error('Instructor Does not Exist')}
+  
+  //   else if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass))) {
+  //     res.json({
+  //       _id: Instructor.id,
+  //       name: Instructor.instructor_name,
+  //       username: Instructor.instructor_user,
+  //       email: Instructor.instructor_email,
+  //       token: generateToken(Instructor._id),
+  //     })
+  //   } else {
+  //     res.status(400)
+  //     throw new Error('Wrong Password')
+  //   }
+  // })
+
   const loginInstructor = asyncHandler(async (req, res) => {
     const { instructor_user, instructor_pass } = req.body
-  
-    // Check for user email
-    const Instructor = await instructors.findOne({ instructor_user })
-  
-    if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass))) {
+    
+      const Instructor = await instructors.findOne({ instructor_user })
+      if (!Instructor){ throw new Error('Instructor Not Found')}
+
+
+     else if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass)))
+     { 
       res.json({
         _id: Instructor.id,
         name: Instructor.instructor_name,
@@ -289,12 +316,11 @@ if (Instructor) {
         email: Instructor.instructor_email,
         token: generateToken(Instructor._id),
       })
-    } else {
-      res.status(400)
-      throw new Error('Invalid credentials')
-    }
-  })
-  
+     }
+     else{res.status(400)
+      throw new Error('Wrong Password')}
+  } )
+
   // @desc    Get user data
   // @route   GET /api/users/me
   // @access  Private

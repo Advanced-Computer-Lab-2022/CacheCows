@@ -287,8 +287,11 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       
         // Check for user email
         const Admin = await admins.findOne({ admin_user })
+
+        if(!Admin){res.status(400)
+          throw new Error('Admin Does not Exist')}
       
-        if (Admin && (await bcrypt.compare(admin_pass, Admin.admin_pass))) {
+        else if (Admin && (await bcrypt.compare(admin_pass, Admin.admin_pass))) {
           res.json({
             _id: Admin.id,
             name: Admin.admin_name,
@@ -298,7 +301,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
           })
         } else {
           res.status(400)
-          throw new Error('Invalid credentials')
+          throw new Error('Wrong Password')
         }
       })
       

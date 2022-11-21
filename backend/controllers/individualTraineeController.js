@@ -182,6 +182,10 @@ if (IndivTrainee) {
   
     // Check for user email
     const IndivTrainee = await indv.findOne({ indv_user })
+    if(!IndivTrainee){res.status(400)
+      throw new Error('Trainee Does not Exist')}
+  
+    else
   
     if (IndivTrainee && (await bcrypt.compare(indv_pass, IndivTrainee.indv_pass))) {
       res.json({
@@ -193,7 +197,7 @@ if (IndivTrainee) {
       })
     } else {
       res.status(400)
-      throw new Error('Invalid credentials')
+      throw new Error('Wrong Passwords')
     }
   })
   

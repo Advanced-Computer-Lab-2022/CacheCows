@@ -19,6 +19,7 @@ export const useLogin = () => {
 
     if (!response.ok) {
       setIsLoading(false)
+      //setError('incorrect credentials')
       setError(json.error)
     }
     if (response.ok) {
