@@ -26,7 +26,6 @@ import IReviews from "./pages/IReviews";
 import CReviews from "./pages/CReviews";
 
 
-import Header from './components/Header'
 
 
 import Login from './pages/Login'

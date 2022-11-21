@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const CourseForm = () => {
+    const { user } = useAuthContext()
+
     const [course_id, setID] = useState('')
     const [course_name, setName] = useState('')
     const [instructor_name, setInstName] = useState('')
@@ -28,6 +32,10 @@ const CourseForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const course = {
             course_id,
@@ -59,7 +67,8 @@ const CourseForm = () => {
             method: 'POST',
             body: JSON.stringify(course),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { json } from "react-router-dom";
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const AdminAddInstForm = () => {
+    const { user } = useAuthContext()
+
     const [instructor_name, setName] = useState('')
     const [instructor_user, setUserName] = useState('')
     const [instructor_pass, setPassword] = useState('')
@@ -14,7 +17,10 @@ const AdminAddInstForm = () => {
    
     const handleSubmit = async(e) => {
         e.preventDefault()
-
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
         const inst = {
             instructor_name,
             instructor_user,
@@ -28,7 +34,8 @@ const AdminAddInstForm = () => {
             method: 'POST',
             body: JSON.stringify(inst),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

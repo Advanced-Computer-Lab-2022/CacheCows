@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
 import CourseDetails from "./CourseDetails";
+import { useAuthContext } from '../hooks/useAuthContext'
+
+
 
 
 const SearchBar = () => {
+    const { user } = useAuthContext()
+
     const [text, setSearch] = useState('')
     const [courses, setCourses] = useState('') 
     const[error , setError] = useState(null)
@@ -11,6 +16,10 @@ const SearchBar = () => {
    
     const handleSubmit = async(e) => {
         e.preventDefault()
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const value = {
             text
@@ -20,7 +29,8 @@ const SearchBar = () => {
             method: 'POST',
             body: JSON.stringify(value),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

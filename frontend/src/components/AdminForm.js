@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const AdminForm = () => {
+    const { user } = useAuthContext()
+
     const [admin_name, setName] = useState('')
     const [admin_user, setUserName] = useState('')
     const [admin_pass, setPassword] = useState('')
@@ -13,6 +16,10 @@ const AdminForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const admin = {
             admin_name,
@@ -27,7 +34,8 @@ const AdminForm = () => {
             method: 'POST',
             body: JSON.stringify(admin),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

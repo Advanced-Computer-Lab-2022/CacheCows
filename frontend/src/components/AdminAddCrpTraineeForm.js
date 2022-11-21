@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useAuthContext } from '../hooks/useAuthContext'
+
+
 
 const AdminAddCrpTraineeForm = () => {
+
+    const { user } = useAuthContext()
+
     const [Name, setName] = useState('')
     const [corp_user, setUserName] = useState('')
     const [corp_pass, setPassword] = useState('')
@@ -13,6 +19,11 @@ const AdminAddCrpTraineeForm = () => {
     
     const handleSubmit = async(e) => {
         e.preventDefault()
+
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const crp = {
             Name, 
@@ -27,7 +38,8 @@ const AdminAddCrpTraineeForm = () => {
             method: 'POST',
             body: JSON.stringify(crp),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

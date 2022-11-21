@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const CReviewForm = () => {
+    const { user } = useAuthContext()
+
     const [course_id, setID] = useState('')
     const [user_id, setUID] = useState('')
     const [review, setReview] = useState('')
@@ -9,6 +13,10 @@ const CReviewForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const course = {
             course_id,
@@ -21,7 +29,8 @@ const CReviewForm = () => {
             method: 'POST',
             body: JSON.stringify(course),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

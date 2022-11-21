@@ -1,13 +1,19 @@
-import { set } from "mongoose";
 import { useState } from "react";
-import { json } from "react-router-dom";
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const Countryform=()=>{
+    const { user } = useAuthContext()
+
     const[instructor_id,setID]=useState('');
     const[country,setCountry]=useState('');
     const[error , setError] = useState(null)
 const handleSubmit = async(e) => {
     e.preventDefault()
+    if (!user) {
+        setError('You must be logged in')
+        return
+      }
 
 
     const Instructor=(instructor_id,country)
@@ -16,7 +22,8 @@ const handleSubmit = async(e) => {
         method: 'PUT',
         body: JSON.stringify(Instructor),
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${user.token}`
         }
     })
     const json = await response.json()
