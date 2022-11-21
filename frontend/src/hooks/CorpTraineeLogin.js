@@ -6,14 +6,14 @@ export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
 
-  const login = async (corp_email, corp_pass) => {
+  const login = async (corp_user, corp_pass) => {
     setIsLoading(true)
     setError(null)
 
     const response = await fetch('/api/corpTrainee/loginCorpTrainee', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ corp_email, corp_pass })
+      body: JSON.stringify({ corp_user, corp_pass })
     })
     const json = await response.json()
 

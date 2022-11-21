@@ -178,15 +178,16 @@ if (IndivTrainee) {
 
 
   const loginIndTrainee = asyncHandler(async (req, res) => {
-    const { indv_email, indv_pass } = req.body
+    const { indv_user, indv_pass } = req.body
   
     // Check for user email
-    const IndivTrainee = await indv.findOne({ indv_email })
+    const IndivTrainee = await indv.findOne({ indv_user })
   
     if (IndivTrainee && (await bcrypt.compare(indv_pass, IndivTrainee.indv_pass))) {
       res.json({
         _id: IndivTrainee.id,
         name: IndivTrainee.Name,
+        username: IndivTrainee.indv_user,
         email: IndivTrainee.indv_email,
         token: generateToken(IndivTrainee._id),
       })

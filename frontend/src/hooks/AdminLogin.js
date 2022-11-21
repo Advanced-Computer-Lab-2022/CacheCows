@@ -6,14 +6,14 @@ export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
 
-  const login = async (admin_email, admin_pass) => {
+  const login = async (admin_user, admin_pass) => {
     setIsLoading(true)
     setError(null)
 
     const response = await fetch('/api/admins/loginAdmin', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ admin_email, admin_pass })
+      body: JSON.stringify({ admin_user, admin_pass })
     })
     const json = await response.json()
 

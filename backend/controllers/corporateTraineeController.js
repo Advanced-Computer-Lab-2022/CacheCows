@@ -129,16 +129,17 @@ res.status(400).json({error:error.message})
   
   
     const loginCorpTrainee = asyncHandler(async (req, res) => {
-      const { corp_email, corp_pass } = req.body
+      const { corp_user, corp_pass } = req.body
     
       // Check for user email
-      const CorpTrainee = await corp.findOne({ corp_email })
+      const CorpTrainee = await corp.findOne({ corp_user })
     
       if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
         res.json({
           _id: CorpTrainee.id,
           name: CorpTrainee.Name,
           email: CorpTrainee.corp_email,
+          username: CorpTrainee.corp_user,
           token: generateToken(CorpTrainee._id),
         })
       } else {

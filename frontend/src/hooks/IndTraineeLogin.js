@@ -6,14 +6,14 @@ export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
 
-  const login = async (indv_email, indv_pass) => {
+  const login = async (indv_user, indv_pass) => {
     setIsLoading(true)
     setError(null)
 
     const response = await fetch('/api/indvtrainee/loginIndTrainee', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ indv_email, indv_pass })
+      body: JSON.stringify({ indv_user, indv_pass })
     })
     const json = await response.json()
 

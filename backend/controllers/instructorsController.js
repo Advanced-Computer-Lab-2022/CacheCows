@@ -276,15 +276,16 @@ if (Instructor) {
   // @route   POST /api/instructors/login
   // @access  Public
   const loginInstructor = asyncHandler(async (req, res) => {
-    const { instructor_email, instructor_pass } = req.body
+    const { instructor_user, instructor_pass } = req.body
   
     // Check for user email
-    const Instructor = await instructors.findOne({ instructor_email })
+    const Instructor = await instructors.findOne({ instructor_user })
   
     if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass))) {
       res.json({
         _id: Instructor.id,
         name: Instructor.instructor_name,
+        username: Instructor.instructor_user,
         email: Instructor.instructor_email,
         token: generateToken(Instructor._id),
       })

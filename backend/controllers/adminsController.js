@@ -283,16 +283,17 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
 
 
       const loginAdmin = asyncHandler(async (req, res) => {
-        const { admin_email, admin_pass } = req.body
+        const { admin_user, admin_pass } = req.body
       
         // Check for user email
-        const Admin = await admins.findOne({ admin_email })
+        const Admin = await admins.findOne({ admin_user })
       
         if (Admin && (await bcrypt.compare(admin_pass, Admin.admin_pass))) {
           res.json({
             _id: Admin.id,
             name: Admin.admin_name,
             email: Admin.admin_email,
+            username: Admin.admin_user,
             token: generateToken(Admin._id),
           })
         } else {

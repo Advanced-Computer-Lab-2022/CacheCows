@@ -3,32 +3,32 @@ import { useLogin } from "../hooks/IndTraineeLogin"
 
 
 const Login = () => {
-  const [indv_email, setEmail] = useState('')
-  const [indv_pass, setPassword] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const {login, error, isLoading} = useLogin()
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await login(indv_email, indv_pass)
+    await login(username, password)
   }
 
   return (
     <form className="login" onSubmit={handleSubmit}>
       <h3>Log In</h3>
       
-      <label>Email address:</label>
+      <label>Username :</label>
       <input 
-        type="email" 
-        onChange={(e) => setEmail(e.target.value)} 
-        value={indv_email} 
+        type="username" 
+        onChange={(e) => setUsername(e.target.value)} 
+        value={username} 
       />
       <label>Password:</label>
       <input 
         type="password" 
         onChange={(e) => setPassword(e.target.value)} 
-        value={indv_pass} 
+        value={password} 
       />
       
          <button disabled={isLoading}>Log in</button>
