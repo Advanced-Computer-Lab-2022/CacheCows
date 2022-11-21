@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
-const Instructor = require('../models/InstructorsModel')
+const user = require('../models/InstructorsModel')
 
 
 const protect = asyncHandler(async (req, res, next) => {
@@ -14,11 +14,11 @@ const protect = asyncHandler(async (req, res, next) => {
       // Get token from header
       token = req.headers.authorization.split(' ')[1]
 
-      // Verify token
+      // Verify token 
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-      // Get Instructor from the token
-      req.Instructor = await Instructor.findById(decoded.id).select('-password')
+      // Get admin from the token
+      req.user = await user.findById(decoded.id).select('-password')
 
       next()
     } catch (error) {

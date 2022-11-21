@@ -1,9 +1,12 @@
 
 const express = require('express')
-const router = express.Router()
 const controlls = require('../controllers/adminsController.js')
 const { protect } = require('../middleware/AdminAuthMiddleware.js')
+const router = express.Router()
 
+
+// require auth for all workout routes
+router.use(protect)
 
 router.get('/getAdmins',controlls.getAdmins);
 router.get('/getAdmin',controlls.getAdmin);

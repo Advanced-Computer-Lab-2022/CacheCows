@@ -1,11 +1,14 @@
 const express = require('express')
-const router = express.Router()
 const controlls=require('../controllers/corporateTraineeController')
 const { route } = require('./courseRoutes')
-const { protect } = require('../middleware/CorpTraineeAuthMiddleware')
 const instructorControlls=require('../controllers/instructorsController')
 const coursesControlls=require('../controllers/coursesController')
 
+const { protect } = require('../middleware/CorpTraineeAuthMiddleware')
+const router = express.Router()
+
+// require auth for all workout routes
+router.use(protect)
 
 
 router.get('/alltrainees',controlls.getAllcrpTrainee);
