@@ -3,35 +3,27 @@ const asyncHandler = require('express-async-handler')
 const user = require('../models/individualTraineeModel')
 
 
-const protect = asyncHandler(async (req, res, next) => {
-  let token
+const protect = async (req, res, next) => {
+  // verify user is authenticated
+  const { authorization } = req.headers
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
-    try {
-      // Get token from header
-      token = req.headers.authorization.split(' ')[1]
-
-      // Verify token 
-      const decoded = jwt.verify(token, process.env.JWT_SECRET)
-
-      // Get admin from the token
-      req.user = await user.findById(decoded.id).select('-password')
-
-      next()
-    } catch (error) {
-      console.log(error)
-      res.status(401)
-      throw new Error('Not authorized')
-    }
+  if (!authorization) {
+    return res.status(401).json({error: 'Authorization token required'})
   }
 
-  if (!token) {
-    res.status(401)
-    throw new Error('Not authorized, no token')
+  const token = authorization.split(' ')[1]
+
+  try {
+    const { _id } = jwt.verify(token, process.env.SECRET)
+
+    req.user = await user.findOne({ _id }).select('_id')
+    next()
+
+  } catch (error) {
+    console.log(error)
+    res.status(401).json({error: 'Request is not authorized'})
   }
-})
+}
+
 
 module.exports = { protect }

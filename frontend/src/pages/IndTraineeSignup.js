@@ -62,7 +62,8 @@ const Signup = () => {
         value={indv_bd} 
       />
 
-<Link to="/indTrainee"> <button disabled={isLoading}>Sign up</button> </Link>      {error && <div className="error">{error}</div>}
+ <button disabled={isLoading}>Sign up</button> 
+       {error && <div className="error">{error}</div>}
     </form>
   )
 }

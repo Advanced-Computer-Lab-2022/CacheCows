@@ -10,16 +10,16 @@ const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
 const router = express.Router()
 
 // require auth for all workout routes
-router.use(protect)
+router.post('/registerIndTrainee', registerIndTrainee);
+router.post('/loginIndTrainee', loginIndTrainee);
 
+
+//router.use(protect)
 
 
 router.get('/allindvtrainees',controlls.getAllinvdTrainee);
 router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
 router.get('/getAllinvdTrainees',getAllinvdTrainees);
-
-
-
 router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.delete('/deleteindvTrainee/:id',controlls.deleteindvTrainee);
@@ -28,8 +28,7 @@ router.put('/changepassword/:id',controlls.changepassword);
 router.put('/rateInstructor/:id',instructorControlls.rating);
 router.put('/rateCourse/:id',coursesControlls.rating)
 router.post('/forgetpassword',controlls.sendEmailIndv)
-router.post('/registerIndTrainee', registerIndTrainee);
-router.post('/loginIndTrainee', loginIndTrainee);
+
 router.get('/me', protect, getMe);
 
 

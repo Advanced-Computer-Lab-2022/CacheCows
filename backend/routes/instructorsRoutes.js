@@ -11,7 +11,10 @@ const {
   const router = express.Router()
 
 // require auth for all workout routes
-router.use(protect)
+router.post('/loginInstructor', loginInstructor);
+router.post('/registerInstructor', registerInstructor);
+
+//router.use(protect)
 
  
 
@@ -23,13 +26,6 @@ router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword/:id',controlls.changepassword);
 router.post('/forgetpassword/:id',controlls.sendEmailInstructor)
-
- 
-router.post('/registerInstructor', registerInstructor);
-// router.post('/registerInstructor2', registerInstructor2);
-
-
-router.post('/loginInstructor', loginInstructor);
 
 router.post('/me', protect, getMe);
 

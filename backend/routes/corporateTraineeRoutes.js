@@ -7,8 +7,9 @@ const coursesControlls=require('../controllers/coursesController')
 const { protect } = require('../middleware/CorpTraineeAuthMiddleware')
 const router = express.Router()
 
+router.post('/loginCorpTrainee',controlls.loginCorpTrainee);
 // require auth for all workout routes
-router.use(protect)
+//router.use(protect)
 
 
 router.get('/alltrainees',controlls.getAllcrpTrainee);
@@ -19,7 +20,7 @@ router.put('/updatecorptrainee/:id',controlls.updatecrptrainee);
 router.put('/changepassword/:id',controlls.changepassword);
 router.put('rateInstructor/:id',instructorControlls.rating);
 router.put('../rateCourse/:id',coursesControlls.rating)
-router.post('/loginCorpTrainee',controlls.loginCorpTrainee);
+
 router.post('/forgetpassword',controlls.sendEmailcrop)
 router.get('/me',protect, controlls.getMe);
 

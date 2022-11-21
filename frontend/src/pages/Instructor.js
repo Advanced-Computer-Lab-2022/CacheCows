@@ -6,6 +6,8 @@ import CourseForm from "../components/CourseForm"
 import CountryForm from "../components/CountryForm"
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
+import { useAuthContext } from "../hooks/useAuthContext"
+
 
 const languages = [
     {
@@ -36,20 +38,26 @@ const languages = [
   ]
 
 const Instructor=()=>{
+  const {user} = useAuthContext()
+
     
     const [courses,setCourses]=useState()
     const [selectedLanguages, setSelectedLanguages] = useState([])
 useEffect(()=>{
     const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourses')
+        const response= await fetch('/api/courses/getCourses',{
+          headers: {'Authorization': `Bearer ${user.token}`},
+        })
         const json= await response.json()
 
         if(response.ok){
         setCourses(json)
         }
     }
-
-    fetchCourses()
+    if (user) {
+      fetchCourses()
+        }
+    
 },[])
 
 const navigate=useNavigate();

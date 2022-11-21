@@ -60,7 +60,7 @@ const Signup = () => {
         value={instructor_bd} 
       />
 
-     <Link to="/instructor"> <button disabled={isLoading}>Sign up</button> </Link>
+     <button disabled={isLoading}>Sign up</button> 
       
 
       {error && <div className="error">{error}</div>}
