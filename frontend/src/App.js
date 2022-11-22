@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 //import Home from './pages/Home'
+import CourseInfo from "./components/CourseInfo";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
@@ -48,6 +49,7 @@ import Cropforgetpassword from "./pages/cropforgetpassword";
 import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
+import CourseDetails from "./components/CourseDetails";
 function App() {
 
   const { user } = useAuthContext()
@@ -171,6 +173,10 @@ function App() {
             <Route 
             path="cropchangepassword"
             element={<Cropchangepasssword/>}
+            />
+            <Route 
+            path="CourseDetails"
+            element={<CourseInfo/>}
             />
         </Routes>
        

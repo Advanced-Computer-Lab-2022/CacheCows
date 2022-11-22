@@ -27,7 +27,14 @@ const CoursesSchema = new mongoose.Schema({
      course_description2:{type: String,  },
      course_description3:{type: String,  },
      course_total_ratings:{type:Number},
-     course_total_no_ratings:{type:Number}
+     course_total_no_ratings:{type:Number},
+     course_subtopic1:{type: String,  },
+     course_subtopic2:{type: String,  },
+     course_subtopic3:{type: String,  },
+     course_subtopic4:{type: String,  },
+     course_subtopic5:{type: String,  },
+     course_subtopic6:{type: String,  }
+
      
      
      

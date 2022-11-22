@@ -1,5 +1,6 @@
 import { Container } from 'react-bootstrap'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CourseDetails = ({course}) => {
     const [isShown, setIsShown] = useState(false);
@@ -36,14 +37,15 @@ const CourseDetails = ({course}) => {
         setDisc2(false)
         setDisc3(true)
       }
-
+      const navigate=useNavigate();
+      
     return(
         <Container onMouseOver={() => setIsShown(true)} onMouseOut={() => setIsShown(false)} className="course-details" >
             <div className="ratio ratio-16x9">
                 {prv1 && (<iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>)}
                 {prv2 && (<iframe src={course.course_preview2} title="YouTube video" allowFullScreen></iframe>)}
                 {prv3 && (<iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>)}
-            <h4>{course.course_name}</h4>
+            <p onClick={()=>{navigate("/CourseDetails");}}><h4>{course.course_name}</h4></p>
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
