@@ -55,15 +55,16 @@ const getOnecrpTrainee=async (req,res)=>{
 }
 
 
-const deletecrpTrainee=async(req,res)=>{
-    try{
-        await corp.findByIdAndDelete(req.params.id)
-        res.status(200).json("deleted");
-    }
-    catch(error){
-      res.status(400).json({error: error.message});
-    }
-}
+const deletecrpTrainee=  asyncHandler(async (req, res) => {
+    
+  const Crp = await corp.find({corp_user: req.body.corp_user})
+  if (Admin.toString() === ""){
+    res.status(400).json({error:'Admin Not Found'})
+  }
+   await corp.deleteOne({corp_user: req.body.corp_user})
+   res.status(200).json({Crp})
+   
+  })
 
 const updatecrptrainee=async(req,res)=>{
     try{

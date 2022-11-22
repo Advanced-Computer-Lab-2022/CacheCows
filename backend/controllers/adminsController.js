@@ -83,11 +83,11 @@ const updateAdmin = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteAdmin =  asyncHandler(async (req, res) => {
     
-    const Admin = await admins.find({Admin_name: req.body.Admin_name})
+    const Admin = await admins.find({admin_user: req.body.admin_user})
     if (Admin.toString() === ""){
       res.status(400).json({error:'Admin Not Found'})
     }
-     await admins.deleteOne({Admin_name: req.body.Admin_name})
+     await admins.deleteOne({admin_user: req.body.admin_user})
      res.status(200).json({Admin})
      
     })

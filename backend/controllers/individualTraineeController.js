@@ -58,16 +58,16 @@ catch(error){
 }
 }
 
-const deleteindvTrainee=async(req,res)=>{
-  try{
-      await indv.findByIdAndDelete(req.params.id)
-      res.status(200).json("deleted");
+const deleteIndvTrainee=  asyncHandler(async (req, res) => {
+    
+  const Indv = await indv.find({indv_user: req.body.indv_user})
+  if (Indv.toString() === ""){
+    res.status(400).json({error:'Admin Not Found'})
   }
-  catch(error){
-    res.status(400).json({error:error.message});
-  }
-  
-}
+   await indv.deleteOne({indv_user: req.body.indv_user})
+   res.status(200).json({Indv})
+   
+  })
 const updateindvtrainee=async(req,res)=>{
   try{
       await indv.findByIdAndUpdate(req.params.id,req.body,{new:true});

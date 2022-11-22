@@ -23,6 +23,7 @@ var transporeter=nodemailer.createTransport({
 // @desc Get Instructors
 // @routes GET /api/Instructors
 // @access Private 
+
 const getInstructors = asyncHandler(async (req, res) => {
 
     const allInstructors = await instructors.find()
@@ -81,12 +82,12 @@ const updateInstructor = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteInstructor =  asyncHandler(async (req, res) => {
     
-    const Instructor = await instructors.find({Instructor_name: req.body.Instructor_user})
+    const Instructor = await instructors.find({instructor_user: req.body.instructor_user})
     if (Instructor.toString() === ""){
         res.status(400)
         throw new Error ('Instructor not found')
     }
-     await instructors.deleteOne({Instructor_user: req.body.Instructor_user})
+     await instructors.deleteOne({instructor_user: req.body.Instructor_user})
      res.status(200).json({Instructor})
      
     })
