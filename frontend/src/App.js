@@ -41,10 +41,13 @@ import IndTraineeLogin from './pages/IndTraineeLogin'
 import CorpTraineeLogin from './pages/CorpTraineeLogin'
 import AdminLogin from './pages/AdminLogin'
 
+import Instforgetpassword from './pages/instforgetPassword'
 
-
-
-
+import Indvforgetpassword from "./pages/indvforgetpassword";
+import Cropforgetpassword from "./pages/cropforgetpassword";
+import Instchangepasssword from "./pages/instchangepass";
+import Indvchangepasssword from "./pages/Indvchangepassword";
+import Cropchangepasssword from "./pages/Cropchangepassword";
 function App() {
 
   const { user } = useAuthContext()
@@ -145,7 +148,30 @@ function App() {
               path="/AdminLogin" 
               element={<AdminLogin />} 
             />
-        
+            <Route 
+            path="instforgetpassword"
+            element={<Instforgetpassword/>}
+            />
+        <Route 
+            path="indvforgetpassword"
+            element={<Indvforgetpassword/>}
+            />
+            <Route 
+            path="cropforgetpassword"
+            element={<Cropforgetpassword/>}
+            />
+            <Route 
+            path="instchangepassword"
+            element={<Instchangepasssword/>}
+            />
+            <Route 
+            path="indvchangepassword"
+            element={<Indvchangepasssword/>}
+            />
+            <Route 
+            path="cropchangepassword"
+            element={<Cropchangepasssword/>}
+            />
         </Routes>
        
       </div>

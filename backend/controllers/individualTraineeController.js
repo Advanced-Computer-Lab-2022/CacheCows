@@ -81,7 +81,8 @@ const updateindvtrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-  await indv.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    const indv_id=req.IndivTrainee._id
+  await indv.findByIdAndUpdate(indv_id,req.body,{new:true})
   
   res.status(200).json("updated")
   }
