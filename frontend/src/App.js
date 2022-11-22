@@ -20,7 +20,7 @@ import ErrorPage from "./pages/ErrorPage";
 import NavigationBar from './components/NavigationBar';
 import Instructor from './pages/Instructor'
 import InstructorcourseByprice from './pages/InstrutorcourseByprice'
-import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
 import Guest from "./pages/Guest";
 import Courses from "./pages/Courses";
 import Previewinstructorcourse from "./pages/previewinstructorcourse"
@@ -52,6 +52,8 @@ function App() {
 
   const { user } = useAuthContext()
 
+  const usertype = localStorage.getItem('user')
+
   return (
 
     
@@ -61,8 +63,12 @@ function App() {
       <NavigationBar/>
        <div className="pages">
         <Routes>
-          <Route
+        <Route 
           path = "/"
+          element = { <Dashboard /> }
+          />
+          <Route
+          path = "/home"
           element={user ? <HomePage /> : <Navigate to="/login" />}
           />
           <Route 

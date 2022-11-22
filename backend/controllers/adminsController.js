@@ -24,8 +24,7 @@ const getAdmin =  asyncHandler(async (req, res) => {
     
     const Admin = await admins.find({Admin_name: req.body.Admin_name})
     if (Admin.toString() === ""){
-        res.status(400)
-        throw new Error ('Admin not found')
+      res.status(400).json({error:'Admin Not Found'})
     }
      res.status(200).json({Admin})
      
@@ -72,8 +71,7 @@ const updateAdmin = asyncHandler(async (req, res) => {
     const Admin = await admins.find({_id: req.body._id})
     
     if (Admin.toString() === ""){
-        res.status(400)
-        throw new Error ('Admin not found')
+      res.status(400).json({error:'Admin Not Found'})
     }
     const updatedAdmin = await admins.findByIdAndUpdate({_id: req.body._id}, req.body ,{
         new : true,
@@ -87,8 +85,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
     
     const Admin = await admins.find({Admin_name: req.body.Admin_name})
     if (Admin.toString() === ""){
-        res.status(400)
-        throw new Error ('Admin not found')
+      res.status(400).json({error:'Admin Not Found'})
     }
      await admins.deleteOne({Admin_name: req.body.Admin_name})
      res.status(200).json({Admin})
@@ -97,8 +94,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
 
     const createInstructor = asyncHandler(async(req, res) => {
         if (!req.body.instructor_user){
-            res.status(400)
-            throw new Error('Please add a text field')
+          res.status(400).json({error:'Please Add a Text Field'})
         }
     
         const Instructor = await instructors.create({
@@ -110,8 +106,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
 
        const createCorpTrainee = asyncHandler(async(req, res) => {
         if (!req.body.corp_user){
-            res.status(400)
-            throw new Error('Please add a text field')
+          res.status(400).json({error:'Please Add a Text Field'})
         }
     
         const Corp = await corp.create({
@@ -126,22 +121,19 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
 
 
        const registerCorpTrainee = asyncHandler(async(req, res) => {
-        if (!req.body.Name || !req.body.corp_user || !req.body.corp_pass  || !req.body.corp_email 
+        if (!req.body.corp_name || !req.body.corp_user || !req.body.corp_pass  || !req.body.corp_email 
           || !req.body.Country || !req.body.corp_bd ){
-            res.status(400)
-            throw new Error('Please add all fields')
+            res.status(400).json({error:'Please Add All fields'})
         }
         if (!validator.isEmail(req.body.corp_email)) {
-          throw Error('Email not valid')
+          res.status(400).json({error:'Email is not valid'})
         }
         // if (!validator.isStrongPassword(req.body.corp_pass)) {
-        //   throw Error('Password not strong enough')
-        // }
+          // res.status(400).json({error:'Password Not Strong Enough'})        // }
         const corpExists = await corp.findOne({ corp_email: req.body.corp_email })
         
           if (corpExists) {
-            res.status(400)
-            throw new Error('Trainee already exists')
+            res.status(400).json({error:'Trainee Already Exists'})
           }
           const salt = await bcrypt.genSalt(10)
           const hashedPassword = await bcrypt.hash(req.body.corp_pass, salt)
@@ -149,7 +141,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       
       
       const CorpTrainee = await corp.create({
-            Name : req.body.Name,
+        corp_name : req.body.corp_name,
             corp_user : req.body.corp_user,
             corp_email : req.body.corp_email,
             corp_pass : hashedPassword,
@@ -160,13 +152,12 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       if (CorpTrainee) {
         res.status(201).json({
           _id: CorpTrainee.id,
-          name: CorpTrainee.Name,
+          corp_name: CorpTrainee.corp_name,
           email: CorpTrainee.corp_email,
           token: generateToken(CorpTrainee._id),
         })
       } else {
-        res.status(400)
-        throw new Error('Invalid user data')
+        res.status(400).json({error:'Invalid User Data'})
       }
       })
 
@@ -184,20 +175,18 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       const RegisterAdmin = asyncHandler(async(req, res) => {
         if (!req.body.admin_name || !req.body.admin_bd || !req.body.admin_pass  || !req.body.admin_user 
           || !req.body.country || !req.body.admin_email ){
-            res.status(400)
-            throw new Error('Please add all fields')
+            res.status(400).json({error:'Please Add All fields'})
         }
         if (!validator.isEmail(req.body.admin_email)) {
-          throw Error('Email not valid')
+          res.status(400).json({error:'Email is not valid'})
         }
         // if (!validator.isStrongPassword(req.body.admin_pass)) {
-        //   throw Error('Password not strong enough')
+        //   res.status(400).json({error:'Password Not Strong Enough'})
         // }
         const adminExists = await admins.findOne({ admin_email: req.body.admin_email })
         
           if (adminExists) {
-            res.status(400)
-            throw new Error('Admin already exists')
+            res.status(400).json({error:'Admin Already Exists'})
           }
           const salt = await bcrypt.genSalt(10)
           const hashedPassword = await bcrypt.hash(req.body.admin_pass, salt)
@@ -221,8 +210,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
           token: generateToken(Admin._id),
         })
       } else {
-        res.status(400)
-        throw new Error('Invalid user data')
+        res.status(400).json({error:'Invalid User Data'})
       }
       })
       //////////////////////////////////////////////
@@ -230,20 +218,18 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
       const registerInstructor = asyncHandler(async(req, res) => {
         if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
           || !req.body.country || !req.body.instructor_bd ){
-            res.status(400)
-            throw new Error('Please add all fields')
+            res.status(400).json({error:'Please Add All fields'})
         }
         if (!validator.isEmail(req.body.instructor_email)) {
-          throw Error('Email not valid')
+          res.status(400).json({error:'Email is not valid'})
         }
-        if (!validator.isStrongPassword(req.body.instructor_pass)) {
-          throw Error('Password not strong enough')
-        }
+        // if (!validator.isStrongPassword(req.body.instructor_pass)) {
+        //   res.status(400).json({error:'Password Not Strong Enough'})
+        // }
         const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
         
           if (instructorExists) {
-            res.status(400)
-            throw new Error('Instructor already exists')
+            res.status(400).json({error:'Instructor Already Exists'})
           }
           const salt = await bcrypt.genSalt(10)
           const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
@@ -267,8 +253,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
           token: generateToken(Instructor._id),
         })
       } else {
-        res.status(400)
-        throw new Error('Invalid user data')
+        res.status(400).json({error:'Invalid User Data'})
       }
       })
 
@@ -288,8 +273,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
         // Check for user email
         const Admin = await admins.findOne({ admin_user })
 
-        if(!Admin){res.status(400)
-          throw new Error('Admin Does not Exist')}
+        if(!Admin){res.status(400).json({error:'Admin Does Not Exist'})}
       
         else if (Admin && (await bcrypt.compare(admin_pass, Admin.admin_pass))) {
           res.json({
@@ -300,8 +284,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
             token: generateToken(Admin._id),
           })
         } else {
-          res.status(400)
-          throw new Error('Wrong Password')
+          res.status(400).json({error:'Wrong Password'})
         }
       })
       

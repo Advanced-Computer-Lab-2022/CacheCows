@@ -33,8 +33,7 @@ const getInstructor =  asyncHandler(async (req, res) => {
     
     const Instructor = await instructors.find({Instructor_name: req.body.Instructor_name})
     if (Instructor.toString() === ""){
-        res.status(400)
-        throw new Error ('Instructor not found')
+      res.status(400).json({error:'Instructor Not Found'})
     }
      res.status(200).json({Instructor})
      
@@ -82,12 +81,12 @@ const updateInstructor = asyncHandler(async (req, res) => {
 // @access Private 
 const deleteInstructor =  asyncHandler(async (req, res) => {
     
-    const Instructor = await instructors.find({Instructor_name: req.body.Instructor_name})
+    const Instructor = await instructors.find({Instructor_name: req.body.Instructor_user})
     if (Instructor.toString() === ""){
         res.status(400)
         throw new Error ('Instructor not found')
     }
-     await instructors.deleteOne({Instructor_name: req.body.Instructor_name})
+     await instructors.deleteOne({Instructor_user: req.body.Instructor_user})
      res.status(200).json({Instructor})
      
     })
@@ -121,10 +120,13 @@ catch(error){
 const changepassword=async(req,res)=>{
 
   try{
-    const inst_id=req.Instructor._id
-  await instructors.findByIdAndUpdate(inst_id,req.body,{new:true})
+    const inst_id=req.user._id
+//  const instructor =await instructors.findByIdAndUpdate(inst_id,req.body,{new:true})
+const instructor =await instructors.findById(inst_id)
+console.log(inst_id)
+
   
-  res.status(200).json("updated")
+  res.status(200).json(instructor)
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -186,11 +188,10 @@ const registerInstructor = asyncHandler(async(req, res) => {
 
   if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
     || !req.body.country || !req.body.instructor_bd ){
-      res.status(400)
-      throw new Error('Please add all fields')
+      res.status(400).json({error:'Please Add All Fields'})
   }
   if (!validator.isEmail(req.body.instructor_email)) {
-    throw Error('Email not valid')
+    res.status(400).json({error:'Email Not Valid'})
   }
   // if (!validator.isStrongPassword(req.body.instructor_pass)) {
   //   throw Error('Password not strong enough')
@@ -199,8 +200,7 @@ const registerInstructor = asyncHandler(async(req, res) => {
   const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
   
     if (instructorExists) {
-      res.status(400)
-      throw new Error('Instructor already exists')
+      res.status(400).json({error:'Instructor Already Exists'})
     }
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
@@ -224,8 +224,7 @@ if (Instructor) {
     token: generateToken(Instructor._id),
   })
 } else {
-  res.status(400)
-  throw new Error('Invalid user data')
+  res.status(400).json({error:'Invalid User Data'})
 }
 })
 
@@ -305,7 +304,7 @@ if (Instructor) {
     const { instructor_user, instructor_pass } = req.body
     
       const Instructor = await instructors.findOne({ instructor_user })
-      if (!Instructor){ throw new Error('Instructor Not Found')}
+      if (!Instructor){ res.status(400).json({error:'Instructor Does Not Exist'})}
 
 
      else if (Instructor && (await bcrypt.compare(instructor_pass, Instructor.instructor_pass)))
@@ -318,8 +317,7 @@ if (Instructor) {
         token: generateToken(Instructor._id),
       })
      }
-     else{res.status(400)
-      throw new Error('Wrong Password')}
+     else{res.status(400).json({error:'Wrong Password'})}
   } )
 
   // @desc    Get user data

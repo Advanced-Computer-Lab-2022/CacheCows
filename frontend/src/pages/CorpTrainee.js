@@ -42,6 +42,8 @@ const languages = [
     const [selectedLanguages, setSelectedLanguages] = useState([])
   
     useEffect(()=>{
+
+      
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getCourse')
         const json= await response.json()

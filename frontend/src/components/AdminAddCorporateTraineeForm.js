@@ -13,7 +13,7 @@ const AdminAddCrpTraineeForm = () => {
     const [corp_user, setUserName] = useState('')
     const [corp_pass, setPassword] = useState('')
     const [corp_email, setEmail] = useState('')
-    const [Country, setCountry] = useState('')
+    const [country, setCountry] = useState('')
     const [corp_bd, setBd] = useState('')
   
     const[error , setError] = useState(null)
@@ -32,20 +32,28 @@ const AdminAddCrpTraineeForm = () => {
             corp_user,
             corp_pass, 
             corp_email, 
-            Country, 
+            country, 
             corp_bd,
         }
 
 
+        const response =  async () => {
+            await axios.post('/api/admins/registerCorpTrainee').then(
+           (res) => { 
+               
+           }
+            );
+         
+       }
 
-        const response = await fetch('/api/admins/registerCorpTrainee', {
-            method: 'POST',
-            body: JSON.stringify(crp),
-            headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
+        // const response = await fetch('/api/admins/registerCorpTrainee', {
+        //     method: 'POST',
+        //     body: JSON.stringify(crp),
+        //     headers: {
+        //         'Content-Type' : 'application/json',
+        //         'Authorization': `Bearer ${user.token}`
+        //     }
+        // })
         const json = await response.json()
 
         if(!response.ok) {
@@ -106,7 +114,7 @@ const AdminAddCrpTraineeForm = () => {
         <input
             type = "text"
             onChange={(e) => setCountry(e.target.value)}
-            value={Country}
+            value={country}
         />
 
 

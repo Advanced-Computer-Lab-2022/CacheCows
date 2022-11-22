@@ -131,11 +131,10 @@ res.status(400).json({error:error.message})
 const registerIndTrainee = asyncHandler(async(req, res) => {
   if (!req.body.Name || !req.body.indv_user || !req.body.indv_email  || !req.body.indv_pass 
     || !req.body.Country || !req.body.indv_bd ){
-      res.status(400)
-      throw new Error('Please add all fields')
+      res.status(400).json({error:'Please Add all Fields'})
   }
   if (!validator.isEmail(req.body.indv_email)) {
-    throw Error('Email not valid')
+    res.status(400).json({error:'Email is not Valid'})
   }
   // if (!validator.isStrongPassword(req.body.indv_pass)) {
   //   throw Error('Password not strong enough')
@@ -143,8 +142,7 @@ const registerIndTrainee = asyncHandler(async(req, res) => {
   const indivExists = await indv.findOne({ indv_email: req.body.indv_email })
   
     if (indivExists) {
-      res.status(400)
-      throw new Error('Trainee already exists')
+      res.status(400).json({error:'Trainee Already Exists!'})
     }
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
@@ -168,8 +166,7 @@ if (IndivTrainee) {
     token: generateToken(IndivTrainee._id),
   })
 } else {
-  res.status(400)
-  throw new Error('Invalid user data')
+  res.status(400).json({error:'Invalid User Data'})
 }
 })
 
@@ -183,8 +180,7 @@ if (IndivTrainee) {
   
     // Check for user email
     const IndivTrainee = await indv.findOne({ indv_user })
-    if(!IndivTrainee){res.status(400)
-      throw new Error('Trainee Does not Exist')}
+    if(!IndivTrainee){res.status(400).json({error:'Trainee Does Not Exist'})}
   
     else
   
@@ -197,8 +193,7 @@ if (IndivTrainee) {
         token: generateToken(IndivTrainee._id),
       })
     } else {
-      res.status(400)
-      throw new Error('Wrong Passwords')
+      res.status(400).json({error:'Wrong Password'})
     }
   })
   

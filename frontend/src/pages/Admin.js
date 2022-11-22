@@ -8,6 +8,8 @@ import InstructorDetails from "../components/InstructorDetails"
 import AdminAddCrpTraineeForm from "../components/AdminAddCrpTraineeForm"
 import CrpTraineeDetails from "../components/CrpTraineeDetails"
 
+
+
 import AdminDetails from "../components/AdminDetails"
 import AdminForm from "../components/AdminForm"
 
