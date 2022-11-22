@@ -116,7 +116,19 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
         res.status(200).json({Corp})
        })
 
-     
+     ////////////////////////////////////////////////
+
+const getInstructors = asyncHandler(async (req, res) => {
+
+    const allInstructors = await instructors.find()
+    res.status(200).json(allInstructors)
+})
+
+const getAllcrpTrainee = asyncHandler(async (req, res) => {
+
+  const val = await corp.find()
+  res.status(200).json(val)
+})
 //////////////////////////////////////////////////////////////////////////////////////////////////REgistring
 
 
@@ -320,5 +332,7 @@ module.exports = {
     registerInstructor,
     RegisterAdmin,
     loginAdmin,
-    getMe
+    getMe,
+    getInstructors,
+    getAllcrpTrainee
 }
