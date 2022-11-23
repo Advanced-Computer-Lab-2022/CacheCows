@@ -1,38 +1,33 @@
 import { Container } from 'react-bootstrap'
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { useState } from "react";
-import PopUp from './PopUp';
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const CourseInfo = ({course}) => {
-    const [isShown, setIsShown] = useState(false);
-    const [sub1, setsub1] = useState(true);
-    const [sub2, setsub2] = useState(false);
-    const [sub3, setsub3] = useState(false);
-    const [disc1, setDisc1] = useState(true);
-    const [disc2, setDisc2] = useState(false);
-    const [disc3, setDisc3] = useState(false);
 
 
     return(
+        
         <Container className="course-details" >
-            <p><h4>{course.course_name}</h4></p>
-            <p><strong>Course ID: </strong>{course.course_id}</p>
-            <p><strong>Course rating: </strong>{course.course_rating}</p>
-            <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-
-            {isShown && (
              <p>
-            <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
-            {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
-            {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
-            {disc3 && (<p><strong>Course Description: </strong>{course.course_description3}</p>)}
+            <p><strong>Course Map: </strong></p>
+            
+            <Popup  trigger={
+            <p><h4>{course.course_subtopic1}</h4></p>}>
+            <p className='Modal'>
+            <iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>
+            </p>
+            </Popup>
+            <p><h4>{course.course_subtopic2}</h4></p>
+            <p onClick={<Popup><iframe src={course.course_preview2} title="YouTube video" allowFullScreen></iframe></Popup>}><h4>{course.course_subtopic3}</h4></p>
+            <p>{course.course_subtopic4}</p>
+            <p onClick={<Popup><iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe></Popup>}><h4>{course.course_subtopic5}</h4></p>
+            <p><h4>{course.course_subtopic6}</h4></p>
             <p><strong>Choose Subtitle: </strong></p>
-            <button onClick={sub1}>{course.course_subtitles1}</button>
-            <button onClick={sub2}>{course.course_subtitles2}</button>
-            <button onClick={sub3}>{course.course_subtitles3}</button>
-             <p>{course.createdAt}</p>
              </p>
-             
-             )}
         </Container>
     )
 }

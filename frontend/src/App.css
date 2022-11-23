@@ -158,6 +158,13 @@
     margin-right: 20px;
   }
   
+.Modal{
+  width: 300% !important;
+  padding: 5% !important;
+  border-radius: 5px;
+  resize: 'contain';
+}
+
   @keyframes expand {
     from {
       transform: scale(0);

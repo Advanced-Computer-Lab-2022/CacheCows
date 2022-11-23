@@ -49,7 +49,8 @@ import Cropforgetpassword from "./pages/cropforgetpassword";
 import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
-import CourseDetails from "./components/CourseDetails";
+import CoursePage from "./pages/CoursePage";
+
 function App() {
 
   const { user } = useAuthContext()
@@ -175,8 +176,8 @@ function App() {
             element={<Cropchangepasssword/>}
             />
             <Route 
-            path="CourseDetails"
-            element={<CourseInfo/>}
+            path="CoursePage"
+            element={<CoursePage/>}
             />
         </Routes>
        
