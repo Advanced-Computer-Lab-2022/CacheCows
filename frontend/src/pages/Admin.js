@@ -8,6 +8,8 @@ import InstructorDetails from "../components/InstructorDetails"
 import AdminAddCrpTraineeForm from "../components/AdminAddCrpTraineeForm"
 import CrpTraineeDetails from "../components/CrpTraineeDetails"
 
+
+
 import AdminDetails from "../components/AdminDetails"
 import AdminForm from "../components/AdminForm"
 
@@ -64,7 +66,7 @@ const Admin = () => {
   
     useEffect(() => {
       const fetchinstructors = async () => {
-        const response = await fetch('/api/instructors/getinstructors')
+        const response = await fetch('/api/admins/getInstructors')
         const json = await response.json()
   
         if (response.ok) {
@@ -79,7 +81,7 @@ const Admin = () => {
       
         useEffect(() => {
           const fetchcorptrainees = async () => {
-            const response = await fetch('/api/corpTrainee/alltrainees')
+            const response = await fetch('/api/admins/getAllcrpTrainee')
             const json = await response.json()
       
             if (response.ok) {

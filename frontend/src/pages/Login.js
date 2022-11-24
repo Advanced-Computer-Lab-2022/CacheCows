@@ -68,6 +68,19 @@ const navigate=useNavigate();
       </button>
       </div>
       <br />
+
+      <div>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        {" "}
+        Continue As A Guest
+      </button>
+      </div>
+
+
       
       
 

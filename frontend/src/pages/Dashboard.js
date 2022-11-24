@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 // components
 import CourseDetails from "../components/CourseDetails"
-import CourseForm from "../components/CourseForm"
 
-const Home = () => {
+const Dashboard = () => {
   const [courses, setCourses] = useState(null)
 
   useEffect(() => {
@@ -28,11 +27,10 @@ const Home = () => {
           <CourseDetails course={course} key={course._id} />
         ))}
       </div> 
-      <CourseForm />
     </div>
   )
 }
 
 
 
-export default Home
+export default Dashboard;

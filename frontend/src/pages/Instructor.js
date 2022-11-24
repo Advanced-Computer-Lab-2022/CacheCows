@@ -101,6 +101,7 @@ const navigate=useNavigate();
     <div>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
+
 </div>
 
  )

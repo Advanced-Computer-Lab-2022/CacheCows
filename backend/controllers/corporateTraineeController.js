@@ -55,15 +55,16 @@ const getOnecrpTrainee=async (req,res)=>{
 }
 
 
-const deletecrpTrainee=async(req,res)=>{
-    try{
-        await corp.findByIdAndDelete(req.params.id)
-        res.status(200).json("deleted");
-    }
-    catch(error){
-      res.status(400).json({error: error.message});
-    }
-}
+const deletecrpTrainee=  asyncHandler(async (req, res) => {
+    
+  const Crp = await corp.find({corp_user: req.body.corp_user})
+  if (Admin.toString() === ""){
+    res.status(400).json({error:'Admin Not Found'})
+  }
+   await corp.deleteOne({corp_user: req.body.corp_user})
+   res.status(200).json({Crp})
+   
+  })
 
 const updatecrptrainee=async(req,res)=>{
     try{
@@ -134,20 +135,18 @@ res.status(400).json({error:error.message})
     
       // Check for user email
       const CorpTrainee = await corp.findOne({ corp_user })
-      if(!CorpTrainee){res.status(400)
-        throw new Error('Trainee Does not Exist')}
+      if(!CorpTrainee){res.status(400).json({error:'Trainee Does Not Exist'})}
     
       else if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
         res.json({
           _id: CorpTrainee.id,
-          name: CorpTrainee.Name,
+          Name: CorpTrainee.Name,
           email: CorpTrainee.corp_email,
           username: CorpTrainee.corp_user,
           token: generateToken(CorpTrainee._id),
         })
       } else {
-        res.status(400)
-        throw new Error('Wrong Password')
+        res.status(400).json({error:'Wrong Password'})
       }
     })
     

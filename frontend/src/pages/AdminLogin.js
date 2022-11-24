@@ -1,9 +1,15 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/AdminLogin"
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Login = () => {
+
+  const navigate=useNavigate();
+
+  
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const {login, error, isLoading} = useLogin()
@@ -33,6 +39,8 @@ const Login = () => {
       />
       
          <button disabled={isLoading}>Log in</button>
+
+         
        
       {error && <div className="error">{error}</div>}    </form>
   )

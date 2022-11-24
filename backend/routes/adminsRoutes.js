@@ -15,6 +15,10 @@ router.post('/loginAdmin',controlls.loginAdmin);
 //router.use(protect)
 
 router.get('/getAdmins',controlls.getAdmins);
+router.get('/getInstructors',controlls.getInstructors);
+router.get('/getAllcrpTrainee',controlls.getAllcrpTrainee);
+
+
 router.get('/getAdmin',controlls.getAdmin);
 router.post('/',controlls.setAdmin);
 router.put('/',controlls.updateAdmin);

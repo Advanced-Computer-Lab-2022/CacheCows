@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from '../hooks/useAuthContext'
+import axios from 'axios';
+
 
 
 
@@ -7,11 +9,11 @@ const AdminAddCrpTraineeForm = () => {
 
     const { user } = useAuthContext()
 
-    const [Name, setName] = useState('')
+    const [corp_name, setName] = useState('')
     const [corp_user, setUserName] = useState('')
     const [corp_pass, setPassword] = useState('')
     const [corp_email, setEmail] = useState('')
-    const [country, setCountry] = useState('')
+    const [Country, setCountry] = useState('')
     const [corp_bd, setBd] = useState('')
   
     const[error , setError] = useState(null)
@@ -26,13 +28,16 @@ const AdminAddCrpTraineeForm = () => {
           }
 
         const crp = {
-            Name, 
+            corp_name, 
             corp_user,
             corp_pass, 
-            corp_email, 
-            country, 
-            corp_bd
+            corp_email,
+            corp_bd, 
+            Country, 
+            
         }
+      
+
 
         const response = await fetch('/api/admins/registerCorpTrainee', {
             method: 'POST',
@@ -73,7 +78,7 @@ const AdminAddCrpTraineeForm = () => {
         <input
             type = "text"
             onChange={(e) => setName(e.target.value)}
-            value={Name}
+            value={corp_name}
         />
 
         <label>Username: </label>
@@ -102,7 +107,7 @@ const AdminAddCrpTraineeForm = () => {
         <input
             type = "text"
             onChange={(e) => setCountry(e.target.value)}
-            value={country}
+            value={Country}
         />
 
 
@@ -121,4 +126,4 @@ const AdminAddCrpTraineeForm = () => {
     )
 }   
 
-export default AdminAddCrpTraineeForm
+export default AdminAddCrpTraineeForm;
