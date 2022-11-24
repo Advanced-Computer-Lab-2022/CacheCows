@@ -22,7 +22,7 @@ const NavigationBar = () =>{
                         Rubix
                     </h1>
                 </Link>
-                <Link to="/"> Home </Link>
+                <Link to="/Home"> Home </Link>
                 <Link to="/about"> About Us </Link>
 
          <nav>

@@ -214,5 +214,5 @@ if (IndivTrainee) {
 
   
 
-module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteindvTrainee, getAllinvdTrainees,
+module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
   updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv };

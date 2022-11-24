@@ -133,8 +133,9 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
 
 
        const registerCorpTrainee = asyncHandler(async(req, res) => {
-        if (!req.body.corp_name || !req.body.corp_user || !req.body.corp_pass  || !req.body.corp_email 
-          || !req.body.Country || !req.body.corp_bd ){
+        if (!req.body.corp_name || !req.body.corp_user || !req.body.corp_pass  || !req.body.corp_email || !req.body.corp_bd
+          || !req.body.Country  )
+          {
             res.status(400).json({error:'Please Add All fields'})
         }
         if (!validator.isEmail(req.body.corp_email)) {
@@ -142,35 +143,43 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
         }
         // if (!validator.isStrongPassword(req.body.corp_pass)) {
           // res.status(400).json({error:'Password Not Strong Enough'})        // }
-        const corpExists = await corp.findOne({ corp_email: req.body.corp_email })
+        const corpExists = await corp.findOne({ corp_user: req.body.corp_user })
         
           if (corpExists) {
             res.status(400).json({error:'Trainee Already Exists'})
           }
+          
+          else {
+
+          
           const salt = await bcrypt.genSalt(10)
           const hashedPassword = await bcrypt.hash(req.body.corp_pass, salt)
       
       
       
-      const CorpTrainee = await corp.create({
-        corp_name : req.body.corp_name,
-            corp_user : req.body.corp_user,
-            corp_email : req.body.corp_email,
-            corp_pass : hashedPassword,
-            Country : req.body.Country,
-            corp_bd : req.body.corp_bd,
-      })
-      
-      if (CorpTrainee) {
-        res.status(201).json({
-          _id: CorpTrainee.id,
-          corp_name: CorpTrainee.corp_name,
-          email: CorpTrainee.corp_email,
-          token: generateToken(CorpTrainee._id),
-        })
-      } else {
-        res.status(400).json({error:'Invalid User Data'})
-      }
+                      const CorpTrainee = await corp.create({
+                        corp_name : req.body.corp_name,
+                            corp_user : req.body.corp_user,
+                            corp_email : req.body.corp_email,
+                            corp_pass : hashedPassword,
+                            Country : req.body.Country,
+                            corp_bd : req.body.corp_bd,
+                      })
+
+                      
+                      if (CorpTrainee) {
+                        res.status(201).json({
+                          _id: CorpTrainee.id,
+                          corp_name: CorpTrainee.corp_name,
+                          email: CorpTrainee.corp_email,
+                          token: generateToken(CorpTrainee._id),
+                        })
+                        res.status(200).json('Trainee Added!')
+                      } else {
+                        res.status(400).json({error:'Invalid User Data'})
+                      }
+            }
+
       })
 
 ///////////////////////////////
