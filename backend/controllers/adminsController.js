@@ -92,29 +92,7 @@ const deleteAdmin =  asyncHandler(async (req, res) => {
      
     })
 
-    const createInstructor = asyncHandler(async(req, res) => {
-        if (!req.body.instructor_user){
-          res.status(400).json({error:'Please Add a Text Field'})
-        }
-    
-        const Instructor = await instructors.create({
-            instructor_user : req.body.instructor_user,
-            instructor_pass : req.body.instructor_pass
-        })
-        res.status(200).json({Instructor})
-       })
-
-       const createCorpTrainee = asyncHandler(async(req, res) => {
-        if (!req.body.corp_user){
-          res.status(400).json({error:'Please Add a Text Field'})
-        }
-    
-        const Corp = await corp.create({
-            corp_user : req.body.corp_user,
-            corp_pass : req.body.corp_pass
-        })
-        res.status(200).json({Corp})
-       })
+  
 
      ////////////////////////////////////////////////
 
@@ -335,8 +313,6 @@ module.exports = {
     deleteAdmin,
     getAdmin,
     createAdmin,
-    createCorpTrainee,
-    createInstructor,
     registerCorpTrainee,
     registerInstructor,
     RegisterAdmin,
