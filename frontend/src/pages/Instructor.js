@@ -7,6 +7,7 @@ import CountryForm from "../components/CountryForm"
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
+import Filter from "../components/FilterForm";
 
 
 const languages = [
@@ -64,15 +65,22 @@ const navigate=useNavigate();
 
     return(
     <div classname="instructor">
+      <h1>Hello, {Instructor.name}!</h1>
       <button onClick={()=>{
       navigate("/ireviews");
       }}>Show Instructor Reviews</button>
+      <br/>
+      <br/>
 
      <button onClick={()=>{
       navigate("/creviews");
       }}>Show Course Reviews</button>
+      <br/>
+      <br/>
 
-      
+     <Filter></Filter>
+     <br/>
+
      <div classname="courses"> 
      <SearchBar></SearchBar>
     {courses && courses.map((course) =>(

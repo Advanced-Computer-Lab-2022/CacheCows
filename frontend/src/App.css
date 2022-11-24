@@ -60,7 +60,7 @@
     justify-content: center;
     color: white;
     align-items: center;
-    background-image: linear-gradient(to top, #fffcfe 0%, #07fcd3 100%);
+    background-image: linear-gradient(to top, #348df2 0%, #6f8ecd 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
@@ -158,6 +158,13 @@
     margin-right: 20px;
   }
   
+/*.Modal{
+  width: 300% !important;
+  padding: 5% !important;
+  border-radius: 5px;
+  resize: 'contain';
+}*/
+
   @keyframes expand {
     from {
       transform: scale(0);

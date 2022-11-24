@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 //import Home from './pages/Home'
+import CourseInfo from "./components/CourseInfo";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
@@ -48,8 +49,7 @@ import Cropforgetpassword from "./pages/cropforgetpassword";
 import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
-import Termsandconditions from "./pages/termsandconditions";
-
+import CoursePage from "./pages/CoursePage";
 
 function App() {
 
@@ -182,10 +182,9 @@ function App() {
             element={<Cropchangepasssword/>}
             />
             <Route 
-            path="termsandconditions"
-            element={<Termsandconditions/>}
+            path="CoursePage"
+            element={<CoursePage/>}
             />
-            
         </Routes>
        
       </div>

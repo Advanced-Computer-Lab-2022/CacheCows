@@ -14,8 +14,7 @@ const getCourse =  asyncHandler(async (req, res) => {
     
     const course = await courses.find({course_id: req.body.course_id})
     if (course.toString() === ""){
-        res.status(400)
-        throw new Error ('course not found')
+        res.status(400).json({error: 'course not found'})
     }
      res.status(200).json(course)
      
@@ -55,7 +54,13 @@ const setCourse = asyncHandler(async(req, res) => {
      course_subtitles3 : req.body.course_subtitles3,
      course_description1 : req.body.course_description1,
      course_description2 : req.body.course_description2,
-     course_description3 : req.body.course_description3
+     course_description3 : req.body.course_description3,
+     course_subtopic1 : req.body.course_subtopic1,
+     course_subtopic2 : req.body.course_subtopic1,
+     course_subtopic3 : req.body.course_subtopic1,
+     course_subtopic4 : req.body.course_subtopic1,
+     course_subtopic5 : req.body.course_subtopic1,
+     course_subtopic6 : req.body.course_subtopic1
      
     })
     res.status(200).json({course})
