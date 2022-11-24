@@ -22,7 +22,7 @@ router.get('/getAllcrpTrainee',controlls.getAllcrpTrainee);
 router.get('/getAdmin',controlls.getAdmin);
 router.post('/',controlls.setAdmin);
 router.put('/',controlls.updateAdmin);
-router.delete('/',controlls.deleteAdmin);
+router.delete('/deleteAdmin',controlls.deleteAdmin);
 router.post('/createAdmin',controlls.createAdmin);
 
 router.get('/me',protect, controlls.getMe);

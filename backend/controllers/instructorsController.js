@@ -87,7 +87,7 @@ const deleteInstructor =  asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error ('Instructor not found')
     }
-     await instructors.deleteOne({instructor_user: req.body.Instructor_user})
+     await instructors.deleteOne({instructor_user: req.body.instructor_user})
      res.status(200).json({Instructor})
      
     })
@@ -195,9 +195,9 @@ const registerInstructor = asyncHandler(async(req, res) => {
   if (!validator.isEmail(req.body.instructor_email)) {
     res.status(400).json({error:'Email Not Valid'})
   }
-  if ( !req.body.acceptTerms ){
-    res.status(400).json({error:'Please Accept our Terms And Conditions'})
-  }
+  // if ( !req.body.acceptTerms ){
+  //   res.status(400).json({error:'Please Accept our Terms And Conditions'})
+  // }
   // if (!validator.isStrongPassword(req.body.instructor_pass)) {
   //   throw Error('Password not strong enough')
   // }

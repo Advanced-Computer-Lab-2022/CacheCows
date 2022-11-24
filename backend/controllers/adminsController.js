@@ -225,7 +225,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
         // if (!validator.isStrongPassword(req.body.instructor_pass)) {
         //   res.status(400).json({error:'Password Not Strong Enough'})
         // }
-        const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
+        const instructorExists = await instructors.findOne({ instructor_user: req.body.instructor_user })
         
           if (instructorExists) {
             res.status(400).json({error:'Instructor Already Exists'})

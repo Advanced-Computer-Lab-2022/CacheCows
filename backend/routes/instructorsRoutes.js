@@ -21,7 +21,7 @@ router.post('/registerInstructor', registerInstructor);
 router.get('/getInstructors',controlls.getInstructors);
 router.post('/setInstructor',controlls.setInstructor);
 router.get('/getInstructor',controlls.getInstructor);
-router.delete('/deleteInstructor/:id',controlls.deleteInstructor);
+router.delete('/deleteInstructor',controlls.deleteInstructor);
 router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword',controlls.changepassword);

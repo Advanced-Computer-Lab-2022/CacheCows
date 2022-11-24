@@ -62,7 +62,7 @@ const deleteIndvTrainee=  asyncHandler(async (req, res) => {
     
   const Indv = await indv.find({indv_user: req.body.indv_user})
   if (Indv.toString() === ""){
-    res.status(400).json({error:'Admin Not Found'})
+    res.status(400).json({error:'Trainee Not Found'})
   }
    await indv.deleteOne({indv_user: req.body.indv_user})
    res.status(200).json({Indv})

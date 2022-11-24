@@ -22,7 +22,7 @@ router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
 router.get('/getAllinvdTrainees',getAllinvdTrainees);
 router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
-router.delete('/deleteindvTrainee/:id',controlls.deleteIndvTrainee);
+router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
 router.put('/changepassword',controlls.changepassword);
 router.put('/rateInstructor/:id',instructorControlls.rating);

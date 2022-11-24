@@ -15,7 +15,7 @@ router.post('/loginCorpTrainee',controlls.loginCorpTrainee);
 router.get('/alltrainees',controlls.getAllcrpTrainee);
 router.post('/addtrainee',controlls.setcrpTrainee);
 router.get('/getOneTrainee/:id',controlls.getOnecrpTrainee);
-router.delete('/deletetrainee/:id',controlls.deletecrpTrainee);
+router.delete('/deletetrainee',controlls.deletecrpTrainee);
 router.put('/updatecorptrainee/:id',controlls.updatecrptrainee);
 router.put('/changepassword',controlls.changepassword);
 router.put('rateInstructor/:id',instructorControlls.rating);

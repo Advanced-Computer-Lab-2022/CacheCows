@@ -24,14 +24,14 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
 })
 
 const setcrpTrainee =async (req,res)=>{
-const Name=req.body.Name;
+const corp_name=req.body.corp_name;
 const Country=req.body.Country;
 const corp_user=req.body.Country;
 const corp_pass=req.body.Country;
 const corp_email=req.body.Country;
 const corp_bd=req.body.Country;
 try{
-    await corp.create({Name,Country,corp_bd,corp_email,corp_pass,corp_user});
+    await corp.create({corp_name,Country,corp_bd,corp_email,corp_pass,corp_user});
     res.status(200).json(req.body);
 }
 catch(error){
@@ -58,8 +58,8 @@ const getOnecrpTrainee=async (req,res)=>{
 const deletecrpTrainee=  asyncHandler(async (req, res) => {
     
   const Crp = await corp.find({corp_user: req.body.corp_user})
-  if (Admin.toString() === ""){
-    res.status(400).json({error:'Admin Not Found'})
+  if (corp.toString() === ""){
+    res.status(400).json({error:'Trainee Not Found'})
   }
    await corp.deleteOne({corp_user: req.body.corp_user})
    res.status(200).json({Crp})
@@ -119,7 +119,7 @@ res.status(400).json({error:error.message})
 
 //////////////
 //Authentication
-// Name, 
+// corp_name, 
 // Country,
 // corp_user,
 // corp_pass,
@@ -140,7 +140,7 @@ res.status(400).json({error:error.message})
       else if (CorpTrainee && (await bcrypt.compare(corp_pass, CorpTrainee.corp_pass))) {
         res.json({
           _id: CorpTrainee.id,
-          Name: CorpTrainee.Name,
+          corp_name: CorpTrainee.corp_name,
           email: CorpTrainee.corp_email,
           username: CorpTrainee.corp_user,
           token: generateToken(CorpTrainee._id),
