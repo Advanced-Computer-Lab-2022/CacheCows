@@ -2,6 +2,12 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/InstSignup"
 import { Link } from 'react-router-dom'
+//import Checkbox from "../components/Checkbox";
+import Checkbox from '@mui/material/Checkbox';
+
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
 
 
 const Signup = () => {
@@ -11,15 +17,32 @@ const Signup = () => {
   const [instructor_user, setUser] = useState('')
   const [country, setCountry] = useState('')
   const [instructor_bd, setBirthday] = useState('')
+  const [accept, setAccept] = useState('')
+
   const {signup, error, isLoading} = useSignup()
+
+  const [agree, setAgree] = useState(false);
+
+  const checkboxHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+    setAgree(!agree);
+   
+  }
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+   
     await signup(instructor_email, instructor_pass, instructor_name, instructor_user, country, instructor_bd)
+     
   }
 
   return (
+   
+    
     <form className="signup" onSubmit={handleSubmit}>
       <h3>Sign Up As Instructor</h3>
       
@@ -60,11 +83,28 @@ const Signup = () => {
         value={instructor_bd} 
       />
 
-     <button disabled={isLoading}>Sign up</button> 
+    
+      
+
+        <div>
+          <input type="checkbox" id="agree" onChange={checkboxHandler} />
+          <label htmlFor="agree"> Accept Our <Link to="/termsandconditions">Terms & Conditions</Link></label>
+        </div>
+
+        <button disabled={!agree} className="btn" onClick={handleSubmit}>
+          Sign Up
+        </button>
+
       
 
       {error && <div className="error">{error}</div>}
     </form>
+
+
+    
+    
+    
+
   )
 }
 

@@ -48,11 +48,14 @@ import Cropforgetpassword from "./pages/cropforgetpassword";
 import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
+import Termsandconditions from "./pages/termsandconditions";
+
+
 function App() {
 
   const { user } = useAuthContext()
 
-  const usertype = localStorage.getItem('user')
+  const usertype = localStorage.getItem('user'.type)
 
   return (
 
@@ -178,6 +181,11 @@ function App() {
             path="cropchangepassword"
             element={<Cropchangepasssword/>}
             />
+            <Route 
+            path="termsandconditions"
+            element={<Termsandconditions/>}
+            />
+            
         </Routes>
        
       </div>
