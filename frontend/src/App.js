@@ -55,7 +55,7 @@ function App() {
 
   const { user } = useAuthContext()
 
-  const usertype = localStorage.getItem('user')
+  const usertype = localStorage.getItem('user'.type)
 
   return (
 

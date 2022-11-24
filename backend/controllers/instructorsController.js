@@ -188,11 +188,15 @@ res.status(400).json({error:error.message})
 const registerInstructor = asyncHandler(async(req, res) => {
 
   if (!req.body.instructor_name || !req.body.instructor_email || !req.body.instructor_pass  || !req.body.instructor_user 
-    || !req.body.country || !req.body.instructor_bd ){
+    || !req.body.country || !req.body.instructor_bd  ){
+      
       res.status(400).json({error:'Please Add All Fields'})
   }
   if (!validator.isEmail(req.body.instructor_email)) {
     res.status(400).json({error:'Email Not Valid'})
+  }
+  if ( !req.body.acceptTerms ){
+    res.status(400).json({error:'Please Accept our Terms And Conditions'})
   }
   // if (!validator.isStrongPassword(req.body.instructor_pass)) {
   //   throw Error('Password not strong enough')

@@ -171,3 +171,11 @@
       opacity: 0;
     }
   }
+  .terms {
+    font-size: 5px;
+    font-family: inherit;
+    color: rgb(174, 48, 48);
+    line-height: 2em;
+    font-weight: 400;
+    text-decoration:none;
+    }
