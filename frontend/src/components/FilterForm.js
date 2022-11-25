@@ -34,18 +34,15 @@ const style = createStyles({
 
 function Filter() {
   const [checkboxValue, setValue] = useState([]);
-  const [filter, setFilter] = useState([]);
-  const [courses, setCourses] = useState();
-  const [flag, setFlag] = useState(false);
+  const [filter, setFilter] = useState('');
+  const [courses, setCourses] = useState('');
   const[error , setError] = useState(null);
 
   const handleSubmit = async(e) => {
     e.preventDefault()
 
 
-    const subj = {
-        filter
-    }
+    const subj = { course_subject : filter }
 
     const response = await fetch('/api/courses/filterCourseBySubjectOrRating', {
         method: 'POST',
@@ -58,13 +55,14 @@ function Filter() {
 
     if(!response.ok) {
         setError(json.error)
-        setValue('');
+        setCourses('')
+        setFilter('')
     }
     if(response.ok) {
-     setValue(checkboxValue);
-     setFlag(true)
      setCourses(json)
      setError(null)
+     setFilter('')
+
         
     console.log('Courses Retrieved', json)
     }
@@ -74,15 +72,21 @@ function Filter() {
 
   return (
     <form onSubmit={handleSubmit}>
-    <Fragment >
-      <div className="defalut" onSubmit={handleSubmit}>
+    <Fragment>
+      <div className="defalut">
         <CheckboxDropdownComponent 
+          onSubmit={handleSubmit}
           displayText="Filter By Subject"
           options={options}
-          onChange={option => {
-            if (!checkboxValue.includes(option)) {
-              const newValue = [...checkboxValue, option];
+          onChange={e => {
+            if (!checkboxValue.includes(e)) {
+              const newValue = [...checkboxValue, e];
               setValue(newValue);
+              setFilter(e.label)
+              //handleSubmit()
+            }else{
+                setFilter(e.label)
+                //handleSubmit()
             }
           }}
           onDeselectOption={option => {
@@ -90,12 +94,12 @@ function Filter() {
               item => item.value !== option.value
             );
             setValue(filteredOptions);
-            setFilter(filteredOptions);
           }}
           value={checkboxValue}
           displayTags
           isStrict={false}
         />
+        {error && <div className="error">{error}</div>}
       </div>
     </Fragment>
     <div className="courses"> 
