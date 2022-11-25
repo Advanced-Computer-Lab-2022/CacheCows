@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import CustomSelect from "../components/CustomSelect";
 import SearchBar from "../components/SearchBar";
 import CourseDetails from "../components/CourseDetails";
-
+import { useAuthContext } from "../hooks/useAuthContext"
 const languages = [
   {
     id: 0,
@@ -60,6 +60,24 @@ const languages = [
     fetchCourses()
       },[])
 
+      const {user} = useAuthContext()
+  useEffect(()=>{
+    const fetchCourses=async ()=>{
+        const response= await fetch('/api/courses/getCourses',{
+          headers: {'Authorization': `Bearer ${user.token}`},
+        })
+        const json= await response.json()
+
+        if(response.ok){
+        setCourses(json)
+        }
+    }
+    if (user) {
+      fetchCourses()
+        }
+    
+},[])
+
   return( 
     <div className="CorpTrainee">
       <div>
@@ -75,6 +93,10 @@ const languages = [
         Courses
       </button>
       <SearchBar></SearchBar>
+
+      {courses && courses.map((course) =>(
+    <CourseDetails course={course} key={course._id} />))} 
+    <button onClick={()=>navigate("/cropchangepassword")}>Change password</button>
   </div>
   )
 }

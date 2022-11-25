@@ -158,31 +158,31 @@ function App() {
               element={<AdminLogin />} 
             />
             <Route 
-            path="instforgetpassword"
+            path="/instforgetpassword"
             element={<Instforgetpassword/>}
             />
         <Route 
-            path="indvforgetpassword"
+            path="/indvforgetpassword"
             element={<Indvforgetpassword/>}
             />
             <Route 
-            path="cropforgetpassword"
+            path="/cropforgetpassword"
             element={<Cropforgetpassword/>}
             />
             <Route 
-            path="instchangepassword"
+            path="/instchangepassword"
             element={<Instchangepasssword/>}
             />
             <Route 
-            path="indvchangepassword"
+            path="/indvchangepassword"
             element={<Indvchangepasssword/>}
             />
             <Route 
-            path="cropchangepassword"
+            path="/cropchangepassword"
             element={<Cropchangepasssword/>}
             />
             <Route 
-            path="CoursePage"
+            path="/CoursePage"
             element={<CoursePage/>}
             />
         </Routes>

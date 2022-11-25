@@ -9,6 +9,7 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
 import BasicExample from "../components/CourseCard";
+import { useAuthContext } from "../hooks/useAuthContext"
 
 
 
@@ -44,6 +45,7 @@ function IndTrainee() {
   const [query, setQuery] = useState("");
   const [courses, setCourses] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([])
+  const navigate=useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,12 +72,33 @@ function IndTrainee() {
     };
     if (query.length === 0 || query.length > 2) fetchData();
   }, [query]);
+  const {user} = useAuthContext()
+  useEffect(()=>{
+    const fetchCourses=async ()=>{
+        const response= await fetch('/api/courses/getCourses',{
+          headers: {'Authorization': `Bearer ${user.token}`},
+        })
+        const json= await response.json()
+
+        if(response.ok){
+        setCourses(json)
+        }
+    }
+    if (user) {
+      fetchCourses()
+        }
+    
+},[])
 
   return (
     <div className="app" >
       <SearchBar></SearchBar>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       <ReviewForm />
+      {courses && courses.map((course) =>(
+    <CourseDetails course={course} key={course._id} />))} 
+    <button on onClick={()=> navigate("/indvchangepassword")}> Change password</button>
+
     </div>
   );
 }

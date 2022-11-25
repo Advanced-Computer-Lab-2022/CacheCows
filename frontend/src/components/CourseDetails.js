@@ -50,6 +50,8 @@ const CourseDetails = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
+            <p><strong>Course price: </strong>{course.cource_price}</p>
+            
             </div>
 
             {isShown && (

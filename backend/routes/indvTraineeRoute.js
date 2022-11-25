@@ -13,8 +13,8 @@ const router = express.Router()
 router.post('/registerIndTrainee', registerIndTrainee);
 router.post('/loginIndTrainee', loginIndTrainee);
 
-
 //router.use(protect)
+
 
 
 router.get('/allindvtrainees',controlls.getAllinvdTrainee);
@@ -28,6 +28,9 @@ router.put('/changepassword',controlls.changepassword);
 router.put('/rateInstructor/:id',instructorControlls.rating);
 router.put('/rateCourse/:id',coursesControlls.rating)
 router.post('/forgetpassword',controlls.sendEmailIndv)
+router.post('/registercourse',controlls.registercourse)
+router.get('/getregistercourses',controlls.getregistercourses)
+router.get('/del',controlls.del)
 
 router.get('/me', protect, getMe);
 

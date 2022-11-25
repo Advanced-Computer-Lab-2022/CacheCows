@@ -97,7 +97,7 @@ const navigate=useNavigate();
     navigate("/previewinstructorcourse");
    }}>
     Preview My Courses</button>
-
+    <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
     <div>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>

@@ -1,12 +1,16 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const indv=require('../models/individualTraineeModel');
+const reg=require('../models/traineeregistercourse')
+const course=require('../models/coursesModel')
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const nodemailer=require('nodemailer')
 const validator = require('validator')
+const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
+
 
 var transporeter=nodemailer.createTransport({
   service:'gmail',
@@ -81,7 +85,7 @@ const updateindvtrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-    const indv_id=req.IndivTrainee._id
+    const indv_id=req.user._id
   await indv.findByIdAndUpdate(indv_id,req.body,{new:true})
   
   res.status(200).json("updated")
@@ -116,6 +120,36 @@ const sendEmailIndv=async (req,res)=>{
 res.status(400).json({error:error.message})
   }
 
+}
+
+const registercourse=async (req,res)=>{
+  const trainee_id=req.body.trainee_id
+  const course_id=req.body.course_id
+  try{
+   const trainee_course= await reg.create({trainee_id,course_id})
+   res.status(200).json(trainee_course)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
+const getregistercourses=async (req,res)=>{
+  
+  try{
+    const courses=await reg.find(req.trainee_id)
+    const data=[]
+    for(let i=0;i<courses.length;i++){
+     data[i]=await course.findById(courses[i].course_id)
+    }
+    res.status(200).json(data)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
+const del=async (req,res)=>{
+await reg.findByIdAndDelete(req.body.trainee_id);
+res.status(200).json("done")
 }
 
 
@@ -175,11 +209,15 @@ if (IndivTrainee) {
 
 
 
+
+
   const loginIndTrainee = asyncHandler(async (req, res) => {
     const { indv_user, indv_pass } = req.body
+    
   
     // Check for user email
     const IndivTrainee = await indv.findOne({ indv_user })
+    
     if(!IndivTrainee){res.status(400).json({error:'Trainee Does Not Exist'})}
   
     else
@@ -215,4 +253,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses ,del};
