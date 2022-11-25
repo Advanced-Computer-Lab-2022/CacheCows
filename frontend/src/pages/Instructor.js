@@ -13,17 +13,17 @@ import Filter from "../components/FilterForm";
 const languages = [
     {
       id: 0,
-      label: 'Egypt',
+      label: "Hardware",
       logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
     },
     {
       id: 1,
-      label: 'Germany',
+      label: "IT and Software",
       logo: 'https://www.php.net//images/logos/new-php-logo.svg'
     },
     {
       id: 2,
-      label: 'Greece',
+      label: "Music",
       logo: 'https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png'
     },
     {
@@ -38,12 +38,15 @@ const languages = [
     }
   ]
 
+
 const Instructor=()=>{
   const {user} = useAuthContext()
+  const [courses,setCourses]=useState()
+  const [selectedLanguages, setSelectedLanguages] = useState([])
+  const [filter,setFilter]=useState()
+  const [filtered,setFiltered]=useState()
+  const [error , setError] = useState(null);
 
-    
-    const [courses,setCourses]=useState()
-    const [selectedLanguages, setSelectedLanguages] = useState([])
 useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getCourses',{
@@ -61,10 +64,42 @@ useEffect(()=>{
     
 },[])
 
+const handleSubmit = async(e) => {
+  //e.preventDefault()
+  setSelectedLanguages(e);
+  setFilter(languages.at({id: e[0]}));
+
+
+  const subj = { course_subject : filter }
+
+  const response = await fetch('/api/courses/filterCourseBySubjectOrRating', {
+      method: 'POST',
+      body: JSON.stringify(subj),
+      headers: {
+          'Content-Type' : 'application/json'
+      }
+  })
+  const json = await response.json()
+
+  if(!response.ok) {
+      console.log('What is: ',filter)
+      setError(json.error)
+      setFiltered('')
+      
+  }
+  if(response.ok) {
+   setFiltered(json)
+   setError(null)
+
+      
+  console.log('Courses Retrieved', json)
+  }
+}
+
 const navigate=useNavigate();
 
     return(
-    <div classname="instructor">
+    <div className="instructor">
       <h1>Hello, {Instructor.name}!</h1>
       <button onClick={()=>{
       navigate("/ireviews");
@@ -99,7 +134,18 @@ const navigate=useNavigate();
     Preview My Courses</button>
 
     <div>
-      <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
+      <CustomSelect 
+      title="Select your country:" 
+      value={selectedLanguages} 
+      onChange={handleSubmit} 
+      options={languages} />
+      
+      <div className="courses"> 
+        {filtered && filtered.map((course) =>(
+        <CourseDetails course={course} key={course._id} />))}          
+      </div>
+
+      {error && <div className="error">{error}</div>}
       </div>
 
 </div>

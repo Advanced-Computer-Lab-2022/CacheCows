@@ -158,16 +158,14 @@ const filterCourseBySubjectOrRating = asyncHandler(async (req, res) => {
     const rating = req.body.course_rating;
         if(!rating){
             const course = await courses.find({course_subject : req.body.course_subject})
-                if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
+                if (course.toString() === ""){
+                    res.status(400).json({error: 'course not found'})
                 }
             res.status(200).json(course)
             }if(!subj){
                 const course = await courses.find({course_rating : req.body.course_rating})
                 if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
+                    res.status(400).json({error: 'course not found'})
                 }
             res.status(200).json(course)
         }else {
