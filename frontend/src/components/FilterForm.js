@@ -34,6 +34,7 @@ const style = createStyles({
 
 function Filter() {
   const [checkboxValue, setValue] = useState([]);
+  const [filter, setFilter] = useState([]);
   const [courses, setCourses] = useState();
   const [flag, setFlag] = useState(false);
   const[error , setError] = useState(null);
@@ -43,7 +44,7 @@ function Filter() {
 
 
     const subj = {
-        checkboxValue
+        filter
     }
 
     const response = await fetch('/api/courses/filterCourseBySubjectOrRating', {
@@ -57,24 +58,25 @@ function Filter() {
 
     if(!response.ok) {
         setError(json.error)
+        setValue('');
     }
     if(response.ok) {
-     setValue('');
+     setValue(checkboxValue);
      setFlag(true)
      setCourses(json)
      setError(null)
         
-    console.log('New Corporate Trainee Added', json)
+    console.log('Courses Retrieved', json)
     }
 }
 
 
 
   return (
-    <div>
-    <Fragment>
+    <form onSubmit={handleSubmit}>
+    <Fragment >
       <div className="defalut" onSubmit={handleSubmit}>
-        <CheckboxDropdownComponent onSubmit={handleSubmit}
+        <CheckboxDropdownComponent 
           displayText="Filter By Subject"
           options={options}
           onChange={option => {
@@ -88,6 +90,7 @@ function Filter() {
               item => item.value !== option.value
             );
             setValue(filteredOptions);
+            setFilter(filteredOptions);
           }}
           value={checkboxValue}
           displayTags
@@ -95,9 +98,11 @@ function Filter() {
         />
       </div>
     </Fragment>
-    {courses && courses.map((course) =>(
-    <CourseDetails course={course} key={course._id} />))} 
-    </div>
+    <div className="courses"> 
+        {courses && courses.map((course) =>(
+        <CourseDetails course={course} key={course._id} />))}          
+    </div> 
+    </form>
   );
 }
 

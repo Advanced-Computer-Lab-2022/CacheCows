@@ -15,12 +15,10 @@ header {
   background: #fff;
 }
 header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
+  border-spacing: 5cm;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background-image: linear-gradient(to top, #348df2 0%, #6f8ecd 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;

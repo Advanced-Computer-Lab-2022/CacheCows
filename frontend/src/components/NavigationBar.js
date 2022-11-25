@@ -17,18 +17,14 @@ const NavigationBar = () =>{
     return (
         <header>
             <div className="container">
-                <Link to ="/">
-                    <h1>
-                        Rubix
-                    </h1>
-                </Link>
-                <Link to="/Home"> Home </Link>
-                <Link to="/about"> About Us </Link>
+                <Link to ="/"><h1>Rubix            </h1></Link>
+                <Link to="/Home"> Home             </Link>
+                <Link to="/about"> About Us        </Link>
 
          <nav>
                  {user && (
                    <div>
-              <span>{user.username}</span>
+              <span>Logged in as: {user.username}</span>
               <Link to="/"> 
                  <button onClick={handleClick}>Log out</button> 
               </Link>
