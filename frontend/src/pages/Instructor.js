@@ -117,6 +117,7 @@ const navigate=useNavigate();
      <br/>
 
      <div classname="courses"> 
+
      <SearchBar></SearchBar>
     {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))}          

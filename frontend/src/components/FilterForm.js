@@ -64,7 +64,7 @@ function Filter() {
      setFilter('')
 
         
-    console.log('Courses Retrieved', json)
+    console.log('Courses Retrieved', checkboxValue)
     }
 }
 

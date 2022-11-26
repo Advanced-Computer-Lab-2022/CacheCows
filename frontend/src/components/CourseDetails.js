@@ -60,7 +60,7 @@ const CourseDetails = ({course}) => {
             {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
             {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
             {disc3 && (<p><strong>Course Description: </strong>{course.course_description3}</p>)}
-            <p><strong>Choose Subtitle: </strong></p>
+            <p><strong>Choose Language: </strong></p>
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
