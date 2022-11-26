@@ -12,7 +12,7 @@ router.post('/RegisterAdmin',controlls.RegisterAdmin);
 router.post('/loginAdmin',controlls.loginAdmin);
 
 // require auth for all workout routes
-//router.use(protect)
+router.use(protect)
 
 router.get('/getAdmins',controlls.getAdmins);
 router.get('/getInstructors',controlls.getInstructors);

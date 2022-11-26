@@ -204,7 +204,7 @@ const registerInstructor = asyncHandler(async(req, res) => {
   //   throw Error('Password not strong enough')
   // }
 
-  const instructorExists = await instructors.findOne({ instructor_email: req.body.instructor_email })
+  const instructorExists = await instructors.findOne({ instructor_user: req.body.instructor_user })
   
     if (instructorExists) {
       res.status(400).json({error:'Instructor Already Exists'})
@@ -335,8 +335,8 @@ if (Instructor) {
   })
   
   // Generate JWT
-  const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
+  const generateToken = (_id) => {
+    return jwt.sign({ _id }, process.env.JWT_SECRET, {
       expiresIn: '30d',
     })
   } 

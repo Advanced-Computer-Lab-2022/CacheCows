@@ -2,7 +2,7 @@ const CrpTraineeDetails = ({ CrpTrainee }) => {
 
     return (
       <div className="crp-details">
-        <p><strong>Name: </strong>{CrpTrainee.Name}</p>
+        <p><strong>Name: </strong>{CrpTrainee.corp_name}</p>
         <p><strong>Corporate Trainee Username: </strong>{CrpTrainee.corp_user}</p>
         <p><strong>Corporate Trainee Password: </strong>{CrpTrainee.corp_pass}</p>
         <p><strong>Email: </strong>{CrpTrainee.corp_email}</p>

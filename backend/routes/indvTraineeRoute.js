@@ -13,7 +13,7 @@ const router = express.Router()
 router.post('/registerIndTrainee', registerIndTrainee);
 router.post('/loginIndTrainee', loginIndTrainee);
 
-//router.use(protect)
+router.use(protect)
 
 
 
