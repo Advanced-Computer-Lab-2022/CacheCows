@@ -1,18 +1,24 @@
 import { useState } from "react";
-
+import { useAuthContext } from '../hooks/useAuthContext'
 const ChangePassword=()=>{
+    const { user } = useAuthContext()
     const[pass,setPass]=useState('');
     const[error , setError] = useState(null);
     
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-
-        const response = await fetch(`/api/indvtrainee/changepassword?_id=${localStorage.getItem('user')._id}`, {
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
+          const indv={pass}
+        const response = await fetch('/api/indvtrainee/changepassword', {
             method: 'POST',
-            body: JSON.stringify(pass),
+            body: JSON.stringify(indv),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()
@@ -22,6 +28,7 @@ if(!response) {
 if(response.ok) {
     setPass('');
     setError(null);
+    console.log("updated")
 }
 
 }

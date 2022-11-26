@@ -86,7 +86,7 @@ const changepassword=async(req,res)=>{
 
   try{
     //const indv_id=req.user._id
-    const indv_id=req.query._id
+    const indv_id=req.user._id
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
     console.log(hashedPassword)
