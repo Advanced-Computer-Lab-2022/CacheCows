@@ -14,7 +14,7 @@ const protect = async (req, res, next) => {
   const token = authorization.split(' ')[1]
 
   try {
-    const { _id } = jwt.verify(token, process.env.SECRET)
+    const { _id } = jwt.verify(token, process.env.JWT_SECRET)
 
     req.user = await user.findOne({ _id }).select('_id')
     next()

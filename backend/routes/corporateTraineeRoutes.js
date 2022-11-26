@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.post('/loginCorpTrainee',controlls.loginCorpTrainee);
 // require auth for all workout routes
-//router.use(protect)
+router.use(protect)
 
 
 router.get('/alltrainees',controlls.getAllcrpTrainee);

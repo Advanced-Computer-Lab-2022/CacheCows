@@ -14,7 +14,8 @@ const InstructorSchema = new mongoose.Schema({
      country : {type: String , required : [false, 'Please add a text value']},
      instructor_rate : {type: Number , required : [false, 'Please add a text value']},
      instructor_total_rate:{type:Number,required :false},
-     instructor_total_no_rate:{type:Number,required:false}
+     instructor_total_no_rate:{type:Number,required:false},
+     acceptTerms:{type:Boolean,required:false}
      
 
 })

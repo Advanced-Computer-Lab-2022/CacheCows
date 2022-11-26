@@ -14,7 +14,7 @@ const {
 router.post('/loginInstructor', loginInstructor);
 router.post('/registerInstructor', registerInstructor);
 
-//router.use(protect)
+router.use(protect)
 
  
 
