@@ -122,8 +122,10 @@ const changepassword=async(req,res)=>{
 
   try{
     const {inst_id} = req.headers.user
-    //const instructor =await instructors.findByIdAndUpdate(inst_id,req.body,{new:true})
-    const instructor = await instructors.findById(inst_id)
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
+    const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_pass:hashedPassword},{new:true})
+   // const instructor = await instructors.findById(inst_id)
     console.log(inst_id)
 
   

@@ -97,7 +97,8 @@ function IndTrainee() {
       <ReviewForm />
       {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))} 
-    <button on onClick={()=> navigate("/indvchangepassword")}> Change password</button>
+    <button on onClick={() => window.location.href=`/indvchangepassword?_id=${localStorage.getItem('user')}`}
+    key={localStorage.getItem('user')}> Change password</button>
 
     </div>
   );

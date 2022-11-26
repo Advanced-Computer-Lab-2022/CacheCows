@@ -8,7 +8,7 @@ const ChangePassword=()=>{
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        const response = await fetch('/api/indvtrainee/changepassword', {
+        const response = await fetch(`/api/indvtrainee/changepassword?_id=${localStorage.getItem('user')._id}`, {
             method: 'POST',
             body: JSON.stringify(pass),
             headers: {

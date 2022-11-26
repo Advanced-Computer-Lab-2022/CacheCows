@@ -85,10 +85,14 @@ const updateindvtrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-    const indv_id=req.user._id
-  await indv.findByIdAndUpdate(indv_id,req.body,{new:true})
+    //const indv_id=req.user._id
+    const indv_id=req.query._id
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
+    console.log(hashedPassword)
+  const indv1=await indv.findByIdAndUpdate(indv_id,{indv_pass:hashedPassword},{new:true})
   
-  res.status(200).json("updated")
+  res.status(200).json(indv1)
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -99,7 +103,7 @@ const changepassword=async(req,res)=>{
 
 const sendEmailIndv=async (req,res)=>{
   try{
-    const indvidual=await indv.findOne({indv_email_email:req.body.indv_email})
+    const indvidual=await indv.findOne({indv_email:req.body.indv_email})
     const email=indvidual.indv_email
     var MailOptions={
       from:process.env.MAIL,

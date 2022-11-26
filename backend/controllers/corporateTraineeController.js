@@ -80,7 +80,9 @@ const changepassword=async(req,res)=>{
 
   try{
     const crop_id=req.CorpTrainee._id
-  await crop.findByIdAndUpdate(crop_id,req.body,{new:true})
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
+  await crop.findByIdAndUpdate(crop_id,{corp_pass:hashedPassword},{new:true})
   
   res.status(200).json("updated")
   }
