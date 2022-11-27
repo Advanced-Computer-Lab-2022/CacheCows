@@ -6,28 +6,38 @@ const InstEditEmail=()=>{
     const {user} = useAuthContext()
 
     const[instructor_email,setEmail]=useState('');
+    const[inst_id,setID]=useState('');
     const[error , setError] = useState(null);
     
 
     const handleSubmit = async(e) => {
         e.preventDefault()
 
+        setID(JSON.stringify(user._id))
+
+        const inst = {
+            inst_id,
+            instructor_email
+        }
+
+
         const response = await fetch('/api/instructors/InstructorEditEmail', {
             method: 'POST',
-            body: JSON.stringify(instructor_email),
+            body: JSON.stringify(inst),
             headers: {
                 'Content-Type' : 'application/json',
                 'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()
-if(!response) {
+if(!response.ok) {
+    console.log('a7',inst_id)
     setError(json.error)
 }
 if(response.ok) {
     setEmail('');
     setError(null);
-    console.log( json)
+    console.log(json)
 
 }
 

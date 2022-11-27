@@ -183,12 +183,8 @@ res.status(400).json({error:error.message})
 const InstructorEditEmail =async(req,res)=>{
 
   try{
-    const inst_id = req.user._id
-    const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_email:req.body.instructor_email},{new:true})
+    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{instructor_email:req.body.instructor_email},{new:true})
    // const instructor = await instructors.findById(inst_id)
-    console.log(inst_id)
-
-  
     res.status(200).json(instructor)
   }
   catch(error){
