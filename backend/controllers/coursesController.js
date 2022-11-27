@@ -19,6 +19,18 @@ const getCourse =  asyncHandler(async (req, res) => {
      res.status(200).json(course)
      
 })
+
+const getInstCourses =  asyncHandler(async (req, res) => {
+    
+    const course = await courses.find({instructor_id: req.body.instructor_id})
+    if (course.toString() === ""){
+        res.status(400).json({error: 'courses not found'})
+    }
+     res.status(200).json(course)
+     
+})
+
+
 //ADD COURSE
 const setCourse = asyncHandler(async(req, res) => {
     if (req.body.course_id == ""){
@@ -310,7 +322,8 @@ module.exports = {
     viewCourses,
     filterInstCourse,
     CourseData,
-    rating
+    rating,
+    getInstCourses
 
 }
 
