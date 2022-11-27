@@ -1,7 +1,7 @@
 
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CourseDetails from "../components/CourseDetails"
+import CourseDetailsInst from "../components/CourseDetailsInst"
 import CourseForm from "../components/CourseForm"
 import CountryForm from "../components/CountryForm"
 import CustomSelect from "../components/CustomSelect"
@@ -55,10 +55,10 @@ const Instructor=()=>{
 
 useEffect(()=>{
 
-  if (user.type != 'instructor' ){
-    setError('Access Denied')
-    return
-  }
+  // if (user.type != 'instructor' ){
+  //   setError('Access Denied')
+  //   return
+  // }
 
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getInstCourses',{
@@ -146,7 +146,7 @@ const navigate=useNavigate();
 
      <SearchBar></SearchBar>
     {courses && courses.map((course) =>(
-    <CourseDetails course={course} key={course._id} />))}          
+    <CourseDetailsInst course={course} key={course._id} />))}          
     </div>
     <CourseForm />
     <CountryForm/>
@@ -169,7 +169,7 @@ const navigate=useNavigate();
       
       <div className="courses"> 
         {filtered && filtered.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
+        <CourseDetailsInst course={course} key={course._id} />))}          
       </div>
 
       {error && <div className="error">{error}</div>}

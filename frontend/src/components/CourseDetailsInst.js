@@ -64,7 +64,9 @@ const CourseDetails = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
-
+            <br/>
+            <button onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`}
+              key={course._id}><strong>Set Discount</strong></button>
              <p>{course.createdAt}</p>
              </p>
              

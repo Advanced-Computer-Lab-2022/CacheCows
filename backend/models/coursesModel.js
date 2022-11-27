@@ -10,7 +10,7 @@ const CoursesSchema = new mongoose.Schema({
      instructor_id:{type: String,      },
      course_rating:{type: Number,      },
      course_discount:{type: String, required: false,  },
-     course_price:{type: String, },  
+     course_price:{type: Number, },  
      course_summary:{type: String,  },
      course_total_hours:{type: String, },  
      course_subject:{type: String,  },
@@ -33,7 +33,11 @@ const CoursesSchema = new mongoose.Schema({
      course_subtopic3:{type: String,  },
      course_subtopic4:{type: String,  },
      course_subtopic5:{type: String,  },
-     course_subtopic6:{type: String,  }
+     course_subtopic6:{type: String,  },
+
+     course_discount :{type: Number,  },
+     course_price_after_discount :{type: Number,  },
+     course_discount_time:{type: Date,  },
 
      
      

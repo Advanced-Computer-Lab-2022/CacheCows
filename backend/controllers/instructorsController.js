@@ -166,9 +166,39 @@ res.status(400).json({error:error.message})
 const InstructorEditEmail =async(req,res)=>{
 
   try{
+    if (!validator.isEmail(req.body.instructor_email)) {
+      res.status(400).json({error:'Email Not Valid'})
+    }
     const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{instructor_email:req.body.instructor_email},{new:true})
    // const instructor = await instructors.findById(inst_id)
     res.status(200).json(instructor)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+
+const InstructorSetDiscount =async(req,res)=>{
+  var g1 = new Date()
+  const g2 = new Date(req.body.course_discount_time)
+
+  try{
+    if ((g2.getMonth() >= g1.getMonth()) && (g2.getFullYear() >= g1.getFullYear()) && (g2.getDay() >= g1.getDay())){
+      
+      const TargetCourse = await course.findOne({course_id : req.body.course_id})
+      const x = TargetCourse.course_price
+      const y = req.body.course_discount
+      const value = x*y
+      const newprice = x - value
+      const Course = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : newprice}, {new:true})
+      res.status(200).json(Course)
+
+    }
+    else{
+      const Course1 = await course.findOneAndUpdate(req.body.course_id,{course_price_after_discount : 0})
+      res.status(400).json({error:'Discount Time is Over',g1,g2})
+    }
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -354,6 +384,7 @@ module.exports = {
     changepassword,
     
     sendEmailInstructor,
-    InstructorEditEmail
+    InstructorEditEmail,
+    InstructorSetDiscount
 }
 
