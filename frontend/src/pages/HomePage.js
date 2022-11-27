@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
-
-
+import { useAuthContext } from "../hooks/useAuthContext"
 
 
 function HomePage() {
 
 
 const navigate=useNavigate();
+
+const {user} = useAuthContext()
 
 
   return (
@@ -41,7 +41,7 @@ const navigate=useNavigate();
       <div>
       <button
         onClick={() => {
-          navigate("/Instructor");
+          window.location.href=`/Instructor?userId=${user._id}`
         }}
       >
         {" "}

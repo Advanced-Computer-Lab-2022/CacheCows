@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const CourseForm = () => {
-    const { user } = useAuthContext()
+    const  {user}  = useAuthContext()
 
     const [course_id, setID] = useState('')
     const [course_name, setName] = useState('')
@@ -32,6 +32,11 @@ const CourseForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+
+        setInstID(JSON.stringify(user._id))
+        setInstName(user.name)
+        
+
         if (!user) {
             setError('You must be logged in')
             return
@@ -73,14 +78,13 @@ const CourseForm = () => {
         })
         const json = await response.json()
 
-        if(!response) {
+        if(!response.ok) {
             setError(json.error)
+            
         }
         if(response.ok) {
         setID('')
         setName('')
-        setInstName('')
-        setInstID('')
         setRating('')
         setPrice('')
         setSumm('')
@@ -121,29 +125,6 @@ const CourseForm = () => {
             onChange={(e) => setName(e.target.value)}
             value={course_name}
         />
-
-        <label>Instructor Name: </label>
-        <input
-            type = "text"
-            onChange={(e) => setInstName(e.target.value)}
-            value={instructor_name}
-        />
-        
-        <label>Instructor ID: </label>
-        <input
-            type = "text"
-            onChange={(e) => setInstID(e.target.value)}
-            value={instructor_id}
-        />
-
-
-        <label>Course Rating: </label>
-        <input
-            type = "text"
-            onChange={(e) => setRating(e.target.value)}
-            value={course_rating}
-        />
-
 
         <label>Course Discount: </label>
         <input

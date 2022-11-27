@@ -47,16 +47,27 @@ const Instructor=()=>{
   const [filtered,setFiltered]=useState()
   const [error , setError] = useState(null);
 
+  const params = new URLSearchParams(window.location.search);
+    const instructor_id = params.get('userId');
+    const inst = {instructor_id : instructor_id}
+
 useEffect(()=>{
     const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourses',{
-          headers: {'Authorization': `Bearer ${user.token}`},
+        const response= await fetch('/api/courses/getInstCourses',{
+          method: 'POST',
+          body: JSON.stringify(inst),
+          headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${user.token}`},
         })
         const json= await response.json()
 
         if(response.ok){
         setCourses(json)
         }
+        if(!response.ok){
+          console.log('NO Courses',JSON.stringify(user._id))
+          }
     }
     if (user) {
       fetchCourses()

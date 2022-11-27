@@ -16,7 +16,7 @@ const NavigationBar = () =>{
 
     return (
         <header>
-            <div className="container">
+            <div className="container" >
                 <Link to ="/"><h1>Rubix            </h1></Link>
                 <Link to="/Home"> Home             </Link>
                 <Link to="/about"> About Us        </Link>
