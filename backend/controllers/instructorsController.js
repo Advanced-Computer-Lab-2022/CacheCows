@@ -353,7 +353,7 @@ module.exports = {
     loginInstructor,
     getMe,
     changepassword,
-    rating,
+    
     sendEmailInstructor,
     InstructorEditEmail
 }
