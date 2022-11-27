@@ -121,11 +121,11 @@ catch(error){
 const changepassword=async(req,res)=>{
 
   try{
-    const {inst_id} = req.headers.user
+    const {inst_id} = req.user._id
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
     const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_pass:hashedPassword},{new:true})
-   // const instructor = await instructors.findById(inst_id)
+   
     console.log(inst_id)
 
   
@@ -136,24 +136,7 @@ const changepassword=async(req,res)=>{
   
   }
 }
-const rating=async(req,res)=>{
-  try{
-  const instructor=await instructors.findById(req.params.id)
-     var total_rating=instructor.instructor_total_rate
-     
-    var  total_no_rate=instructor.instructor_total_no_rate
-  total_rating+=req.body.instructor_rate
-  total_no_rate+=1
-  var total_rate=total_rating/total_no_rate
-  await instructors.findByIdAndUpdate(req.params.id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
-  res.status(200).json('rating added')
-  }
-  catch(error){
-    res.status(400).json({error:error.message})
-  }
- 
- 
-}
+
 
 const sendEmailInstructor=async(req,res)=>{
   try{
@@ -354,7 +337,7 @@ module.exports = {
     loginInstructor,
     getMe,
     changepassword,
-    rating,
+   
     sendEmailInstructor
 }
 

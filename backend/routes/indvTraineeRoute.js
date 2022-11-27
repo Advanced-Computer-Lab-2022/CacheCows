@@ -1,8 +1,8 @@
 const express = require('express')
 const controlls=require('../controllers/individualTraineeController')
-const instructorControlls=require('../controllers/instructorsController')
+
 const coursesControlls=require('../controllers/coursesController')
-const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees } = require('../controllers/individualTraineeController')
+const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees ,sendEmailIndv} = require('../controllers/individualTraineeController')
 
 
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
@@ -12,7 +12,7 @@ const router = express.Router()
 // require auth for all workout routes
 router.post('/registerIndTrainee', registerIndTrainee);
 router.post('/loginIndTrainee', loginIndTrainee);
-
+router.post('/forgetpassword',sendEmailIndv)
 router.use(protect)
 
 
@@ -24,13 +24,13 @@ router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
-router.put('/changepassword',controlls.changepassword);
-router.put('/rateInstructor/:id',instructorControlls.rating);
+router.post('/changepassword',controlls.changepassword);
+
 router.put('/rateCourse/:id',coursesControlls.rating)
-router.post('/forgetpassword',controlls.sendEmailIndv)
+router.put('/rateinstructor',controlls.rating)
 router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
-router.get('/del',controlls.del)
+
 
 router.get('/me', protect, getMe);
 

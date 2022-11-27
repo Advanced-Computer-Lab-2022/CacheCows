@@ -7,5 +7,5 @@ const registercourse=new mongoose.Schema({
 })
 
 
-const trainee_reg_course=mongoose.model('traineeregcourse',registercourse)
+const trainee_reg_course=mongoose.model('indvtraineeregcourse',registercourse)
 module.exports=trainee_reg_course
