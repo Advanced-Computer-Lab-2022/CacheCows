@@ -17,7 +17,10 @@ const InstSetCourseDiscount=()=>{
 
         const params = new URLSearchParams(window.location.search);
     const course_id = params.get('course_id');
-    const course = {course_id : course_id}
+    const course = {course_id : course_id,
+        course_discount_time : course_discount_time,
+        course_discount : course_discount}
+
 
         
 
@@ -39,6 +42,8 @@ if(response.ok) {
     setDiscountTime('');
     setDiscount('');
     console.log(json)
+    setError(null)
+
 
 }
 
@@ -56,7 +61,7 @@ return(
         />
     <label>Valid Until (YYYY-MM-DD) </label>
     <input
-        type = "text"
+        type = "Date"
         onChange={(e) => setDiscountTime(e.target.value)}
         value={course_discount_time}
     />
