@@ -61,7 +61,7 @@ const SearchBar = () => {
         <button>Search</button>
         {error && <div className="error">{error}</div>}
 
-        <div classname="courses"> 
+        <div className="courses"> 
         {courses && courses.map((course) =>(
         <CourseDetails course={course} key={course._id} />))}          
         </div>
