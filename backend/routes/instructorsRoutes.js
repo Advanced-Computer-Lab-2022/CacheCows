@@ -26,6 +26,9 @@ router.delete('/deleteInstructor',controlls.deleteInstructor);
 router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword',controlls.changepassword);
+;
+router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
+
 
 
 router.post('/me', protect, getMe);

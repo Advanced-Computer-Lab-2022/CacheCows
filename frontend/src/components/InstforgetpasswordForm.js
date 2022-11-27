@@ -23,8 +23,9 @@ if(!response) {
 if(response.ok) {
     setemail('');
     setError(null);
+    console.log('mail sent', json)
+
 }
-console.log('mail sent', json)
 }
 
 
