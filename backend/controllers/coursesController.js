@@ -165,9 +165,9 @@ const CourseData = asyncHandler(async (req, res) => {
 /////////////////////////////////////////////////////////////////////////
 //FILTER BY SUBJECT OR RATING
 const filterCourseBySubjectOrRating = asyncHandler(async (req, res) => {
+    const rating = req.body.course_rating;
 
     const subj = req.body.course_subject;
-    const rating = req.body.course_rating;
         if(!rating && subj){
             const course = await courses.find({course_subject : req.body.course_subject})
                 if (course.toString() === ""){
