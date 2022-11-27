@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const indv=require('../models/individualTraineeModel');
-const reg=require('../models/traineeregistercourse')
+const reg=require('../models/indvtraineeregistercourse')
 const course=require('../models/coursesModel')
-
+const  instructors = require('../models/InstructorsModel')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
@@ -85,11 +85,11 @@ const updateindvtrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-    //const indv_id=req.user._id
+    
     const indv_id=req.user._id
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
-    console.log(hashedPassword)
+    
   const indv1=await indv.findByIdAndUpdate(indv_id,{indv_pass:hashedPassword},{new:true})
   
   res.status(200).json(indv1)
@@ -127,8 +127,8 @@ res.status(400).json({error:error.message})
 }
 
 const registercourse=async (req,res)=>{
-  const trainee_id=req.body.trainee_id
-  const course_id=req.body.course_id
+  const trainee_id=req.user._id
+  const course_id=req.query._id
   try{
    const trainee_course= await reg.create({trainee_id,course_id})
    res.status(200).json(trainee_course)
@@ -140,7 +140,7 @@ const registercourse=async (req,res)=>{
 const getregistercourses=async (req,res)=>{
   
   try{
-    const courses=await reg.find(req.trainee_id)
+    const courses=await reg.find(req.user._id)
     const data=[]
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)
@@ -151,10 +151,26 @@ const getregistercourses=async (req,res)=>{
     res.status(400).json({error:error.message})
   }
 }
-const del=async (req,res)=>{
-await reg.findByIdAndDelete(req.body.trainee_id);
-res.status(200).json("done")
+
+const rating=async(req,res)=>{
+  try{
+  const instructor=await instructors.findById(req.query._id)
+     var total_rating=instructor.instructor_total_rate
+     
+    var  total_no_rate=instructor.instructor_total_no_rate
+  total_rating+=req.body.instructor_rate
+  total_no_rate+=1
+  var total_rate=total_rating/total_no_rate
+  await instructors.findByIdAndUpdate(req.query._id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  res.status(200).json('rating added')
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+ 
+ 
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -257,4 +273,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses ,del};
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating };

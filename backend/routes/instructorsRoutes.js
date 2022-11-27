@@ -5,6 +5,7 @@ const {
     registerInstructor,
     loginInstructor,
     // registerInstructor2,
+    sendEmailInstructor,
     getMe,
   } = require('../controllers/instructorsController')
   const { protect } = require('../middleware/InstructorAuthMiddleware')
@@ -13,7 +14,7 @@ const {
 // require auth for all workout routes
 router.post('/loginInstructor', loginInstructor);
 router.post('/registerInstructor', registerInstructor);
-
+router.post('/forgetpassword',sendEmailInstructor)
 router.use(protect)
 
  
@@ -25,7 +26,7 @@ router.delete('/deleteInstructor',controlls.deleteInstructor);
 router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword',controlls.changepassword);
-router.post('/forgetpassword',controlls.sendEmailInstructor);
+;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
 
 

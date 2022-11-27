@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from '../hooks/useAuthContext'
+import axios from 'axios';
 const ChangePassword=()=>{
     const { user } = useAuthContext()
-    const[pass,setPass]=useState('');
+    const[indv_pass,setIndvpass]=useState('');
     const[error , setError] = useState(null);
     
 
@@ -12,21 +13,16 @@ const ChangePassword=()=>{
             setError('You must be logged in')
             return
           }
-          const indv={pass}
-        const response = await fetch('/api/indvtrainee/changepassword', {
-            method: 'POST',
-            body: JSON.stringify(indv),
-            headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
+          const response=await axios.post('/api/indvtrainee/forgetpassword')
+          
         const json = await response.json()
 if(!response) {
     setError(json.error)
+    console.log("password")
+    
 }
 if(response.ok) {
-    setPass('');
+    setIndvpass('');
     setError(null);
     console.log("updated")
 }
@@ -37,11 +33,13 @@ if(response.ok) {
 return(
 
     <form className="create" onSubmit={handleSubmit}>
+      
+
     <label>New Password: </label>
         <input
             type = "text"
-            onChange={(e) => setPass(e.target.value)}
-            value={pass}
+            onChange={(e) => setIndvpass(e.target.value)}
+            value={indv_pass}
         />
          <button>Confirm new password</button>
         {error && <div className="error">{error}</div>}

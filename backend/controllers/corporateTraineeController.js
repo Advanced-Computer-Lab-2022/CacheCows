@@ -3,10 +3,12 @@ const asyncHandler = require('express-async-handler')
 const express = require("express");
 const mongoose = require('mongoose');
 const corp=require('../models/corporateTraineeModel');
+const instructors = require('../models/InstructorsModel')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const validator = require('validator')
-
+const course=require('../models/coursesModel')
+const reg=require('../models/corpregistercourse')
 
 
 var transporeter=nodemailer.createTransport({
@@ -18,18 +20,17 @@ var transporeter=nodemailer.createTransport({
   }
 });
 const getAllcrpTrainee = asyncHandler(async (req, res) => {
-
-    const val = await corp.find()
+  const val = await corp.find()
     res.status(200).json(val)
 })
 
 const setcrpTrainee =async (req,res)=>{
 const corp_name=req.body.corp_name;
 const Country=req.body.Country;
-const corp_user=req.body.Country;
-const corp_pass=req.body.Country;
-const corp_email=req.body.Country;
-const corp_bd=req.body.Country;
+const corp_user=req.body.corp_user;
+const corp_pass=req.body.corp_pass;
+const corp_email=req.body.corp_email;
+const corp_bd=req.body.corp_bd;
 try{
     await corp.create({corp_name,Country,corp_bd,corp_email,corp_pass,corp_user});
     res.status(200).json(req.body);
@@ -79,10 +80,10 @@ const updatecrptrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-    const crop_id=req.CorpTrainee._id
+    const corp_id=req.user._id
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
-  await crop.findByIdAndUpdate(crop_id,{corp_pass:hashedPassword},{new:true})
+  await corp.findByIdAndUpdate(corp_id,{corp_pass:hashedPassword},{new:true})
   
   res.status(200).json("updated")
   }
@@ -95,8 +96,8 @@ const changepassword=async(req,res)=>{
 
 const sendEmailcrop=async (req,res)=>{
   try{
-    const croprate=await corp.findOne({crop_email:req.body.crop_email})
-    const email=croprate.crop_email
+    const croprate=await corp.findOne({corp_email:req.body.corp_email})
+    const email=croprate.corp_email
     var MailOptions={
       from:process.env.MAIL,
       to:email,
@@ -118,6 +119,51 @@ res.status(400).json({error:error.message})
 
 }
 
+
+const registercourse=async (req,res)=>{
+  const trainee_id=req.user._id
+  const course_id=req.query._id
+  try{
+   const trainee_course= await reg.create({trainee_id,course_id})
+   res.status(200).json(trainee_course)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
+const getregistercourses=async (req,res)=>{
+  
+  try{
+    const courses=await reg.find(req.user._id)
+    const data=[]
+    for(let i=0;i<courses.length;i++){
+     data[i]=await course.findById(courses[i].course_id)
+    }
+    res.status(200).json(data)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
+
+const rating=async(req,res)=>{
+  try{
+  const instructor=await instructors.findById(req.query._id)
+     var total_rating=instructor.instructor_total_rate
+     
+    var  total_no_rate=instructor.instructor_total_no_rate
+  total_rating+=req.body.instructor_rate
+  total_no_rate+=1
+  var total_rate=total_rating/total_no_rate
+  await instructors.findByIdAndUpdate(req.query._id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  res.status(200).json('rating added')
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+ 
+ 
+}
 
 //////////////
 //Authentication
@@ -167,4 +213,4 @@ res.status(400).json({error:error.message})
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating};

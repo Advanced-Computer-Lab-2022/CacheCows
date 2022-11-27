@@ -10,7 +10,7 @@ import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
 import BasicExample from "../components/CourseCard";
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import Changepass from "../components/Instchangepassform"
 
 
 const languages = [
@@ -99,6 +99,8 @@ function IndTrainee() {
     <CourseDetails course={course} key={course._id} />))} 
     <button on onClick={() => navigate("/indvchangepassword")}
     > Change password</button>
+
+
 
     </div>
   );
