@@ -27,6 +27,7 @@ import Courses from "./pages/Courses";
 import Previewinstructorcourse from "./pages/previewinstructorcourse"
 import IReviews from "./pages/IReviews";
 import CReviews from "./pages/CReviews";
+import InstEditEmail from "./pages/InstEditEmail";
 
 
 
@@ -185,6 +186,13 @@ function App() {
             path="/CoursePage"
             element={<CoursePage/>}
             />
+            <Route 
+            path="/InstEditEmail"
+            element={<InstEditEmail/>}
+            />
+
+
+
         </Routes>
        
       </div>

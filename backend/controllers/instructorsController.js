@@ -123,7 +123,7 @@ const changepassword=async(req,res)=>{
   try{
     const {inst_id} = req.headers.user
     const salt = await bcrypt.genSalt(10)
-    const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
+    const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
     const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_pass:hashedPassword},{new:true})
    // const instructor = await instructors.findById(inst_id)
     console.log(inst_id)
@@ -180,6 +180,22 @@ res.status(400).json({error:error.message})
 
 }
 
+const InstructorEditEmail =async(req,res)=>{
+
+  try{
+    const inst_id = req.user._id
+    const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_email:req.body.instructor_email},{new:true})
+   // const instructor = await instructors.findById(inst_id)
+    console.log(inst_id)
+
+  
+    res.status(200).json(instructor)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
 
 
 
@@ -355,6 +371,7 @@ module.exports = {
     getMe,
     changepassword,
     rating,
-    sendEmailInstructor
+    sendEmailInstructor,
+    InstructorEditEmail
 }
 

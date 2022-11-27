@@ -101,6 +101,13 @@ const navigate=useNavigate();
     return(
     <div className="instructor">
       <h1>Hello, {Instructor.name}!</h1>
+
+      <button onClick={()=>{
+      navigate("/InstEditEmail");
+      }}>Change My Email</button>
+      <br/>
+
+
       <button onClick={()=>{
       navigate("/ireviews");
       }}>Show Instructor Reviews</button>
