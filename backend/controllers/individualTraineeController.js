@@ -210,6 +210,7 @@ const IndivTrainee = await indv.create({
       indv_pass : hashedPassword,
       Country : req.body.Country,
       indv_bd : req.body.indv_bd,
+      type : 'indvtrainee',
 })
 
 if (IndivTrainee) {
@@ -217,6 +218,7 @@ if (IndivTrainee) {
     _id: IndivTrainee.id,
     name: IndivTrainee.Name,
     email: IndivTrainee.indv_email,
+    type : 'indvtrainee',
     token: generateToken(IndivTrainee._id),
   })
 } else {
@@ -248,6 +250,7 @@ if (IndivTrainee) {
         name: IndivTrainee.Name,
         username: IndivTrainee.indv_user,
         email: IndivTrainee.indv_email,
+        type : 'indvtrainee',
         token: generateToken(IndivTrainee._id),
       })
     } else {

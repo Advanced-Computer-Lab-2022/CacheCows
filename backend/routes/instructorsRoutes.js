@@ -28,6 +28,7 @@ router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword',controlls.changepassword);
 ;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
+router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);
 
 
 

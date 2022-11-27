@@ -27,7 +27,9 @@ const indvTraineeSchema= new mongoose.Schema(
         indv_bd:{
             type:String,
             required:false,
-        }
+        },
+        type : {type: String , required : false}
+
         
     }
 

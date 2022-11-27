@@ -142,6 +142,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
                             corp_pass : hashedPassword,
                             Country : req.body.Country,
                             corp_bd : req.body.corp_bd,
+                            type : 'corptrainee'
                       })
 
                       
@@ -150,6 +151,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
                           _id: CorpTrainee.id,
                           corp_name: CorpTrainee.corp_name,
                           email: CorpTrainee.corp_email,
+                          type : 'corptrainee',
                           token: generateToken(CorpTrainee._id),
                         })
                         res.status(200).json('Trainee Added!')
@@ -199,6 +201,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             admin_pass : hashedPassword,
             country : req.body.country,
             admin_bd : req.body.admin_bd,
+            type : 'admin'
             
       })
       
@@ -207,6 +210,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
           _id: Admin.id,
           name: Admin.admin_name,
           email: Admin.admin_email,
+          type : 'admin',
           token: generateToken(Admin._id),
         })
       } else {
@@ -243,6 +247,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             instructor_pass : hashedPassword,
             country : req.body.country,
             instructor_bd : req.body.instructor_bd,
+            type : 'instructor'
       })
       
       if (Instructor) {
@@ -250,6 +255,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
           _id: Instructor.id,
           name: Instructor.instructor_name,
           email: Instructor.instructor_email,
+          type : 'instructor',
           token: generateToken(Instructor._id),
         })
       } else {
@@ -281,6 +287,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             name: Admin.admin_name,
             email: Admin.admin_email,
             username: Admin.admin_user,
+            type : 'admin',
             token: generateToken(Admin._id),
           })
         } else {

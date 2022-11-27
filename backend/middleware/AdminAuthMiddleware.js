@@ -17,15 +17,15 @@ const protect = async (req, res, next) => {
     const { _id } = jwt.verify(token, process.env.JWT_SECRET)
 
     req.user = await user.findOne({ _id }).select('_id')
-    next()
+    //next()
 
-        // if(req.user.type == 'admin'){
-        //   next()
-        // }
-        // else{
-        //   console.log(error)
-        //    res.status(401).json({error: 'Access Denied'})
-        // }
+        if(req.user.type == 'admin'){
+          next()
+        }
+        else{
+          console.log(error)
+           res.status(401).json({error: 'Access Denied'})
+        }
                     // admintype = await user.findOne({ _id }).select('type')
                     // if (admintype === "admin"){
                     // next()}

@@ -216,6 +216,7 @@ const Instructor = await instructors.create({
       instructor_pass : hashedPassword,
       country : req.body.country,
       instructor_bd : req.body.instructor_bd,
+      type : 'instructor'
 })
 
 if (Instructor) {
@@ -223,6 +224,7 @@ if (Instructor) {
     _id: Instructor.id,
     name: Instructor.instructor_name,
     email: Instructor.instructor_email,
+    type : 'instructor',
     token: generateToken(Instructor._id),
   })
 } else {
@@ -316,6 +318,7 @@ if (Instructor) {
         name: Instructor.instructor_name,
         username: Instructor.instructor_user,
         email: Instructor.instructor_email,
+        type : 'instructor',
         token: generateToken(Instructor._id),
       })
      }

@@ -41,6 +41,7 @@ const CourseForm = () => {
             setError('You must be logged in')
             return
           }
+         
 
         const course = {
             course_id,

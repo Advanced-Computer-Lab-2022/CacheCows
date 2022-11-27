@@ -191,6 +191,7 @@ const rating=async(req,res)=>{
           corp_name: CorpTrainee.corp_name,
           email: CorpTrainee.corp_email,
           username: CorpTrainee.corp_user,
+          type : 'corptrainee',
           token: generateToken(CorpTrainee._id),
         })
       } else {

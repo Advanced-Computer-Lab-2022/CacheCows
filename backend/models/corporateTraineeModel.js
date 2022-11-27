@@ -27,6 +27,9 @@ const corpTraineeSchema= new mongoose.Schema(
             type:String,
             required:false,
             unique : true,
+        },
+        type:{
+            type:String
         }
     }
 

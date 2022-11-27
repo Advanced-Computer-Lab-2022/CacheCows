@@ -47,11 +47,19 @@ const Instructor=()=>{
   const [filtered,setFiltered]=useState()
   const [error , setError] = useState(null);
 
+  
+
   const params = new URLSearchParams(window.location.search);
     const instructor_id = params.get('userId');
     const inst = {instructor_id : instructor_id}
 
 useEffect(()=>{
+
+  if (user.type != 'instructor' ){
+    setError('Access Denied')
+    return
+  }
+
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getInstCourses',{
           method: 'POST',
