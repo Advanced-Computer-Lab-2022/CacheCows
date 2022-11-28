@@ -24,7 +24,7 @@ router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
-router.post('/changepassword',controlls.changepassword);
+router.put('/changepassword',controlls.changepassword);
 
 router.put('/rateCourse/:id',coursesControlls.rating)
 router.put('/rateinstructor',controlls.rating)
