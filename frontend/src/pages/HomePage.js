@@ -53,7 +53,7 @@ const {user} = useAuthContext()
       <div>
       <button
         onClick={() => {
-          navigate("/CorpTrainee");
+          window.location.href=`/CorpTrainee?userId=${user._id}`
         }}
       >
         {" "}
@@ -65,7 +65,7 @@ const {user} = useAuthContext()
       <div>
       <button
         onClick={() => {
-          navigate("/IndTrainee");
+          window.location.href=`/IndTrainee?userId=${user._id}`;
         }}
       >
         {" "}

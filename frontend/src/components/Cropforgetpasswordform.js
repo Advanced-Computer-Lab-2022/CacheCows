@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 const ForgotpasswordForm=()=>{
-const [email,setemail]=useState('');
+const [corp_email,setemail]=useState('');
 const[error , setError] = useState(null);
 const handleSubmit = async(e) => {
     e.preventDefault()
 
-    //const inst={email}
+    const corp={corp_email}
 
 
 const response = await fetch('/api/corpTrainee/forgetpassword', {
     method: 'POST',
-    body: JSON.stringify(email),
+    body: JSON.stringify(corp),
     headers: {
         'Content-Type' : 'application/json'
     }
@@ -35,7 +35,7 @@ return(
         <input
             type = "text"
             onChange={(e) => setemail(e.target.value)}
-            value={email}
+            value={corp_email}
         />
          <button>Send Email</button>
         {error && <div className="error">{error}</div>}

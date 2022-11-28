@@ -53,7 +53,7 @@ import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
-
+import Indvregisteredcourses from "./pages/Indvregisteredcourses";
 function App() {
 
   const { user } = useAuthContext()
@@ -196,7 +196,10 @@ function App() {
             path="/InstSetCourseDiscount"
             element={<InstSetCourseDiscount/>}
             />
-
+           <Route 
+            path="/Indvregistercourses"
+            element={<Indvregisteredcourses/>}
+            />
 
 
 

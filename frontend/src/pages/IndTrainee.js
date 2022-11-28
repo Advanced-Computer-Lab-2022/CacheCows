@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
-import CourseDetails from "../components/CourseDetails";
+import TCourseDetails from "../components/traineeviewCourses";
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
@@ -10,7 +10,7 @@ import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
 import BasicExample from "../components/CourseCard";
 import { useAuthContext } from "../hooks/useAuthContext"
-import Changepass from "../components/Instchangepassform"
+
 
 
 const languages = [
@@ -76,6 +76,7 @@ function IndTrainee() {
   useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('/api/courses/getCourses',{
+          method:'GET',
           headers: {'Authorization': `Bearer ${user.token}`},
         })
         const json= await response.json()
@@ -95,12 +96,13 @@ function IndTrainee() {
       <SearchBar></SearchBar>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       <ReviewForm />
+      <div>
       {courses && courses.map((course) =>(
-    <CourseDetails course={course} key={course._id} />))} 
-    <button on onClick={() => navigate("/indvchangepassword")}
+    <TCourseDetails course={course} key={course._id} />))} </div>
+    <button on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
 
-
+    <button onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
 
     </div>
   );

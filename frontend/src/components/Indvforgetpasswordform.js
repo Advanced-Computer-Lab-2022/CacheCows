@@ -6,12 +6,12 @@ const[error , setError] = useState(null);
 const handleSubmit = async(e) => {
     e.preventDefault()
 
-    //const inst={email}
+    const indv={indv_email}
 
 
 const response = await fetch('/api/indvtrainee/forgetpassword', {
     method: 'POST',
-    body: JSON.stringify(indv_email),
+    body: JSON.stringify(indv),
     headers: {
         'Content-Type' : 'application/json'
     }

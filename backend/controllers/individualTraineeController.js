@@ -140,7 +140,8 @@ const registercourse=async (req,res)=>{
 const getregistercourses=async (req,res)=>{
   
   try{
-    const courses=await reg.find(req.user._id)
+    const indv_id=req.user._id
+    const courses=await reg.find({trainee_id:indv_id})
     const data=[]
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)
