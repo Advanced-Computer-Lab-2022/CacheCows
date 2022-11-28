@@ -289,19 +289,29 @@ nav button {
   justify-content: center;
   align-items: center;
   width: 80% !important;
-  height: 400px;
+  height: 300px;
   padding: 10% !important;
   border-radius: 10px;
 
 }
 .header {
   width: 98%;
-  border-bottom: 10px solid rgb(35, 189, 102);
+  border-bottom: 5px solid rgb(13, 54, 92);
+  border-top: 5px solid rgb(13, 54, 92);
   font-size: 18px solid ;
-  color: #1aac83;
+  color: #135492;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
 }
+.headerC {
+  width: 98%;
+  border-bottom: 5px solid rgb(13, 54, 92);
+  font-size: 18px solid ;
+  color: #135492;
+  text-align: center;
+  padding: 5px;
+}
+
 
 
 

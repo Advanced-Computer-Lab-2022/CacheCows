@@ -72,10 +72,11 @@ function Filter() {
 
     if(!response.ok || checkboxValue.length === 0) {
         setError(json.error)
+        setCourses('')
         setFilter('')
 
-        console.log('checkboxValue: ', checkboxValue)
-        console.log('filter: ', filter)
+        console.log('checkboxValue !ok: ', checkboxValue)
+        console.log('filter !ok: ', filter)
     } 
     if(response.ok) {
      setCourses(json)

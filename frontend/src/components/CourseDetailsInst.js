@@ -50,7 +50,7 @@ const CourseDetails = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            <p><strong>Course price: </strong>{course.cource_price}</p>
+            <p><strong>Course price: </strong>{course.course_price}</p>
             
             </div>
 
@@ -65,8 +65,14 @@ const CourseDetails = ({course}) => {
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
             <br/>
+            <br/>
             <button onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`}
               key={course._id}><strong>Set Discount</strong></button>
+              <br/>
+              <br/>
+
+            <button onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
+              key={course._id}><strong>Show Course Review</strong></button>
              <p>{course.createdAt}</p>
              </p>
              

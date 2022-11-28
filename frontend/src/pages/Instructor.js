@@ -40,6 +40,9 @@ const languages = [
 
 
 const Instructor=  ()=>{
+  const paramss = new URLSearchParams(window.location.search);
+  const instid = paramss.get('userId');
+
   const {user} = useAuthContext();
   //const [type,setType]=useState()
   const [courses,setCourses]=useState()
@@ -133,17 +136,10 @@ const navigate=useNavigate();
       }}>Change My Email</button>
       <br/>
       <br/>
-
-
-      <button onClick={()=>{
-      navigate("/ireviews");
-      }}>Show Instructor Reviews</button>
-      <br/>
-      <br/>
-
-     <button onClick={()=>{
-      navigate("/creviews");
-      }}>Show Course Reviews</button>
+       
+      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+        key={instid}><strong>Show My Reviews</strong>
+      </button>
       <br/>
       <br/>
 
@@ -158,16 +154,26 @@ const navigate=useNavigate();
     </div>
     <CourseForm />
     <CountryForm/>
+    <br/>
+    <br/>
    <button onClick={()=>{
     navigate("/instructorcourseByprice");
    }}>
     show courses by price</button>
+    <br/>
+    <br/>
 
     <button onClick={()=>{
     navigate("/previewinstructorcourse");
    }}>
     Preview My Courses</button>
+    <br/>
+    <br/>
+    
     <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
+    <br/>
+    <br/>
+
     <div>
       <CustomSelect 
       title="Select your country:" 
