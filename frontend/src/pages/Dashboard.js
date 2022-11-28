@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
+import Filter from "../components/FilterForm";
 
 // components
 import CourseDetails from "../components/CourseDetails"
@@ -22,6 +24,15 @@ const Dashboard = () => {
 
   return (
     <div className="course">
+      <Filter></Filter>
+     <br/>
+
+     <div classname="courses"> 
+
+     <SearchBar></SearchBar>
+    {courses && courses.map((course) =>(
+    <CourseDetails course={course} key={course._id} />))}          
+    </div>
       <div className="All Courses">
         {courses && courses.map((course) => (
           <CourseDetails course={course} key={course._id} />

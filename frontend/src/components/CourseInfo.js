@@ -17,11 +17,6 @@ const CourseInfo = ({course}) => {
 
     return(
         <div>
-            <Nav defaultActiveKey="/home" as="ul">
-            <Nav.Item as="li">
-            <Nav.Link href="/home">Active</Nav.Link>
-            </Nav.Item>
-            </Nav>
         <Container className="course-details" >
              <p>
             <header><strong>Course Map: </strong></header>
