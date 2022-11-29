@@ -14,6 +14,7 @@ useEffect(()=>{
         const json= await response.json()
         if(response.ok){
             setCourses(json)
+            console.log(json)
             }
         
     }

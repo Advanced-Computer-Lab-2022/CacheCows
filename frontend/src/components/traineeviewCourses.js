@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const TCourseDetails = ({course}) => {
+  
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -64,7 +65,7 @@ const TCourseDetails = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
-            <button>register course</button>
+            <button onClick={()=>{window.location.href=`/Indvregistered?userId=${course._id}`}}>register course</button>
 
              <p>{course.createdAt}</p>
              </p>

@@ -29,7 +29,7 @@ import IReviews from "./pages/IReviews";
 import CReviews from "./pages/CReviews";
 import InstEditEmail from "./pages/InstEditEmail";
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
-
+import Indvregistered from "./pages/Indvregistered"
 
 
 
@@ -200,8 +200,11 @@ function App() {
             path="/Indvregistercourses"
             element={<Indvregisteredcourses/>}
             />
-
-
+<Route 
+            path="/Indvregistered"
+            element={<Indvregistered/>}
+            />
+       
 
 
         </Routes>
