@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/FilterForm";
+import FForm from "../components/FilterForm2";
 
 // components
 import CourseDetails from "../components/CourseDetails"
@@ -24,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <div className="course">
-      <Filter></Filter>
+     <FForm></FForm>
      <br/>
 
      <div classname="courses"> 

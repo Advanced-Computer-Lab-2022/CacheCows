@@ -1,51 +1,14 @@
-import React, { Fragment, useReducer, useState } from "react";
-import "../styles.css";
-import CheckboxDropdownComponent, {
-  createStyles
-} from "react-checkbox-dropdown";
-import Instructor from "../pages/Instructor";
-import CourseDetails from "./CourseDetails";
-import { Container } from "react-bootstrap";
-import { useAuthContext } from "../hooks/useAuthContext"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Dropdown from 'muicss/lib/react/dropdown';
+import DropdownItem from 'muicss/lib/react/dropdown-item';
+import { useState } from 'react';
+import { useAuthContext } from '../hooks/useAuthContext';
+import CourseDetails from './CourseDetailsInst';
 
-const options = [
-  "Development",
-  "Business",
-  "IT and Software",
-  "Hardware",
-  "Design"
-].map(item => ({ value: item, label: item }));
-
-const options2 = [
-  "5",
-  "4",
-  "3",
-  "2",
-  "1"
-].map(item2 => ({ value: item2, label: item2 }));
-
-const style = createStyles({
-  container({ isFocused }) {
-    return {
-      backgroundColor: "#e1a",
-      color: "yellow",
-      border: `.5px solid ${isFocused ? "yellow" : "transparent"}`
-    };
-  },
-  displayText({ isOpen }) {
-    return {
-      color: isOpen ? "yellow" : "white"
-    };
-  }
-});
-
-
-
-function Filter() {
+ const FForminst = () =>  {
   const {user} = useAuthContext();
 
-  const [checkboxValue, setValue] = useState([]);
-  const [checkboxValue2, setValue2] = useState([]);
   const [filter, setFilter] = useState('');
   const [filter2, setFilter2] = useState('');
   const [courses, setCourses] = useState('');
@@ -57,10 +20,11 @@ function Filter() {
 
 
     const subj = { 
+      instructor_id : user._id,
       course_subject : filter,
       course_rating : filter2 }
 
-    const response = await fetch('/api/courses/filterCourseBySubjectOrRating', {
+    const response = await fetch('/api/courses/filterCourseBySubjectOrRatingInst', {
         method: 'POST',
         body: JSON.stringify(subj),
         headers: {
@@ -70,132 +34,74 @@ function Filter() {
     })
     const json = await response.json()
 
-    if(!response.ok || checkboxValue.length === 0) {
+    if(!response.ok) {
         setError(json.error)
+        setError2(json.error)
         setCourses('')
-        setFilter('')
 
-        console.log('checkboxValue !ok: ', checkboxValue)
         console.log('filter !ok: ', filter)
+        console.log('filter2 !ok: ', filter2)
+        console.log('response: ', json)
     } 
     if(response.ok) {
      setCourses(json)
      setError(null)
+     setError2(null)
 
         
-     console.log('checkboxValue: ', checkboxValue)
      console.log('filter: ', filter)
+     console.log('filter2: ', filter2)
     }
 }
 
-const handleSubmit2 = async(e) => {
-  e.preventDefault()
-
-
-  const subj = { 
-    course_subject : filter,
-    course_rating : filter2 }
-
-  const response = await fetch('/api/courses/filterCourseBySubjectOrRating', {
-      method: 'POST',
-      body: JSON.stringify(subj),
-      headers: {
-          'Content-Type' : 'application/json',
-          'Authorization' : `Bearer ${user.token}`
-      }
-  })
-  const json = await response.json()
-
-   if(!response.ok || checkboxValue2.length === 0){
-    setError2(json.error)
-    setFilter2('')
-
-    console.log('checkboxValue2: ', checkboxValue)
-    console.log('filter2: ', filter)
-  }
-  if(response.ok) {
-   setCourses(json)
-   setError2(null)
-
-      
-   console.log('checkboxValue2: ', checkboxValue)
-   console.log('filter2: ', filter)
-  }
+function clear(){
+  setFilter('');
+  setFilter2('');
+  setCourses('');
+  setError(null);
+     setError2(null);
 }
+  
+    return (
+      <div className='filter'>
+        <h3>Subject: {filter}</h3>
+      <Dropdown color="primary" label="Filter By Subject" className='filter' onClick={handleSubmit}
+      onSelect={(v) => setFilter(v)}
+      >
+        <DropdownItem value="Biology">Biology</DropdownItem>
+        <DropdownItem value="Hardware">Hardware</DropdownItem>
+        <DropdownItem value="IT and Software">IT and Software</DropdownItem>
+        <DropdownItem value="Music">Music</DropdownItem>
+      </Dropdown>
+      <br/>
 
+      <h3>Rating: {filter2}</h3>
+      <Dropdown color="primary" label="Filter By Rating" className='filter' onClick={handleSubmit}
+      onSelect={(v) => setFilter2(v)}
+      >
+        <h4><DropdownItem value="5" >5</DropdownItem></h4>
+        <h4><DropdownItem value="4" >4</DropdownItem></h4>
+        <h4><DropdownItem value="3" >3</DropdownItem></h4>
+        <h4><DropdownItem value="2" >2</DropdownItem></h4>
+        <h4><DropdownItem value="1" >1</DropdownItem></h4>
 
+      </Dropdown>
 
-  return (
-    <div>
-    <form onSubmit={handleSubmit}>
-      <div className="defalut">
-        <CheckboxDropdownComponent 
-          onSubmit={handleSubmit}
-          displayText="Filter By Subject"
-          options={options}
-          onChange={e => {
-            if (!checkboxValue.includes(e)) {
-              const newValue = [...checkboxValue, e];
-              setValue(newValue);
-              setFilter(e.label)
-              handleSubmit()
-            }else{
-                setFilter(e.label)
-                handleSubmit()
-            }
-          }}
-          onDeselectOption={option => {
-            const filteredOptions = checkboxValue.filter(
-              item => item.value !== option.value
-            );
-            setValue(filteredOptions);
-          }}
-          value={checkboxValue}
-          displayTags
-          isStrict={false}
-        />
-        {error && <div className="error">{error}</div>}
-      </div>
-    </form>
+      {error && <div className="error">{error}</div>}
 
-    <br/>
+      <br/>
 
-    <form onSubmit={handleSubmit2}>
-      <div className="defalut2">
-        <CheckboxDropdownComponent 
-          onSubmit={handleSubmit2}
-          displayText="Filter By Rating"
-          options={options2}
-          onChange={e => {
-            if (!checkboxValue2.includes(e)) {
-              const newValue2 = [...checkboxValue2, e];
-              setValue2(newValue2);
-              setFilter2(e.label)
-              handleSubmit()
-            }else{
-              setFilter2(e.label)
-              handleSubmit()
-            }
-          }}
-          onDeselectOption2={option2 => {
-            const filteredOptions2 = checkboxValue2.filter(
-              item2 => item2.value !== option2.value
-            );
-            setValue2(filteredOptions2);
-          }}
-          value={checkboxValue2}
-          displayTags2
-          isStrict={true}
-        />
-        {error2 && <div className="error">{error2}</div>}
-      </div>
-    </form>
-    <div className="courses"> 
+      <button onClick={clear}>Clear Filters</button>
+
+      <div className="courses"> 
         {courses && courses.map((course) =>(
         <CourseDetails course={course} key={course._id} />))}          
-    </div> 
-    </div>
-  );
-}
+      </div> 
 
-export default Filter;
+    
+      </div>
+    );
+  }
+
+
+  export default FForminst

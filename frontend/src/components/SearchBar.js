@@ -48,6 +48,7 @@ const SearchBar = () => {
     }
 
     return (
+        <div className="filter">
        <form className="create" onSubmit={handleSubmit}>
 
         <input
@@ -66,6 +67,7 @@ const SearchBar = () => {
         <CourseDetails course={course} key={course._id} />))}          
         </div>
        </form>
+       </div>
     )
 }   
 

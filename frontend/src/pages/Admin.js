@@ -95,9 +95,7 @@ const Admin = () => {
 
   
     return (
-      <div className="Admin">
-        <SearchBar></SearchBar>
-        
+      <div className="Admin">    
         <strong></strong>
         <div className="All-Admins">
           {admins && admins.map((admin) => (

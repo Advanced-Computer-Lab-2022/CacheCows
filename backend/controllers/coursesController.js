@@ -166,22 +166,50 @@ const CourseData = asyncHandler(async (req, res) => {
 //FILTER BY SUBJECT OR RATING
 const filterCourseBySubjectOrRating = asyncHandler(async (req, res) => {
     const rating = req.body.course_rating;
-
     const subj = req.body.course_subject;
         if(!rating && subj){
-            const course = await courses.find({course_subject : req.body.course_subject})
-                if (course.toString() === ""){
-                    res.status(400).json({error: 'course not found'})
+            const courseR = await courses.find({course_subject : req.body.course_subject})
+                if (courseR.toString() === ""){
+                    res.status(400).json({error: 'No Courses Matches Filter'})
                 }
-            res.status(200).json(course)
+            res.status(200).json(courseR)
             }if(!subj && rating){
-                const course = await courses.find({course_rating : req.body.course_rating})
-                if (!course){
-                    res.status(400).json({error: 'course not found'})
+                const courseF = await courses.find({course_rating : req.body.course_rating})
+                if (courseF.toString() === ''){
+                    res.status(400).json({error: 'No Courses Matches Filter'})
                 }
-            res.status(200).json(course)
+            res.status(200).json(courseF)
         }else {
             const course = await courses.find({course_subject : req.body.course_subject,course_rating: req.body.course_rating})
+            if (course.toString() === ''){
+                res.status(400).json({error: 'No Courses Matches Filter'})
+            }
+            res.status(200).json(course)
+        }
+})
+
+//FILTER BY SUBJECT OR RATING inst
+const filterCourseBySubjectOrRatingInst = asyncHandler(async (req, res) => {
+    const rating = req.body.course_rating;
+    const subj = req.body.course_subject;
+    const instcrs = await courses.find({instructor_id : req.body.instructor_id})
+        if(!rating && subj){
+            const courseR = await courses.find({instructor_id : req.body.instructor_id}).find({course_subject : req.body.course_subject})
+                if (courseR.toString() === ""){
+                    res.status(400).json({error: 'No Courses Matches Filter'})
+                }
+            res.status(200).json(courseR)
+            }if(!subj && rating){
+                const courseF = await courses.find({instructor_id : req.body.instructor_id}).find({course_rating : req.body.course_rating})
+                if (courseF.toString() === ''){
+                    res.status(400).json({error: 'No Courses Matches Filter'})
+                }
+            res.status(200).json(courseF)
+        }else {
+            const course = await courses.find({instructor_id : req.body.instructor_id}).find({course_subject : req.body.course_subject,course_rating: req.body.course_rating})
+            if (course.toString() === ''){
+                res.status(400).json({error: 'No Courses Matches Filter'})
+            }
             res.status(200).json(course)
         }
 })
@@ -250,15 +278,13 @@ const filterInstCourse = asyncHandler(async (req, res) => {
         if(!subj){
             const course = await courses.find({course_subject : req.body.course_subject})
                 if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
+                    res.status(400).json({error: 'No Courses Matches Filter'})
                 }
             res.status(200).json(course)
             }if(!price){
                 const course = await courses.find({course_price : req.body.course_price})
                 if (!course){
-                    res.status(400)
-                    throw new Error ('No Courses Matches Search!')
+                    res.status(400).json({error: 'No Courses Matches Filter'})
                 }
             res.status(200).json(course)
         }
@@ -323,7 +349,8 @@ module.exports = {
     filterInstCourse,
     CourseData,
     rating,
-    getInstCourses
+    getInstCourses,
+    filterCourseBySubjectOrRatingInst
 
 }
 

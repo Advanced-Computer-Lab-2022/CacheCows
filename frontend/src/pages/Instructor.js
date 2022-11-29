@@ -7,7 +7,8 @@ import CountryForm from "../components/CountryForm"
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
-import Filter from "../components/FilterForm";
+import FForminst from "../components/FilterForm";
+import FForm from "../components/FilterForm2";
 
 
 const languages = [
@@ -50,6 +51,28 @@ const Instructor=  ()=>{
   const [filter,setFilter]=useState()
   const [filtered,setFiltered]=useState()
   const [error , setError] = useState(null);
+  const [Cflag , setCflag] = useState(false);
+  const [Sflag , setSflag] = useState(false);
+  const [Fflag , setFflag] = useState(false);
+  const [username , setname] = useState('');
+
+  function SearchOn() {
+    setSflag(true);
+    setCflag(false);
+    setFflag(false);
+  }
+
+  function FilterOn() {
+    setSflag(false);
+    setCflag(false);
+    setFflag(true);
+  }
+
+  function CourseOn() {
+    setSflag(false);
+    setCflag(true);
+    setFflag(false);
+  }
 
   
 
@@ -62,7 +85,8 @@ useEffect(()=>{
     const fetchCourses=async ()=>{
       const params = new URLSearchParams(window.location.search);
       const instructor_id = params.get('userId');
-      const inst = {instructor_id : instructor_id}
+      const inst = {instructor_id : instructor_id};
+      setname(user.name);
 
         const response= await fetch('/api/courses/getInstCourses',{
           method: 'POST',
@@ -129,65 +153,50 @@ const navigate=useNavigate();
 
     return(
     <div className="instructor">
-      <h1>Hello, {Instructor.name}!</h1>
+      <div className="filter">
+      <h1>Hello, {username}!</h1>
 
       <button onClick={()=>{
       navigate("/InstEditEmail");
       }}>Change My Email</button>
       <br/>
       <br/>
+
+      <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
+      <br/>
+      <br/>
        
       <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}><strong>Show My Reviews</strong>
+        key={instid}>Show My Reviews
       </button>
       <br/>
       <br/>
 
-     <Filter></Filter>
-     <br/>
+      <button onClick={()=>{
+      navigate("/AddCourse");
+      }}>Add Course</button>
+    </div>
+    <br/>
+    <br/>
+
+      <FForminst></FForminst>
+      <br/>
+      <br/>
 
      <div classname="courses"> 
 
      <SearchBar></SearchBar>
+     <br/>
+     <br/>
+
+     <h3>All Courses: </h3>
     {courses && courses.map((course) =>(
     <CourseDetailsInst course={course} key={course._id} />))}          
     </div>
-    <CourseForm />
+    <div className='filter'>
     <CountryForm/>
+    </div>
     <br/>
-    <br/>
-   <button onClick={()=>{
-    navigate("/instructorcourseByprice");
-   }}>
-    show courses by price</button>
-    <br/>
-    <br/>
-
-    <button onClick={()=>{
-    navigate("/previewinstructorcourse");
-   }}>
-    Preview My Courses</button>
-    <br/>
-    <br/>
-    
-    <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
-    <br/>
-    <br/>
-
-    <div>
-      <CustomSelect 
-      title="Select your country:" 
-      value={selectedLanguages} 
-      onChange={handleSubmit} 
-      options={languages} />
-      
-      <div className="courses"> 
-        {filtered && filtered.map((course) =>(
-        <CourseDetailsInst course={course} key={course._id} />))}          
-      </div>
-
-      {error && <div className="error">{error}</div>}
-      </div>
 
 </div>
 

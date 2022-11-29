@@ -329,3 +329,29 @@ nav button {
   font-weight: 400;
   text-decoration:none;
   }
+
+  .filter {
+    background: rgb(252, 252, 252);
+    border-bottom: 5px solid rgb(13, 54, 92);
+    width: 90%;
+    color: #135492;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+
+  .filter h4 {
+    font-size: 1.2em;
+    color: rgb(16, 58, 148);
+    justify-content: center;
+  }
+
+  .input {
+    font-size: 1.2em;
+    color: rgb(60, 65, 82);
+    justify-content: center;
+  }
