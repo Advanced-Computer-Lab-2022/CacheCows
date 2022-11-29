@@ -17,35 +17,51 @@ const CourseInfo = ({course}) => {
 
     return(
         <div>
-            <Nav defaultActiveKey="/home" as="ul">
-            <Nav.Item as="li">
-            <Nav.Link href="/home">Active</Nav.Link>
-            </Nav.Item>
-            </Nav>
         <Container className="course-details" >
              <p>
-            <header><strong>Course Map: </strong></header>
+            <header class='headerC'><Popup modal trigger={
+            <p><h4>{course.course_name}</h4></p>}>
+            <h4 class='header'>{course.course_name}</h4>
+            <iframe className='modalx'  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
+            <h4 class='header'>{course.course_summary}</h4>
+            </Popup></header>
+
+            <br/>
+
             <Popup modal trigger={
             <p><h4>{course.course_subtopic1}</h4></p>}>
             <h4 class='header'>{course.course_subtopic1}</h4>
             <iframe className='modalx'  src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>
+            <h4 class='header'>{course.course_description1}</h4>
             </Popup>
 
-            <p><h4>{course.course_subtopic2}</h4></p>
+            <br/>
+
+            <Popup modal trigger={
+            <p><h4>{course.course_subtopic2}</h4></p>}>
+            <h4 class='header'>{course.course_subtopic2}</h4>
+            <iframe className='modalx'  src={course.course_preview2} title="YouTube video" allowFullScreen></iframe>
+            <h4 class='header'>{course.course_description2}</h4>
+            </Popup>
+
+            <br/>
 
             <Popup modal trigger={
             <p><h4>{course.course_subtopic3}</h4></p>}>
             <h4 class='header'>{course.course_subtopic3}</h4>
-            <iframe className='modalx'  src={course.course_preview2} title="YouTube video" allowFullScreen></iframe>
+            <iframe className='modalx'  src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>
+            <h4 class='header'>{course.course_description3}</h4>
             </Popup>
+
+            <br/>
 
             <p><h4>{course.course_subtopic4}</h4></p>
 
-            <Popup modal trigger={
-            <p><h4>{course.course_subtopic5}</h4></p>}>
-            <h4 class='header'>{course.course_subtopic3}</h4>
-            <iframe className='modalx'  src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>
-            </Popup>
+            <br/>
+
+            <p><h4>{course.course_subtopic5}</h4></p>
+
+            <br/>
 
             <p><h4>{course.course_subtopic6}</h4></p>
         </p>

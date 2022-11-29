@@ -2,7 +2,8 @@ import { Container } from 'react-bootstrap'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CourseDetailsInst = ({course}) => {
+const TCourseDetails = ({course}) => {
+  
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -50,7 +51,7 @@ const CourseDetailsInst = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            <p><strong>Course price: </strong>{course.course_price}</p>
+            <p><strong>Course price: </strong>{course.cource_price}</p>
             
             </div>
 
@@ -64,15 +65,8 @@ const CourseDetailsInst = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
-            <br/>
-            <br/>
-            <button onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`}
-              key={course._id}><strong>Set Discount</strong></button>
-              <br/>
-              <br/>
+            <button onClick={()=>{window.location.href=`/Indvregistered?userId=${course._id}`}}>register course</button>
 
-            <button onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-              key={course._id}><strong>Show Course Review</strong></button>
              <p>{course.createdAt}</p>
              </p>
              
@@ -81,4 +75,4 @@ const CourseDetailsInst = ({course}) => {
     )
 }
 
-export default CourseDetailsInst
+export default TCourseDetails

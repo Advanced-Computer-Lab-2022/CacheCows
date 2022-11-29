@@ -128,9 +128,9 @@ res.status(400).json({error:error.message})
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
-  const course_id=req.query._id
+  const course_id=req.body.userId
   try{
-   const trainee_course= await reg.create({trainee_id,course_id})
+   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
    res.status(200).json(trainee_course)
   }
   catch(error){
@@ -140,7 +140,8 @@ const registercourse=async (req,res)=>{
 const getregistercourses=async (req,res)=>{
   
   try{
-    const courses=await reg.find(req.user._id)
+    const indv_id=req.user._id
+    const courses=await reg.find({trainee_id:indv_id})
     const data=[]
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)

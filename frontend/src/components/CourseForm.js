@@ -28,6 +28,12 @@ const CourseForm = () => {
     const [course_discription1, setDisc1] = useState('')
     const [course_discription2, setDisc2] = useState('')
     const [course_discription3, setDisc3] = useState('')
+    const [course_subtopic1, settop1] = useState('')
+    const [course_subtopic2, settop2] = useState('')
+    const [course_subtopic3, settop3] = useState('')
+    const [course_subtopic4, settop4] = useState('')
+    const [course_subtopic5, settop5] = useState('')
+    const [course_subtopic6, settop6] = useState('')
     const[error , setError] = useState(null)
 
     const handleSubmit = async(e) => {
@@ -65,7 +71,13 @@ const CourseForm = () => {
             course_subtitles3,
             course_discription1,
             course_discription2,
-            course_discription3
+            course_discription3,
+            course_subtopic1,
+            course_subtopic2,
+            course_subtopic3,
+            course_subtopic4,
+            course_subtopic5,
+            course_subtopic6
             
         }
 
@@ -103,6 +115,12 @@ const CourseForm = () => {
         setDisc1('')
         setDisc2('')
         setDisc3('')
+        settop1('')
+        settop2('')
+        settop3('')
+        settop4('')
+        settop5('')
+        settop6('')
         setError(null)
             
         console.log('New Course Added', json)
@@ -190,20 +208,19 @@ const CourseForm = () => {
             value={course_video}
         />
 
+        <label>Course SubTopic 1: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop1(e.target.value)}
+            value={course_subtopic1}
+        />
+
 
         <label>Course Preview 1: </label>
         <input
             type = "text"
             onChange={(e) => setPrev1(e.target.value)}
             value={course_preview1}
-        />
-
-
-        <label>Course Subtitle 1: </label>
-        <input
-            type = "text"
-            onChange={(e) => setSubt1(e.target.value)}
-            value={course_subtitles1}
         />
 
         <label>Course Description 1: </label>
@@ -213,6 +230,13 @@ const CourseForm = () => {
             value={course_discription1}
         />
 
+        <label>Course SubTopic 2: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop2(e.target.value)}
+            value={course_subtopic2}
+        />
+
         <label>Course Preview 2: </label>
         <input
             type = "text"
@@ -220,20 +244,18 @@ const CourseForm = () => {
             value={course_preview2}
         />
 
-
-        <label>Course Subtitle 2: </label>
-        <input
-            type = "text"
-            onChange={(e) => setSubt2(e.target.value)}
-            value={course_subtitles2}
- 
- />
-
         <label>Course Description 2: </label>
         <input
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_discription2}
+        />
+
+        <label>Course SubTopic 3: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop3(e.target.value)}
+            value={course_subtopic3}
         />
 
         <label>Course Preview 3: </label>
@@ -244,18 +266,53 @@ const CourseForm = () => {
         />
 
 
-        <label>Course Subtitle 3: </label>
-        <input
-            type = "text"
-            onChange={(e) => setSubt3(e.target.value)}
-            value={course_subtitles3}
-        />
-
         <label>Course Description 3: </label>
         <input
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
             value={course_discription3}
+        />
+
+        <label>Course SubTopic 4: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop4(e.target.value)}
+            value={course_subtopic4}
+        />
+
+        <label>Course SubTopic 5: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop5(e.target.value)}
+            value={course_subtopic5}
+        />
+
+        <label>Course SubTopic 6: </label>
+        <input
+            type = "text"
+            onChange={(e) => settop6(e.target.value)}
+            value={course_subtopic6}
+        />
+
+        <label>Course Subtitle 1: </label>
+        <input
+            type = "text"
+            onChange={(e) => setSubt1(e.target.value)}
+            value={course_subtitles1}
+        />
+
+        <label>Course Subtitle 2: </label>
+        <input
+            type = "text"
+            onChange={(e) => setSubt2(e.target.value)}
+            value={course_subtitles2}
+        />
+
+        <label>Course Subtitle 3: </label>
+        <input
+            type = "text"
+            onChange={(e) => setSubt3(e.target.value)}
+            value={course_subtitles3}
         />
 
         <button>Add Course</button>

@@ -8,6 +8,7 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CourseInfo from "../components/CourseInfo";
+import { Nav } from "react-bootstrap";
 
 const CoursePage=()=>{
     const user = useAuthContext()

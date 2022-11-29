@@ -39,8 +39,12 @@ const languages = [
   ]
 
 
-const Instructor=()=>{
-  const {user} = useAuthContext()
+const Instructor=  ()=>{
+  const paramss = new URLSearchParams(window.location.search);
+  const instid = paramss.get('userId');
+
+  const {user} = useAuthContext();
+  //const [type,setType]=useState()
   const [courses,setCourses]=useState()
   const [selectedLanguages, setSelectedLanguages] = useState([])
   const [filter,setFilter]=useState()
@@ -49,29 +53,35 @@ const Instructor=()=>{
 
   
 
-  const params = new URLSearchParams(window.location.search);
-    const instructor_id = params.get('userId');
-    const inst = {instructor_id : instructor_id}
+  
+  
 
-useEffect(()=>{
 
-  // if (user.type != 'instructor' ){
-  //   setError('Access Denied')
-  //   return
-  // }
+useEffect(()=>{ 
 
     const fetchCourses=async ()=>{
+      const params = new URLSearchParams(window.location.search);
+      const instructor_id = params.get('userId');
+      const inst = {instructor_id : instructor_id}
+
         const response= await fetch('/api/courses/getInstCourses',{
           method: 'POST',
           body: JSON.stringify(inst),
           headers: {
             'Content-Type' : 'application/json',
-            'Authorization': `Bearer ${user.token}`},
+            'Authorization' : `Bearer ${user.token}`},
         })
         const json= await response.json()
 
+        if(user.type === "instructor"){
+          setError(null)
+        }else{
+         setError({error : "Access Denied"})
+        }
+
         if(response.ok){
         setCourses(json)
+        console.log('NO Courses',error)
         }
         if(!response.ok){
           console.log('NO Courses',JSON.stringify(user._id))
@@ -81,10 +91,10 @@ useEffect(()=>{
       fetchCourses()
         }
     
-},[])
+},[error,user])
 
 const handleSubmit = async(e) => {
-  //e.preventDefault()
+  e.preventDefault()
   setSelectedLanguages(e);
   setFilter(languages.at({id: e[0]}));
 
@@ -125,17 +135,11 @@ const navigate=useNavigate();
       navigate("/InstEditEmail");
       }}>Change My Email</button>
       <br/>
-
-
-      <button onClick={()=>{
-      navigate("/ireviews");
-      }}>Show Instructor Reviews</button>
       <br/>
-      <br/>
-
-     <button onClick={()=>{
-      navigate("/creviews");
-      }}>Show Course Reviews</button>
+       
+      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+        key={instid}><strong>Show My Reviews</strong>
+      </button>
       <br/>
       <br/>
 
@@ -150,16 +154,26 @@ const navigate=useNavigate();
     </div>
     <CourseForm />
     <CountryForm/>
+    <br/>
+    <br/>
    <button onClick={()=>{
     navigate("/instructorcourseByprice");
    }}>
     show courses by price</button>
+    <br/>
+    <br/>
 
     <button onClick={()=>{
     navigate("/previewinstructorcourse");
    }}>
     Preview My Courses</button>
+    <br/>
+    <br/>
+    
     <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
+    <br/>
+    <br/>
+
     <div>
       <CustomSelect 
       title="Select your country:" 
@@ -181,6 +195,5 @@ const navigate=useNavigate();
 
 }
 export default Instructor
-
 
 

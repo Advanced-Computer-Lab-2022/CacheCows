@@ -29,7 +29,7 @@ import IReviews from "./pages/IReviews";
 import CReviews from "./pages/CReviews";
 import InstEditEmail from "./pages/InstEditEmail";
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
-
+import Indvregistered from "./pages/Indvregistered"
 
 
 
@@ -53,7 +53,7 @@ import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
-
+import Indvregisteredcourses from "./pages/Indvregisteredcourses";
 function App() {
 
   const { user } = useAuthContext()
@@ -202,9 +202,15 @@ function App() {
             path="/InstSetCourseDiscount"
             element={<InstSetCourseDiscount/>}
             />
-
-
-
+           <Route 
+            path="/Indvregistercourses"
+            element={<Indvregisteredcourses/>}
+            />
+<Route 
+            path="/Indvregistered"
+            element={<Indvregistered/>}
+            />
+       
 
 
         </Routes>

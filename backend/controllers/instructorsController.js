@@ -66,13 +66,13 @@ const setInstructor = asyncHandler(async(req, res) => {
 // @access Private 
 const updateInstructor = asyncHandler(async (req, res) => {
     
-    const Instructor = await instructors.find({instructor_id: req.body.instructor_id})
+    const Instructor = await instructors.find({_id : req.body._id})
     
-    if (Instructor.toString() === ""){
+    if (!Instructor){
         res.status(400)
         throw new Error ('Instructor not found')
     }
-    const updatedInstructor = await instructors.findOneAndUpdate({instructor_id: req.body.instructor_id}, req.body ,{
+    const updatedInstructor = await instructors.findOneAndUpdate({_id : req.body._id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedInstructor)
@@ -121,7 +121,7 @@ catch(error){
 const changepassword=async(req,res)=>{
 
   try{
-    const {inst_id} = req.user._id
+    const inst_id = req.user._id
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
     const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_pass:hashedPassword},{new:true})
