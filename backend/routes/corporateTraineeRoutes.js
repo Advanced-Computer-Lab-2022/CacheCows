@@ -13,7 +13,7 @@ router.post('/loginCorpTrainee',loginCorpTrainee);
 
 router.post('/forgetpassword',sendEmailcrop)
 
-//router.use(protect)
+router.use(protect)
 
 
 router.get('/alltrainees',controlls.getAllcrpTrainee);

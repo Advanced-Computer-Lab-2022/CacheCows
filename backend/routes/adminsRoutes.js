@@ -11,12 +11,14 @@ router.post('/registerInstructor',controlls.registerInstructor);
 router.post('/RegisterAdmin',controlls.RegisterAdmin);
 router.post('/loginAdmin',controlls.loginAdmin);
 
-// require auth for all workout routes
-router.use(protect)
-
 router.get('/getAdmins',controlls.getAdmins);
 router.get('/getInstructors',controlls.getInstructors);
 router.get('/getAllcrpTrainee',controlls.getAllcrpTrainee);
+
+// require auth for all workout routes
+router.use(protect)
+
+
 
 
 router.get('/getAdmin',controlls.getAdmin);

@@ -1,6 +1,10 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/AdminLogin"
 import { useNavigate } from "react-router-dom";
+//import Admin from "./pages/Admin";
+import { Link } from 'react-router-dom'
+
+
 
 
 
@@ -39,7 +43,9 @@ const Login = () => {
       />
       
          <button disabled={isLoading}>Log in</button>
-
+         <p>
+         <button onClick={()=>navigate("/Admin")}>Login</button>
+         </p>
          
        
       {error && <div className="error">{error}</div>}    </form>

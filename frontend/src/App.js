@@ -30,6 +30,8 @@ import CReviews from "./pages/CReviews";
 import InstEditEmail from "./pages/InstEditEmail";
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/Indvregistered"
+import AccessDenied from "./pages/AccessDenied"
+
 
 
 
@@ -54,12 +56,15 @@ import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
 import Indvregisteredcourses from "./pages/Indvregisteredcourses";
+
+
+
 function App() {
 
   const { user } = useAuthContext()
 
 
-  const usertype = localStorage.getItem('user'.type)
+  const usertype = localStorage.getItem('type')
 
   return (
 
@@ -80,12 +85,13 @@ function App() {
           />
           <Route 
           path = "/admin"
+          element = { (usertype === 'admin') ?<Admin /> :  <AccessDenied to="/" />}
 
-         element = { <Admin /> }
+         //element = { <Admin /> }
           />
             <Route 
           path = "/instructor"
-          element = { <Instructor /> }
+          element = { (usertype == 'instructor') ?<Instructor /> :  <AccessDenied to="/" />}
           />
             <Route 
           path = "/guest"
@@ -109,11 +115,15 @@ function App() {
            />
           <Route 
           path="/CorpTrainee/" 
-          element={<CorpTrainee />} 
+          //element={<CorpTrainee />} 
+          element = { (usertype === 'corptrainee') ?<CorpTrainee /> :  <AccessDenied to="/" />}
+
           />
           <Route 
           path="/IndTrainee/" 
-          element={<IndTrainee />} 
+         // element={<IndTrainee />} 
+          element = { (usertype === 'indvtrainee') ?<CorpTrainee /> :  <AccessDenied to="/" />}
+
           />
           <Route 
           path="*" 
