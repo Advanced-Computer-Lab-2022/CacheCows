@@ -201,7 +201,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             admin_pass : hashedPassword,
             country : req.body.country,
             admin_bd : req.body.admin_bd,
-            type : 'admin'
+            type : "admin"
             
       })
       

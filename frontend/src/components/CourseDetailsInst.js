@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CourseDetails = ({course}) => {
+const CourseDetailsInst = ({course}) => {
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -75,4 +75,4 @@ const CourseDetails = ({course}) => {
     )
 }
 
-export default CourseDetails
+export default CourseDetailsInst

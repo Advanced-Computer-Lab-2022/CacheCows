@@ -58,6 +58,7 @@ function App() {
 
   const { user } = useAuthContext()
 
+
   const usertype = localStorage.getItem('user'.type)
 
   return (
@@ -79,7 +80,8 @@ function App() {
           />
           <Route 
           path = "/admin"
-          element = { <Admin /> }
+
+         element = { <Admin /> }
           />
             <Route 
           path = "/instructor"
@@ -142,11 +144,15 @@ function App() {
             
             <Route 
               path="/login" 
+              
               element={!user ? <Login /> : <Navigate to="/" />}
+
+             
             />
             <Route 
               path="/InstLogin" 
               element={<InstLogin />} 
+              
             />
             <Route 
               path="/IndTraineeLogin" 
