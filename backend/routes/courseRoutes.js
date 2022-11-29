@@ -17,6 +17,7 @@ router.post('/SearchCourseInstructor',controlls.SearchCourseInstructor);
 router.post('/findInstCourse',controlls.findInstCourse);
 router.post('/filterCourseByPrice',controlls.filterCourseByPrice);
 router.post('/filterCourseBySubjectOrRating',controlls.filterCourseBySubjectOrRating);
+router.post('/filterCourseBySubjectOrRatingInst',controlls.filterCourseBySubjectOrRatingInst);
 router.post('/viewCoursePrice',controlls.viewCoursePrice);
 router.post('/viewCourses',controlls.viewCourses);
 router.post('/filterInstCourse',controlls.filterInstCourse);

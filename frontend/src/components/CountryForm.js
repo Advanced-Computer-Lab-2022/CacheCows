@@ -46,6 +46,8 @@ return(
             type = "text"
             onChange={(e) => setID(e.target.value)}
             value={instructor_id}
+            placeholder='ID...'
+            className='input'
         />
 
 <label>Country: </label>
@@ -53,6 +55,8 @@ return(
             type = "text"
             onChange={(e) => setCountry(e.target.value)}
             value={country}
+            placeholder='Country...'
+            className='input'
         />
 
 
