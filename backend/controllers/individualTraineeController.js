@@ -125,13 +125,28 @@ res.status(400).json({error:error.message})
   }
 
 }
+const del=async (req,res)=>{
+try{
+  await reg.deleteMany()
+  res.status(200).json("deleted")
+}
+catch(error){
+res.status(400).json({error:error.message})
+}
+}
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
   const course_id=req.body.userId
   try{
+    const indv=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
+    if(indv){
+      res.status(200).json("already registered")
+    }
+    else{
    const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
    res.status(200).json(trainee_course)
+    }
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -277,4 +292,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del };

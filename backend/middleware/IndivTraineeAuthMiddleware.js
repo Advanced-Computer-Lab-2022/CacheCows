@@ -20,9 +20,10 @@ const protect = async (req, res, next) => {
     // const {type_t} = user_admin.type
     
     // console.log(type_t)
-  
+    
       const u = await user.findOne({ _id:_id })
       if(u!==null){
+        
       console.log(u)
       req.user = await user.findOne({ _id }).select('_id')
 
@@ -31,7 +32,7 @@ const protect = async (req, res, next) => {
       console.log(error)
       res.status(401).json({error: 'Access Denied'})
       }
-    
+      
     next()
 
   } catch (error) {
