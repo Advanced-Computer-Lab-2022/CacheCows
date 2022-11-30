@@ -57,6 +57,7 @@ import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
 import Indvregisteredcourses from "./pages/Indvregisteredcourses";
 
+import AddCoursePage from "./pages/AddCoursePage";
 
 
 function App() {
@@ -222,9 +223,13 @@ function App() {
             path="/Indvregistercourses"
             element={<Indvregisteredcourses/>}
             />
-<Route 
+            <Route 
             path="/Indvregistered"
             element={<Indvregistered/>}
+            />
+            <Route 
+            path="/AddCourse"
+            element={<AddCoursePage/>}
             />
        
 

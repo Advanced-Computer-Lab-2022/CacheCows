@@ -216,14 +216,12 @@ const filterCourseBySubjectOrRatingInst = asyncHandler(async (req, res) => {
 //FILTER BY PRICE         
 const filterCourseByPrice = asyncHandler(async (req, res) => {
 
-    const course = await courses.findById({course_price : req.body.course_price})
-        if (!course){
-            res.status(400)
-            throw new Error ('No Courses Matches Search!')
-        }
-                
-            res.status(200).json(course)
-            
+    const max = req.body.course_price
+    const course = await courses.find().where("course_price").lte(max).exec()
+        if (course.toString() === ""){
+            res.status(400).json({error: 'No Courses Matches Filter'})
+        }  
+            res.status(200).json(course)  
 })   
 //////////////////////////////////////////////////////////////////////////
 //INST SEARCH AND FILTER
@@ -309,6 +307,24 @@ const SearchCourseByOpt = asyncHandler(async (req, res) => {
         res.status(200).json(course3)
     }
 })
+
+//SEARCH COURSES BY SUBJECT OR TITLE OR INST
+const SearchCourseByOptInst = asyncHandler(async (req, res) => {
+
+    const course1 = await courses.find({instructor_id : req.body.instructor_id}).find({course_subject : req.body.text})
+    const course2 = await courses.find({instructor_id : req.body.instructor_id}).find({course_name : req.body.text})
+    const course3 = await courses.find({instructor_id : req.body.instructor_id}).find({instructor_name : req.body.text})
+    if (course1.toString() === "" && course2.toString() === "" && course3.toString() === ""){
+        res.status(400).json({error: 'No Courses Matches Search!' })
+    }
+    if(course1.toString() != ""){
+        res.status(200).json(course1)
+    } else if(course2.toString() != ""){
+        res.status(200).json(course2)
+    }else if(course3.toString() != ""){ 
+        res.status(200).json(course3)
+    }
+}) 
 const rating=async(req,res)=>{
     try{
     const course=await instructors.findById(req.params.id)
@@ -350,7 +366,8 @@ module.exports = {
     CourseData,
     rating,
     getInstCourses,
-    filterCourseBySubjectOrRatingInst
+    filterCourseBySubjectOrRatingInst,
+    SearchCourseByOptInst
 
 }
 

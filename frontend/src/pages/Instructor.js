@@ -9,7 +9,8 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
-
+import SearchBarInst from "../components/SearchBarInst";
+import FFormPrice from "../components/FilterFormPrice";
 
 const languages = [
     {
@@ -185,7 +186,7 @@ const navigate=useNavigate();
 
      <div classname="courses"> 
 
-     <SearchBar></SearchBar>
+     <SearchBarInst></SearchBarInst>
      <br/>
      <br/>
 
