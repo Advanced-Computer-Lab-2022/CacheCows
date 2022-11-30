@@ -23,6 +23,7 @@ const Login = () => {
     e.preventDefault()
 
     await login(username, password)
+    const l = await login(username, password)
   }
 
   return (
@@ -44,7 +45,7 @@ const Login = () => {
       
          <button disabled={isLoading}>Log in</button>
          <p>
-         <button onClick={()=>navigate("/Admin")}>Login</button>
+         <button onClick={(l) =>  navigate("/Admin")}>Login and take me home :(</button>
          </p>
          
        

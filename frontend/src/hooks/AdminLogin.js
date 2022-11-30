@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
+import { useNavigate } from "react-router-dom";
+
 
 export const useLogin = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
+  const navigate=useNavigate();
+
 
   const login = async (admin_user, admin_pass) => {
     setIsLoading(true)
@@ -31,6 +35,8 @@ export const useLogin = () => {
 
       // update loading state
       setIsLoading(false)
+        navigate("/Admin")
+
     }
   }
 

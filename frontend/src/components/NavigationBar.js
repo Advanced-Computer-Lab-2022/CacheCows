@@ -9,6 +9,8 @@ const NavigationBar = () =>{
 
     const { logout } = useLogout()
     const { user } = useAuthContext()
+    const usertype = localStorage.getItem('type')
+
 
   const handleClick = () => {
     logout()
@@ -18,13 +20,14 @@ const NavigationBar = () =>{
         <header>
             <div className="container" >
                 <Link to ="/"><h1>Rubix            </h1></Link>
-                <Link to="/Home"> Home             </Link>
+                <Link to= "/Home"> Home             </Link>
+                
                 <Link to="/about"> About Us        </Link>
 
          <nav>
                  {user && (
                    <div>
-              <span>Logged in as: {user.username}</span>
+              <span>Welcome {user.username} !</span>
               <Link to="/"> 
                  <button onClick={handleClick}>Log out</button> 
               </Link>

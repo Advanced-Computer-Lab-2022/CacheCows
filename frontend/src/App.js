@@ -81,11 +81,15 @@ function App() {
           />
           <Route
           path = "/home"
-          element={user ? <HomePage /> : <Navigate to="/login" />}
+          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?<Instructor />: ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
+
           />
           <Route 
           path = "/admin"
           element = { (usertype === 'admin') ?<Admin /> :  <AccessDenied to="/" />}
+
+
+
 
          //element = { <Admin /> }
           />
@@ -122,7 +126,7 @@ function App() {
           <Route 
           path="/IndTrainee/" 
          // element={<IndTrainee />} 
-          element = { (usertype === 'indvtrainee') ?<CorpTrainee /> :  <AccessDenied to="/" />}
+          element = { (usertype === 'indvtrainee') ?<IndTrainee /> :  <AccessDenied to="/" />}
 
           />
           <Route 
@@ -161,7 +165,9 @@ function App() {
             />
             <Route 
               path="/InstLogin" 
-              element={<InstLogin />} 
+             element={<InstLogin />} 
+
+              
               
             />
             <Route 
