@@ -122,7 +122,7 @@ function App() {
           <Route 
           path="/IndTrainee/" 
          // element={<IndTrainee />} 
-          element = { (usertype === 'indvtrainee') ?<CorpTrainee /> :  <AccessDenied to="/" />}
+          element = { (usertype === 'indvtrainee') ?< IndTrainee /> :  <AccessDenied to="/" />}
 
           />
           <Route 

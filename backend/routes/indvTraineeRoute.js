@@ -30,7 +30,7 @@ router.put('/rateCourse/:id',coursesControlls.rating)
 router.put('/rateinstructor',controlls.rating)
 router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
-
+router.get('/del',controlls.del)
 
 router.get('/me', protect, getMe);
 
