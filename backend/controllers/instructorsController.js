@@ -179,6 +179,24 @@ const InstructorEditEmail =async(req,res)=>{
   }
 }
 
+const InstructorAcceptTerms =async(req,res)=>{
+
+  try{
+    
+    const instructoracceptterms =await instructors.findOne(req.body.instructor_id).acceptTerms
+    if (instructoracceptterms === false){
+
+    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{acceptTerms: True},{new:true})
+   // const instructor = await instructors.findById(inst_id)
+    res.status(200).json(instructor)
+    }
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+
 const InstructorSetDiscount =async(req,res)=>{
   var g1 = new Date()
   const g2 = new Date(req.body.course_discount_time)
@@ -246,7 +264,8 @@ const Instructor = await instructors.create({
       instructor_pass : hashedPassword,
       country : req.body.country,
       instructor_bd : req.body.instructor_bd,
-      type : 'instructor'
+      type : 'instructor',
+      acceptterms : False
 })
 
 if (Instructor) {
@@ -385,6 +404,7 @@ module.exports = {
     
     sendEmailInstructor,
     InstructorEditEmail,
-    InstructorSetDiscount
+    InstructorSetDiscount,
+    InstructorAcceptTerms
 }
 

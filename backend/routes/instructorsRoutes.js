@@ -28,6 +28,10 @@ router.post('/createcourse/:id',controlls.createCourse)
 router.put('/changepassword',controlls.changepassword);
 ;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
+router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);
+
+
+
 //router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);
 
 

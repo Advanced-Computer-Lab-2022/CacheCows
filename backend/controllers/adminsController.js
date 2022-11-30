@@ -247,7 +247,9 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             instructor_pass : hashedPassword,
             country : req.body.country,
             instructor_bd : req.body.instructor_bd,
-            type : 'instructor'
+            type : 'instructor',
+            acceptterms : False
+
       })
       
       if (Instructor) {

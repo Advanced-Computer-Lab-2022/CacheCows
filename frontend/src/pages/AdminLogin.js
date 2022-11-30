@@ -23,8 +23,11 @@ const Login = () => {
     e.preventDefault()
 
     await login(username, password)
-    const l = await login(username, password)
+    
+    const log = await login(username, password)
   }
+  
+
 
   return (
     <form className="login" onSubmit={handleSubmit}>
@@ -45,7 +48,7 @@ const Login = () => {
       
          <button disabled={isLoading}>Log in</button>
          <p>
-         <button onClick={(l) =>  navigate("/Admin")}>Login and take me home :(</button>
+         <button onClick={() =>  navigate("/Admin")}>Login and take me home :(</button>
          </p>
          
        
