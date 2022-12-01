@@ -31,7 +31,8 @@ import InstEditEmail from "./pages/InstEditEmail";
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/Indvregistered"
 import AccessDenied from "./pages/AccessDenied"
-import Termsandconditions from "./pages/Termsandconditions"
+import InstructorAcceptTerms from "./pages/termsandconditions";
+import ResponsiveAppBar from "./components/NavBarBS";
 
 
 
@@ -84,7 +85,7 @@ function App() {
           />
           <Route
           path = "/home"
-          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <Termsandconditions /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
+          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <InstructorAcceptTerms /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
          // element={!user ? (  (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <Termsandconditions /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />))   ) : <Navigate to="/" />} 
 
 
@@ -233,7 +234,7 @@ function App() {
             />
             <Route 
             path="/Termsandconditions"
-            element={<Termsandconditions/>}
+            element={<InstructorAcceptTerms/>}
             />
 
 

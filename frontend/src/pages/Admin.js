@@ -18,6 +18,8 @@ import AdminForm from "../components/AdminForm"
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 
+import Countryform from "../components/CountryForm";
+
 const languages = [
   {
     id: 0,
@@ -107,8 +109,10 @@ const Admin = () => {
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
-        </div> 
+        <div className="filter">
         <AdminForm />
+        </div>
+        </div>
  
       
 
@@ -116,8 +120,11 @@ const Admin = () => {
         {crptrainees && crptrainees.map((CrpTrainee) => (
           <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
         ))}
-      </div> 
+      <div className="filter">
       <AdminAddCrpTraineeForm />
+      </div>
+      </div>
+      
 
 
 
@@ -126,9 +133,16 @@ const Admin = () => {
           <InstructorDetails instructor={instructor} key={instructor._id} />
         ))}
       </div> 
+      <div className="filter">
       <AdminAddInstForm />
-        <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
+      </div>
+      <br/>
+
+      <div className="filter">
+      <Countryform></Countryform>
+      </div>
+      <br/>
 
       <div>
       <button

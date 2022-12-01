@@ -3,6 +3,9 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const Countryform=()=>{
+    const paramss = new URLSearchParams(window.location.search);
+    const instid = paramss.get('userId');
+
     const { user } = useAuthContext()
 
     const[instructor_id,setID]=useState('');
@@ -16,9 +19,12 @@ const handleSubmit = async(e) => {
       }
 
 
-    const Instructor=(instructor_id,country)
+    const Instructor= {
+        _id : instid,
+        country : country
+    }
 
-    const response = await fetch('/api/instructors/updateInstructor/:id', {
+    const response = await fetch('/api/instructors/updateInstructor', {
         method: 'PUT',
         body: JSON.stringify(Instructor),
         headers: {
@@ -35,20 +41,13 @@ const handleSubmit = async(e) => {
         setID('')
         setCountry('')
         setError(null)
+        console.log(json)
     }
 }
 
 return(
     <form className="update" onSubmit={handleSubmit}>
     <h3>choose country!</h3>
-    <label>Instructor ID: </label>
-    <input
-            type = "text"
-            onChange={(e) => setID(e.target.value)}
-            value={instructor_id}
-            placeholder='ID...'
-            className='input'
-        />
 
 <label>Country: </label>
         <input
