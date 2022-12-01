@@ -7,13 +7,15 @@ import { useAuthContext } from "../hooks/useAuthContext"
 
 
 const AddCoursePage=  ()=>{
+    const  {user}  = useAuthContext()
     const [error , setError] = useState(null);
+    //console.log(user)
   
 
 
     return(
-    <div className="instructor">
-    <CourseForm />
+    <div className="filter">
+    <CourseForm user={user} />
     {error && <div className="error">{error}</div>}
     </div>
 

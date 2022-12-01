@@ -3,8 +3,7 @@ import { json } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext'
 
 
-const CourseForm = () => {
-    const  {user}  = useAuthContext()
+const CourseForm = ({user}) => {
 
     const [course_id, setID] = useState('')
     const [course_name, setName] = useState('')
@@ -36,10 +35,19 @@ const CourseForm = () => {
     const [course_subtopic6, settop6] = useState('')
     const[error , setError] = useState(null)
 
+    console.log(user)
+
+    //  console.log(user._id,user.name)
+
+    function setter() {
+        setInstID(user._id);
+        setInstName(user.name);
+    }
+
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        setInstID(JSON.stringify(user._id))
+        setInstID(user._id)
         setInstName(user.name)
         
 
@@ -315,7 +323,7 @@ const CourseForm = () => {
             value={course_subtitles3}
         />
 
-        <button>Add Course</button>
+        <button onClick={() => setter()}>Add Course</button>
         {error && <div className="error">{error}</div>}
        </form>
     )

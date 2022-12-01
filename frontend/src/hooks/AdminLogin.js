@@ -35,6 +35,8 @@ export const useLogin = () => {
 
       // update loading state
       setIsLoading(false)
+      window.location.href=`/Home?userId=${user._id}`
+
         navigate("/Admin")
 
     }

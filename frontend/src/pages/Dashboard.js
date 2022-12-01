@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
+import FFormPrice from "../components/FilterFormPrice";
 
 // components
 import CourseDetails from "../components/CourseDetails"
@@ -25,6 +26,8 @@ const Dashboard = () => {
 
   return (
     <div className="course">
+      <FFormPrice></FFormPrice>
+      <br/>
      <FForm></FForm>
      <br/>
 

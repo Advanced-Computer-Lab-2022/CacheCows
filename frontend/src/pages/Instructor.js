@@ -9,9 +9,14 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
+<<<<<<< HEAD
 import Popup from 'reactjs-popup';
 
 
+=======
+import SearchBarInst from "../components/SearchBarInst";
+import FFormPrice from "../components/FilterFormPrice";
+>>>>>>> bb595ca012413caa555c362bfd95be50f927f7e6
 
 const languages = [
     {
@@ -191,7 +196,7 @@ const navigate=useNavigate();
 
      <div classname="courses"> 
 
-     <SearchBar></SearchBar>
+     <SearchBarInst></SearchBarInst>
      <br/>
      <br/>
 

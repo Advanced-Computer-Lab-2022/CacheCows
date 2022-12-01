@@ -11,6 +11,7 @@ router.put('/',controlls.updateCourse);
 router.delete('/',controlls.deleteCourse);
 router.post('/previewCourses',controlls.previewCourses);
 router.post('/SearchCourseByOpt',controlls.SearchCourseByOpt);
+router.post('/SearchCourseByOptInst',controlls.SearchCourseByOptInst);
 router.post('/SearchInstCourseTitle',controlls.SearchInstCourseTitle);
 router.post('/SearchInstCourseSubject',controlls.SearchInstCourseSubject);
 router.post('/SearchCourseInstructor',controlls.SearchCourseInstructor);

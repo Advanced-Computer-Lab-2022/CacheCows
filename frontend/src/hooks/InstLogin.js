@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export const useLogin = () => {
+  const {user} = useAuthContext();
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
@@ -50,7 +51,8 @@ export const useLogin = () => {
       setIsLoading(false)
       const acceptTerms = localStorage.getItem('terms')
       if (acceptTerms === 'true' ){
-      
+        window.location.href=`/Home?userId=${user._id}`
+
       navigate("/Instructor")}
       else { navigate("/Termsandconditions") }
 

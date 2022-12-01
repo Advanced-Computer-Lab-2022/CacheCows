@@ -20,7 +20,7 @@ const NavigationBar = () =>{
         <header>
             <div className="container" >
                 <Link to ="/"><h1>Rubix            </h1></Link>
-                <Link to= "/Home"> Home             </Link>
+                <Link onClick={() => window.location.href=`/Home?userId=${user._id}`}> Home             </Link>
                 
                 <Link to="/about"> About Us        </Link>
 
