@@ -1,9 +1,13 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/InstLogin"
 import { useNavigate, useParams } from "react-router-dom";
+//import { useAuthContext } from '../hooks/useAuthContext'
+
 
 
 const Login = () => {
+ // const {user} = useAuthContext();
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const {login, error, isLoading} = useLogin()
@@ -13,6 +17,8 @@ const Login = () => {
     e.preventDefault()
 
     await login(username, password)
+  //  window.location.href=`/Home?userId=${user._id}`
+
   }
 
   return (
@@ -33,8 +39,9 @@ const Login = () => {
       />
       
          <button disabled={isLoading}>Log in</button>
+         
          <p>
-         <button onClick={()=>navigate("/cropforgetpassword")}>Forget password</button>
+         <button onClick={()=>navigate("/instforgetpassword")}>Forget password</button>
          </p>
       {error && <div className="error">{error}</div>}    </form>
   )

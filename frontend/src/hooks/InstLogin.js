@@ -50,10 +50,12 @@ export const useLogin = () => {
       // update loading state
       setIsLoading(false)
       const acceptTerms = localStorage.getItem('terms')
-      if (acceptTerms === 'true' ){
-        window.location.href=`/Home?userId=${user._id}`
+      if (json.acceptTerms === 'true' ){
+        navigate(`/Home?userId=${user._id}`)
 
-      navigate("/Instructor")}
+
+        window.location.href=`/Home?userId=${user._id}`
+    }
       else { navigate("/Termsandconditions") }
 
     

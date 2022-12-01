@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export const useSignup = () => {
+  const {user} = useAuthContext();
+
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const { dispatch } = useAuthContext()
@@ -39,6 +41,8 @@ export const useSignup = () => {
 
       // update loading state
       setIsLoading(false)
+      window.location.href=`/Home?userId=${user._id}`
+
       navigate("/IndTrainee")
 
     }

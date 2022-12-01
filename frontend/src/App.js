@@ -232,18 +232,16 @@ function App() {
             element={<Indvregistered/>}
             />
             <Route 
-<<<<<<< HEAD
             path="/Termsandconditions"
             element={<Termsandconditions/>}
             />
 
 
 
-=======
+            <Route 
             path="/AddCourse"
             element={<AddCoursePage/>}
             />
->>>>>>> bb595ca012413caa555c362bfd95be50f927f7e6
        
 
 
