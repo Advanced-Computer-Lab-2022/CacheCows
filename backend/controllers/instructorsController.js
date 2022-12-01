@@ -182,14 +182,13 @@ const InstructorEditEmail =async(req,res)=>{
 const InstructorAcceptTerms =async(req,res)=>{
 
   try{
-    
-    const instructoracceptterms =await instructors.findOne(req.body.instructor_id).acceptTerms
-    if (instructoracceptterms === false){
 
-    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{acceptTerms: True},{new:true})
+    
+
+    const instructor =await instructors.findByIdAndUpdate(req.user._id,{acceptTerms: 'true'},{new:true})
    // const instructor = await instructors.findById(inst_id)
-    res.status(200).json(instructor)
-    }
+   res.status(200).json(instructor)
+  
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -265,7 +264,7 @@ const Instructor = await instructors.create({
       country : req.body.country,
       instructor_bd : req.body.instructor_bd,
       type : 'instructor',
-      acceptterms : False
+      acceptTerms : 'false'
 })
 
 if (Instructor) {
@@ -368,6 +367,7 @@ if (Instructor) {
         username: Instructor.instructor_user,
         email: Instructor.instructor_email,
         type : 'instructor',
+        acceptTerms : Instructor.acceptTerms,
         token: generateToken(Instructor._id),
       })
      }

@@ -8,6 +8,7 @@ export const useLogout = () => {
       
       localStorage.removeItem('user')
       localStorage.removeItem('type')
+      localStorage.removeItem('terms')
 
 
   

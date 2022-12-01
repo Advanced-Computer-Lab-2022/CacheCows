@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom";
+
 
 // components
 
@@ -45,6 +47,8 @@ const languages = [
 ]
 
 const Admin = () => {
+  const navigate=useNavigate();
+
   
   const [admins, setadmins] = useState(null)
   const [selectedLanguages, setSelectedLanguages] = useState([])
@@ -96,6 +100,7 @@ const Admin = () => {
 
   
     return (
+      <div>
       <div className="Admin">    
         <strong></strong>
         <div className="All-Admins">
@@ -124,6 +129,27 @@ const Admin = () => {
       <AdminAddInstForm />
         <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
+
+      <div>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        {" "}
+        Check All Courses!
+      </button>
+      </div>
+      <br />
+
+
+      </div>
+
+
+
+      
+
+      
     )
 
   }

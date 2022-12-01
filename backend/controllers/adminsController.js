@@ -248,7 +248,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
             country : req.body.country,
             instructor_bd : req.body.instructor_bd,
             type : 'instructor',
-            acceptterms : False
+            acceptTerms : 'false'
 
       })
       
@@ -258,6 +258,7 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
           name: Instructor.instructor_name,
           email: Instructor.instructor_email,
           type : 'instructor',
+          terms : Instructor.acceptTerms,
           token: generateToken(Instructor._id),
         })
       } else {

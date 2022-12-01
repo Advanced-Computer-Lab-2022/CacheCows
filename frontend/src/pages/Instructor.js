@@ -9,6 +9,8 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
+import Popup from 'reactjs-popup';
+
 
 
 const languages = [
@@ -153,6 +155,10 @@ const navigate=useNavigate();
 
     return(
     <div className="instructor">
+
+          
+
+
       <div className="filter">
       <h1>Hello, {username}!</h1>
 
@@ -198,6 +204,18 @@ const navigate=useNavigate();
     </div>
     <br/>
 
+    <div>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        {" "}
+        Check All Courses!
+      </button>
+      </div>
+      <br />
+      
 </div>
 
  )

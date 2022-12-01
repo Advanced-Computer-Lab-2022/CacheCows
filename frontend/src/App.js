@@ -31,6 +31,7 @@ import InstEditEmail from "./pages/InstEditEmail";
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/Indvregistered"
 import AccessDenied from "./pages/AccessDenied"
+import Termsandconditions from "./pages/Termsandconditions"
 
 
 
@@ -65,6 +66,7 @@ function App() {
 
 
   const usertype = localStorage.getItem('type')
+  const acceptTerms = localStorage.getItem('acceptTerms')
 
   return (
 
@@ -81,9 +83,11 @@ function App() {
           />
           <Route
           path = "/home"
-          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?<Instructor />: ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
+          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <Termsandconditions /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
+         // element={!user ? (  (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <Termsandconditions /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />))   ) : <Navigate to="/" />} 
 
-          />
+
+/>
           <Route 
           path = "/admin"
           element = { (usertype === 'admin') ?<Admin /> :  <AccessDenied to="/" />}
@@ -145,7 +149,7 @@ function App() {
           
             <Route 
               path="/signup" 
-              element={!user ? <Signup /> : <Navigate to="/" />} 
+              element={!user ? <IndTraineeSignup /> : <Navigate to="/" />} 
             />
             <Route 
               path="/instsignup" 
@@ -226,6 +230,13 @@ function App() {
             path="/Indvregistered"
             element={<Indvregistered/>}
             />
+            <Route 
+            path="/Termsandconditions"
+            element={<Termsandconditions/>}
+            />
+
+
+
        
 
 

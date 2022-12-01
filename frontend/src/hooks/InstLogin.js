@@ -21,6 +21,7 @@ export const useLogin = () => {
     })
     const json = await response.json()
 
+
     if (!response.ok) {
       setIsLoading(false)
       //setError('incorrect credentials')
@@ -31,16 +32,31 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(json))
       localStorage.setItem('type', 'instructor')
 
+     if( json.acceptTerms === 'true'){
+      localStorage.setItem('terms', 'true')
+     }
+     else{
+      localStorage.setItem('terms', 'false')
+
+     }
+
+      //localStorage.setItem('acceptTerms', JSON.stringify(acceptTerms))
+
 
       // update the auth context
       dispatch({type: 'LOGIN', payload: json})
 
       // update loading state
       setIsLoading(false)
-      navigate("/Instructor")
+      const acceptTerms = localStorage.getItem('terms')
+      if (acceptTerms === 'true' ){
+      
+      navigate("/Instructor")}
+      else { navigate("/Termsandconditions") }
 
-    }
+    
   }
+}
 
   return { login, isLoading, error }
 }

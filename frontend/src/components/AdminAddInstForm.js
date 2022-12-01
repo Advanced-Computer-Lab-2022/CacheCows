@@ -11,7 +11,8 @@ const AdminAddInstForm = () => {
     const [instructor_email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [instructor_bd, setBd] = useState('')
-  
+    const [acceptTerms, setAT] = useState('')
+
     const[error , setError] = useState(null)
 
    
@@ -27,8 +28,10 @@ const AdminAddInstForm = () => {
             instructor_pass,
             instructor_email,
             country,
-            instructor_bd
+            instructor_bd,
+            acceptTerms 
         }
+
 
         
 
@@ -52,8 +55,18 @@ const AdminAddInstForm = () => {
         setEmail('')
         setCountry('')
         setBd('')
+        setAT('')
         
         setError(null)
+        //localStorage.setItem('acceptTerms' = false)
+        if (acceptTerms === 'false'){
+        localStorage.setItem('acceptTerms', 'false')
+        }
+        else{
+            localStorage.setItem('acceptTerms', 'true')
+        }
+
+
             
         console.log('New Instructor Added', json)
         }
