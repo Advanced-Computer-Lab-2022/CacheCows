@@ -6,6 +6,7 @@ const CReviewSchema = new mongoose.Schema({
 
      course_id :{type: String, },
      user_id :{type: String,       },
+     user_name :{type: String,       },
      review:{type: String,      },
      
 } 

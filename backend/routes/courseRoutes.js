@@ -24,6 +24,7 @@ router.post('/viewCourses',controlls.viewCourses);
 router.post('/filterInstCourse',controlls.filterInstCourse);
 router.post('/CourseData',controlls.CourseData);
 router.post('/getInstCourses',controlls.getInstCourses);
+router.post('/getCRate',controlls.getCRate);
 
 
 

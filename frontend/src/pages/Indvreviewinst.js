@@ -6,12 +6,14 @@ const Indvreview=()=>{
     const {user} = useAuthContext()
     
     const [review,setReview]=useState('')
+    const [username,setname]=useState('')
     const[error , setError] = useState(null);
     const params = new URLSearchParams(window.location.search);
     const userId = params.get('userId');
    
 
     const handleSubmit = async(e) => {
+        setname(user.name);
         e.preventDefault()
        
 

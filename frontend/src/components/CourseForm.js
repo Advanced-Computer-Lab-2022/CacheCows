@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext'
+import Dropdown from 'muicss/lib/react/dropdown';
+import DropdownItem from 'muicss/lib/react/dropdown-item';
+import { Subject } from "@material-ui/icons";
 
 
 const CourseForm = ({user}) => {
@@ -21,12 +24,21 @@ const CourseForm = ({user}) => {
     const [course_preview1, setPrev1] = useState('')
     const [course_preview2, setPrev2] = useState('')
     const [course_preview3, setPrev3] = useState('')
+    const [course_preview4, setPrev4] = useState('')
+    const [course_preview5, setPrev5] = useState('')
+    const [course_preview6, setPrev6] = useState('')
+
     const [course_subtitles1, setSubt1] = useState('')
     const [course_subtitles2, setSubt2] = useState('')
     const [course_subtitles3, setSubt3] = useState('')
+
     const [course_discription1, setDisc1] = useState('')
     const [course_discription2, setDisc2] = useState('')
     const [course_discription3, setDisc3] = useState('')
+    const [course_discription4, setDisc4] = useState('')
+    const [course_discription5, setDisc5] = useState('')
+    const [course_discription6, setDisc6] = useState('')
+
     const [course_subtopic1, settop1] = useState('')
     const [course_subtopic2, settop2] = useState('')
     const [course_subtopic3, settop3] = useState('')
@@ -74,12 +86,18 @@ const CourseForm = ({user}) => {
             course_preview1,
             course_preview2,
             course_preview3,
+            course_preview4,
+            course_preview5,
+            course_preview6,
             course_subtitles1,
             course_subtitles2,
             course_subtitles3,
             course_discription1,
             course_discription2,
             course_discription3,
+            course_discription4,
+            course_discription5,
+            course_discription6,
             course_subtopic1,
             course_subtopic2,
             course_subtopic3,
@@ -112,17 +130,24 @@ const CourseForm = ({user}) => {
         setTot ('')
         setSubj('') 
         setEx ('')
+        setDiscount('')
         setOutline('')
         setVideo('')
         setPrev1('')
         setPrev2('')
         setPrev3('')
+        setPrev4('')
+        setPrev5('')
+        setPrev6('')
         setSubt1('')
         setSubt2('')
         setSubt3('')
         setDisc1('')
         setDisc2('')
         setDisc3('')
+        setDisc4('')
+        setDisc5('')
+        setDisc6('')
         settop1('')
         settop2('')
         settop3('')
@@ -184,15 +209,6 @@ const CourseForm = ({user}) => {
             value={course_total_hours}
         />
 
-
-        <label>Course Subject: </label>
-        <input
-            type = "text"
-            onChange={(e) => setSubj(e.target.value)}
-            value={course_subject}
-        />
-
-
         <label>Course Exercises: </label>
         <input
             type = "text"
@@ -209,7 +225,7 @@ const CourseForm = ({user}) => {
         />
 
 
-        <label>Course Video: </label>
+        <label>Course Preview Link: </label>
         <input
             type = "text"
             onChange={(e) => setVideo(e.target.value)}
@@ -281,11 +297,28 @@ const CourseForm = ({user}) => {
             value={course_discription3}
         />
 
+        
+
         <label>Course SubTopic 4: </label>
         <input
             type = "text"
             onChange={(e) => settop4(e.target.value)}
             value={course_subtopic4}
+        />
+
+        <label>Course Preview 4: </label>
+        <input
+            type = "text"
+            onChange={(e) => setPrev4(e.target.value)}
+            value={course_preview4}
+        />
+
+
+        <label>Course Description 4: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc4(e.target.value)}
+            value={course_discription4}
         />
 
         <label>Course SubTopic 5: </label>
@@ -295,11 +328,41 @@ const CourseForm = ({user}) => {
             value={course_subtopic5}
         />
 
+        <label>Course Preview 5: </label>
+        <input
+            type = "text"
+            onChange={(e) => setPrev5(e.target.value)}
+            value={course_preview5}
+        />
+
+
+        <label>Course Description 5: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc5(e.target.value)}
+            value={course_discription5}
+        />
+
         <label>Course SubTopic 6: </label>
         <input
             type = "text"
             onChange={(e) => settop6(e.target.value)}
             value={course_subtopic6}
+        />
+
+        <label>Course Preview 6: </label>
+        <input
+            type = "text"
+            onChange={(e) => setPrev6(e.target.value)}
+            value={course_preview6}
+        />
+
+
+        <label>Course Description 6: </label>
+        <input
+            type = "text"
+            onChange={(e) => setDisc6(e.target.value)}
+            value={course_discription6}
         />
 
         <label>Course Subtitle 1: </label>
@@ -322,6 +385,21 @@ const CourseForm = ({user}) => {
             onChange={(e) => setSubt3(e.target.value)}
             value={course_subtitles3}
         />
+        <br/>
+
+     <label>Selected Subject: {course_subject}</label>
+     <br/>
+     <br/>
+     
+    <Dropdown color="primary" label="Choose Course Subject:" className='course_details' 
+      onSelect={(v) => setSubj(v)}
+      >
+        <DropdownItem value="Hardware">Hardware</DropdownItem>
+        <DropdownItem value="IT and Software">IT and Software</DropdownItem>
+        <DropdownItem value="Biology">Biology</DropdownItem>
+        <DropdownItem value="Music">Music</DropdownItem>
+      </Dropdown>
+      <br/>
 
         <button onClick={() => setter()}>Add Course</button>
         {error && <div className="error">{error}</div>}

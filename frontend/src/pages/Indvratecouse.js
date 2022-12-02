@@ -7,7 +7,7 @@ const Indvratecourse=()=>{
     const [course_rating,setRating]=useState(Number|null)
     const[error , setError] = useState(null);
     const params = new URLSearchParams(window.location.search);
-    const userId = params.get('userId');
+    const crs_id = params.get('crs_id');
  
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -15,7 +15,7 @@ const Indvratecourse=()=>{
       
         
         const indv={course_rating}
-        const response=await fetch(`/api/indvtrainee/rateCourse?userId=${userId}`,{
+        const response=await fetch(`/api/indvtrainee/rateCourse?crs_id=${crs_id}`,{
             method: 'PUT',
             body:JSON.stringify(indv),
             headers: {
@@ -29,7 +29,6 @@ const Indvratecourse=()=>{
         const json = await response.json()
         if(!response.ok) {
             console.log(course_rating)
-
             setError(json.error)
         }
         if(response.ok) {
@@ -41,14 +40,16 @@ const Indvratecourse=()=>{
     }
     return(
         
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="filter" >
         <Stack spacing={4}>
-            <Rating value={course_rating} onChange={(event, newValue) => {
-    setRating(newValue)}} precision={1} size='large'
+            <Rating className="course_details" value={course_rating} onChange={(event, newValue) => {
+            setRating(newValue)}} precision={1} size='large'
              
             ></Rating>
             </Stack>
-            <button> confirm your rating</button>
+            <button onClick={handleSubmit}> confirm your rating</button>
+
+            {error && <div className="error">{error}</div>}
             </form>
           
      )

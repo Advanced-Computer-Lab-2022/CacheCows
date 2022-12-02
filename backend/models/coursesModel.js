@@ -8,7 +8,6 @@ const CoursesSchema = new mongoose.Schema({
      course_name :{type: String,       },
      instructor_name:{type: String,      },
      instructor_id:{type: String,      },
-     course_rating:{type: Number,  required:false    },
      course_discount:{type: String, required: false,  },
      course_price:{type: Number, },  
      course_summary:{type: String,  },
@@ -17,10 +16,13 @@ const CoursesSchema = new mongoose.Schema({
      course_exercise:{type: String,   },
      course_outline:{type: String,  },
      course_video:{type: String,  },
-     
+     course_rating:{type: Number,  required:false    },
      course_preview1:{type: String,  },
      course_preview2:{type: String,  },
      course_preview3:{type: String,  },
+     course_preview4:{type: String,  },
+     course_preview5:{type: String,  },
+     course_preview6:{type: String,  },
 
      course_subtitles1:{type: String,  },
      course_subtitles2:{type: String,  },
@@ -29,6 +31,9 @@ const CoursesSchema = new mongoose.Schema({
      course_description1:{type: String,  },
      course_description2:{type: String,  },
      course_description3:{type: String,  },
+     course_description4:{type: String,  },
+     course_description5:{type: String,  },
+     course_description6:{type: String,  },
      
      course_subtopic1:{type: String,  },
      course_subtopic2:{type: String,  },
@@ -42,7 +47,7 @@ const CoursesSchema = new mongoose.Schema({
      course_discount_time:{type: Date,  },
 
      course_total_ratings:{type:Number},
-     course_total_no_ratings:{type:Number},
+     course_total_no_ratings:{type:Number}
 
      
      

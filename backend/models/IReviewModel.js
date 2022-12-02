@@ -6,6 +6,7 @@ const IReviewSchema = new mongoose.Schema({
 
      instructor_id :{type: String, },
      user_id :{type: String,       },
+     user_name :{type: String,       },
      review:{type: String,      },
      
 } 

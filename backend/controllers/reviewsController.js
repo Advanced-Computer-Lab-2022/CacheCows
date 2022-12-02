@@ -29,6 +29,7 @@ const setIReview = asyncHandler(async(req, res) => {
     const review = await ireviews.create({
         instructor_id: req.body.instructor_id,
         user_id: req.body.user_id,
+        user_name: req.body.user_name,
         review: req.body.review
     })
     res.status(200).json(review)
@@ -85,6 +86,7 @@ const deleteIReview =  asyncHandler(async (req, res) => {
         const review = await creviews.create({
             course_id: req.body.course_id,
             user_id: req.body.user_id,
+            user_name: req.body.user_name,
             review: req.body.review
         })
         res.status(200).json(review)
@@ -98,20 +100,20 @@ const deleteIReview =  asyncHandler(async (req, res) => {
         if (review.toString() === ""){
             res.status(400).json({error:'No Reviews Found'})
         }
-        const updatedIReview = await ireviews.findOneAndUpdate({course_id: req.body.course_id, user_id: req.body.user_id},
+        const updatedCReview = await creviews.findOneAndUpdate({course_id: req.body.course_id, user_id: req.body.user_id},
              req.body ,{
             new : true,
         })
-        res.status(200).json(updatedIReview)
+        res.status(200).json(updatedCReview)
     })
     
     const deleteCReview =  asyncHandler(async (req, res) => {
         
-        const review = await ireviews.find({review: req.body.review})
+        const review = await creviews.find({review: req.body.review})
         if (review.toString() === ""){
             res.status(400).json({error:'No Reviews Found'})
         }
-         await ireviews.deleteOne({review: req.body.review})
+         await creviews.deleteOne({review: req.body.review})
          res.status(200).json({review})
          
         })

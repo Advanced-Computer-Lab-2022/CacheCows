@@ -4,11 +4,13 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 // components
 import IReviewDetails from "../components/IReviewDetails";
+import IRate from "../components/IRate";
 
-const CReviews = () => {
-  const user = useAuthContext()
+const IReviews = () => {
+  const {user} = useAuthContext()
   const [reviews, setReview] = useState()
   const [error, setError] = useState()
+
 
   const params = new URLSearchParams(window.location.search);
   const instructor_id = params.get('user_id');
@@ -22,8 +24,10 @@ const CReviews = () => {
         body: JSON.stringify(inst),
         headers: {
           'Content-Type' : 'application/json',
-          'Authorization': `Bearer ${user.token}`},
+          //'Authorization': `Bearer ${user.token}`
+        },
       })
+
       const json = await response.json()
 
       if (response.ok) {
@@ -34,6 +38,7 @@ const CReviews = () => {
         setError(json.error)
         console.log('No Reviews',json)
       }
+
     }
 
     fetchReviews()
@@ -42,13 +47,18 @@ const CReviews = () => {
   return (
     <div className="course">
       <div classname="courses"> 
+      <div className="filter">
+        <IRate></IRate>
+      </div>
+      <div className="filter">
       <h3>Your Reviews!</h3>
-      <div className="courses"> 
+      <div className="filter"> 
         {reviews && reviews.map((review) =>(
         <IReviewDetails review={review} key={review._id} />))}          
       </div>
       <br />
       {error && <div className="error">{error}</div>}
+      </div>
       </div>
     </div>
   )
@@ -56,4 +66,4 @@ const CReviews = () => {
 
 
 
-export default CReviews
+export default IReviews

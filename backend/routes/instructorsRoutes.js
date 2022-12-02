@@ -14,7 +14,8 @@ const {
 // require auth for all workout routes
 router.post('/loginInstructor', loginInstructor);
 router.post('/registerInstructor', registerInstructor);
-router.post('/forgetpassword',sendEmailInstructor)
+router.post('/forgetpassword',sendEmailInstructor);
+router.post('/getIRate',controlls.getIRate);
 router.use(protect)
 
  
@@ -29,6 +30,8 @@ router.put('/changepassword',controlls.changepassword);
 ;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
 router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);
+router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);
+
 
 
 

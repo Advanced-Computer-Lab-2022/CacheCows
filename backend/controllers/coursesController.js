@@ -61,12 +61,18 @@ const setCourse = asyncHandler(async(req, res) => {
      course_preview1 : req.body.course_preview1,
      course_preview2 : req.body.course_preview2,
      course_preview3 : req.body.course_preview3,
+     course_preview4 : req.body.course_preview1,
+     course_preview5 : req.body.course_preview2,
+     course_preview6 : req.body.course_preview3,
      course_subtitles1 : req.body.course_subtitles1,
      course_subtitles2 : req.body.course_subtitles2,
      course_subtitles3 : req.body.course_subtitles3,
      course_description1 : req.body.course_description1,
      course_description2 : req.body.course_description2,
      course_description3 : req.body.course_description3,
+     course_description4 : req.body.course_description4,
+     course_description5 : req.body.course_description5,
+     course_description6 : req.body.course_description6,
      course_subtopic1 : req.body.course_subtopic1,
      course_subtopic2 : req.body.course_subtopic1,
      course_subtopic3 : req.body.course_subtopic1,
@@ -330,24 +336,34 @@ const SearchCourseByOptInst = asyncHandler(async (req, res) => {
 }) 
 const rating=async(req,res)=>{
     try{
-        const course_id=req.query.userId
-    const course=await courses.findById(course_id)
-       var total_rating=course.course_total_ratings
-      // console.log(course)
+        const course_id=req.query.crs_id
+        const course=await courses.findById(course_id)
+        var total_rating=course.course_total_ratings
       
-      var  total_no_rate=course.course_total_no_ratings
-    total_rating+=parseInt(req.body.course_rating)
-    console.log(total_rating)
-    total_no_rate+=1
-    var total_rate=(total_rating/(total_no_rate*5))*5
-    console.log(total_no_rate)
-    await courses.findByIdAndUpdate(course_id,{course_rating:total_rate,course_total_ratings:total_rate,course_total_no_ratings:total_no_rate},{new:true})
-    res.status(200).json('rating added ')
+        var  total_no_rate=course.course_total_no_ratings
+        total_rating += req.body.course_rating
+ 
+        total_no_rate+=1
+        var total_rate=(total_rating/(total_no_rate*5))*5
+
+        await courses.findByIdAndUpdate(course_id,{course_rating:total_rate,course_total_ratings:total_rate,course_total_no_ratings:total_no_rate},{new:true})
+        res.status(200).json('rating added ')
     }
-    catch(error){s
+    catch(error){
       res.status(400).json({error:error.message})
     }
 }
+
+const getCRate =  asyncHandler(async (req, res) => {
+    
+
+    const crs = await courses.findOne({course_id : req.body.course_id})
+    if (crs.toString() === ""){
+        res.status(400).json({error:'No Rating Yet'})
+    }
+     res.status(200).json({course_rating : crs.course_rating})
+     
+})
 
 
 
@@ -374,7 +390,8 @@ module.exports = {
     rating,
     getInstCourses,
     filterCourseBySubjectOrRatingInst,
-    SearchCourseByOptInst
+    SearchCourseByOptInst,
+    getCRate
 
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import CRate from "../components/CRate";
 
 // components
 import CReviewDetails from "../components/CReviewDetails";
@@ -40,9 +41,10 @@ const CReviews = () => {
   }, [])
 
   return (
-    <div className="course">
+    <div className="filter">
       <div classname="courses"> 
-      <h3>Your Reviews!</h3>
+      <CRate></CRate>
+      <h3>Course Reviews!</h3>
       <div className="courses"> 
         {reviews && reviews.map((review) =>(
         <CReviewDetails review={review} key={review._id} />))}          

@@ -188,6 +188,8 @@ const rating=async(req,res)=>{
  
 }
 
+
+
 const reviewinst=async(req,res)=>{
 try{
   const indv_id=req.user._id
@@ -260,13 +262,6 @@ if (IndivTrainee) {
   res.status(400).json({error:'Invalid User Data'})
 }
 })
-
-
-
-
-
-
-
 
   const loginIndTrainee = asyncHandler(async (req, res) => {
     const { indv_user, indv_pass } = req.body

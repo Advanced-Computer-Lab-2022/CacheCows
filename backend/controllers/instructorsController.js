@@ -201,11 +201,11 @@ const InstructorSetDiscount =async(req,res)=>{
   const g2 = new Date(req.body.course_discount_time)
 
   try{
-    if ((g2.getMonth() >= g1.getMonth()) && (g2.getFullYear() >= g1.getFullYear()) && (g2.getDay() >= g1.getDay())){
+    if (g2>=g1){
       
       const TargetCourse = await course.findOne({course_id : req.body.course_id})
       const x = TargetCourse.course_price
-      const y = req.body.course_discount
+      const y = (req.body.course_discount)/100
       const value = x*y
       const newprice = x - value
       const Course = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : newprice}, {new:true})
@@ -388,6 +388,17 @@ if (Instructor) {
     })
   } 
 
+  const getIRate =  asyncHandler(async (req, res) => {
+    
+
+    const rate = await instructors.findById(req.body.instructor_id)
+    if (rate.toString() === ""){
+        res.status(400).json({error:'No Rating Yet'})
+    }
+     res.status(200).json(rate.instructor_rate)
+     
+    })
+
 
 module.exports = {
     getInstructors,
@@ -405,6 +416,7 @@ module.exports = {
     sendEmailInstructor,
     InstructorEditEmail,
     InstructorSetDiscount,
-    InstructorAcceptTerms
+    InstructorAcceptTerms,
+    getIRate
 }
 
