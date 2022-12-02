@@ -23,7 +23,7 @@ router.delete('/deletetrainee',controlls.deletecrpTrainee);
 router.put('/updatecorptrainee/:id',controlls.updatecrptrainee);
 router.put('/changepassword',controlls.changepassword);
 
-router.put('../rateCourse/:id',coursesControlls.rating)
+router.put('/rateCourse',coursesControlls.rating)
 router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
 router.put('/rateinstructor',controlls.rating)

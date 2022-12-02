@@ -33,8 +33,8 @@ import Indvregistered from "./pages/Indvregistered"
 import AccessDenied from "./pages/AccessDenied"
 import InstructorAcceptTerms from "./pages/termsandconditions";
 import ResponsiveAppBar from "./components/NavBarBS";
-
-
+import Corpratecourse from "./pages/Corpratecourse"
+import Corpreviewinst from "./pages/Corpreviewinst"
 
 
 
@@ -64,6 +64,9 @@ import Indvrateinst from"./pages/Indvrateinst"
 import Indvratecourse from "./pages/Indvratecouse"
 import Corpregister from "./pages/Corpregistercourse"
 import Corpviewregcourses from"./pages/Corpregisteredcourses"
+import Indvreviewinst from "./pages/Indvreviewinst"
+import Corpview from "./pages/Corpviewcourse"
+import Corprateinst from "./pages/Corprateinst"
 function App() {
 
   const { user } = useAuthContext()
@@ -273,7 +276,18 @@ function App() {
             path="/Corpregisteredcourses"
             element={<Corpviewregcourses/>}
             />
-
+           <Route 
+            path="/Corpratecourse"
+            element={<Corpratecourse/>}
+            />
+            <Route 
+            path="/Corprateinst"
+            element={<Corprateinst/>}
+            />
+            <Route 
+            path="/Corpreviewinst"
+            element={<Corpreviewinst/>}
+            />
 
         </Routes>
        

@@ -60,10 +60,10 @@ const Registerdetails =({course})=>{
           <p><strong>course discount:</strong>{course.course_price_after_discount}</p>
           <p><strong>course discount time:</strong>{course.course_discount_time}</p>
 
-<button onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}>rate instructor</button>
-          <p>  <button onClick={()=>window.location.href=`/Indvratecourse?userId=${course._id}`}>rate course</button> </p>
+<button onClick={()=>window.location.href=`/Corprateinst?userId=${course.instructor_id}`}>rate instructor</button>
+          <p>  <button onClick={()=>window.location.href=`/Corpratecourse?userId=${course._id}`}>rate course</button> </p>
          
-         <p><button onClick={()=>window.location.href=`/Indvreviewinst?userId=${course.instructor_id}`}>review instructor</button></p>
+         <p><button onClick={()=>window.location.href=`/corpreviewinst?userId=${course.instructor_id}`}>review instructor</button></p>
           
           </div>
 

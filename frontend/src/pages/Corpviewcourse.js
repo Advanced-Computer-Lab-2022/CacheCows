@@ -4,8 +4,8 @@ import React from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
-import FForm from "../components/Filterformindv";
-import FFormPrice from "../components/Filterformpriceindv";
+import FForm from "../components/Filterformcorp";
+import FFormPrice from "../components/Filterformcorpprice";
 
 function Corpview (){
     const navigate=useNavigate();

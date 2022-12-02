@@ -145,7 +145,7 @@ const getregistercourses=async (req,res)=>{
     const courses=await reg.find({trainee_id:corp_id})
     const data=[]
     for(let i=0;i<courses.length;i++){
-     data[i]=await course.findById(courses[i]._id)
+     data[i]=await course.findById(courses[i].course_id)
     }
     res.status(200).json(data)
   }
@@ -156,14 +156,15 @@ const getregistercourses=async (req,res)=>{
 
 const rating=async(req,res)=>{
   try{
-  const instructor=await instructors.findById(req.query._id)
+    const inst_id=req.query.userId
+  const instructor=await instructors.findById(inst_id)
      var total_rating=instructor.instructor_total_rate
      
     var  total_no_rate=instructor.instructor_total_no_rate
-  total_rating+=req.body.instructor_rate
+  total_rating+=parseInt(req.body.instructor_rate)
   total_no_rate+=1
   var total_rate=total_rating/total_no_rate
-  await instructors.findByIdAndUpdate(req.query._id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
   res.status(200).json('rating added')
   }
   catch(error){
