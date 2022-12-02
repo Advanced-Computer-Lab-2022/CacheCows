@@ -72,7 +72,10 @@ const setCourse = asyncHandler(async(req, res) => {
      course_subtopic3 : req.body.course_subtopic1,
      course_subtopic4 : req.body.course_subtopic1,
      course_subtopic5 : req.body.course_subtopic1,
-     course_subtopic6 : req.body.course_subtopic1
+     course_subtopic6 : req.body.course_subtopic1,
+     course_total_no_ratings:0,
+     course_total_ratings:0,
+     course_rating:0
      
     })
     res.status(200).json({course})
@@ -327,14 +330,18 @@ const SearchCourseByOptInst = asyncHandler(async (req, res) => {
 }) 
 const rating=async(req,res)=>{
     try{
-    const course=await instructors.findById(req.params.id)
+        const course_id=req.query.userId
+    const course=await courses.findById(course_id)
        var total_rating=course.course_total_ratings
-       
-      var  total_no_rate=course.total_no_ratings
-    total_rating+=req.body.instructor_rate
+      // console.log(course)
+      
+      var  total_no_rate=course.course_total_no_ratings
+    total_rating+=parseInt(req.body.course_rating)
+    //console.log(total_rating)
     total_no_rate+=1
     var total_rate=total_rating/total_no_rate
-    await courses.findByIdAndUpdate(req.params.id,{course_rating:total_rate,course_total_rating:total_rating,course_total_no_ratings:total_no_rate},{new:true})
+    //console.log(total_no_rate)
+    await courses.findByIdAndUpdate(course_id,{course_rating:total_rate,course_total_rating:total_rating,course_total_no_ratings:total_no_rate},{new:true})
     res.status(200).json('rating added ')
     }
     catch(error){

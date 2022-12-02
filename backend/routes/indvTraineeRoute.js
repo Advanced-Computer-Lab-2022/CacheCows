@@ -26,11 +26,12 @@ router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
 router.put('/changepassword',controlls.changepassword);
 
-router.put('/rateCourse/:id',coursesControlls.rating)
+router.put('/rateCourse',coursesControlls.rating)
 router.put('/rateinstructor',controlls.rating)
 router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
 router.get('/del',controlls.del)
+router.post('/reviewinst',controlls.reviewinst)
 
 router.get('/me', protect, getMe);
 

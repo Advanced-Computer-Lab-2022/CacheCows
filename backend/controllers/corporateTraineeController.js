@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs')
 const validator = require('validator')
 const course=require('../models/coursesModel')
 const reg=require('../models/corpregistercourse')
-
+const review=require('../models/IReviewModel')
 
 var transporeter=nodemailer.createTransport({
   service:'gmail',
@@ -141,10 +141,11 @@ const registercourse=async (req,res)=>{
 const getregistercourses=async (req,res)=>{
   
   try{
-    const courses=await reg.find(req.user._id)
+    const corp_id=req.user._id
+    const courses=await reg.find({trainee_id:corp_id})
     const data=[]
     for(let i=0;i<courses.length;i++){
-     data[i]=await course.findById(courses[i].course_id)
+     data[i]=await course.findById(courses[i]._id)
     }
     res.status(200).json(data)
   }
@@ -171,6 +172,23 @@ const rating=async(req,res)=>{
  
  
 }
+const reviewinst=async(req,res)=>{
+  try{
+    const corp_id=req.user._id
+    const inst_id=req.query.userId
+  const rev=await review.findOne({user_id:corp_id,instructor_id:inst_id})
+  if(rev){
+    res.status(200).json("already added review ")
+  }
+  else{
+    const revw=await review.create({user_id:corp_id,instructor_id:inst_id,review:req.body.review})
+    res.status(200).json(revw)
+  }
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+  }
 
 //////////////
 //Authentication
@@ -221,4 +239,4 @@ const rating=async(req,res)=>{
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst};

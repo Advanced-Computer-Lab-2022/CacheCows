@@ -8,7 +8,7 @@ const CoursesSchema = new mongoose.Schema({
      course_name :{type: String,       },
      instructor_name:{type: String,      },
      instructor_id:{type: String,      },
-     course_rating:{type: Number,      },
+     course_rating:{type: Number,  required:false    },
      course_discount:{type: String, required: false,  },
      course_price:{type: Number, },  
      course_summary:{type: String,  },

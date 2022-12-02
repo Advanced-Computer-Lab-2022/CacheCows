@@ -10,8 +10,8 @@ import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
 import BasicExample from "../components/CourseCard";
 import { useAuthContext } from "../hooks/useAuthContext"
-
-
+import FForminst from "../components/FilterForm";
+import FFormPrice from "../components/FilterFormPrice";
 
 const languages = [
   {
@@ -73,34 +73,22 @@ function IndTrainee() {
     if (query.length === 0 || query.length > 2) fetchData();
   }, [query]);
   const {user} = useAuthContext()
-  useEffect(()=>{
-    const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourses',{
-          method:'GET',
-          headers: {'Authorization': `Bearer ${user.token}`},
-        })
-        const json= await response.json()
-
-        if(response.ok){
-        setCourses(json)
-        }
-    }
-    if (user) {
-      fetchCourses()
-        }
-    
-},[])
+  
 
   return (
-    <div className="app" >
+    <div className="app"  >
       <SearchBar></SearchBar>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
-      <ReviewForm />
-      <div>
-      {courses && courses.map((course) =>(
-    <TCourseDetails course={course} key={course._id} />))} </div>
+      
+      <p> </p>
+      
+      <p> </p>
+      
+     <button onClick={()=>navigate("/Indvview")}> View all Courses</button>
+     <p></p>
     <button on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
+    <p></p>
 
     <button onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
 

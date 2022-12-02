@@ -32,8 +32,8 @@ import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/Indvregistered"
 import AccessDenied from "./pages/AccessDenied"
 import Termsandconditions from "./pages/Termsandconditions"
-
-
+import Corpview from"./pages/Corpviewcourse"
+import Indvreviewinst from "./pages/Indvreviewinst"
 
 
 
@@ -57,10 +57,12 @@ import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
 import Indvregisteredcourses from "./pages/Indvregisteredcourses";
-
+import Indvview from "./pages/Indvtraineeviewcourses"
 import AddCoursePage from "./pages/AddCoursePage";
-
-
+import Indvrateinst from"./pages/Indvrateinst"
+import Indvratecourse from "./pages/Indvratecouse"
+import Corpregister from "./pages/Corpregistercourse"
+import Corpviewregcourses from"./pages/Corpregisteredcourses"
 function App() {
 
   const { user } = useAuthContext()
@@ -242,7 +244,34 @@ function App() {
             path="/AddCourse"
             element={<AddCoursePage/>}
             />
-       
+             <Route 
+            path="/Indvview"
+            element={<Indvview/>}
+            />
+       <Route 
+            path="/Indvrateinst"
+            element={<Indvrateinst/>}
+            />
+<Route 
+            path="/Indvratecourse"
+            element={<Indvratecourse/>}
+            />
+            <Route 
+            path="/Indvreviewinst"
+            element={<Indvreviewinst/>}
+            />
+            <Route 
+            path="/Corpview"
+            element={<Corpview/>}
+            />
+             <Route 
+            path="/Corpregister"
+            element={<Corpregister/>}
+            />
+             <Route 
+            path="/Corpregisteredcourses"
+            element={<Corpviewregcourses/>}
+            />
 
 
         </Routes>

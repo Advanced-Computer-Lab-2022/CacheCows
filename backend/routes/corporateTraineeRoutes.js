@@ -29,6 +29,6 @@ router.get('/getregistercourses',controlls.getregistercourses)
 router.put('/rateinstructor',controlls.rating)
 
 router.get('/me',protect, controlls.getMe);
-
+router.post('/reviewinst',controlls.reviewinst)
 
 module.exports=router;

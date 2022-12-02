@@ -10,7 +10,7 @@ const asyncHandler = require('express-async-handler')
 const nodemailer=require('nodemailer')
 const validator = require('validator')
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
-
+const review=require('../models/IReviewModel')
 
 var transporeter=nodemailer.createTransport({
   service:'gmail',
@@ -170,14 +170,15 @@ const getregistercourses=async (req,res)=>{
 
 const rating=async(req,res)=>{
   try{
-  const instructor=await instructors.findById(req.query._id)
+    const inst_id=req.query.userId
+  const instructor=await instructors.findById(inst_id)
      var total_rating=instructor.instructor_total_rate
      
     var  total_no_rate=instructor.instructor_total_no_rate
-  total_rating+=req.body.instructor_rate
+  total_rating+=parseInt(req.body.instructor_rate)
   total_no_rate+=1
   var total_rate=total_rating/total_no_rate
-  await instructors.findByIdAndUpdate(req.query._id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
   res.status(200).json('rating added')
   }
   catch(error){
@@ -185,6 +186,24 @@ const rating=async(req,res)=>{
   }
  
  
+}
+
+const reviewinst=async(req,res)=>{
+try{
+  const indv_id=req.user._id
+  const inst_id=req.query.userId
+const rev=await review.findOne({user_id:indv_id,instructor_id:inst_id})
+if(rev){
+  res.status(200).json("already added review ")
+}
+else{
+  const revw=await review.create({user_id:indv_id,instructor_id:inst_id,review:req.body.review})
+  res.status(200).json(revw)
+}
+}
+catch(error){
+  res.status(400).json({error:error.message})
+}
 }
 
 
@@ -292,4 +311,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst };

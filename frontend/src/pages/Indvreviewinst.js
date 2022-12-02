@@ -2,22 +2,23 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 
 
-const Indvchangepasssword=()=>{
+const Indvreview=()=>{
     const {user} = useAuthContext()
     
-    const [indv_pass,setPass]=useState('')
+    const [review,setReview]=useState('')
     const[error , setError] = useState(null);
-  
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('userId');
    
 
     const handleSubmit = async(e) => {
         e.preventDefault()
        
 
-        const indv={indv_pass}
+        const indv={review}
 
-        const response=await fetch('/api/indvtrainee/changepassword',{
-            method: 'PUT',
+        const response=await fetch(`/api/indvtrainee/reviewinst?userId=${userId}`,{
+            method: 'POST',
             body:JSON.stringify(indv),
             headers: {
                 'Content-Type' : 'application/json',
@@ -28,11 +29,11 @@ const Indvchangepasssword=()=>{
 
         const json = await response.json()
         if(!response.ok) {
-            console.log('a7',indv_pass)
+            
             setError(json.error)
         }
         if(response.ok) {
-            setPass('');
+            setReview('');
             setError(null);
             console.log(json)
         
@@ -46,15 +47,15 @@ const Indvchangepasssword=()=>{
 
 return(
    <form className="create" onSubmit={handleSubmit}>
-    <label>New Password: </label>
+    <label>Add your review: </label>
         <input
             type = "text"
-            onChange={(e) => setPass(e.target.value)}
-            value={indv_pass}
+            onChange={(e) => setReview(e.target.value)}
+            value={review}
         />
-         <button>Change Password</button>
+         <button>Confirm review</button>
         {error && <div className="error">{error}</div>}
         </form>
 )
 }
-export default Indvchangepasssword
+export default Indvreview

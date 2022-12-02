@@ -12,16 +12,19 @@ const protect = async (req, res, next) => {
   }
 
   const token = authorization.split(' ')[1]
-
+  
   try {
     const { _id } = jwt.verify(token, process.env.JWT_SECRET)
-    console.log(_id)
+    req.user = await user.findOne({ _id }).select('_id')
+    //console.log(_id)
+  next()
+    
     // const user_admin = await user.findOne({ _id : _id})
     // const {type_t} = user_admin.type
     
     // console.log(type_t)
     
-      const u = await user.findOne({ _id:_id })
+      /*const u = await user.findOne({ _id:_id })
       if(u!==null){
         
       console.log(u)
@@ -31,9 +34,9 @@ const protect = async (req, res, next) => {
     }else{
       console.log(error)
       res.status(401).json({error: 'Access Denied'})
-      }
+      }*/
       
-    next()
+ 
 
   } catch (error) {
     console.log(error)

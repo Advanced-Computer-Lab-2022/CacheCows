@@ -37,66 +37,59 @@ const languages = [
 
   function CorpTrainee() {
     const navigate=useNavigate();
-
+    const [query, setQuery] = useState("");
     const [courses,setCourses]=useState()
     const [selectedLanguages, setSelectedLanguages] = useState([])
   
-    useEffect(()=>{
-
+    useEffect(() => {
+      const fetchData = async () => {
+            
       
-    const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourse')
-        const json= await response.json()
-
-        if(response.ok){
-        setCourses(json)
-        }
-
-        if(!response.ok){
-          setCourses(json)
+        const x = {query};
+        const response = await fetch('/api/courses/SearchCourseByOpt', {
+          method: 'GET',
+          body: JSON.stringify(x),
+          headers: {
+              'Content-Type' : 'application/json'
           }
-    }
-
-    fetchCourses()
-      },[])
-
-      const {user} = useAuthContext()
-  useEffect(()=>{
-    const fetchCourses=async ()=>{
-        const response= await fetch('/api/courses/getCourses',{
-          headers: {'Authorization': `Bearer ${user.token}`},
-        })
-        const json= await response.json()
-
-        if(response.ok){
-        setCourses(json)
-        }
-    }
-    if (user) {
-      fetchCourses()
-        }
-    
-},[])
+      })
+      const json = await response.json()
+  
+      if(!response) {
+          setCourses(json.error)
+      }
+      if(response.ok){
+        setCourses(json);
+      }
+        
+  
+      };
+      if (query.length === 0 || query.length > 2) fetchData();
+    }, [query]);
 
   return( 
     <div className="CorpTrainee">
+      <SearchBar></SearchBar> 
+      <p> </p>
       <div>
       <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
       </div>
+      <p> </p>
 
-      <button
-        onClick={() => {
-          navigate("/Courses");
-        }}
-      >
-        {" "}
-        Courses
-      </button>
-      <SearchBar></SearchBar>
+      
+      
 
-      {courses && courses.map((course) =>(
-    <CourseDetails course={course} key={course._id} />))} 
+      
     <button onClick={()=>navigate("/cropchangepassword")}>Change password</button>
+    <p></p>
+    <button
+       onClick={()=>navigate("/Corpview")}
+      >
+        
+        view all courses
+      </button>
+      <p></p>
+      <button  onClick={()=>navigate("/Corpregisteredcourses")}>view registered courses</button>
   </div>
   )
 }
