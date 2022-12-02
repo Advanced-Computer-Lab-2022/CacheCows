@@ -18,6 +18,8 @@ app.use('/api/instructors', require('./routes/instructorsRoutes'))
 app.use('/api/corpTrainee',require('./routes/corporateTraineeRoutes'))
 app.use('/api/indvtrainee',require('./routes/indvTraineeRoute'))
 app.use('/api/reviews',require('./routes/reviewRoutes'))
+app.use('/api/exams',require('./routes/examRoutes'))
+app.use('/api/answers',require('./routes/answerRoutes'))
 
 app.use(errorHandler)
 

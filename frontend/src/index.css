@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #135492;
+  --primary: #371392;
   --error: #e7195a;
 }
 body {
@@ -19,7 +19,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(to top, #348df2 0%, #6f8ecd 100%);
+  background-image: linear-gradient(to top, #f2347d 0%, #6f8ecd 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -203,7 +203,7 @@ form input {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(221, 221, 221);
   border-radius: 4px;
   box-sizing: border-box;
 }

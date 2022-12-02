@@ -50,6 +50,7 @@ import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
 import Cropchangepasssword from "./pages/Cropchangepassword";
 import CoursePage from "./pages/CoursePage";
+import ExamForTrainee from "./pages/Exam";
 
 function App() {
 
@@ -69,6 +70,10 @@ function App() {
         <Route 
           path = "/"
           element = { <Dashboard /> }
+          />
+          <Route 
+          path = "/exam"
+          element = { < ExamForTrainee /> }
           />
           <Route
           path = "/home"

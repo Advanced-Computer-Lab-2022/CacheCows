@@ -4,11 +4,15 @@ import "../App.css";
 import axios from "axios";
 import CourseDetails from "../components/CourseDetails";
 import { useNavigate, useParams } from "react-router-dom";
+
+
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import ReviewForm from "../components/IReviewForm";
+
 import BasicExample from "../components/CourseCard";
+
 import { useAuthContext } from "../hooks/useAuthContext"
 
 
@@ -97,10 +101,17 @@ function IndTrainee() {
       <ReviewForm />
       {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))} 
-    <button on onClick={()=> navigate("/indvchangepassword")}> Change password</button>
+
+
+    <button  onClick={()=> navigate("/Indvchangepassword")}> Change password</button>
+    <br/>
+    <br/>
+    <button  onClick={()=> navigate("/Exam") }>Show Course Exams</button>
+      <br/>
+      <br/>
 
     </div>
-  );
+  )
 }
 
 

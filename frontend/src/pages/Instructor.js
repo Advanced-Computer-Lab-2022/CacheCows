@@ -8,6 +8,13 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import Filter from "../components/FilterForm";
+import InstAddExamForm from "../components/InstAddExamForm";
+import App from "../components/Checkbox"
+
+
+
+
+
 
 
 const languages = [
@@ -118,11 +125,16 @@ const navigate=useNavigate();
 
      <div classname="courses"> 
      <SearchBar></SearchBar>
+     
+     
     {courses && courses.map((course) =>(
     <CourseDetails course={course} key={course._id} />))}          
     </div>
     <CourseForm />
     <CountryForm/>
+    <InstAddExamForm/>
+    
+  
    <button onClick={()=>{
     navigate("/instructorcourseByprice");
    }}>
@@ -147,6 +159,12 @@ const navigate=useNavigate();
 
       {error && <div className="error">{error}</div>}
       </div>
+      <div>
+        php <input type = "checkbox" name = "languages" value = "php" />
+        php <input type = "checkbox" name = "languages" value = "php" />
+
+      </div>
+    
 
 </div>
 

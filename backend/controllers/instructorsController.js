@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const instructors = require('../models/InstructorsModel')
 const course=require('../models/coursesModel');
+const exams = require('../models/examsModel');
 const { findById, findByIdAndUpdate } = require('../models/InstructorsModel');
 const nodemailer=require('nodemailer')
 const validator = require('validator')
@@ -340,6 +341,50 @@ if (Instructor) {
   } 
 
 
+  const createExam = asyncHandler(async(req, res) => {
+    if (!req.body.exam_Name){
+        res.status(400).json({error: "Please add the exam Name"})
+        throw new Error('Please add a text field')
+    }
+
+    const exam = await exams.create({
+        
+      
+      exam_Name : req.body.exam_Name,
+      exam_Ques1 : req.body.exam_Ques1,
+      exam_Ques2 : req.body.exam_Ques2,
+      exam_Ques3 : req.body.exam_Ques3,
+      exam_Ques4 : req.body.exam_Ques4,
+      exam_Ques1Answer1 : req.body.exam_Ques1Answer1,
+      exam_Ques1Answer2 : req.body.exam_Ques1Answer2,
+      exam_Ques1Answer3 : req.body.exam_Ques1Answer3,
+      exam_Ques1Answer4 : req.body.exam_Ques1Answer4,
+      exam_Ques2Answer1 : req.body.exam_Ques2Answer1,
+      exam_Ques2Answer2 : req.body.exam_Ques2Answer2,
+      exam_Ques2Answer3 : req.body.exam_Ques2Answer3,
+      exam_Ques2Answer4 : req.body.exam_Ques2Answer4,
+      exam_Ques3Answer1 : req.body.exam_Ques3Answer1,
+      exam_Ques3Answer2 : req.body.exam_Ques3Answer2,
+      exam_Ques3Answer3 : req.body.exam_Ques3Answer3,
+      exam_Ques3Answer4 : req.body.exam_Ques3Answer4,
+      exam_Ques4Answer1 : req.body.exam_Ques4Answer1,
+      exam_Ques4Answer2 : req.body.exam_Ques4Answer2,
+      exam_Ques4Answer3 : req.body.exam_Ques4Answer3,
+      exam_Ques4Answer4 : req.body.exam_Ques4Answer4,
+      
+      exam_Ques1RightAnswer : req.body.exam_Ques1RightAnswer,
+      exam_Ques2RightAnswer : req.body.exam_Ques2RightAnswer,
+      exam_Ques3RightAnswer : req.body.exam_Ques3RightAnswer,
+      exam_Ques4RightAnswer : req.body.exam_Ques4RightAnswer
+      
+
+     
+    })
+    res.status(200).json({exam})
+})
+
+
+
 module.exports = {
     getInstructors,
     setInstructor,
@@ -353,6 +398,8 @@ module.exports = {
     getMe,
     changepassword,
     rating,
-    sendEmailInstructor
+    sendEmailInstructor,
+    createExam
+
 }
 

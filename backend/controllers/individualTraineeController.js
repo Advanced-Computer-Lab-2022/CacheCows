@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const indv=require('../models/individualTraineeModel');
 const reg=require('../models/traineeregistercourse')
 const course=require('../models/coursesModel')
+const Answers = require('../models/AnswersModel')
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
@@ -242,6 +243,10 @@ if (IndivTrainee) {
     res.status(200).json(req.IndivTrainee)
   })
   
+
+  
+
+
   // Generate JWT
   const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
