@@ -121,7 +121,7 @@ return(
 
     <form className="create" onSubmit={handleSubmit}>
     <label>By Clicking on the Agree Button, you give us all the rights to the posted videos and materials
-//      as well as the 10% taken by RUBIX on each video per registered trainee. </label>
+      as well as the 10% taken by RUBIX on each video per registered trainee. </label>
       <br>
       
       </br>  

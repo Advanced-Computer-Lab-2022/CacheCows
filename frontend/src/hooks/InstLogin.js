@@ -7,6 +7,7 @@ export const useLogin = () => {
   const {user} = useAuthContext();
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
+  const [userid, setID] = useState(null)
   const { dispatch } = useAuthContext()
   const navigate=useNavigate();
 
@@ -30,6 +31,7 @@ export const useLogin = () => {
     }
     if (response.ok) {
       // save the user to local storage
+      setID(JSON.stringify(json._id))
       localStorage.setItem('user', JSON.stringify(json))
       localStorage.setItem('type', 'instructor')
 
@@ -51,10 +53,11 @@ export const useLogin = () => {
       setIsLoading(false)
       const acceptTerms = localStorage.getItem('terms')
       if (json.acceptTerms === 'true' ){
+       
+
+
+        //window.location.href=`/Home?userId=${user._id}`
         navigate(`/Home?userId=${user._id}`)
-
-
-        window.location.href=`/Home?userId=${user._id}`
     }
       else { navigate("/Termsandconditions") }
 

@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import Filter from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
 import FFormPrice from "../components/FilterFormPrice";
+import ResponsiveAppBar from "../components/NavBarBS";
 
 // components
 import CourseDetails from "../components/CourseDetails"
