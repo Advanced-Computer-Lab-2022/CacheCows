@@ -6,6 +6,9 @@ import CustomSelect from "../components/CustomSelect";
 import SearchBar from "../components/SearchBar";
 import CourseDetails from "../components/CourseDetails";
 import { useAuthContext } from "../hooks/useAuthContext"
+import CountryForm from "../components/CountryForm";
+
+
 const languages = [
   {
     id: 0,
@@ -71,8 +74,8 @@ const languages = [
     <div className="CorpTrainee">
       <SearchBar></SearchBar> 
       <p> </p>
-      <div>
-      <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
+      <div className= 'filter' >
+        <CountryForm></CountryForm>
       </div>
       <p> </p>
 

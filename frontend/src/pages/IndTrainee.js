@@ -12,6 +12,8 @@ import BasicExample from "../components/CourseCard";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import FFormPrice from "../components/FilterFormPrice";
+import CountryForm from "../components/CountryForm";
+
 
 const languages = [
   {
@@ -78,8 +80,9 @@ function IndTrainee() {
   return (
     <div className="app"  >
       <SearchBar></SearchBar>
-      <CustomSelect title="Select your country:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
-      
+      <div className= 'filter' >
+        <CountryForm></CountryForm>
+      </div>      
       <p> </p>
       
       <p> </p>

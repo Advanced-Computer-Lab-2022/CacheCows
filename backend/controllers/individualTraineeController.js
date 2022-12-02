@@ -177,8 +177,8 @@ const rating=async(req,res)=>{
     var  total_no_rate=instructor.instructor_total_no_rate
   total_rating+=parseInt(req.body.instructor_rate)
   total_no_rate+=1
-  var total_rate=total_rating/total_no_rate
-  await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rating,instructor_total_no_rate:total_no_rate},{new:true})
+  var total_rate=(total_rating/(total_no_rate*5))*5
+  await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rate,instructor_total_no_rate:total_no_rate},{new:true})
   res.status(200).json('rating added')
   }
   catch(error){

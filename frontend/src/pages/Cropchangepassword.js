@@ -25,7 +25,7 @@ const Cropchangepasssword=()=>{
 
         const json = await response.json()
         if(!response.ok) {
-            console.log('a7',corp_pass)
+            console.log(corp_pass)
             setError(json.error)
         }
         if(response.ok) {
@@ -40,7 +40,7 @@ return(
     <form className="create" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
-            type = "text"
+            type = "password"
             onChange={(e) => setPass(e.target.value)}
             value={corp_pass}
         />

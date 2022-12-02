@@ -102,7 +102,7 @@ const AdminForm = () => {
 
         <label>Birthday: </label>
         <input
-            type = "text"
+            type = "date"
             onChange={(e) => setBd(e.target.value)}
             value={admin_bd}
         />

@@ -90,7 +90,7 @@ function App() {
           />
           <Route
           path = "/home"
-          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <InstructorAcceptTerms /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
+          element = { (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <InstructorAcceptTerms /> ): ((usertype === 'corptrainee')? <CorpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />)) }
          // element={!user ? (  (usertype === 'admin') ?<Admin /> : ((usertype === 'instructor')?( (acceptTerms === 'true')? <Instructor /> : <Termsandconditions /> ): ((usertype === 'corptrainee')? <corpTrainee /> : (usertype === 'indvtrainee')? <IndTrainee /> : <AccessDenied to="/" />))   ) : <Navigate to="/" />} 
 
 

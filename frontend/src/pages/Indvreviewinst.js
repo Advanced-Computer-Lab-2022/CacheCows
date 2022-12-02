@@ -53,7 +53,7 @@ return(
             onChange={(e) => setReview(e.target.value)}
             value={review}
         />
-         <button>Confirm review</button>
+         <button>Add review</button>
         {error && <div className="error">{error}</div>}
         </form>
 )

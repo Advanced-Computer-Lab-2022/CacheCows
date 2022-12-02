@@ -113,7 +113,7 @@ const AdminAddCrpTraineeForm = () => {
 
         <label>Birthday: </label>
         <input
-            type = "text"
+            type = "date"
             onChange={(e) => setBd(e.target.value)}
             value={corp_bd}
         />

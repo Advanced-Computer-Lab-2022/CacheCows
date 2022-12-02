@@ -48,7 +48,7 @@ return(
    <form className="create" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
-            type = "text"
+            type = "password"
             onChange={(e) => setPass(e.target.value)}
             value={indv_pass}
         />
