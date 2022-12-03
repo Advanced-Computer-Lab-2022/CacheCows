@@ -1,14 +1,15 @@
 import { Rating,Stack } from "@mui/material";
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import { useNavigate, useParams } from "react-router-dom"
 const Indvrate=()=>{
     const {user} = useAuthContext()
     const [instructor_rate,setRating]=useState(Number|null)
     const[error , setError] = useState(null);
+    const  [show,setShow]=useState(false)
     const params = new URLSearchParams(window.location.search);
     const userId = params.get('userId');
- 
+    const navigate=useNavigate();
     const handleSubmit = async(e) => {
         e.preventDefault()
        
@@ -34,6 +35,7 @@ const Indvrate=()=>{
         }
         if(response.ok) {
             setRating('');
+            setShow(true)
             setError(null);
             console.log(instructor_rate)
         
@@ -42,6 +44,7 @@ const Indvrate=()=>{
     return(
         
         <form className="create" onSubmit={handleSubmit}>
+            <h2>Rate your instructor</h2>
         <Stack spacing={4}>
             <Rating value={instructor_rate} onChange={(event, newValue) => {
     setRating(newValue)}} precision={1} size='large'
@@ -49,6 +52,9 @@ const Indvrate=()=>{
             ></Rating>
             </Stack>
             <button> confirm your rating</button>
+            <div>{show &&<p> your rating was added successfully</p>}</div>
+            <p></p>
+            <button onClick={()=>navigate("/Corpregisteredcourses")}>return to your courses</button>
             </form>
           
      )

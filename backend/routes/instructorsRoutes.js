@@ -7,6 +7,7 @@ const {
     // registerInstructor2,
     sendEmailInstructor,
     getMe,
+    changepassword
   } = require('../controllers/instructorsController')
   const { protect } = require('../middleware/InstructorAuthMiddleware')
   const router = express.Router()
@@ -16,6 +17,7 @@ router.post('/loginInstructor', loginInstructor);
 router.post('/registerInstructor', registerInstructor);
 router.post('/forgetpassword',sendEmailInstructor);
 router.post('/getIRate',controlls.getIRate);
+router.put('/changepassword',changepassword);
 router.use(protect)
 
  
@@ -26,7 +28,7 @@ router.get('/getInstructor',controlls.getInstructor);
 router.delete('/deleteInstructor',controlls.deleteInstructor);
 router.put('/updateInstructor',controlls.updateInstructor);
 router.post('/createcourse/:id',controlls.createCourse)
-router.put('/changepassword',controlls.changepassword);
+
 ;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
 router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);

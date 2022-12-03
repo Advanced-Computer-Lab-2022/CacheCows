@@ -43,7 +43,7 @@ const languages = [
     const [query, setQuery] = useState("");
     const [courses,setCourses]=useState()
     const [selectedLanguages, setSelectedLanguages] = useState([])
-  
+    const {user} = useAuthContext()
     useEffect(() => {
       const fetchData = async () => {
             
@@ -83,7 +83,7 @@ const languages = [
       
 
       
-    <button onClick={()=>navigate("/cropchangepassword")}>Change password</button>
+    <button onClick={() => {window.location.href=`/cropchangepassword?userId=${user._id}`}}>Change password</button>
     <p></p>
     <button
        onClick={()=>navigate("/Corpview")}

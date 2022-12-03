@@ -121,7 +121,7 @@ catch(error){
 const changepassword=async(req,res)=>{
 
   try{
-    const inst_id = req.user._id
+    const inst_id = req.query.userId
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.instructor_pass, salt)
     const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_pass:hashedPassword},{new:true})
@@ -146,7 +146,7 @@ const sendEmailInstructor=async(req,res)=>{
       from:process.env.MAIL,
       to:email,
       subject:'password recovery',
-      text:'send link to change password  '
+      text:'http://http://localhost:3000/instchangepassword?userId='+instructor._id
     };
     transporeter.sendMail(MailOptions,function(error,info){
       if(error){

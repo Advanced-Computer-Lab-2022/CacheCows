@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 const Cropchangepasssword=()=>{
     const {user} = useAuthContext()
-    
+    const[shown,setShown]=useState(false)
     const [corp_pass,setPass]=useState('')
     const[error , setError] = useState(null);
-
+    const paramss = new URLSearchParams(window.location.search);
+    const userId = paramss.get('userId');
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -13,12 +14,12 @@ const Cropchangepasssword=()=>{
 
         const corp={corp_pass}
 
-        const response=await fetch('/api/corpTrainee/changepassword',{
+        const response=await fetch(`/api/corpTrainee/changepassword?userId=${userId}`,{
             method: 'PUT',
             body:JSON.stringify(corp),
             headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
+                'Content-Type' : 'application/json'
+                
                 
             }
         })
@@ -30,6 +31,7 @@ const Cropchangepasssword=()=>{
         }
         if(response.ok) {
             setPass('');
+            setShown(true)
             setError(null);
             console.log(json)
         
@@ -45,6 +47,7 @@ return(
             value={corp_pass}
         />
          <button>Change Password</button>
+         <div>{shown &&<p> your password was changed successfully </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
 )

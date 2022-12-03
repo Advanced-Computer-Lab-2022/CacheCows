@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import { useNavigate, useParams } from "react-router-dom"
 
 const Indvreview=()=>{
     const {user} = useAuthContext()
     
     const [review,setReview]=useState('')
     const [username,setname]=useState('')
+    const  [show,setShow]=useState(false)
     const[error , setError] = useState(null);
     const params = new URLSearchParams(window.location.search);
     const userId = params.get('userId');
-   
+    const navigate=useNavigate();
 
     const handleSubmit = async(e) => {
         setname(user.name);
@@ -36,6 +37,7 @@ const Indvreview=()=>{
         }
         if(response.ok) {
             setReview('');
+            setShow(true);
             setError(null);
             console.log(json)
         
@@ -56,6 +58,9 @@ return(
             value={review}
         />
          <button>Add review</button>
+         <div>{show &&<p> your review was added successfully</p>}</div>
+         <p></p>
+            <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
         {error && <div className="error">{error}</div>}
         </form>
 )

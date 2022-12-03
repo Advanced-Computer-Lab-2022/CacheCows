@@ -86,7 +86,7 @@ const changepassword=async(req,res)=>{
 
   try{
     
-    const indv_id=req.user._id
+    const indv_id=req.query.userId
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.indv_pass, salt)
     
@@ -109,7 +109,7 @@ const sendEmailIndv=async (req,res)=>{
       from:process.env.MAIL,
       to:email,
       subject:'password recovery',
-      text:'send link to change password  '
+      text:'http://http://localhost:3000/indvchangepassword?userId='+indvidual._id
     };
     transporeter.sendMail(MailOptions,function(error,info){
       if(error){
@@ -177,7 +177,7 @@ const rating=async(req,res)=>{
     var  total_no_rate=instructor.instructor_total_no_rate
   total_rating+=parseInt(req.body.instructor_rate)
   total_no_rate+=1
-  var total_rate=(total_rating/(total_no_rate*5))*5
+  var total_rate=(total_rating/(total_no_rate*5))
   await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rate,instructor_total_no_rate:total_no_rate},{new:true})
   res.status(200).json('rating added')
   }

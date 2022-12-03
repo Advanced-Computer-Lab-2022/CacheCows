@@ -80,7 +80,7 @@ const updatecrptrainee=async(req,res)=>{
 const changepassword=async(req,res)=>{
 
   try{
-    const corp_id=req.user._id
+    const corp_id=req.query.userId
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.corp_pass, salt)
   await corp.findByIdAndUpdate(corp_id,{corp_pass:hashedPassword},{new:true})
@@ -102,7 +102,7 @@ const sendEmailcrop=async (req,res)=>{
       from:process.env.MAIL,
       to:email,
       subject:'password recovery',
-      text:'send link to change password  '
+      text:'http://localhost:3000/cropchangepassword?userId='+croprate._id
     };
     transporeter.sendMail(MailOptions,function(error,info){
       if(error){
@@ -163,7 +163,7 @@ const rating=async(req,res)=>{
     var  total_no_rate=instructor.instructor_total_no_rate
   total_rating+=parseInt(req.body.instructor_rate)
   total_no_rate+=1
-  var total_rate=(total_rating/total_no_rate)*5
+  var total_rate=(total_rating/total_no_rate)
   await instructors.findByIdAndUpdate(inst_id,{instructor_rate:total_rate,instructor_total_rate:total_rate,instructor_total_no_rate:total_no_rate},{new:true})
   res.status(200).json('rating added')
   }

@@ -2,7 +2,7 @@ const express = require('express')
 const controlls=require('../controllers/individualTraineeController')
 
 const coursesControlls=require('../controllers/coursesController')
-const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees ,sendEmailIndv} = require('../controllers/individualTraineeController')
+const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees ,sendEmailIndv,changepassword} = require('../controllers/individualTraineeController')
 
 
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
@@ -13,6 +13,7 @@ const router = express.Router()
 router.post('/registerIndTrainee', registerIndTrainee);
 router.post('/loginIndTrainee', loginIndTrainee);
 router.post('/forgetpassword',sendEmailIndv)
+router.put('/changepassword',changepassword);
 router.use(protect)
 
 
@@ -24,7 +25,7 @@ router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
-router.put('/changepassword',controlls.changepassword);
+
 
 router.put('/rateCourse',coursesControlls.rating)
 router.put('/rateinstructor',controlls.rating)

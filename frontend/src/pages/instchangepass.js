@@ -5,8 +5,10 @@ const Instchangepasssword=()=>{
     const {user} = useAuthContext()
     
     const [instructor_pass,setPass]=useState('')
+    const[shown,setShown]=useState(false)
     const[error , setError] = useState(null);
-
+    const paramss = new URLSearchParams(window.location.search);
+    const userId = paramss.get('userId');
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -14,12 +16,12 @@ const Instchangepasssword=()=>{
 
         const inst={instructor_pass}
 
-        const response=await fetch('/api/instructors/changepassword',{
+        const response=await fetch(`/api/instructors/changepassword?userId=${userId}`,{
             method: 'PUT',
             body:JSON.stringify(inst),
             headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
+                'Content-Type' : 'application/json'
+                
                 
             }
         })
@@ -31,6 +33,7 @@ const Instchangepasssword=()=>{
         }
         if(response.ok) {
             setPass('');
+            setShown(true)
             setError(null);
             console.log(json)
         
@@ -45,6 +48,7 @@ return(
             value={instructor_pass}
         />
          <button>Change Password</button>
+         <div>{shown &&<p> your password was changed successfully </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
 )

@@ -89,13 +89,13 @@ const setCourse = asyncHandler(async(req, res) => {
 //UPDATE COURSE
 const updateCourse = asyncHandler(async (req, res) => {
     
-    const course = await courses.find({course_id : req.body.course_id})
+    const course = await courses.find({_id : req.body.course_id})
     
     if (course.toString() === ""){
         res.status(400)
         throw new Error ('course not found')
     }
-    const updatedcourse = await courses.findOneAndUpdate({course_id : req.body.course_id}, req.body ,{
+    const updatedcourse = await courses.findOneAndUpdate({_id : req.body.course_id}, req.body ,{
         new : true,
     })
     res.status(200).json(updatedcourse)
@@ -336,17 +336,18 @@ const SearchCourseByOptInst = asyncHandler(async (req, res) => {
 }) 
 const rating=async(req,res)=>{
     try{
-        const course_id=req.query.crs_id
+        const course_id=req.query.userId
         const course=await courses.findById(course_id)
         var total_rating=course.course_total_ratings
-      
+       
         var  total_no_rate=course.course_total_no_ratings
-        total_rating += req.body.course_rating
+        total_rating += parseInt(req.body.course_rating)
  
         total_no_rate+=1
-        var total_rate=(total_rating/(total_no_rate*5))*5
+        var total_rate=total_rating/total_no_rate
+        
 
-        await courses.findByIdAndUpdate(course_id,{course_rating:total_rate,course_total_ratings:total_rate,course_total_no_ratings:total_no_rate},{new:true})
+        await courses.findByIdAndUpdate(course_id,{course_rating:total_rate,course_total_ratings:total_rating,course_total_no_ratings:total_no_rate},{new:true})
         res.status(200).json('rating added ')
     }
     catch(error){

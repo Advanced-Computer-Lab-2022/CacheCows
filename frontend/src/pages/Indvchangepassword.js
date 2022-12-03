@@ -4,10 +4,12 @@ import { useAuthContext } from "../hooks/useAuthContext"
 
 const Indvchangepasssword=()=>{
     const {user} = useAuthContext()
+    const[shown,setShown]=useState(false)
     
     const [indv_pass,setPass]=useState('')
     const[error , setError] = useState(null);
-  
+    const paramss = new URLSearchParams(window.location.search);
+    const userId = paramss.get('userId');
    
 
     const handleSubmit = async(e) => {
@@ -16,12 +18,12 @@ const Indvchangepasssword=()=>{
 
         const indv={indv_pass}
 
-        const response=await fetch('/api/indvtrainee/changepassword',{
+        const response=await fetch(`/api/indvtrainee/changepassword?userId=${userId}`,{
             method: 'PUT',
             body:JSON.stringify(indv),
             headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
+                'Content-Type' : 'application/json'
+                
                 
             }
         })
@@ -34,6 +36,7 @@ const Indvchangepasssword=()=>{
         if(response.ok) {
             setPass('');
             setError(null);
+            setShown(true)
             console.log(json)
         
         }
@@ -53,6 +56,7 @@ return(
             value={indv_pass}
         />
          <button>Change Password</button>
+         <div>{shown &&<p> your password was changed successfully </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
 )

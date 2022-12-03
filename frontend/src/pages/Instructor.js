@@ -166,7 +166,7 @@ const navigate=useNavigate();
       <br/>
       <br/>
 
-      <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
+      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
       <br/>
       <br/>
        
