@@ -28,14 +28,6 @@ const CourseDetails = ({course}) => {
       
   },[])
 
-    function discount(){
-      if(course.course_price_after_discount === 0){
-        setDflag(false)
-      }else{
-        setDflag(true)
-      }
-    }
-
 
     function sub1() {
         setprv1(true) 
@@ -76,7 +68,7 @@ const CourseDetails = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            {Dflag && (<p><strong>Course price After Discount: </strong>{course.cource_price_after_discount}</p>)}
+            {Dflag && (<p><strong>Course price After Discount: </strong>{course.course_price_after_discount} was {course.course_price}</p>)}
             {!Dflag && (<p><strong>Course price: </strong>{course.course_price}</p>)}
             
             </div>
