@@ -1,6 +1,7 @@
 import { Container } from 'react-bootstrap'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 const CourseDetailsInst = ({course}) => {
     const [isShown, setIsShown] = useState(false);
@@ -10,6 +11,22 @@ const CourseDetailsInst = ({course}) => {
     const [disc1, setDisc1] = useState(true);
     const [disc2, setDisc2] = useState(false);
     const [disc3, setDisc3] = useState(false);
+    const [Dflag, setDflag] = useState(false);
+
+    useEffect(()=>{ 
+
+      const fetchCourses=async ()=>{
+
+        if(course.cource_price_after_discount === 0){
+          setDflag(false)
+        }else{
+          setDflag(true)
+        }
+      }
+    
+        fetchCourses()
+      
+  },[])
 
     function sub1() {
         setprv1(true) 
@@ -50,7 +67,8 @@ const CourseDetailsInst = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            <p><strong>Course price: </strong>{course.course_price}</p>
+            {Dflag && (<p><strong>Course price After Discount: </strong>{course.course_price_after_discount} was {course.course_price}</p>)}
+            {!Dflag && (<p><strong>Course price: </strong>{course.course_price}</p>)}
             
             </div>
 
