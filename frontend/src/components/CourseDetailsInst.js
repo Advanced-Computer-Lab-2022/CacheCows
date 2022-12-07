@@ -11,13 +11,13 @@ const CourseDetailsInst = ({course}) => {
     const [disc1, setDisc1] = useState(true);
     const [disc2, setDisc2] = useState(false);
     const [disc3, setDisc3] = useState(false);
-    const [Dflag, setDflag] = useState(false);
+    const [Dflag, setDflag] = useState(true);
 
     useEffect(()=>{ 
 
       const fetchCourses=async ()=>{
 
-        if(course.cource_price_after_discount === 0){
+        if(course.cource_price_after_discount !== 0){
           setDflag(false)
         }else{
           setDflag(true)
@@ -26,7 +26,7 @@ const CourseDetailsInst = ({course}) => {
     
         fetchCourses()
       
-  },[])
+  },[course.cource_price_after_discount])
 
     function sub1() {
         setprv1(true) 
@@ -67,8 +67,9 @@ const CourseDetailsInst = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            {Dflag && (<p><strong>Course price After Discount: </strong>{course.course_price_after_discount} was {course.course_price}</p>)}
-            {!Dflag && (<p><strong>Course price: </strong>{course.course_price}</p>)}
+            <p><strong>Course price: </strong>{course.course_price}</p>
+            <p><strong>Course price After Discount: </strong>{course.course_price_after_discount}</p>
+            
             
             </div>
 
@@ -84,13 +85,13 @@ const CourseDetailsInst = ({course}) => {
             <button onClick={sub3}>{course.course_subtitles3}</button>
             <br/>
             <br/>
-            <button onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`}
-              key={course._id}><strong>Set Discount</strong></button>
+            <button onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`}>
+            Set Discount</button>
               <br/>
               <br/>
 
             <button onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-              key={course._id}><strong>Show Course Review</strong></button>
+            >Show Course Review</button>
              <p>{course.createdAt}</p>
              </p>
              

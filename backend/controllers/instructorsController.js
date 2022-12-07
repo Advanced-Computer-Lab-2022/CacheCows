@@ -199,8 +199,11 @@ const InstructorAcceptTerms =async(req,res)=>{
 const InstructorSetDiscount =async(req,res)=>{
   var g1 = new Date()
   const g2 = new Date(req.body.course_discount_time)
-
+  
   try{
+    if(req.body.course_discount === ''){
+      res.status(400).json({error : 'You need to enter a discount value!'})
+    }else{
     if (g2>=g1){
       
       const TargetCourse = await course.findOne({course_id : req.body.course_id})
@@ -213,9 +216,10 @@ const InstructorSetDiscount =async(req,res)=>{
 
     }
     else{
-      const Course1 = await course.findOneAndUpdate(req.body.course_id,{course_price_after_discount : 0})
-      res.status(400).json({error:'Discount Time is Over',g1,g2})
+      const Course1 = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : 0},{new : true})
+      res.status(400).json({error:'Invalid Date',g1,g2})
     }
+  }
   }
   catch(error){
     res.status(400).json({error:error.message})

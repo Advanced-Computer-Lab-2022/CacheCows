@@ -187,12 +187,17 @@ const navigate=useNavigate();
       <br/>
       <br/>
 
-     <div classname="courses"> 
+     <div className="filter"> 
 
      <SearchBarInst></SearchBarInst>
      <br/>
      <br/>
+     </div>
 
+     <br/>
+     <br/>
+
+     <div className="filter"> 
      <h3>All Courses: </h3>
     {courses && courses.map((course) =>(
     <CourseDetailsInst course={course} key={course._id} />))}          
@@ -202,7 +207,7 @@ const navigate=useNavigate();
     </div>
     <br/>
 
-    <div>
+    <div className="filter">
       <button
         onClick={() => {
           navigate("/");
