@@ -179,6 +179,21 @@ const InstructorEditEmail =async(req,res)=>{
   }
 }
 
+
+const InstructorEditBiography =async(req,res)=>{
+
+  try{
+    
+    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{instructor_biography:req.body.instructor_biography},{new:true})
+   // const instructor = await instructors.findById(inst_id)
+    res.status(200).json(instructor)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  
+  }
+}
+
 const InstructorAcceptTerms =async(req,res)=>{
 
   try{
@@ -404,6 +419,7 @@ module.exports = {
     
     sendEmailInstructor,
     InstructorEditEmail,
+    InstructorEditBiography,
     InstructorSetDiscount,
     InstructorAcceptTerms
 }

@@ -11,6 +11,7 @@ const AdminAddInstForm = () => {
     const [instructor_email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [instructor_bd, setBd] = useState('')
+    const [instructor_biography, setBio] = useState('')
   
     const[error , setError] = useState(null)
 
@@ -105,6 +106,13 @@ const AdminAddInstForm = () => {
             type = "text"
             onChange={(e) => setBd(e.target.value)}
             value={instructor_bd}
+        />
+
+        <label>Biography: </label>
+        <input
+            type = "text"
+            onChange={(e) => setBio(e.target.value)}
+            value={instructor_biography}
         />
 
 

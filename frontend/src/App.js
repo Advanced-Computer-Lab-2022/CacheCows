@@ -28,6 +28,8 @@ import Previewinstructorcourse from "./pages/previewinstructorcourse"
 import IReviews from "./pages/IReviews";
 import CReviews from "./pages/CReviews";
 import InstEditEmail from "./pages/InstEditEmail";
+import InstEditBiography from "./pages/InstEditBiography";
+
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/Indvregistered"
 import AccessDenied from "./pages/AccessDenied"
@@ -214,6 +216,13 @@ function App() {
             path="/InstEditEmail"
             element={<InstEditEmail/>}
             />
+            <Route 
+            path="/InstEditBiography"
+            element={<InstEditBiography/>}
+            />
+            
+
+
             <Route 
             path="/InstSetCourseDiscount"
             element={<InstSetCourseDiscount/>}
