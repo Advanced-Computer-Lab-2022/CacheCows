@@ -55,6 +55,9 @@ const Instructor=  ()=>{
   const [Sflag , setSflag] = useState(false);
   const [Fflag , setFflag] = useState(false);
   const [username , setname] = useState('');
+  const [instructor_email , setEmail] = useState('');
+  const [instructor_biography , setBio] = useState('');
+
 
   function SearchOn() {
     setSflag(true);
@@ -87,6 +90,7 @@ useEffect(()=>{
       const instructor_id = params.get('userId');
       const inst = {instructor_id : instructor_id};
       setname(user.name);
+      setEmail(user.email);
 
         const response= await fetch('/api/courses/getInstCourses',{
           method: 'POST',
@@ -159,21 +163,19 @@ const navigate=useNavigate();
 
       <div className="filter">
       <h1>Hello, {username}!</h1>
+      <body> Email : {instructor_email}</body>
 
-      <button onClick={()=>{
-      navigate("/InstEditEmail");
-      }}>Change My Email</button>
-      <br/>
-      <br/>
-
-      <button onClick={()=>{
-      navigate("/InstEditBiography");
-      }}>Change My Biography</button>
-      <br/>
+    
 
       <br/>
 
-      <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
+      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+      <br/>
+      <br/>
+      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
+      <br/>
+      <br/>
+      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
       <br/>
       <br/>
        

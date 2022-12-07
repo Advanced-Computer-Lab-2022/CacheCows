@@ -169,7 +169,9 @@ const InstructorEditEmail =async(req,res)=>{
     if (!validator.isEmail(req.body.instructor_email)) {
       res.status(400).json({error:'Email Not Valid'})
     }
-    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{instructor_email:req.body.instructor_email},{new:true})
+    const inst_id = req.query.userId
+
+    const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_email:req.body.instructor_email},{new:true})
    // const instructor = await instructors.findById(inst_id)
     res.status(200).json(instructor)
   }
@@ -181,10 +183,12 @@ const InstructorEditEmail =async(req,res)=>{
 
 
 const InstructorEditBiography =async(req,res)=>{
-
   try{
-    
-    const instructor =await instructors.findOneAndUpdate(req.body.inst_id,{instructor_biography:req.body.instructor_biography},{new:true})
+    const inst_id = req.query.userId
+
+    console.log(inst_id)
+
+    const instructor =await instructors.findByIdAndUpdate(inst_id,{instructor_biography:req.body.instructor_biography},{new:true})
    // const instructor = await instructors.findById(inst_id)
     res.status(200).json(instructor)
   }

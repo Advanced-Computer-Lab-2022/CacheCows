@@ -6,32 +6,35 @@ const InstEditBiography=()=>{
     const {user} = useAuthContext()
 
     const[instructor_biography,setBio]=useState('');
-    const[inst_id,setID]=useState('');
+   // const[inst_id,setID]=useState('');
     const[error , setError] = useState(null);
+    const paramss = new URLSearchParams(window.location.search);
+
+    const userId = paramss.get('userId');
+
     
 
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        setID(JSON.stringify(user._id))
+     //   setID(JSON.stringify(user._id))
 
         const inst = {
-            inst_id,
             instructor_biography
         }
 
 
-        const response = await fetch('/api/instructors/InstructorEditBiography', {
+        const response = await fetch(`/api/instructors/InstructorEditBiography?userId=${userId}`, {
             method: 'POST',
             body: JSON.stringify(inst),
             headers: {
                 'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
+              //  'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()
 if(!response.ok) {
-    console.log(inst_id)
+    console.log(inst)
     setError(json.error)
 }
 if(response.ok) {
