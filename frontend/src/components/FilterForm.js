@@ -79,11 +79,11 @@ function clear(){
       <Dropdown color="primary" label="Filter By Rating" className='filter' onClick={handleSubmit}
       onSelect={(v) => setFilter2(v)}
       >
-        <h4><DropdownItem value="5" >5</DropdownItem></h4>
-        <h4><DropdownItem value="4" >4</DropdownItem></h4>
-        <h4><DropdownItem value="3" >3</DropdownItem></h4>
-        <h4><DropdownItem value="2" >2</DropdownItem></h4>
-        <h4><DropdownItem value="1" >1</DropdownItem></h4>
+        <DropdownItem value="5" >5</DropdownItem>
+        <DropdownItem value="4" >4</DropdownItem>
+        <DropdownItem value="3" >3</DropdownItem>
+        <DropdownItem value="2" >2</DropdownItem>
+        <DropdownItem value="1" >1</DropdownItem>
 
       </Dropdown>
 

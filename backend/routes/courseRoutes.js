@@ -6,8 +6,8 @@ const upload = require('../middleware/upload.js')
 
 router.get('/getCourses',controlls.getCourses);
 router.post('/getCourse',controlls.getCourse);
-router.post('/',upload.single('course_preview'),controlls.setCourse);
-router.put('/',controlls.updateCourse);
+router.post('/',controlls.setCourse);
+router.put('/update',controlls.updateCourse);
 router.delete('/',controlls.deleteCourse);
 router.post('/previewCourses',controlls.previewCourses);
 router.post('/SearchCourseByOpt',controlls.SearchCourseByOpt);

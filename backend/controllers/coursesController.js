@@ -52,6 +52,7 @@ const setCourse = asyncHandler(async(req, res) => {
      course_rating : req.body.course_rating,
      course_discount : req.body.course_discount,
      course_price : req.body.course_price,  
+     course_discount_time : req.body.course_discount_time,
      course_summary : req.body.course_summary,
      course_total_hours : req.body.course_total_hours,  
      course_subject : req.body.course_subject,
@@ -61,9 +62,9 @@ const setCourse = asyncHandler(async(req, res) => {
      course_preview1 : req.body.course_preview1,
      course_preview2 : req.body.course_preview2,
      course_preview3 : req.body.course_preview3,
-     course_preview4 : req.body.course_preview1,
-     course_preview5 : req.body.course_preview2,
-     course_preview6 : req.body.course_preview3,
+     course_preview4 : req.body.course_preview4,
+     course_preview5 : req.body.course_preview5,
+     course_preview6 : req.body.course_preview6,
      course_subtitles1 : req.body.course_subtitles1,
      course_subtitles2 : req.body.course_subtitles2,
      course_subtitles3 : req.body.course_subtitles3,
@@ -74,14 +75,15 @@ const setCourse = asyncHandler(async(req, res) => {
      course_description5 : req.body.course_description5,
      course_description6 : req.body.course_description6,
      course_subtopic1 : req.body.course_subtopic1,
-     course_subtopic2 : req.body.course_subtopic1,
-     course_subtopic3 : req.body.course_subtopic1,
-     course_subtopic4 : req.body.course_subtopic1,
-     course_subtopic5 : req.body.course_subtopic1,
-     course_subtopic6 : req.body.course_subtopic1,
+     course_subtopic2 : req.body.course_subtopic2,
+     course_subtopic3 : req.body.course_subtopic3,
+     course_subtopic4 : req.body.course_subtopic4,
+     course_subtopic5 : req.body.course_subtopic5,
+     course_subtopic6 : req.body.course_subtopic6,
      course_total_no_ratings:0,
      course_total_ratings:0,
-     course_rating:0
+     course_rating:0,
+     course_price_after_discount : req.body.course_price,
      
     })
     res.status(200).json({course})
@@ -89,15 +91,13 @@ const setCourse = asyncHandler(async(req, res) => {
 //UPDATE COURSE
 const updateCourse = asyncHandler(async (req, res) => {
     
-    const course = await courses.find({_id : req.body.course_id})
+    const course = await courses.find({course_id : req.body.course_id})
     
     if (course.toString() === ""){
-        res.status(400)
-        throw new Error ('course not found')
+        res.status(400).json({error:'No Courses Found'})
     }
-    const updatedcourse = await courses.findOneAndUpdate({_id : req.body.course_id}, req.body ,{
-        new : true,
-    })
+    const updatedcourse = await courses.findOneAndUpdate({course_id : req.body.course_id},{$set: req.body}
+         ,{new : true})
     res.status(200).json(updatedcourse)
 })
 //DELETE COURSE

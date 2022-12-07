@@ -13,7 +13,6 @@ const CourseForm = ({user}) => {
     const [instructor_name, setInstName] = useState('')
     const [instructor_id, setInstID] = useState('')
     const [course_rating, setRating] = useState('')
-    const [course_discount, setDiscount] = useState('')
     const [course_price, setPrice] = useState('')
     const [course_summary, setSumm] = useState('')
     const [course_total_hours, setTot] = useState('')
@@ -32,12 +31,12 @@ const CourseForm = ({user}) => {
     const [course_subtitles2, setSubt2] = useState('')
     const [course_subtitles3, setSubt3] = useState('')
 
-    const [course_discription1, setDisc1] = useState('')
-    const [course_discription2, setDisc2] = useState('')
-    const [course_discription3, setDisc3] = useState('')
-    const [course_discription4, setDisc4] = useState('')
-    const [course_discription5, setDisc5] = useState('')
-    const [course_discription6, setDisc6] = useState('')
+    const [course_description1, setDisc1] = useState('')
+    const [course_description2, setDisc2] = useState('')
+    const [course_description3, setDisc3] = useState('')
+    const [course_description4, setDisc4] = useState('')
+    const [course_description5, setDisc5] = useState('')
+    const [course_description6, setDisc6] = useState('')
 
     const [course_subtopic1, settop1] = useState('')
     const [course_subtopic2, settop2] = useState('')
@@ -75,7 +74,6 @@ const CourseForm = ({user}) => {
             instructor_name,
             instructor_id,
             course_rating,
-            course_discount,
             course_price,  
             course_summary,
             course_total_hours,  
@@ -92,12 +90,12 @@ const CourseForm = ({user}) => {
             course_subtitles1,
             course_subtitles2,
             course_subtitles3,
-            course_discription1,
-            course_discription2,
-            course_discription3,
-            course_discription4,
-            course_discription5,
-            course_discription6,
+            course_description1,
+            course_description2,
+            course_description3,
+            course_description4,
+            course_description5,
+            course_description6,
             course_subtopic1,
             course_subtopic2,
             course_subtopic3,
@@ -130,7 +128,6 @@ const CourseForm = ({user}) => {
         setTot ('')
         setSubj('') 
         setEx ('')
-        setDiscount('')
         setOutline('')
         setVideo('')
         setPrev1('')
@@ -176,13 +173,6 @@ const CourseForm = ({user}) => {
             type = "text"
             onChange={(e) => setName(e.target.value)}
             value={course_name}
-        />
-
-        <label>Course Discount: </label>
-        <input
-            type = "text"
-            onChange={(e) => setDiscount(e.target.value)}
-            value={course_discount}
         />
 
 
@@ -251,7 +241,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc1(e.target.value)}
-            value={course_discription1}
+            value={course_description1}
         />
 
         <label>Course SubTopic 2: </label>
@@ -272,7 +262,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
-            value={course_discription2}
+            value={course_description2}
         />
 
         <label>Course SubTopic 3: </label>
@@ -294,7 +284,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
-            value={course_discription3}
+            value={course_description3}
         />
 
         
@@ -318,7 +308,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc4(e.target.value)}
-            value={course_discription4}
+            value={course_description4}
         />
 
         <label>Course SubTopic 5: </label>
@@ -340,7 +330,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc5(e.target.value)}
-            value={course_discription5}
+            value={course_description5}
         />
 
         <label>Course SubTopic 6: </label>
@@ -362,7 +352,7 @@ const CourseForm = ({user}) => {
         <input
             type = "text"
             onChange={(e) => setDisc6(e.target.value)}
-            value={course_discription6}
+            value={course_description6}
         />
 
         <label>Course Subtitle 1: </label>

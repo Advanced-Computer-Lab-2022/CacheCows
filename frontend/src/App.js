@@ -69,6 +69,8 @@ import Corpviewregcourses from"./pages/Corpregisteredcourses"
 import Indvreviewinst from "./pages/Indvreviewinst"
 import Corpview from "./pages/Corpviewcourse"
 import Corprateinst from "./pages/Corprateinst"
+import CoursePagePreview from "./pages/CoursePagePreview";
+
 function App() {
 
   const { user } = useAuthContext()
@@ -222,6 +224,10 @@ function App() {
             <Route 
             path="/CoursePage"
             element={<CoursePage/>}
+            />
+            <Route 
+            path="/CoursePagePreview"
+            element={<CoursePagePreview/>}
             />
             <Route 
             path="/InstEditEmail"
