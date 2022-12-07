@@ -16,7 +16,9 @@ const InstructorSchema = new mongoose.Schema({
      instructor_total_rate:{type:Number,required :false},
      instructor_total_no_rate:{type:Number,required:false},
      acceptTerms:{type: String,required:false},
-     type : {type: String , required : false}
+     type : {type: String , required : false},
+     instructor_biography:{type: String,}, 
+
 
      
 

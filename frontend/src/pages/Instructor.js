@@ -166,7 +166,14 @@ const navigate=useNavigate();
       <br/>
       <br/>
 
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+      <button onClick={()=>{
+      navigate("/InstEditBiography");
+      }}>Change My Biography</button>
+      <br/>
+
+      <br/>
+
+      <button onClick={()=>navigate("/instchangepassword")}>change Password</button>
       <br/>
       <br/>
        

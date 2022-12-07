@@ -32,6 +32,7 @@ router.post('/createcourse/:id',controlls.createCourse)
 ;
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
 router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);
+router.post('/InstructorEditBiography',controlls.InstructorEditBiography);
 router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);
 
 
