@@ -44,7 +44,7 @@ const Indvrate=()=>{
     }
     return(
         
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="filter" onSubmit={handleSubmit}>
             <h2>Rate your instructor</h2>
         <Stack spacing={50}>
             <Rating value={instructor_rate} onChange={(event, newValue) => {

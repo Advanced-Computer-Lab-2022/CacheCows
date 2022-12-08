@@ -57,7 +57,8 @@ const Registerdetails =({course})=>{
           <p><strong>course Exercises:</strong>{course.course_exercise}</p>
           <p><strong>course outline:</strong>{course.course_outline}</p>
           
-          <p><strong>course discount:</strong>{course.course_price_after_discount}</p>
+          <p><strong>Course price: </strong>{course.course_price}</p>
+          <p><strong>Course price After Discount: </strong>{course.course_price_after_discount}</p>
           <p><strong>course discount time:</strong>{course.course_discount_time}</p>
 
 <button onClick={()=>window.location.href=`/Corprateinst?userId=${course.instructor_id}`}>rate instructor</button>

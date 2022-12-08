@@ -31,7 +31,7 @@ if(response.ok) {
 
 return(
 
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <label>Email Address: </label>
         <input
             type = "text"

@@ -48,7 +48,7 @@ const Indvchangepasssword=()=>{
 
 
 return(
-   <form className="create" onSubmit={handleSubmit}>
+   <form className="filter" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
             type = "password"

@@ -52,14 +52,14 @@ if(response.ok) {
 
 return(
 
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <label>Course Discount % </label>
         <input
             type = "text"
             onChange={(e) => setDiscount(e.target.value)}
             value={course_discount}
         />
-    <label>Valid Until (YYYY-MM-DD) </label>
+    <label>Valid Until </label>
     <input
         type = "Date"
         onChange={(e) => setDiscountTime(e.target.value)}

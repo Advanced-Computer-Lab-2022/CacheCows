@@ -51,7 +51,8 @@ const TCourseDetails = ({course}) => {
             <p><strong>Course ID: </strong>{course.course_id}</p>
             <p><strong>Course rating: </strong>{course.course_rating}</p>
             <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            <p><strong>Course price: </strong>{course.cource_price}</p>
+            <p><strong>Course price: </strong>{course.course_price}</p>
+            <p><strong>Course price After Discount: </strong>{course.course_price_after_discount}</p>
             
             </div>
 
@@ -65,6 +66,8 @@ const TCourseDetails = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
+            <br/>
+            <br/>
             <button onClick={()=>{window.location.href=`/Indvregistered?userId=${course._id}`}}>register course</button>
 
              <p>{course.createdAt}</p>

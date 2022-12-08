@@ -389,6 +389,7 @@ if (Instructor) {
         name: Instructor.instructor_name,
         username: Instructor.instructor_user,
         email: Instructor.instructor_email,
+        biography : Instructor.instructor_biography,
         type : 'instructor',
         acceptTerms : Instructor.acceptTerms,
         token: generateToken(Instructor._id),

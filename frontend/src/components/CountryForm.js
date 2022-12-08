@@ -46,10 +46,10 @@ const handleSubmit = async(e) => {
 }
 
 return(
-    <form className="update" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <h3>choose country!</h3>
 
-<label>Country: </label>
+     <label>Country: </label>
         <input
             type = "text"
             onChange={(e) => setCountry(e.target.value)}
@@ -59,7 +59,7 @@ return(
         />
 
 
-<button>Update Country</button>
+    <button>Update Country</button>
         {error && <div className="error">{error}</div>}
     </form>
 

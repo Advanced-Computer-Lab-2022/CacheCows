@@ -91,6 +91,7 @@ useEffect(()=>{
       const inst = {instructor_id : instructor_id};
       setname(user.name);
       setEmail(user.email);
+      setBio(user.biography)
 
         const response= await fetch('/api/courses/getInstCourses',{
           method: 'POST',
@@ -163,27 +164,30 @@ const navigate=useNavigate();
 
       <div className="filter">
       <h1>Hello, {username}!</h1>
-      <body> Email : {instructor_email}</body>
+      <body className="filter"> Email : {instructor_email}</body>
+      <body className="filter"> Biography : {instructor_biography}</body>
 
     
 
       <br/>
-
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
-      <br/>
-      <br/>
-      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
-      <br/>
-      <br/>
-      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
-      <br/>
-      <br/>
-       
       <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
         key={instid}>Show My Reviews
       </button>
       <br/>
       <br/>
+
+      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
+      <br/>
+      <br/>
+
+      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+      <br/>
+      <br/>
+      
+      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
+      <br/>
+      <br/>
+      
 
       <button onClick={()=>{
       navigate("/AddCourse");

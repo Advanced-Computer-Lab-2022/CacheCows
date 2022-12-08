@@ -39,7 +39,7 @@ if(!response.ok) {
 }
 if(response.ok) {
     setEmail('');
-    setError(null);
+    setError('Email Changed Successfully!');
     console.log(json)
 
 }
@@ -49,7 +49,7 @@ if(response.ok) {
 
 return(
 
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <label>New Email: </label>
         <input
             type = "text"

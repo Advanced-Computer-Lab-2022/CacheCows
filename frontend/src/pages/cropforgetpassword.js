@@ -1,7 +1,7 @@
 import Forgetpass from "../components/Cropforgetpasswordform"
 const Cropforgetpassword=()=>{
 return(
-    <div className="forgot pass">
+    <div className="filter">
         <Forgetpass/>
     </div>
 )

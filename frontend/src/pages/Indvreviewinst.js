@@ -50,7 +50,7 @@ const Indvreview=()=>{
 
 
 return(
-   <form className="create" onSubmit={handleSubmit}>
+   <form className="filter" onSubmit={handleSubmit}>
     <label>Add your review: </label>
         <input
             type = "text"

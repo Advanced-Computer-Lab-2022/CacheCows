@@ -78,24 +78,24 @@ function IndTrainee() {
   
 
   return (
-    <div className="app"  >
+    <div >
       <SearchBar></SearchBar>
-      <div className= 'filter' >
-        <CountryForm></CountryForm>
-      </div>      
-      <p> </p>
-      
-      <p> </p>
-      
+      <br/>
+      <CountryForm></CountryForm>
+      <br/>
+
+    <div className= 'filter' >
      <button onClick={()=>navigate("/Indvview")}> View all Courses</button>
-     <p></p>
+     <br/>
+     <br/>
     <button on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
-    <p></p>
-
+    <br/>
+    <br/>
     <button onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
+   </div>
+   </div>
 
-    </div>
   );
 }
 

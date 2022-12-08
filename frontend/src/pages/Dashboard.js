@@ -32,13 +32,11 @@ const Dashboard = () => {
      <FForm></FForm>
      <br/>
 
-     <div classname="courses"> 
+     <div classname="filter"> 
 
      <SearchBar></SearchBar>
-    {courses && courses.map((course) =>(
-    <CourseDetails course={course} key={course._id} />))}          
-    </div>
-      <div className="All Courses">
+     </div>
+      <div className="filter">
         {courses && courses.map((course) => (
           <CourseDetails course={course} key={course._id} />
         ))}

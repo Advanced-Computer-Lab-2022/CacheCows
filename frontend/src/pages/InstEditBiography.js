@@ -39,7 +39,7 @@ if(!response.ok) {
 }
 if(response.ok) {
     setBio('');
-    setError(null);
+    setError('Biography Updated Successfully!');
     console.log(json)
 
 }
@@ -49,7 +49,7 @@ if(response.ok) {
 
 return(
 
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <label>New Biography: </label>
         <input
             type = "text"

@@ -29,9 +29,14 @@ useEffect(()=>{
     
 },[])
 return(
-    <div className="app">
+    <div >
         <FForm></FForm>
+
+        <br/>
+
       <FFormPrice></FFormPrice>
+
+      <br/>
  {courses && courses.map((course) =>(
     <TCourseDetails course={course} key={course._id} />))} 
 

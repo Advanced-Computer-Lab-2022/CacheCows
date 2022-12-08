@@ -1,7 +1,7 @@
 import Forgetpass from "../components/Indvforgetpasswordform"
 const Indvtforgetpassword=()=>{
 return(
-    <div className="forgot pass">
+    <div className="filter">
         <Forgetpass/>
     </div>
 )

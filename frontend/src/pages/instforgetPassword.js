@@ -1,7 +1,7 @@
 import Forgetpass from "../components/InstforgetpasswordForm"
 const Instforgetpassword=()=>{
 return(
-    <div className="forgot pass">
+    <div className="filter">
         <Forgetpass/>
     </div>
 )
