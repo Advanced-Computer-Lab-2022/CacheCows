@@ -12,7 +12,16 @@ const Signup = () => {
   const [Country, setCountry] = useState('')
   const [indv_bd, setBirthday] = useState('')
   const {signup, error, isLoading} = useSignup()
-  
+
+  const [agree, setAgree] = useState(false);
+
+  const checkboxHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+    setAgree(!agree);
+   
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -61,8 +70,15 @@ const Signup = () => {
         onChange={(e) => setBirthday(e.target.value)} 
         value={indv_bd} 
       />
+      
+      <div>
+          <input type="checkbox" id="agree" onChange={checkboxHandler} />
+          <label>  Accept our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
+        </div>
 
- <button disabled={isLoading}>Sign up</button> 
+        <button disabled={!agree} className="btn" onClick={handleSubmit}>
+          Sign Up
+        </button>
        {error && <div className="error">{error}</div>}
     </form>
   )

@@ -89,6 +89,8 @@ const Signup = () => {
         <div>
           <input type="checkbox" id="agree" onChange={checkboxHandler} />
           <label htmlFor="agree"> Accept Our <Link to="/termsandconditions">Terms & Conditions</Link></label>
+          <label>  Accept our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
+        
         </div>
 
         <button disabled={!agree} className="btn" onClick={handleSubmit}>

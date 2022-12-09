@@ -70,6 +70,9 @@ import Indvreviewinst from "./pages/Indvreviewinst"
 import Corpview from "./pages/Corpviewcourse"
 import Corprateinst from "./pages/Corprateinst"
 import CoursePagePreview from "./pages/CoursePagePreview";
+import IndTraineetermsandconditions from "./pages/IndTraineetermsandconditions";
+
+
 
 function App() {
 
@@ -303,6 +306,12 @@ function App() {
             path="/Corpreviewinst"
             element={<Corpreviewinst/>}
             />
+            <Route 
+            path="/IndTraineetermsandconditions"
+            element={<IndTraineetermsandconditions/>}
+            />
+
+
 
         </Routes>
        
