@@ -30,6 +30,7 @@ const AdminAddInstForm = () => {
             instructor_email,
             country,
             instructor_bd,
+            instructor_biography,
             acceptTerms 
         }
 
@@ -55,6 +56,7 @@ const AdminAddInstForm = () => {
         setPassword('')
         setEmail('')
         setCountry('')
+        setBio('')
         setBd('')
         setAT('')
         

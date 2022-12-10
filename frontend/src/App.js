@@ -73,6 +73,10 @@ import CoursePagePreview from "./pages/CoursePagePreview";
 import IndTraineetermsandconditions from "./pages/IndTraineetermsandconditions";
 
 
+import ReportsPage from "./pages/ReportPage";
+import AddReportPage from "./pages/AddReportPage";
+import AdminReportsPage from "./pages/AdminReportPage";
+
 
 function App() {
 
@@ -309,6 +313,21 @@ function App() {
             <Route 
             path="/IndTraineetermsandconditions"
             element={<IndTraineetermsandconditions/>}
+            />
+ 
+           <Route 
+            path="/ReportsPage"
+            element={<ReportsPage/>}
+            />
+
+           <Route 
+            path="/AddReportPage"
+            element={<AddReportPage/>}
+            />
+
+            <Route 
+            path="/AdminReportPage"
+            element={<AdminReportsPage/>}
             />
 
 

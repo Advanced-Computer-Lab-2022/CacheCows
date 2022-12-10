@@ -83,6 +83,10 @@ const CourseDetails = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
+            <br/>
+
+            <button onClick={() => window.location.href=`/AddReportPage?course_id=${course.course_id}`}
+            >Report Course</button>
 
              <p>{course.createdAt}</p>
              </p>

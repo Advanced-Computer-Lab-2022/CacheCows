@@ -19,6 +19,7 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 
 import Countryform from "../components/CountryForm";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const languages = [
   {
@@ -50,6 +51,10 @@ const languages = [
 
 const Admin = () => {
   const navigate=useNavigate();
+  const paramss = new URLSearchParams(window.location.search);
+  const admin_id = paramss.get('userId');
+
+  const {user} = useAuthContext();
 
   
   const [admins, setadmins] = useState(null)
@@ -144,7 +149,7 @@ const Admin = () => {
       </div>
       <br/>
 
-      <div>
+      <div className="filter">
       <button
         onClick={() => {
           navigate("/");
@@ -153,10 +158,16 @@ const Admin = () => {
         {" "}
         Check All Courses!
       </button>
+      <br/>
+      <br/>
+
+      <button
+        onClick={() => window.location.href=`/AdminReportPage?admin_id=${user._id}`}
+      >
+        {" "}
+        Check All Reports!
+      </button>
       </div>
-      <br />
-
-
       </div>
 
 

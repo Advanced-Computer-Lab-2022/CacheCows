@@ -39,6 +39,9 @@ const languages = [
 
 
   function CorpTrainee() {
+    const paramss = new URLSearchParams(window.location.search);
+    const crpid = paramss.get('userId');
+
     const navigate=useNavigate();
     const [query, setQuery] = useState("");
     const [courses,setCourses]=useState()
@@ -88,11 +91,15 @@ const languages = [
     <button
        onClick={()=>navigate("/Corpview")}
       >
-        
         view all courses
       </button>
       <p></p>
       <button  onClick={()=>navigate("/Corpregisteredcourses")}>view registered courses</button>
+      <br/>
+    <br/>
+    <button onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
+        key={crpid}>View Reports
+      </button>
   </div>
   )
 }

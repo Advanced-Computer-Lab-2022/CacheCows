@@ -176,6 +176,12 @@ const navigate=useNavigate();
       <br/>
       <br/>
 
+      <button onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+        key={instid}>View Reports
+      </button>
+      <br/>
+      <br/>
+
       <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
       <br/>
       <br/>

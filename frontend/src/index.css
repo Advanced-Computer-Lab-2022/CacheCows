@@ -5,6 +5,7 @@
 :root {
   --primary: #135492;
   --error: #e7195a;
+  --success: #1db531;
 }
 body {
   background: #f1f1f1;
@@ -233,6 +234,15 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+div.success {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--success);
+  color: var(--success);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
 input.error {
   border: 1px solid var(--error);
 }
@@ -330,6 +340,29 @@ nav button {
   font-weight: 400;
   text-decoration:none;
   }
+
+  .reports {
+    background: rgb(252, 252, 252);
+    border-bottom: 5px solid rgb(13, 54, 92);
+    width: 90%;
+    color: #135492;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  .reports header {
+   padding: 10px;
+   background: #ffefef;
+   border: 1px solid rgb(13, 54, 92);
+   color: solid rgb(13, 54, 92);
+   border-radius: 4px;
+   margin: 20px 0;
+  }
+  
 
   .filter {
     background: rgb(252, 252, 252);

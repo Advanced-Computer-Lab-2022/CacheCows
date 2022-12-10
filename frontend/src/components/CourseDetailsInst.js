@@ -57,6 +57,7 @@ const CourseDetailsInst = ({course}) => {
       const navigate=useNavigate();
       
     return(
+      <div>
         <Container onMouseOver={() => setIsShown(true)} onMouseOut={() => setIsShown(false)} className="course-details" >
             <div className="ratio ratio-16x9">
                 {prv1 && (<iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>)}
@@ -92,11 +93,18 @@ const CourseDetailsInst = ({course}) => {
 
             <button onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
             >Show Course Review</button>
+            <br/>
+            <br/>
+
+            <button onClick={() => window.location.href=`/AddReportPage?course_id=${course.course_id}`}
+            >Report Course</button>
              <p>{course.createdAt}</p>
              </p>
              
              )}
         </Container>
+        <br/>
+        </div>
     )
 }
 

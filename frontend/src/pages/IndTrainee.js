@@ -44,6 +44,9 @@ const languages = [
 ]
 
 function IndTrainee() {
+  const paramss = new URLSearchParams(window.location.search);
+  const indvid = paramss.get('userId');
+
   const [query, setQuery] = useState("");
   const [courses, setCourses] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([])
@@ -93,8 +96,15 @@ function IndTrainee() {
     <br/>
     <br/>
     <button onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
+    <br/>
+    <br/>
+    <button onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
+        key={indvid}>View Reports
+      </button>
+      
    </div>
    </div>
+   
 
   );
 }
