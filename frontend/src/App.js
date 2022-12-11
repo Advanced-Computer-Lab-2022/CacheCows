@@ -71,11 +71,13 @@ import Corpview from "./pages/Corpviewcourse"
 import Corprateinst from "./pages/Corprateinst"
 import CoursePagePreview from "./pages/CoursePagePreview";
 import IndTraineetermsandconditions from "./pages/IndTraineetermsandconditions";
+import TraineeResults from "./pages/TraineeResults";
 
 
 import ReportsPage from "./pages/ReportPage";
 import AddReportPage from "./pages/AddReportPage";
 import AdminReportsPage from "./pages/AdminReportPage";
+
 
 
 function App() {
@@ -314,6 +316,12 @@ function App() {
             path="/IndTraineetermsandconditions"
             element={<IndTraineetermsandconditions/>}
             />
+            <Route 
+            path="/TraineeResults"
+            element={<TraineeResults/>}
+            />
+
+
  
            <Route 
             path="/ReportsPage"

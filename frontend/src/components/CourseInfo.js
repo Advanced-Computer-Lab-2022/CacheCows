@@ -7,9 +7,14 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const CourseInfo = ({course}) => {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false);    
+    const { user } = useAuthContext()
+
+    
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -79,7 +84,13 @@ const CourseInfo = ({course}) => {
             <iframe className='modalx'  src={course.course_preview6} title="YouTube video" allowFullScreen></iframe>
             <h4 class='header'>{course.course_description6}</h4>
             </Popup>
-        </p>
+            <br/>
+
+            <button onClick={() => window.location.href=`/TraineeResults?course_id=${course.course_id}&username=${user.name}`}
+             >My results
+            </button>
+      
+              </p>
         </Container>
         </div>
     )
