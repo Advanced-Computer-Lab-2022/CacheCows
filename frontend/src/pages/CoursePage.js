@@ -9,6 +9,8 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CourseInfo from "../components/CourseInfo";
 import { Nav } from "react-bootstrap";
+import Notes from "../components/Notes";
+
 
 const CoursePage=()=>{
     const user = useAuthContext()
@@ -41,8 +43,14 @@ useEffect(()=>{
 
     return(
     <div className="instructor">
+      <div> 
       {courses && courses.map((course) =>(
     <CourseInfo course={course} key={course._id} />))}  
+    </div>
+    <div>
+      <label> Course Notes </label>
+      <Notes/>
+    </div>
     </div>
 
  )
