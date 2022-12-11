@@ -65,7 +65,6 @@ doc.save('notes.pdf')
 
   return (
     <form className="login" onSubmit={handleSubmit}>
-      <h3>Notes</h3>
       
       <label>Notes</label>
       <input 

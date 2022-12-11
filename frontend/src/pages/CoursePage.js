@@ -48,7 +48,7 @@ useEffect(()=>{
     <CourseInfo course={course} key={course._id} />))}  
     </div>
     <div>
-      <label> Course Notes </label>
+    <h3> Course Notes</h3>
       <Notes/>
     </div>
     </div>

@@ -44,8 +44,9 @@ const CourseInfo = ({course}) => {
             <p><h4>{course.course_subtopic1}</h4></p>}>
             <h4 class='header'>{course.course_subtopic1}</h4>
             <iframe className='modalx'  src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>
-            <h4 class='header'>{course.course_description1}</h4>
             <Notes/>
+
+            <h4 class='header'>{course.course_description1}</h4>
 
             </Popup>
 
