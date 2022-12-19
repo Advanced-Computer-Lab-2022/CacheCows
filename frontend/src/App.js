@@ -77,6 +77,7 @@ import TraineeResults from "./pages/TraineeResults";
 import ReportsPage from "./pages/ReportPage";
 import AddReportPage from "./pages/AddReportPage";
 import AdminReportsPage from "./pages/AdminReportPage";
+import ReportFUPage from "./pages/ReportFUPage";
 
 
 
@@ -94,7 +95,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
 
-      <NavigationBar/>
+      <ResponsiveAppBar/>
        <div className="pages">
         <Routes>
         <Route 
@@ -276,11 +277,11 @@ function App() {
             path="/Indvview"
             element={<Indvview/>}
             />
-       <Route 
+            <Route 
             path="/Indvrateinst"
             element={<Indvrateinst/>}
             />
-<Route 
+            <Route 
             path="/Indvratecourse"
             element={<Indvratecourse/>}
             />
@@ -336,6 +337,11 @@ function App() {
             <Route 
             path="/AdminReportPage"
             element={<AdminReportsPage/>}
+            />
+
+            <Route 
+            path="/ReportFUPage"
+            element={<ReportFUPage/>}
             />
 
 

@@ -1,3 +1,4 @@
+import { useLogout } from '../hooks/useLogout'
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,8 +19,11 @@ import { Link } from 'react-router-dom'
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
 function ResponsiveAppBar() {
-  const {user} = useAuthContext();
+  const { logout } = useLogout()
+  const { user } = useAuthContext()
+  const usertype = localStorage.getItem('type')
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -44,6 +48,11 @@ function ResponsiveAppBar() {
     }
   };
 
+  const handleClick = () => {
+    logout()
+  }
+
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -64,7 +73,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+          <Link to ="/"><h1>Rubix</h1></Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -96,11 +105,9 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <Link to="/about"> <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" >{page}</Typography>
-                </MenuItem></Link>
-              ))}
+               <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" ><Link onClick={() => window.location.href=`/Home?userId=${user._id}`}> Home</Link></Typography>
+                </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -123,21 +130,54 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Typography textAlign="center" onClick={() => window.location.href=`/`}> Home </Typography>
               </Button>
-            ))}
-          </Box>
 
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Typography textAlign="center" onClick={() => window.location.href=`/about`}> About Us</Typography>
+              </Button>
+
+              {!user && (
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                <Typography textAlign="center" onClick={() => window.location.href=`Login`}> Login</Typography>
+               </Button>
+
+               <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+               >
+                <Typography textAlign="center" onClick={() => window.location.href=`/Signup`}> Sign up</Typography>
+               </Button>
+               </Box>
+             )}
+
+             {user && (
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                <Typography textAlign="center" > Welcome {user.username} !</Typography>
+               </Button>
+               </Box>
+             )}
+          </Box>
+        {user && (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user.username} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -156,13 +196,20 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+             <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" onClick={() => window.location.href=`/Home?userId=${user._id}`}> Profile</Typography>
+              </MenuItem>
+
+              <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" onClick={() => window.location.href=`/Home?userId=${user._id}`}> Settings</Typography>
+              </MenuItem>
+
+              <MenuItem  onClick={() => window.location.href=`/`}>
+                  <Typography textAlign="center" onClick={handleClick}> Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
