@@ -12,6 +12,7 @@ const validator = require('validator')
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
 const review=require('../models/IReviewModel')
 
+
 var transporeter=nodemailer.createTransport({
   service:'gmail',
   
@@ -125,6 +126,42 @@ res.status(400).json({error:error.message})
   }
 
 }
+
+const sendCertificateEmail=async (req,res)=>{
+  try{
+    const indvidual=await indv.findOne({indv_user:req.body.indv_user})
+    const email=indvidual.indv_email
+    var MailOptions={
+      from:process.env.MAIL,
+      to:email,
+      subject:'Certificate of Completion',
+      text:'Congratulations '+ indvidual.Name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
+      attachments: [{
+        filename: 'Certificate of Completion.pdf',
+        path: '/Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/Certificate of Completion.pdf',
+        contentType: 'application/pdf'
+      }] 
+    };
+    transporeter.sendMail(MailOptions,function(error,info){
+      if(error){
+          res.status(400).json({error:error.message})
+      }
+      else{
+          res.status(200).json('email sent')
+      }
+    })
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+
+}
+
+
+
+
+
+
 const del=async (req,res)=>{
 try{
   await reg.deleteMany()
@@ -306,4 +343,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst,sendCertificateEmail };

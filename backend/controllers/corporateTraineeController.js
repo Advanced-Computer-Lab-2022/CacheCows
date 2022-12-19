@@ -119,6 +119,36 @@ res.status(400).json({error:'Email Not Found'})
 
 }
 
+const sendCertificateEmail=async (req,res)=>{
+  try{
+    const croprate=await corp.findOne({corp_user:req.body.corp_user})
+    const email=croprate.corp_email
+    var MailOptions={
+      from:process.env.MAIL,
+      to:email,
+      subject:'Certificate of Completion',
+      text:'Congratulations '+ croprate.corp_name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
+      attachments: [{
+        filename: 'Certificate of Completion.pdf',
+        path: '/Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/Certificate of Completion.pdf',
+        contentType: 'application/pdf'
+      }] 
+    };
+    transporeter.sendMail(MailOptions,function(error,info){
+      if(error){
+          res.status(400).json({error:error.message})
+      }
+      else{
+          res.status(200).json('email sent')
+      }
+    })
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+
+}
+
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
@@ -240,4 +270,4 @@ const reviewinst=async(req,res)=>{
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail};

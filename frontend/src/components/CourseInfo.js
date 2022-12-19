@@ -106,7 +106,7 @@ const CourseInfo = ({course}) => {
             </Popup>
             <br/>
 
-            <button onClick={() => window.location.href=`/TraineeResults?course_id=${course.course_id}&username=${user.name}`}
+            <button onClick={() => window.location.href=`/TraineeResults?course_id=${course.course_id}&username=${user.username}`}
              >My results
             </button>
       

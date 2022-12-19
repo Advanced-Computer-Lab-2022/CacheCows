@@ -79,7 +79,7 @@ class TraineeResults extends Component{
             const username = {indv_user : indv_user}
             
       
-              const response= await fetch('/api/indvtrainee/sendCertificateEmail',{
+              const response= await fetch('/api/corpTrainee/sendCertificateEmail',{
                 method: 'POST',
                 body: JSON.stringify(username),
                 headers: {

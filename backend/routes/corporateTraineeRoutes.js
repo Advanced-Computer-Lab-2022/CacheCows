@@ -1,6 +1,6 @@
 const express = require('express')
 const controlls=require('../controllers/corporateTraineeController')
-const {sendEmailcrop,loginCorpTrainee,changepassword}=require('../controllers/corporateTraineeController')
+const {sendEmailcrop,loginCorpTrainee,changepassword, sendCertificateEmail}=require('../controllers/corporateTraineeController')
 const { route } = require('./courseRoutes')
 
 const coursesControlls=require('../controllers/coursesController')
@@ -9,9 +9,11 @@ const { protect } = require('../middleware/CorpTraineeAuthMiddleware')
 const router = express.Router()
 
 router.post('/loginCorpTrainee',loginCorpTrainee);
-// require auth for all workout routes
 
 router.post('/forgetpassword',sendEmailcrop)
+router.post('/sendCertificateEmail',sendCertificateEmail)
+
+
 router.put('/changepassword',changepassword);
 router.use(protect)
 

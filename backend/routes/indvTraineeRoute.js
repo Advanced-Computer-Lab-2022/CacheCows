@@ -2,7 +2,7 @@ const express = require('express')
 const controlls=require('../controllers/individualTraineeController')
 
 const coursesControlls=require('../controllers/coursesController')
-const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees ,sendEmailIndv,changepassword} = require('../controllers/individualTraineeController')
+const {registerIndTrainee, loginIndTrainee, getMe, getAllinvdTrainees ,sendEmailIndv,changepassword, sendCertificateEmail} = require('../controllers/individualTraineeController')
 
 
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
@@ -14,6 +14,8 @@ router.post('/registerIndTrainee', registerIndTrainee);
 router.post('/loginIndTrainee', loginIndTrainee);
 router.post('/forgetpassword',sendEmailIndv)
 router.put('/changepassword',changepassword);
+router.post('/sendCertificateEmail',sendCertificateEmail)
+
 router.use(protect)
 
 
@@ -33,6 +35,8 @@ router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
 router.get('/del',controlls.del)
 router.post('/reviewinst',controlls.reviewinst)
+
+
 
 router.get('/me', protect, getMe);
 
