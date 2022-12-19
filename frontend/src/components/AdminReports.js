@@ -16,6 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from "react";
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useNavigate } from "react-router-dom";
 
 const AdminReports = ({ report }) => {
     const params = new URLSearchParams(window.location.search);
@@ -83,9 +84,10 @@ const AdminReports = ({ report }) => {
     console.log('Report Updated', json)
     }
 }
+const navigate=useNavigate();
   return (
     <div>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='reports' onClick={() => window.location.href=`/ReportFUPage?_id=${report._id}`}>
       <CardActionArea>
         <CardMedia
           component="img"

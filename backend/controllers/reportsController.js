@@ -17,9 +17,19 @@ const reports = require('../models/reportsModel')
         if (report.toString() === ""){
             res.status(400).json({error:'No Reports Found'})
         }
-         res.status(200).json(report)
+         res.status(200).json({report})
          
         })
+
+        const get1Report =  asyncHandler(async (req, res) => {
+        
+            const report = await reports.findById(req.body._id)
+            if (report.toString() === ""){
+                res.status(400).json({error:'Report Resolved'})
+            }
+             res.status(200).json(report)
+             
+            })
 
         const getCReport =  asyncHandler(async (req, res) => {
         
@@ -96,5 +106,6 @@ module.exports = {
     getCReport,
     setReport,
     updateReport,
-    deleteReport
+    deleteReport,
+    get1Report
 }
