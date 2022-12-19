@@ -14,6 +14,7 @@ const corpTraineeSchema= new mongoose.Schema(
         corp_user:{
             type:String,
             required:false,
+            unique : true
         },
         corp_pass:{
             type:String,

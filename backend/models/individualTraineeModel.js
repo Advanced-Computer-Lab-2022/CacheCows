@@ -14,6 +14,7 @@ const indvTraineeSchema= new mongoose.Schema(
         indv_user:{
             type:String,
             required:false,
+            unique : true
         },
         indv_pass:{
             type:String,

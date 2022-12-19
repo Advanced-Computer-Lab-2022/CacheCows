@@ -6,7 +6,7 @@ const AdminSchema = new mongoose.Schema({
 
      
      admin_name:{type: String, required: [true, 'Please add a text value'],timestamps : true},
-     admin_user:{type: String, required: [true, 'Please add a text value'],timestamps : true},
+     admin_user:{type: String, required: [true, 'Please add a text value'],timestamps : true, unique : true},
      admin_pass:{type: String, required: [true, 'Please add a text value'],timestamps : true},
      //admin_id:{type: Number, required: [true, 'Please add a text value'],timestamps : true},
      admin_email : {type: String , required : [true, 'Please add a text value'], unique : true},
