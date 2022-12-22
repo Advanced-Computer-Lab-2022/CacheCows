@@ -155,7 +155,7 @@ const registercourse=async (req,res)=>{
   const course_id=req.body.userId
   try{
     
-      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
+      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id,flag:false})
       if(crop){
         res.status(200).json("already registered")
       }
@@ -172,7 +172,7 @@ const getregistercourses=async (req,res)=>{
   
   try{
     const corp_id=req.user._id
-    const courses=await reg.find({trainee_id:corp_id})
+    const courses=await reg.find({trainee_id:corp_id,flag:true})
     const data=[]
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)

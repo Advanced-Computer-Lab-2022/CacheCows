@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler')
 const admins = require('../models/adminsModel')
 const instructors = require('../models/InstructorsModel')
 const corp=require('../models/corporateTraineeModel');
+const corprequests=require("../models/corpregistercourse")
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
@@ -107,6 +108,30 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
   const val = await corp.find()
   res.status(200).json(val)
 })
+
+
+const viewrequests=async(req,res)=>{
+  try{
+    const requests=corprequests.find({flag:false})
+    res.status(200).json(requests)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+  
+}
+
+const acceptrequest=async(req,res)=>{
+  course_id=req.query.course_id
+  corp_id=req.query.userId
+  try{
+   const req=corprequests.findOneAndUpdate({trainee_id:corp_id,course_id:course_id},{flag:true},{new:true})
+   res.status(200).json("request accepted")
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////REgistring
 
 
@@ -333,5 +358,7 @@ module.exports = {
     loginAdmin,
     getMe,
     getInstructors,
-    getAllcrpTrainee
+    getAllcrpTrainee,
+    viewrequests,
+    acceptrequest
 }
