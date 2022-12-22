@@ -31,7 +31,7 @@ import InstEditEmail from "./pages/InstEditEmail";
 import InstEditBiography from "./pages/InstEditBiography";
 
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
-import Indvregistered from "./pages/Indvregistered"
+import Indvregistered from "./pages/IndvregisterCourse"
 import AccessDenied from "./pages/AccessDenied"
 import InstructorAcceptTerms from "./pages/termsandconditions";
 import ResponsiveAppBar from "./components/NavBarBS";
@@ -54,20 +54,20 @@ import AdminLogin from './pages/AdminLogin'
 import Instforgetpassword from './pages/instforgetPassword'
 
 import Indvforgetpassword from "./pages/indvforgetpassword";
-import Cropforgetpassword from "./pages/cropforgetpassword";
+import Corpforgetpassword from "./pages/corpforgetpassword";
 import Instchangepasssword from "./pages/instchangepass";
 import Indvchangepasssword from "./pages/Indvchangepassword";
-import Cropchangepasssword from "./pages/Cropchangepassword";
+import Corpchangepasssword from "./pages/Corpchangepassword";
 import CoursePage from "./pages/CoursePage";
-import Indvregisteredcourses from "./pages/Indvregisteredcourses";
-import Indvview from "./pages/Indvtraineeviewcourses"
+import Indvregisteredcourses from "./pages/IndvViewregisteredcourses";
+import Indvview from "./pages/IndvtraineeviewAllcourses"
 import AddCoursePage from "./pages/AddCoursePage";
 import Indvrateinst from"./pages/Indvrateinst"
-import Indvratecourse from "./pages/Indvratecouse"
+import Indvratecourse from "./pages/Indvratecourse"
 import Corpregister from "./pages/Corpregistercourse"
-import Corpviewregcourses from"./pages/Corpregisteredcourses"
+import Corpviewregcourses from"./pages/CorpViewregisteredcourses"
 import Indvreviewinst from "./pages/Indvreviewinst"
-import Corpview from "./pages/Corpviewcourse"
+import Corpview from "./pages/CorpviewAllcourses.js"
 import Corprateinst from "./pages/Corprateinst"
 import CoursePagePreview from "./pages/CoursePagePreview";
 import IndTraineetermsandconditions from "./pages/IndTraineetermsandconditions";
@@ -216,8 +216,8 @@ function App() {
             element={<Indvforgetpassword/>}
             />
             <Route 
-            path="/cropforgetpassword"
-            element={<Cropforgetpassword/>}
+            path="/corpforgetpassword"
+            element={<Corpforgetpassword/>}
             />
             <Route 
             path="/instchangepassword"
@@ -228,8 +228,8 @@ function App() {
             element={<Indvchangepasssword/>}
             />
             <Route 
-            path="/cropchangepassword"
-            element={<Cropchangepasssword/>}
+            path="/corpchangepassword"
+            element={<Corpchangepasssword/>}
             />
             <Route 
             path="/CoursePage"

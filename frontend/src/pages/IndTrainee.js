@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
-import TCourseDetails from "../components/traineeviewCourses";
+import TCourseDetails from "../components/indvtraineeviewAllCourses";
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CustomSelect from "../components/CustomSelect"
