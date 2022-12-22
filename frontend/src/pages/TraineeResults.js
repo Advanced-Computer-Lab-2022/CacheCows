@@ -72,6 +72,7 @@ class TraineeResults extends Component{
 
          pdfSend = async ()=>{
            // const  [show,setShow]=useState(false)
+           
 
             
             const params = new URLSearchParams(window.location.search);

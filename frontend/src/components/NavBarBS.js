@@ -15,6 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
+//import logo from '/assets/RUBIX.png';
+import logo2 from '../assets/RUBIX.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -56,8 +58,10 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
+
+          
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
           <Typography
             variant="h6"
             noWrap
@@ -73,7 +77,16 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-          <Link to ="/"><h1>Rubix</h1></Link>
+           <Link onClick={() => window.location.href=`/`}>
+                <Box
+                  component="img"
+                  sx={{ height: 100, width: 100 }}
+                  alt="Logo"
+                  src={logo2}
+                />
+              </Link>
+
+
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -110,6 +123,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
             </Menu>
           </Box>
+          
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
