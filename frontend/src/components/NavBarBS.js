@@ -16,10 +16,11 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
-import logo2 from '../assets/RUBIX.png';
+import logo2 from '../assets/RUBIX3.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 
 function ResponsiveAppBar() {
@@ -57,7 +58,11 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{
+              background: '#1c4c64',
+              color : '#d9d9d9',
+              maxHeight : 100
+            }}>
 
           
         <Toolbar disableGutters>
@@ -74,13 +79,14 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
+              
               textDecoration: 'none',
             }}
           >
            <Link onClick={() => window.location.href=`/`}>
                 <Box
                   component="img"
-                  sx={{ height: 100, width: 100 }}
+                  sx={{ height: 100, width: 100 , padding : 0, margins: 0}}
                   alt="Logo"
                   src={logo2}
                 />
@@ -180,9 +186,13 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right' }}
                 >
-                <Typography textAlign="center" > Welcome {user.username} !</Typography>
+                <Typography textAlign="center"  position={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              > Welcome {user.username} !</Typography>
                </Button>
                </Box>
              )}

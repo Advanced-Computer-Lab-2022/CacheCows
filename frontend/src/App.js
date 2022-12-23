@@ -2,7 +2,8 @@ import "./App.css";
 import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from './hooks/useAuthContext'
 
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -93,8 +94,9 @@ function App() {
     
     <div className="App">
       <BrowserRouter>
-
+      <div> 
       <ResponsiveAppBar/>
+      </div>
        <div className="pages">
         <Routes>
         <Route 
@@ -349,6 +351,7 @@ function App() {
        
       </div>
       </BrowserRouter>
+      <ToastContainer />
       </div>
   );
       
