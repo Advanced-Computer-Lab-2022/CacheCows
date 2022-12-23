@@ -5,10 +5,8 @@ import Filter from "../components/FilterForm";
 import FForm from "../components/FilterForm2";
 import FFormPrice from "../components/FilterFormPrice";
 import ResponsiveAppBar from "../components/NavBarBS";
-import bg from '../assets/bg.png';
-import bgo from '../assets/bgo.jpg';
+
 import bganim from '../assets/bganim.gif';
-import bganim2 from '../assets/bganim2.gif';
 import Typography from '@mui/material/Typography';
 
 
