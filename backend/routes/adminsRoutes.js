@@ -26,6 +26,8 @@ router.post('/',controlls.setAdmin);
 router.put('/',controlls.updateAdmin);
 router.delete('/deleteAdmin',controlls.deleteAdmin);
 router.post('/createAdmin',controlls.createAdmin);
+router.get('/viewrequests',controlls.viewrequests);
+router.put('acceptrequest',controlls.acceptrequest);
 
 router.get('/me',protect, controlls.getMe);
 

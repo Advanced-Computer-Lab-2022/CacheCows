@@ -1,11 +1,11 @@
-import TCourseDetails from "../components/traineeviewCourses";
+import TCourseDetails from "../components/indvtraineeviewAllCourses";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import FForm from "../components/Filterformindv";
-import FFormPrice from "../components/Filterformpriceindv";
+import FFormPrice from "../components/FilterformIndvprice";
 
 function Indvview (){
     const navigate=useNavigate();

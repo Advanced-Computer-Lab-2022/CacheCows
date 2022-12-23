@@ -4,7 +4,7 @@ import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
-import TCourseDetails from "../components/traineeviewCourses";
+import TCourseDetails from "./indvtraineeviewAllCourses";
 
  const FForm = () =>  {
   const {user} = useAuthContext();

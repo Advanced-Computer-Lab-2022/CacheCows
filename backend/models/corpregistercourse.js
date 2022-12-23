@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const registercourse=new mongoose.Schema({
 
     course_id:{type:String ,required:true},
-    trainee_id:{type:String ,required:true}
+    trainee_id:{type:String ,required:true},
+    flag:{type:Boolean,required:true}
 })
 
 

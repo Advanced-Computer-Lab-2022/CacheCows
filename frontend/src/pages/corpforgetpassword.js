@@ -1,4 +1,4 @@
-import Forgetpass from "../components/Cropforgetpasswordform"
+import Forgetpass from "../components/Corpforgetpasswordform"
 const Cropforgetpassword=()=>{
 return(
     <div className="filter">

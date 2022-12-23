@@ -1,4 +1,4 @@
-import TCourseDetails from "../components/corpviewcourses";
+import TCourseDetails from "../components/corpviewAllcourses";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
