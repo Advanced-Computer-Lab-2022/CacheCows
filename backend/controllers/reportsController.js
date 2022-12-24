@@ -17,7 +17,7 @@ const reports = require('../models/reportsModel')
         if (report.toString() === ""){
             res.status(400).json({error:'No Reports Found'})
         }
-         res.status(200).json({report})
+         res.status(200).json(report)
          
         })
 

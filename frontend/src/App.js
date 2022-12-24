@@ -79,6 +79,7 @@ import AddReportPage from "./pages/AddReportPage";
 import AdminReportsPage from "./pages/AdminReportPage";
 import ReportFUPage from "./pages/ReportFUPage";
 
+import NewCourses from "./pages/NewCourses";
 
 
 function App() {
@@ -343,6 +344,11 @@ function App() {
             <Route 
             path="/ReportFUPage"
             element={<ReportFUPage/>}
+            />
+
+            <Route 
+            path="/NewCourses"
+            element={<NewCourses/>}
             />
 
 

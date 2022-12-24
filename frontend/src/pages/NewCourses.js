@@ -8,6 +8,10 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
+import CourseCard from "../components/CourseCard";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import SearchBarInst from "../components/SearchBarInst";
 
@@ -40,9 +44,9 @@ const languages = [
   ]
 
 
-const Instructor=  ()=>{
+const NewCourses=  ()=>{
   const paramss = new URLSearchParams(window.location.search);
-  const instid = paramss.get('userId');
+  const instid = paramss.get('user_id');
 
   const {user} = useAuthContext();
   //const [type,setType]=useState()
@@ -87,7 +91,7 @@ useEffect(()=>{
 
     const fetchCourses=async ()=>{
       const params = new URLSearchParams(window.location.search);
-      const instructor_id = params.get('userId');
+      const instructor_id = params.get('user_id');
       const inst = {instructor_id : instructor_id};
       setname(user.name);
       setEmail(user.email);
@@ -110,7 +114,7 @@ useEffect(()=>{
 
         if(response.ok){
         setCourses(json)
-        console.log('NO Courses',error)
+        console.log(' Courses',error)
         }
         if(!response.ok){
           console.log('NO Courses',JSON.stringify(user._id))
@@ -166,89 +170,27 @@ const navigate=useNavigate();
       <h1>Hello, {username}!</h1>
       <body className="filter"> Email : {instructor_email}</body>
       <body className="filter"> Biography : {instructor_biography}</body>
+      </div>
 
-    
 
-      <br/>
-      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
-        key={instid}>New Style
-      </button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}>Show My Reviews
-      </button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
-        key={instid}>View Reports
-      </button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
-      <br/>
-      <br/>
-      
-      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
-      <br/>
-      <br/>
-      
-
-      <button onClick={()=>{
-      navigate("/AddCourse");
-      }}>Add Course</button>
-    </div>
-    <br/>
-    <br/>
-
-      <FForminst></FForminst>
-      <br/>
-      <br/>
-
-     <div className="filter"> 
-
-     <SearchBarInst></SearchBarInst>
-     <br/>
-     <br/>
+     <div className="reports"> 
+     <h3>All Courses: </h3>
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }}>
+            {courses && courses.map((course) =>(
+          <Grid  key={course._id}>
+            <CourseCard course={course} key={course._id} />
+          </Grid> ))}
+      </Grid>
+    </Box>     
      </div>
 
-     <br/>
-     <br/>
-
-     <div className="filter"> 
-     <h3>All Courses: </h3>
-    {courses && courses.map((course) =>(
-    <CourseDetailsInst course={course} key={course._id} />))}          
-    </div>
-    <div className='filter'>
-    <CountryForm/>
-    </div>
-    <br/>
-
-    <div className="filter">
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Check All Courses!
-      </button>
-      </div>
-      <br />
       
-</div>
+    </div>
 
  )
 
 }
-export default Instructor
+export default NewCourses;
 
 

@@ -95,7 +95,6 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
   ...(ownerState.active && {
     backgroundImage:
     'linear-gradient( 95deg,rgb(52, 111, 165) 0%,rgb(52, 111, 165) 50%,rgb(52, 111, 165) 100%)',
-    boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
   }),
   ...(ownerState.completed && {
     backgroundImage:
