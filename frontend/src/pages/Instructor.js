@@ -162,10 +162,12 @@ const navigate=useNavigate();
           
 
 
-      <div className="filter">
+      <div className="bio">
       <h1>Hello, {username}!</h1>
-      <body className="filter"> Email : {instructor_email}</body>
-      <body className="filter"> Biography : {instructor_biography}</body>
+      <body className="biobody"> Email : {instructor_email}</body>
+      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
+      <body className="biobody"> Biography : {instructor_biography}</body>
+      <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
 
     
 
@@ -181,23 +183,21 @@ const navigate=useNavigate();
       </button>
       <br/>
       <br/>
+      </div>
 
+
+
+ <div className="filter">
       <button onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
         key={instid}>View Reports
       </button>
       <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
-      <br/>
+      
       <br/>
 
       <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
       <br/>
-      <br/>
-      
-      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
-      <br/>
+     
       <br/>
       
 
@@ -245,6 +245,7 @@ const navigate=useNavigate();
       <br />
       
 </div>
+
 
  )
 

@@ -193,7 +193,8 @@ label {
 h3 {
   margin: 0 0 10px 0;
   font-size: 1.6em;
-  color: var(--primary);
+  color: #fff;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 input {
@@ -209,15 +210,6 @@ form input {
   box-sizing: border-box;
 }
 form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-}
-button {
   background: #1c4c64;
   border: 0;
   color: #d9d9d9;
@@ -226,6 +218,46 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+button {
+  background: #56A996;
+  border: 0;
+  color: #d9d9d9;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editbiobutton {
+  position: relative;
+  left :150px;
+  bottom: 43px;
+  background: #56A996;
+  border:#9d9d9d;
+  border-color: white;
+  border-style:outset;
+  color: #d9d9d9;
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius:0.25cm;
+  cursor: pointer;
+}
+
+.editemailbutton {
+  position: relative;
+  left :150px;
+  bottom: 55px;
+  background: #56A996;
+  border:#9d9d9d;
+  border-color: white;
+  border-style:outset;
+  color: #d9d9d9;
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius:0.25cm;
+  cursor: pointer;
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -365,10 +397,11 @@ nav button {
   
 
   .filter {
-    background: rgb(252, 252, 252);
+    background: #1c4c64;
+    border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
-    width: 90%;
-    color: #135492;
+    width: 80%;
+    color: #fff;
     border-radius: 4px;
     margin: 5px auto;
     padding: 5px;
@@ -377,6 +410,47 @@ nav button {
     margin-right: auto;
     cursor: pointer;
   }
+
+  .bio {
+    position: relative;
+    left:380px; 
+    background: #1c4c64;
+    background-image: linear-gradient(to top, #1c4c64 0%, #141415 100%);
+    border: #9d9d9d;
+    border-bottom: 5px solid rgb(13, 54, 92);
+    width: 25%;
+    height: fit-content;
+    color: #fff;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .biobody {
+    position: relative;
+    left:0px; 
+    background: transparent;
+    border: #9d9d9d;
+    border-bottom: 5px solid rgb(13, 54, 92);
+    width: 50%;
+    height: fit-content;
+    color: #9d9d9d;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+
 
   .filter h4 {
     font-size: 1.2em;
@@ -389,3 +463,15 @@ nav button {
     color: rgb(60, 65, 82);
     justify-content: center;
   }
+
+  h1 {
+    color: #fff;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    font-size: 1.4em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
