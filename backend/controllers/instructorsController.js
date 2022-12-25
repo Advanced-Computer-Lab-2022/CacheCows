@@ -216,7 +216,7 @@ const InstructorAcceptTerms =async(req,res)=>{
 }
 
 const InstructorSetDiscount =async(req,res)=>{
-  var g1 = new Date()
+  var g1 = new Date(req.body.course_discount_start)
   const g2 = new Date(req.body.course_discount_time)
   
   try{
