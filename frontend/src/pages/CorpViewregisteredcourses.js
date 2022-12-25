@@ -1,7 +1,7 @@
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useEffect, useState } from "react"
 import Registeredcoursedetails from "../components/Corpregisteredcoursedetails"
-const Indvregistercourses =()=>{
+const Corpregistercourses =()=>{
     const {user} = useAuthContext()
     const [courses,setCourses]=useState('')
 useEffect(()=>{
@@ -21,7 +21,7 @@ useEffect(()=>{
     if (user) {
         fetchcourses()
           }
-},[])
+},[user])
 return(
 <div className="app" >
 
@@ -30,4 +30,4 @@ return(
 </div>
 );
 }
-export default Indvregistercourses
+export default Corpregistercourses

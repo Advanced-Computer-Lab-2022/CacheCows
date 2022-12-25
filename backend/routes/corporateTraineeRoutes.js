@@ -15,6 +15,8 @@ router.post('/sendCertificateEmail',sendCertificateEmail)
 
 
 router.put('/changepassword',changepassword);
+router.get('/viewregistered',controlls.viewAll);
+router.delete('/delete',controlls.del);
 router.use(protect)
 
 

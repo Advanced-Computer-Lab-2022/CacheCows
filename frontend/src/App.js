@@ -77,8 +77,8 @@ import ReportsPage from "./pages/ReportPage";
 import AddReportPage from "./pages/AddReportPage";
 import AdminReportsPage from "./pages/AdminReportPage";
 import ReportFUPage from "./pages/ReportFUPage";
-
-
+import Viewcourserequests from "./pages/Courserequests"
+import AcceptRequests from "./pages/Acceptreq";
 
 function App() {
 
@@ -342,6 +342,15 @@ function App() {
             path="/ReportFUPage"
             element={<ReportFUPage/>}
             />
+            <Route 
+            path="/viewcourserequests"
+            element={<Viewcourserequests/>}
+            />
+            <Route 
+            path="/AcceptRequests"
+            element={<AcceptRequests/>}
+            />
+           
 
 
 

@@ -15,7 +15,7 @@ const protect = async (req, res, next) => {
   
   try {
     const { _id } = jwt.verify(token, process.env.JWT_SECRET)
-    req.user = await user.findOne({ _id }).select('_id')
+    req.user = await user.findOne({ _id })
     //console.log(_id)
   next()
     

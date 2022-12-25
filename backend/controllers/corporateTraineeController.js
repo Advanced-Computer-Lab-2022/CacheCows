@@ -92,6 +92,20 @@ const changepassword=async(req,res)=>{
   
   }
 }
+const del =async(req,res)=>{
+  try{
+    await reg.deleteMany()
+    res.status(200).json("deleted")
+
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
+const viewAll=async(req,res)=>{
+ const All=await reg.find();
+ res.status(200).json(All)
+}
 
 
 const sendEmailcrop=async (req,res)=>{
@@ -152,15 +166,19 @@ res.status(400).json({error:error.message})
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
-  const course_id=req.body.userId
+  const Appeal=req.body.Appeal
+  const course_id=req.query.userId
+  const course_name=req.query.coursename
+  const corp_name=req.user.corp_name
+  const flag=false
   try{
     
-      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id,flag:false})
+      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
       if(crop){
         res.status(200).json("already registered")
       }
       else{
-   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
+   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:flag,trainee_name:corp_name,course_name:course_name,appeal:Appeal})
    res.status(200).json(trainee_course)
       }
   }
@@ -270,4 +288,4 @@ const reviewinst=async(req,res)=>{
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail,del,viewAll};

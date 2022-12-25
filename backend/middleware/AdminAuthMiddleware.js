@@ -24,7 +24,7 @@ const protect = async (req, res, next) => {
       const u = await user.findOne({ _id:_id })
       if(u!==null){
       console.log(u)
-      req.user = await user.findOne({ _id }).select('_id')
+      req.user = await user.findOne({ _id })
 
       next()
     }else{

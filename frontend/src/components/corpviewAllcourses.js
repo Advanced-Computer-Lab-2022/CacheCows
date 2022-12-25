@@ -65,7 +65,7 @@ const CCourseDetails = ({course}) => {
             <button onClick={sub1}>{course.course_subtitles1}</button>
             <button onClick={sub2}>{course.course_subtitles2}</button>
             <button onClick={sub3}>{course.course_subtitles3}</button>
-            <button onClick={()=>{window.location.href=`/Corpregister?userId=${course._id}`}}>register course</button>
+            <button onClick={()=>{window.location.href=`/Corpregister?userId=${course._id}&coursename=${course.course_name}` }}>register course</button>
 
              <p>{course.createdAt}</p>
              </p>

@@ -21,7 +21,7 @@ useEffect(()=>{
     if (user) {
         fetchcourses()
           }
-},[])
+},[user])
 return(
 <div className="app" >
 

@@ -27,7 +27,7 @@ useEffect(()=>{
       fetchCourses()
         }
     
-},[])
+},[user])
 return(
     <div >
         <FForm></FForm>

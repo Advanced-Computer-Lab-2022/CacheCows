@@ -22,7 +22,7 @@ const protect = async (req, res, next) => {
     // console.log(type_t)
   
      // const u = await user.findOne({ _id:_id })
-      req.user = await user.findOne({ _id }).select('_id')
+      req.user = await user.findOne({ _id })
       next()
     /*  if(u!==null){
       console.log(u)

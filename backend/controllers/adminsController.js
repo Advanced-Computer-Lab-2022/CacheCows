@@ -112,8 +112,10 @@ const getAllcrpTrainee = asyncHandler(async (req, res) => {
 
 const viewrequests=async(req,res)=>{
   try{
-    const requests=corprequests.find({flag:false})
-    res.status(200).json(requests)
+    const flag=false
+    const all=await corprequests.find({flag:flag})
+    //console.log(all)
+    res.status(200).json(all)
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -122,11 +124,12 @@ const viewrequests=async(req,res)=>{
 }
 
 const acceptrequest=async(req,res)=>{
-  course_id=req.query.course_id
+  course_id=req.query.courseId
   corp_id=req.query.userId
+  const flag=true
   try{
-   const req=corprequests.findOneAndUpdate({trainee_id:corp_id,course_id:course_id},{flag:true},{new:true})
-   res.status(200).json("request accepted")
+   const req=await corprequests.findOneAndUpdate({trainee_id:corp_id,course_id:course_id},{flag:flag},{new:true})
+   res.status(200).json("updated")
   }
   catch(error){
     res.status(400).json({error:error.message})

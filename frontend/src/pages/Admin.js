@@ -167,6 +167,7 @@ const Admin = () => {
         {" "}
         Check All Reports!
       </button>
+      <button onClick={()=>{navigate("/viewcourserequests")}}>view courses requests</button>
       </div>
       </div>
 
