@@ -32,10 +32,10 @@ const Dashboard = () => {
   }, [])
 
   return (
+    
     <div className = "backgroundimage" >
-                       
+                     
     <div >
-
     <Box
                   component="img"
                   sx={{ height: 625, width: 1300 , padding : 0, margins: 0}}
@@ -43,26 +43,8 @@ const Dashboard = () => {
                   src={bganim}
                 />
 
-<Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Welcome To RUBIX!
-          </Typography>
-
-
     </div>
+
     <div className="course">
       <FFormPrice></FFormPrice>
       <br/>

@@ -29,8 +29,10 @@ header a {
   text-decoration: none;
 }
 .pages{
+  background-image: url("assets/bganim.gif");
+
   max-width: 1400px;
-  padding: 20px;
+  padding: 0px;
   margin: 0 auto;
 }
 
@@ -228,6 +230,25 @@ button {
   cursor: pointer;
 }
 
+button:hover{
+  background: #327163;
+}
+.instructorbutton {
+  background: #141415;
+  border:rgb(218, 205, 205);
+  border-style:inset;
+  color: #d9d9d9;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.instructorbutton:hover{
+  background: #327163;
+}
+
+
 .editbiobutton {
   position: relative;
   left :150px;
@@ -243,6 +264,11 @@ button {
   cursor: pointer;
 }
 
+.editbiobutton:hover{
+  background: #327163;
+
+}
+
 .editemailbutton {
   position: relative;
   left :150px;
@@ -256,6 +282,10 @@ button {
   font-family: "Poppins";
   border-radius:0.25cm;
   cursor: pointer;
+}
+.editbiobutton:hover{
+  background: #327163;
+
 }
 
 div.error {
@@ -374,7 +404,7 @@ nav button {
   }
 
   .reports {
-    background: rgb(252, 252, 252);
+    background: #d9d9d9;
     border-bottom: 5px solid rgb(13, 54, 92);
     width: 90%;
     color: #135492;
@@ -382,9 +412,9 @@ nav button {
     margin: 5px auto;
     padding: 5px;
     justify-content: center;
-    margin-left: auto;
+    margin-left:auto;
     margin-right: auto;
-    cursor: pointer;
+    cursor:default;
   }
   .reports header {
    padding: 10px;
@@ -400,7 +430,23 @@ nav button {
     background: #1c4c64;
     border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
-    width: 80%;
+    width: 40%;
+    color: #fff;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  .instructorbuttons {
+    background: transparent;
+    position: relative;
+    left : 380px;
+    border: #9d9d9d;
+    border-bottom: 1px solid rgb(13, 54, 92);
+    width: 40%;
     color: #fff;
     border-radius: 4px;
     margin: 5px auto;
@@ -474,4 +520,20 @@ nav button {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+}
+.welcome {
+  background: transparent;
+  position: relative;
+  right : 360px;
+  top:156px;
+font-family: 'Times New Roman', Times, serif;
+font-size:40px;
+  width: 40%;
+  color: #d9d9d9;
+
+  margin: 5px auto;
+  padding: 5px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }

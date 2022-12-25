@@ -187,24 +187,24 @@ const navigate=useNavigate();
 
 
 
- <div className="filter">
-      <button onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+   <div className="instructorbuttons">
+      <button className = "instructorbutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
         key={instid}>View Reports
       </button>
-      <br/>
-      
-      <br/>
 
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
-      <br/>
-     
-      <br/>
+      &nbsp;&nbsp;&nbsp;
+
+
+      <button className = "instructorbutton"onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+      &nbsp;&nbsp;&nbsp;
+
       
 
-      <button onClick={()=>{
+      <button className = "instructorbutton" onClick={()=>{
       navigate("/AddCourse");
       }}>Add Course</button>
     </div>
+
     <br/>
     <br/>
 

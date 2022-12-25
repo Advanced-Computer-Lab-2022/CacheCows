@@ -13,6 +13,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
+import Grow from '@mui/material/Grow';
+
+
+
+
 import SearchBarInst from "../components/SearchBarInst";
 
 const languages = [
@@ -166,11 +171,54 @@ const navigate=useNavigate();
           
 
 
-      <div className="filter">
+<div className="bio">
       <h1>Hello, {username}!</h1>
-      <body className="filter"> Email : {instructor_email}</body>
-      <body className="filter"> Biography : {instructor_biography}</body>
+      <body className="biobody"> Email : {instructor_email}</body>
+      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
+      <body className="biobody"> Biography : {instructor_biography}</body>
+      <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
+
+    
+
+      <br/>
+      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
+        key={instid}>New Style
+      </button>
+      <br/>
+      <br/>
+
+      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+        key={instid}>Show My Reviews
+      </button>
+      <br/>
+      <br/>
       </div>
+
+
+
+   <div className="instructorbuttons">
+      <button className = "instructorbutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+        key={instid}>View Reports
+      </button>
+
+      &nbsp;&nbsp;&nbsp;
+
+
+      <button className = "instructorbutton"onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+      &nbsp;&nbsp;&nbsp;
+
+      
+
+      <button className = "instructorbutton" onClick={()=>{
+      navigate("/AddCourse");
+      }}>Add Course</button>
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
+
+    </div>
 
 
      <div className="reports"> 
