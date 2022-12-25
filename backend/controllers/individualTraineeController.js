@@ -174,22 +174,23 @@ res.status(400).json({error:error.message})
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
-  const course_id=req.body.userId
+  const course_id=req.body.course_id
+  const z = await course.findById(course_id)
+  const hype = z.course_hype
+  const newhype = (hype+1) 
   try{
     const indv=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
-    const hype = indv.course_hype
-    const newhype = hype + 1
-    course.findOneAndUpdate({course_id : course_id},{course_hype : newhype },{new : true})
     if(indv){
       res.status(200).json("already registered")
     }
     else{
-   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
-   res.status(200).json(trainee_course)
+      const x = await course.findByIdAndUpdate(course_id,{course_hype : newhype },{new : true})
+      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
+      res.status(200).json(trainee_course,x)
     }
   }
   catch(error){
-    res.status(400).json({error:error.message})
+    res.status(400).json({error:error.message,z,hype,newhype})
   }
 }
 const getregistercourses=async (req,res)=>{
@@ -201,7 +202,11 @@ const getregistercourses=async (req,res)=>{
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)
     }
-    res.status(200).json(data)
+    if(data.length === 0){
+      res.status(400).json({error:"No Courses Registered Yet"})
+    }else{
+      res.status(200).json(data)
+    }
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -345,5 +350,21 @@ if (IndivTrainee) {
 
   
 
-module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst,sendCertificateEmail };
+module.exports={
+  getAllinvdTrainee,
+  getOneindvTrainee,
+  setindvTrainee,deleteIndvTrainee,
+  getAllinvdTrainees,
+  updateindvtrainee,
+  registerIndTrainee,
+  loginIndTrainee,
+  getMe,
+  changepassword,
+  sendEmailIndv,
+  registercourse,
+  getregistercourses,
+  rating,
+  del,
+  reviewinst,
+  sendCertificateEmail 
+};

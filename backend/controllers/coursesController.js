@@ -401,7 +401,8 @@ module.exports = {
     getInstCourses,
     filterCourseBySubjectOrRatingInst,
     SearchCourseByOptInst,
-    getCRate
+    getCRate,
+    getCourseHype
 
 }
 

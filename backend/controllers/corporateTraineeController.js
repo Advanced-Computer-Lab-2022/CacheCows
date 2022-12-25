@@ -154,14 +154,17 @@ const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
   const course_id=req.body.userId
   try{
-    
       const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id,flag:false})
       if(crop){
         res.status(200).json("already registered")
       }
       else{
-   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
-   res.status(200).json(trainee_course)
+        const crs=await course.findOne({course_id:course_id})
+        const hype = crs.course_hype
+        const newhype = hype + 1
+        course.findOneAndUpdate({course_id : course_id},{course_hype : newhype },{new : true})
+        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
+        res.status(200).json(trainee_course)
       }
   }
   catch(error){

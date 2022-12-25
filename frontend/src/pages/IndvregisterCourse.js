@@ -8,13 +8,13 @@ import { useNavigate, useParams } from "react-router-dom"
         const  [show,setShow]=useState(false)
         const [appeal,setAppeal]=useState('')
         const params = new URLSearchParams(window.location.search);
-        const userId = params.get('userId');
+        const course_id = params.get('course_id');
         const {user} = useAuthContext()
         const navigate=useNavigate();
-        console.log(userId)
+        console.log(course_id)
         const handleSubmit = async(e) => {
             e.preventDefault()
-            const indv={userId}
+            const indv={course_id}
 
             const response=await fetch('/api/indvtrainee/registercourse',{
                 method: 'POST',
