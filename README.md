@@ -113,7 +113,7 @@ Nodemon is a utility that will monitor for any changes in your source and automa
 
 After all, make sure your package.json should look like this:
 
-<img src="/package.png" alt="Alt text" title="Optional title">
+<img src="/Package.png" alt="Alt text" title="Optional title">
 # IMAGE HERE# 
 
 Make sure you have json webstoken as we have 
