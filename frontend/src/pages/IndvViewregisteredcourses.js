@@ -16,6 +16,10 @@ useEffect(()=>{
             setCourses(json)
             console.log(json)
             }
+        if(!response.ok){
+            setCourses(json)
+            console.log(json.error)
+        }
         
     }
     if (user) {

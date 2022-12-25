@@ -84,6 +84,7 @@ const setCourse = asyncHandler(async(req, res) => {
      course_total_ratings:0,
      course_rating:0,
      course_price_after_discount : req.body.course_price,
+     course_hype : 0,
      
     })
     res.status(200).json({course})
@@ -364,6 +365,14 @@ const getCRate =  asyncHandler(async (req, res) => {
     }
      res.status(200).json({course_rating : crs.course_rating})
      
+})
+
+const getCourseHype = asyncHandler(async (req,res) => {
+    const crs = await courses.findOne({course_id : req.body.course_id})
+    if (crs.toString() === ""){
+        res.status(400).json({error:'No Rating Yet'})
+    }
+     res.status(200).json({course_rating : crs.course_rating})
 })
 
 

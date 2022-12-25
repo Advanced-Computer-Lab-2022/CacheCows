@@ -177,6 +177,9 @@ const registercourse=async (req,res)=>{
   const course_id=req.body.userId
   try{
     const indv=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
+    const hype = indv.course_hype
+    const newhype = hype + 1
+    course.findOneAndUpdate({course_id : course_id},{course_hype : newhype },{new : true})
     if(indv){
       res.status(200).json("already registered")
     }
