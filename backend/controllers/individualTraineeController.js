@@ -131,10 +131,15 @@ const sendCertificateEmail=async (req,res)=>{
   try{
     const indvidual=await indv.findOne({indv_user : req.body.indv_user})
     const email=indvidual.indv_email
+
+    // const coursesubject=await course.find({course_id : req.body.course_id})
+
+    // const subjectt = coursesubject.course_id;
+
     var MailOptions={
       from:process.env.MAIL,
       to:email,
-      subject:'Certificate of Completion',
+      subject: "Certificate Of Completion  "  /* + subjectt*/,
       text:'Congratulations '+ indvidual.Name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
       attachments: [{
         filename: 'Certificate of Completion.pdf',

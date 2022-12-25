@@ -76,13 +76,16 @@ class TraineeResults extends Component{
 
             
             const params = new URLSearchParams(window.location.search);
+            const paramss = new URLSearchParams(window.location.search);
+  const courseid = paramss.get('course_id');
             const indv_user = params.get('username');
             const username = {indv_user : indv_user}
+            const course_id = {course_id : courseid}
             
       
               const response= await fetch('/api/indvtrainee/sendCertificateEmail',{
                 method: 'POST',
-                body: JSON.stringify(username),
+                body: JSON.stringify(username, course_id),
                 headers: {
                   'Content-Type' : 'application/json',
                 },
@@ -90,10 +93,12 @@ class TraineeResults extends Component{
               const json = await response.json()
                 if(!response.ok) {
                     console.log(json)
+                    console.log(username, course_id)
+
                 }
                 if(response.ok) {
                     console.log(json)
-                    //setShow(true)
+                    console.log(username, course_id)
                     
                 }
 
