@@ -95,6 +95,23 @@ Note : Our App runs on port 5000 in the backend, you can change this to suit you
 
 
 
+## Server-side usage
+
+Prepare your secret
+run the script at the first level:
+
+(You need to add a JWT_SECRET in .env to connect to MongoDB)
+####  in the root level
+```
+$ cd server
+$ echo "JWT_SECRET=YOUR_JWT_SECRET" >> src/.env
+Start
+$ cd server   // go to server folder
+$ npm i       // npm install packages
+$ npm run dev // run it locally
+$ npm run build // this will build the server code to es5 js codes and generate a dist file
+```
+
 
 ## Backend Scripts
 
@@ -114,7 +131,7 @@ Nodemon is a utility that will monitor for any changes in your source and automa
 After all, make sure your package.json should look like this:
 
 <img src="/Package.png" alt="Alt text" title="Optional title">
-# IMAGE HERE# 
+
 
 Make sure you have json webstoken as we have 
 "jsonwebtoken": "^8.5.1",
@@ -128,5 +145,151 @@ it should show up in the terminal like this
 <img src="/terminal running backend.png" alt="Alt text" title="Optional title">
 
 
-## Frontend
+# Frontend
 
+
+## Server-side usage
+
+Prepare your secret
+run the script at the first level:
+
+(You need to add a JWT_SECRET in .env to connect to MongoDB)
+####  in the root level
+```
+$ cd server
+$ echo "JWT_SECRET=YOUR_JWT_SECRET" >> src/.env
+Start
+$ cd server   // go to server folder
+$ npm i       // npm install packages
+$ npm run dev // run it locally
+$ npm run build // this will build the server code to es5 js codes and generate a dist file
+```
+
+
+## Frontend Initialization
+
+
+Since this project will hold both the client application and the server application there will be node modules in two different places. First run `npm install` from the root. After this you will run `npm run-script install-all` from the root. From now on run this command anytime you want to install all modules again. This is a script we have defined in package.json .
+
+After installing react as mentioned above, frontend main structure is created using React, and this is done by typng the following command in the terminal 
+
+`npx create-react-app frontend `
+which will create a new folder called frontend with the basic structure. Make sure the port used for frontend is 3000 or change it from package.json file in the frontend folder
+
+## File structure
+#### `client` - Holds the client application
+- #### `public` - This holds all of our static files
+- #### `src`
+    - #### `assets` - This folder holds assets such as images, icons, and logo
+    - #### `components` - This folder holds all of the different components that will make up our views
+    - #### `pages` - These represent a unique page on the website i.e. Home or About. These are still normal react components.
+    - #### `App.js` - This is what renders all of our browser routes and different views
+    - #### `index.js` - This is what renders the react app by rendering App.js, should not change
+- #### `package.json` - Defines npm behaviors and packages for the client
+
+#### `package.json` - Defines npm behaviors like the scripts defined above in the README
+
+
+
+## Frontend Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+Make sure the ports number are correct for the backend and frontend in order to connect them both together, this can be achieved through the package-json file.
+
+
+### `npm run build`
+
+npm run build Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance. Our App runs on port 5000 in the backend, you can change this to suit your avaliable port through the .env file or from server.js
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+
+# Scripts 
+
+
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+
+
+
+# Dependencies
+
+Some of the dependencies and libraries you need to have in order to run the project as it is supposed to be are the follwoing 
+
+
+
+    "axios": "^1.2.0",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.2",
+    "classnames": "^2.3.2",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "jspdf": "^2.5.1",
+    "mui": "^0.0.1",
+    "muicss": "^0.10.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-checkbox-dropdown": "^1.0.0",
+    "react-dom": "^18.2.0",
+    "react-fontawesome": "^1.7.1",
+    "react-icons": "^4.6.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.1.1",
+    "reactjs-popup": "^2.0.5",
+    "reactstrap": "^9.1.5",
+    "web-vitals": "^2.1.4"
+
+###
+After Fnishing all of these, you should have your package.json file looking like this :
+
+<img src="/frontendpackagejson1.png" alt="Alt text" title="Optional title">
+<img src="/frontendpackagejson2.png" alt="Alt text" title="Optional title">
+
+# Frontend Process 
+
+### 
+This was the previous Home page interface 
+<img src="/frontendold.png" alt="Alt text" title="Optional title">
+
+Currently Developed to this 
+<img src="/frontendnow.png" alt="Alt text" title="Optional title">
+
+And will Soon develop to better one 
+
+# Tokens and local Storage 
+whenever a user logs in, a token is created and passed to the backend to verify the user and determine his access, In the next screenshot you can find the user data that are stored in the console, these values are retrieved from the database and keep passed through the website to retrieve user's correct information only. This Also creates a second layer of protection in the frontend as only the authorized user gets to access the allowed pages and information. 
+
+<img src="/consoleexample.png" alt="Alt text" title="Optional title">
+
+This is the local storage which also stores the user info, and it causes the information to remain even when the user refreshes the page. 
+
+<img src="/localstorage.png" alt="Alt text" title="Optional title">
+
+You can find that the user id appears in the url and passed through the pages so the database can retrieve specifically this users pages and information
+
+ <img src="/userid.png" alt="Alt text" title="Optional title">
+
+This piece of code in the login hooks allows so 
+
+` navigate(`/Home?userId=${user._id}`) `
