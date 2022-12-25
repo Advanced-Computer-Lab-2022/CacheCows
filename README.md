@@ -182,9 +182,12 @@ which will create a new folder called frontend with the basic structure. Make su
 - #### `src`
     - #### `assets` - This folder holds assets such as images, icons, and logo
     - #### `components` - This folder holds all of the different components that will make up our views
+    - #### `context` - This folder for authorization contexts
+    - #### `hooks` - This folder is used for login, logout, and signup functionalities. This hook is called in the login and signup pages
     - #### `pages` - These represent a unique page on the website i.e. Home or About. These are still normal react components.
     - #### `App.js` - This is what renders all of our browser routes and different views
     - #### `index.js` - This is what renders the react app by rendering App.js, should not change
+    - #### `App.css, styles.css, index.css`,  - These are some styling files
 - #### `package.json` - Defines npm behaviors and packages for the client
 
 #### `package.json` - Defines npm behaviors like the scripts defined above in the README
@@ -270,7 +273,7 @@ After Fnishing all of these, you should have your package.json file looking like
 
 ### 
 This was the previous Home page interface 
-<img src="/frontendold.png" alt="Alt text" title="Optional title">
+<img src="/frontendold.jpeg" alt="Alt text" title="Optional title">
 
 Currently Developed to this 
 <img src="/frontendnow.png" alt="Alt text" title="Optional title">
@@ -292,4 +295,7 @@ You can find that the user id appears in the url and passed through the pages so
 
 This piece of code in the login hooks allows so 
 
-` navigate(`/Home?userId=${user._id}`) `
+### ` navigate(`/Home?userId=${user._id}`) `
+
+A user can access Their Profile, and find all of the options they can do right away. 
+
