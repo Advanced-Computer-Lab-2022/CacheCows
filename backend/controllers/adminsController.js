@@ -347,30 +347,39 @@ const acceptrequest=async(req,res)=>{
       const AdminSetDiscount =async(req,res)=>{
         var g1 = new Date(req.body.course_discount_start)
         const g2 = new Date(req.body.course_discount_time)
+        const crs = req.body.courses; 
         
         try{
           if(req.body.course_discount === ''){
             res.status(400).json({error : 'You need to enter a discount value!'})
           }else{
+            if(crs.toString() === ""){
+              res.status(400).json({error : 'Please select atleast one course!'})
+            }
           if (g2>=g1){
+            for(let i=0;i<crs.length;i++){
             
-            const TargetCourse = await course.findOne({course_id : req.body.course_id})
+            const TargetCourse = await course.findOne({course_id : crs[i]})
             const x = TargetCourse.course_price
             const y = (req.body.course_discount)/100
             const value = x*y
-            const newprice = x - value
-            const Course = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : newprice}, {new:true})
+            const newprice = (x-value)
+            const Course = await course.findOneAndUpdate({course_id : crs[i]},{course_price_after_discount : newprice}, {new:true})
             res.status(200).json(Course)
+            }
       
           }
           else{
-            const Course1 = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : 0},{new : true})
+            for(let i=0;i<crs.length;i++){
+            const TargetCourse = await course.findOne({course_id : crs[i]})
+            await course.findOneAndUpdate({course_id : crs[i]},{course_price_after_discount : TargetCourse.course_price},{new : true})
+            }
             res.status(400).json({error:'Invalid Date',g1,g2})
           }
         }
         }
         catch(error){
-          res.status(400).json({error:error.message})
+          res.status(400).json({error:error.message,crs,TargetCourse,x,y,newprice})
         
         }
       }

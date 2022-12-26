@@ -129,7 +129,7 @@ function sub3() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} >
+    <Card sx={{ maxWidth: 350, border : 4 }} >
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -165,7 +165,7 @@ function sub3() {
         {prv3 && (<iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>)}
       </CardContent>
       
-      <CardContent>
+      <CardContent sx={{border : 1}}>
         <Typography variant="body2" color="text.secondary" justifyContent={"center"} boxSizing="fixed">
             {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
             {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
@@ -179,22 +179,22 @@ function sub3() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
-      <IconButton aria-label="add to favorites" 
+      <Button aria-label="add to favorites" 
         color='primary'
         onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
-        sx={{ marginTop : -5,marginLeft : 12 }}
+        sx={{ marginTop : 5,marginLeft : 12, border : 2 }}
         size='small'>
           Set Discount
           <PercentRoundedIcon />
-        </IconButton>
-        <IconButton aria-label="share" edge='end' 
+        </Button>
+        <Button aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 5,marginLeft : -19.5 }}
+        sx={{ marginTop : 15,marginLeft : -17, border : 2 }}
         size='small'
         color='primary'>
           Check Reviews
           <ReviewsRoundedIcon/>
-        </IconButton>
+        </Button>
       </CardActions>
       <CardActions sx={{marginTop : 0}}>
         <IconButton aria-label="share" edge='end'>

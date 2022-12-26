@@ -81,6 +81,7 @@ import AdminReportsPage from "./pages/AdminReportPage";
 import ReportFUPage from "./pages/ReportFUPage";
 
 import NewCourses from "./pages/NewCourses";
+import AdminPromo from "./pages/AdminPromo";
 
 
 function App() {
@@ -350,6 +351,11 @@ function App() {
             <Route 
             path="/NewCourses"
             element={<NewCourses/>}
+            />
+
+            <Route 
+            path="/AdminPromo"
+            element={<AdminPromo/>}
             />
 
 
