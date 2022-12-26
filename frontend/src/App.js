@@ -34,6 +34,7 @@ import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/IndvregisterCourse"
 import AccessDenied from "./pages/AccessDenied"
 import InstructorAcceptTerms from "./pages/termsandconditions";
+
 import ResponsiveAppBar from "./components/NavBarBS";
 import Corpratecourse from "./pages/Corpratecourse"
 import Corpreviewinst from "./pages/Corpreviewinst"

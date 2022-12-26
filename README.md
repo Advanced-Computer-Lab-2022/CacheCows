@@ -299,3 +299,42 @@ This piece of code in the login hooks allows so
 
 A user can access Their Profile, and find all of the options they can do right away. 
 
+# Color Reference
+
+Inspired by thr following scheme found on https://visme.co/blog/website-color-schemes/
+
+<img src="/colorscheme.png" alt="Alt text" title="Optional title">
+
+
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#a6607c](https://via.placeholder.com/10/a6607c?text=+) #a6607c |
+| Example Color | ![#33266e](https://via.placeholder.com/10/33266e?text=+) #33266e |
+| Example Color | ![#c77395](https://via.placeholder.com/10/c77395?text=+) #c77395 |
+| Example Color | ![#5c41d3](https://via.placeholder.com/10/5c41d3?text=+) #5c41d3 |
+| Example Color | ![#111111](https://via.placeholder.com/10/111111?text=+) #111111 |
+| Example Color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+
+
+## Logo
+Created by Omar Aboelazm
+
+<img src="/rubixnew.png" alt="Alt text" title="Optional title">
+
+
+
+## License
+
+Copyright (c) [2022] [Omar Aboelazm - CacheCows]
+
+Permission to use this project is hereby requested from a CacheCow team member, free of charge, for any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+Software was developed by : Omar Aboelazm, Mohammed Shoheib, Ahmed Essam, Amr Balaha, Abdelrahman Khaled.
+
+You can contact the Scrum Master through : omarashraff22@gmail.com
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

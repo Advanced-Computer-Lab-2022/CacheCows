@@ -32,15 +32,28 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(json))
       localStorage.setItem('type', 'corptrainee')
 
+     if( json.acceptTerms === 'true'){
+      localStorage.setItem('terms', 'true')
+     }
+     else{
+      localStorage.setItem('terms', 'false')
+
+     }
+
 
       // update the auth context
       dispatch({type: 'LOGIN', payload: json})
 
       // update loading state
       setIsLoading(false)
-      window.location.href=`/Home?userId=${user._id}`
+      if (json.acceptTerms === 'true' ){
+       
 
-      navigate("/CorpTrainee")
+
+        //window.location.href=`/Home?userId=${user._id}`
+        navigate(`/Home?userId=${user._id}`)
+    }
+      else { navigate("/Termsandconditionscorp") }
 
     }
   }

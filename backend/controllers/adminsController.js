@@ -168,7 +168,8 @@ const acceptrequest=async(req,res)=>{
                             corp_pass : hashedPassword,
                             Country : req.body.Country,
                             corp_bd : req.body.corp_bd,
-                            type : 'corptrainee'
+                            type : 'corptrainee',
+                            acceptTerms : 'false'
                       })
 
                       
@@ -178,6 +179,8 @@ const acceptrequest=async(req,res)=>{
                           corp_name: CorpTrainee.corp_name,
                           email: CorpTrainee.corp_email,
                           type : 'corptrainee',
+                          acceptTerms : CorpTrainee.acceptTerms,
+
                           token: generateToken(CorpTrainee._id),
                         })
                         res.status(200).json('Trainee Added!')
