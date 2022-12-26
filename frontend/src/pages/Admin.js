@@ -167,6 +167,16 @@ const Admin = () => {
         {" "}
         Check All Reports!
       </button>
+
+      <br/>
+      <br/>
+
+      <button
+        onClick={() => window.location.href=`/AdminPromo?admin_id=${user._id}`}
+      >
+        {" "}
+        Add Promotions!
+      </button>
       </div>
       </div>
 
