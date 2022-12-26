@@ -11,21 +11,15 @@ import rubixgif from '../assets/Rubix.gif';
 import stats from '../assets/stats.gif';
 
 import Typography from '@mui/material/Typography';
-import FeaturedCourses from "../components/FeaturedCourses";
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
+
+
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
-import CourseCardDB from "../components/CourseCardDB";
 
 // components
 import CourseDetails from "../components/CourseDetails"
 
 const Dashboard = () => {
   const [courses, setCourses] = useState(null)
-  const [featured, setfeatured] = useState(null)
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -40,19 +34,40 @@ const Dashboard = () => {
     fetchCourses()
   }, [])
 
+  /*
+  <div >
+  <Box
+  component="img"
+  sx={{ height: 625, width: 1300 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={bganim}
+/>
+</div>
+*/
+
+
+
   return (
     
-    <div className = "backgroundimage" >
+    <div className = "dashboardpage" >
                      
-    <div >
-    <Box
-                  component="img"
-                  sx={{ height: 625, width: 1300 , padding : 0, margins: 0}}
-                  alt="Logo"
-                  src={bganim}
-                />
+  <div>               
+  <Box
+  component="img"
+  sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={rubixgif}
+/>
+</div>
 
-    </div>
+<div >
+  <Box
+  component="img"
+  sx={{ height: 225, width: 1500 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={stats}
+/>
+</div>
 
     <div className="course">
       <FFormPrice></FFormPrice>
@@ -64,15 +79,10 @@ const Dashboard = () => {
 
      <SearchBar></SearchBar>
      </div>
-      <div className="">
-      <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
-            {courses && courses.map((course) =>(
-          <Grid  key={course._id}>
-            <CourseCardDB course={course} key={course._id} />
-          </Grid> ))}
-      </Grid>
-      </Box>
+      <div className="filter">
+        {courses && courses.map((course) => (
+          <CourseDetails course={course} key={course._id} />
+        ))}
       </div> 
     </div>
     </div>

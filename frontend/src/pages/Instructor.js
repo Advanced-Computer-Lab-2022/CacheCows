@@ -15,7 +15,6 @@ import Box from '@mui/material/Box';
 
 import SearchBarInst from "../components/SearchBarInst";
 import NewCourses from "./NewCourses";
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import CourseCard from "../components/CourseCard";
 
