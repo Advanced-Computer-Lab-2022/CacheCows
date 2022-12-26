@@ -164,7 +164,7 @@ const handleSubmit = async(e) => {
 const navigate=useNavigate();
 
     return(
-    <div className="instructor">
+    <div className="">
 
       
 
@@ -238,10 +238,18 @@ const navigate=useNavigate();
      <div className=""> 
      <h3>All Courses: </h3>
      <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
             {courses && courses.map((course) =>(
-          <Grid  key={course._id}>
-            <CourseCard course={course} key={course._id} />
+          <Grid >
+            <CourseCard course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
           </Grid> ))}
       </Grid>
     </Box>            
