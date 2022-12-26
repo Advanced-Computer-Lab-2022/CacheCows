@@ -503,7 +503,7 @@ nav button {
     position: relative;
      
     background: #1c4c64;
-    background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+    background-color: white;
     border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
     width: 25%;
@@ -529,7 +529,7 @@ nav button {
     border-bottom: 5px solid rgb(13, 54, 92);
     width: 70%;
     height: fit-content;
-    color: #9d9d9d;
+    color: #33266e;
     border-radius: 4px;
     margin: 5px auto;
     padding: 5px;
@@ -555,7 +555,7 @@ nav button {
   }
 
   h1 {
-    color: #fff;
+    color: #33266e;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: block;
     font-size: 1.4em;
