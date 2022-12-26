@@ -55,7 +55,7 @@
     justify-content: center;
     color: white;
     align-items: center;
-    background-image: linear-gradient(to top, #141415 0%, #141415 100%);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
@@ -66,11 +66,29 @@
     margin: 0 auto;
   }
 
-  .pages{
-    max-width: 1400px;
+  .dashboardpage{
+
+    background-color: white;
+    max-width: 100%;
     padding: 0px;
     margin: 0 auto;
   }
+  .pages{
+    background-image: url("assets/newanim.gif") ; 
+    background-size: 100%;
+    color: white;
+    background-color: white;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  .signuppages{
+    background-image: '../assets/Rubix.gif';
+      max-width: 100%;
+      padding: 0px;
+      margin: 0 auto;
+    }
   
   .app{
     display: flex;

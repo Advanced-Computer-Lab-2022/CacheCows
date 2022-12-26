@@ -7,6 +7,9 @@ import FFormPrice from "../components/FilterFormPrice";
 import ResponsiveAppBar from "../components/NavBarBS";
 
 import bganim from '../assets/bganim.gif';
+import rubixgif from '../assets/Rubix.gif';
+import stats from '../assets/stats.gif';
+
 import Typography from '@mui/material/Typography';
 
 
@@ -31,19 +34,40 @@ const Dashboard = () => {
     fetchCourses()
   }, [])
 
+  /*
+  <div >
+  <Box
+  component="img"
+  sx={{ height: 625, width: 1300 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={bganim}
+/>
+</div>
+*/
+
+
+
   return (
     
-    <div className = "backgroundimage" >
+    <div className = "dashboardpage" >
                      
-    <div >
-    <Box
-                  component="img"
-                  sx={{ height: 625, width: 1300 , padding : 0, margins: 0}}
-                  alt="Logo"
-                  src={bganim}
-                />
+  <div>               
+  <Box
+  component="img"
+  sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={rubixgif}
+/>
+</div>
 
-    </div>
+<div >
+  <Box
+  component="img"
+  sx={{ height: 225, width: 1500 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={stats}
+/>
+</div>
 
     <div className="course">
       <FFormPrice></FFormPrice>

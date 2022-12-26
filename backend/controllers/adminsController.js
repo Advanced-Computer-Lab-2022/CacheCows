@@ -4,6 +4,7 @@ const admins = require('../models/adminsModel')
 const instructors = require('../models/InstructorsModel')
 const corp=require('../models/corporateTraineeModel');
 const corprequests=require("../models/corpregistercourse")
+const course=require('../models/coursesModel');
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
@@ -340,6 +341,37 @@ const acceptrequest=async(req,res)=>{
         })
       } 
 
+      const AdminSetDiscount =async(req,res)=>{
+        var g1 = new Date(req.body.course_discount_start)
+        const g2 = new Date(req.body.course_discount_time)
+        
+        try{
+          if(req.body.course_discount === ''){
+            res.status(400).json({error : 'You need to enter a discount value!'})
+          }else{
+          if (g2>=g1){
+            
+            const TargetCourse = await course.findOne({course_id : req.body.course_id})
+            const x = TargetCourse.course_price
+            const y = (req.body.course_discount)/100
+            const value = x*y
+            const newprice = x - value
+            const Course = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : newprice}, {new:true})
+            res.status(200).json(Course)
+      
+          }
+          else{
+            const Course1 = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : 0},{new : true})
+            res.status(400).json({error:'Invalid Date',g1,g2})
+          }
+        }
+        }
+        catch(error){
+          res.status(400).json({error:error.message})
+        
+        }
+      }
+
 
 
 
@@ -360,5 +392,6 @@ module.exports = {
     getInstructors,
     getAllcrpTrainee,
     viewrequests,
-    acceptrequest
+    acceptrequest,
+    AdminSetDiscount,
 }

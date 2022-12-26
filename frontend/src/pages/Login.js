@@ -17,16 +17,26 @@ const navigate=useNavigate();
   return (
     <div>
       
+      
+
+      <div>
+                      {''}
+
+                      
+                     </div>
+                     
+
+
       <div>
 
-      <button>
+      <button className="buttonlogin">
         <Link onClick={() => window.location.href=`/InstLogin`}>
                 <Box
                   component="img"
-                  sx={{ height: 200, width: 200 , padding : 0, margins: 0, 
-                    backgroundColor: '#1c4c64',
+                  sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                    backgroundColor: '#33266e',
                     '&:hover': {
-                      backgroundColor: '#141415',
+                      backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
                     },
                   }}
@@ -44,14 +54,14 @@ const navigate=useNavigate();
       &nbsp;&nbsp;&nbsp;
 
 
-      <button>
+      <button className="buttonlogin">
         <Link onClick={() => window.location.href=`/IndTraineeLogin`}>
                 <Box
                   component="img"
-                  sx={{ height: 200, width: 200 , padding : 0, margins: 0, 
-                    backgroundColor: '#1c4c64',
+                  sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                    backgroundColor: '#33266e',
                     '&:hover': {
-                      backgroundColor: '#141415',
+                      backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
                     },
                   }}
@@ -69,14 +79,14 @@ const navigate=useNavigate();
 
 
 
-      <button>
+      <button className="buttonlogin">
         <Link onClick={() => window.location.href=`/CorpTraineeLogin`}>
                 <Box
                   component="img"
-                  sx={{ height: 200, width: 200 , padding : 0, margins: 0, 
-                    backgroundColor: '#1c4c64',
+                  sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                    backgroundColor: '#33266e',
                     '&:hover': {
-                      backgroundColor: '#141415',
+                      backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
                     },
                   }}
@@ -94,14 +104,14 @@ const navigate=useNavigate();
 
 
 
-      <button>
+      <button className="buttonlogin">
         <Link onClick={() => window.location.href=`/AdminLogin`}>
                 <Box
                   component="img"
-                  sx={{ height: 200, width: 200 , padding : 0, margins: 0, 
-                    backgroundColor: '#1c4c64',
+                  sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                    backgroundColor: '#33266e',
                     '&:hover': {
-                      backgroundColor: '#141415',
+                      backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
                     },
                   }}

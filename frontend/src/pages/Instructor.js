@@ -8,6 +8,10 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
+
+
 
 import SearchBarInst from "../components/SearchBarInst";
 
@@ -159,9 +163,9 @@ const navigate=useNavigate();
     return(
     <div className="instructor">
 
-          
+      
 
-
+        
       <div className="bio">
       <h1>Hello, {username}!</h1>
       <body className="biobody"> Email : {instructor_email}</body>
@@ -204,6 +208,8 @@ const navigate=useNavigate();
       navigate("/AddCourse");
       }}>Add Course</button>
     </div>
+
+    
 
     <br/>
     <br/>

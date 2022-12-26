@@ -17,6 +17,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
 import logo2 from '../assets/RUBIX3.png';
+import logonew from '../assets/rubixnew.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -59,8 +60,8 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl" sx={{
-              background: '#1c4c64',
-              color : '#d9d9d9',
+              background: '#111111',
+              color : '#a6607c',
               maxHeight : 100
             }}>
 
@@ -88,7 +89,7 @@ function ResponsiveAppBar() {
                   component="img"
                   sx={{ height: 100, width: 100 , padding : 0, margins: 0}}
                   alt="Logo"
-                  src={logo2}
+                  src={logonew}
                 />
               </Link>
 

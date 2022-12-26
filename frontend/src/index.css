@@ -28,13 +28,28 @@ header a {
   color: #333;
   text-decoration: none;
 }
-.pages{
-  background-image: url("assets/bganim.gif");
+.dashboardpage{
+  background-color: white;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
 
-  max-width: 1400px;
+.pages{
+background-color: white;
+  max-width: 100%;
   padding: 0px;
   margin: 0 auto;
 }
+
+.signuppages{
+  background-image: '../assets/Rubix.gif';
+    max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+
 
 /* adminpage */
 .home {
@@ -181,7 +196,16 @@ label {
 
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #111111;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.title {
+
+  margin: 0 0 10px 0;
+  font-size: 1.6em;
+  color: #a6607c;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .terms {
   font-size: 5px;
@@ -211,27 +235,43 @@ form input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
-  background: #1c4c64;
-  border: 0;
-  color: #d9d9d9;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-}
-button {
-  background: #56A996;
-  border: 0;
-  color: #d9d9d9;
+  background-color: #33266e;
+  border: white;
+  color: white;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
 }
 
+button {
+  background-color: transparent;
+  border: #111111;
+  border-style:inset;
+  border-color: #111111;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttonlogin {
+  background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+  color: white;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+.buttonlogin:hover{
+  background: #a6607c;
+}
+
 button:hover{
-  background: #327163;
+  background: #d9d9d9;
 }
 .instructorbutton {
   background: #141415;
@@ -330,10 +370,12 @@ nav a {
 }
 /* auth forms */
 form.signup, form.login {
+  border-color: #a6607c;
+  border-style:outset;
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: white;
   border-radius: 4px;
 }
 
@@ -443,7 +485,7 @@ nav button {
   .instructorbuttons {
     background: transparent;
     position: relative;
-    left : 380px;
+    left : 0px;
     border: #9d9d9d;
     border-bottom: 1px solid rgb(13, 54, 92);
     width: 40%;
@@ -459,9 +501,9 @@ nav button {
 
   .bio {
     position: relative;
-    left:380px; 
+     
     background: #1c4c64;
-    background-image: linear-gradient(to top, #1c4c64 0%, #141415 100%);
+    background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
     border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
     width: 25%;
@@ -477,13 +519,15 @@ nav button {
     font-size: 1em;
   }
 
+  
+
   .biobody {
     position: relative;
-    left:0px; 
+    right:0px; 
     background: transparent;
     border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
-    width: 50%;
+    width: 70%;
     height: fit-content;
     color: #9d9d9d;
     border-radius: 4px;
