@@ -44,11 +44,10 @@ const ReportsPage = () => {
   }, [])
 
   return (
-    <div className="course">
-      <div classname="courses"> 
-      <div className="reports">
-      <h3 className="header">Your Reports!</h3>
-      <div className="reports"> 
+    <div className="dashboardpage">
+      <div classname="filter"> 
+      <h3 className="filter">Your Reports!</h3>
+      <div className="filter"> 
         {reports && reports.map((report) =>(
         <MyReports report={report} key={report._id} />))}          
       </div>
@@ -56,7 +55,6 @@ const ReportsPage = () => {
       {error && <div className="error">{error}</div>}
       </div>
       </div>
-    </div>
   )
 }
 

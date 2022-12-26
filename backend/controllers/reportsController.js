@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const reports = require('../models/reportsModel')
+const comments = require('../models/reportcommentsModel')
 
 
 
@@ -52,7 +53,8 @@ const reports = require('../models/reportsModel')
                 admin_id : '',
                 user_id: req.body.user_id,
                 user_name: req.body.user_name,
-                report_status: 'Unseen'
+                report_status: 'Unseen',
+                report_comment : req.body.report_comment,
             })
             res.status(200).json({success : 'Report Added Successfully!'})
           }
@@ -94,6 +96,34 @@ const reports = require('../models/reportsModel')
          
         })
 
+             
+    const AddComment = asyncHandler(async(req, res) => {
+
+        try{
+            const comment = await comments.create({
+                report_id : req.body.report_id, 
+                report_comment : req.body.report_comment,
+                course_id : req.body.report_comment,
+                user_id : req.body.report_comment,
+                admin_id : req.body.report_comment,
+            })
+            res.status(200).json({success : 'Comment Added Successfully!'})
+          }
+          catch(error){
+            res.status(400).json({error : 'Please Fill Out All Fields',obj : req.body})
+          }
+        
+    })
+
+    const getComments = asyncHandler(async (req, res) => {
+
+        const comment = await comments.find({report_id : req.body.report_id})
+        if(comment.toString() === ""){
+            res.status(400).json({error : "No Comments On this Report"})
+        }
+        res.status(200).json(comment)
+    })
+
 
 
 
@@ -107,5 +137,7 @@ module.exports = {
     setReport,
     updateReport,
     deleteReport,
-    get1Report
+    get1Report,
+    AddComment,
+    getComments
 }
