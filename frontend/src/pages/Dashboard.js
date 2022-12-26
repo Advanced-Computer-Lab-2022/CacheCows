@@ -8,15 +8,21 @@ import ResponsiveAppBar from "../components/NavBarBS";
 
 import bganim from '../assets/bganim.gif';
 import Typography from '@mui/material/Typography';
-
-
+import FeaturedCourses from "../components/FeaturedCourses";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
+import CourseCardDB from "../components/CourseCardDB";
 
 // components
 import CourseDetails from "../components/CourseDetails"
 
 const Dashboard = () => {
   const [courses, setCourses] = useState(null)
+  const [featured, setfeatured] = useState(null)
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -25,6 +31,19 @@ const Dashboard = () => {
 
       if (response.ok) {
         setCourses(json)
+      }
+    }
+
+    fetchCourses()
+  }, [])
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const response = await fetch('/api/courses/getCHype')
+      const json = await response.json()
+
+      if (response.ok) {
+        setfeatured(json)
       }
     }
 
@@ -45,6 +64,15 @@ const Dashboard = () => {
 
     </div>
 
+    <div className=".css-uym98a-MuiImageList-root">
+    <ImageListItem key="header" cols={2}>
+        <ListSubheader component="div" className="filter"><h4><strong> Featured Courses</strong></h4> </ListSubheader>
+      </ImageListItem>
+    {featured && featured.map((course) => (
+          <FeaturedCourses course={course} key={course._id}/>
+        ))}
+    </div>
+
     <div className="course">
       <FFormPrice></FFormPrice>
       <br/>
@@ -55,10 +83,15 @@ const Dashboard = () => {
 
      <SearchBar></SearchBar>
      </div>
-      <div className="filter">
-        {courses && courses.map((course) => (
-          <CourseDetails course={course} key={course._id} />
-        ))}
+      <div className="">
+      <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
+            {courses && courses.map((course) =>(
+          <Grid  key={course._id}>
+            <CourseCardDB course={course} key={course._id} />
+          </Grid> ))}
+      </Grid>
+      </Box>
       </div> 
     </div>
     </div>

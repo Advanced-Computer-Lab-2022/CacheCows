@@ -22,6 +22,17 @@ var transporeter=nodemailer.createTransport({
   }
 });
 
+const getallreg= (req,res)=>{
+  reg.find((err,val)=>{
+      if(err){
+        console.log(err);
+      }
+      else{
+        res.status(200).json(val);
+      }
+      })
+}
+
 
 const getAllinvdTrainee= (req,res)=>{
     indv.find((err,val)=>{
@@ -68,11 +79,27 @@ const deleteIndvTrainee=  asyncHandler(async (req, res) => {
   const Indv = await indv.find({indv_user: req.body.indv_user})
   if (Indv.toString() === ""){
     res.status(400).json({error:'Trainee Not Found'})
+  }else{
+    try{
+      const courses=await reg.find({trainee_id : Indv._id})
+      for(let i=0;i<courses.length;i++){
+       await course.findOneAndUpdate({course_id : courses[i].course_id},{course_hype : 0},{new : true})
+      }
+      if(data.length === 0){
+        res.status(400).json({error:"No Courses Registered Yet"})
+      }else{
+        await indv.deleteOne({indv_user: req.body.indv_user})
+        res.status(200).json({Indv})
+      }
+    }
+    catch(error){
+      res.status(400).json({error:error.message})
+    }
   }
-   await indv.deleteOne({indv_user: req.body.indv_user})
-   res.status(200).json({Indv})
    
   })
+
+
 const updateindvtrainee=async(req,res)=>{
   try{
       await indv.findByIdAndUpdate(req.params.id,req.body,{new:true});
@@ -165,6 +192,7 @@ res.status(400).json({error:error.message})
 const del=async (req,res)=>{
 try{
   await reg.deleteMany()
+  await course.updateMany({},{course_hype : 0},{new : true})
   res.status(200).json("deleted")
 }
 catch(error){
@@ -366,5 +394,6 @@ module.exports={
   rating,
   del,
   reviewinst,
-  sendCertificateEmail 
+  sendCertificateEmail,
+  getallreg 
 };

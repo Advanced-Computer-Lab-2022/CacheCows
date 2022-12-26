@@ -10,6 +10,10 @@ import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 
 import SearchBarInst from "../components/SearchBarInst";
+import NewCourses from "./NewCourses";
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
+import CourseCard from "../components/CourseCard";
 
 const languages = [
     {
@@ -222,10 +226,16 @@ const navigate=useNavigate();
      <br/>
      <br/>
 
-     <div className="filter"> 
+     <div className=""> 
      <h3>All Courses: </h3>
-    {courses && courses.map((course) =>(
-    <CourseDetailsInst course={course} key={course._id} />))}          
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
+            {courses && courses.map((course) =>(
+          <Grid  key={course._id}>
+            <CourseCard course={course} key={course._id} />
+          </Grid> ))}
+      </Grid>
+    </Box>            
     </div>
     <div className='filter'>
     <CountryForm/>

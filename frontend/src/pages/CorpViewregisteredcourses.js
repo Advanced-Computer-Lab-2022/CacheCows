@@ -4,6 +4,7 @@ import Registeredcoursedetails from "../components/Corpregisteredcoursedetails"
 const Indvregistercourses =()=>{
     const {user} = useAuthContext()
     const [courses,setCourses]=useState('')
+    const [error,setError]=useState(null)
 useEffect(()=>{
     const fetchcourses=async()=>{
         const response=await fetch('/api/corpTrainee/getregistercourses',
@@ -14,19 +15,27 @@ useEffect(()=>{
         const json= await response.json()
         if(response.ok){
             setCourses(json)
+            setError(null)
             console.log(json)
-            }
-        
+
+        }
+        if(!response.ok){
+            setCourses('')
+            setError(json.error)
+            console.log(json.error)
+        }
     }
     if (user) {
         fetchcourses()
           }
-},[])
+},[user])
 return(
 <div className="app" >
 
 {courses && courses.map((course) =>(
     <Registeredcoursedetails course={course} key={course._id} />))}
+
+{error && <div className="error">{error}</div>}
 </div>
 );
 }
