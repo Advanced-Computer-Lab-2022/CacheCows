@@ -31,14 +31,17 @@ const Signup = () => {
   }
 
   return (
+  
     <div className="signuppages">
+        <br></br>
     <form className="signup" onSubmit={handleSubmit}>
 
-      <label className="title">Sign Up As A Trainee</label>
+      <label className="title">Sign Up </label>
+      <br></br>
+      <h1>And join our Community of Learners</h1>
 
       <br></br>
-      <br></br>
-      <br></br>
+    
       
       <label>Email address:</label>
       <input 
@@ -87,7 +90,13 @@ const Signup = () => {
         </button>
        {error && <div className="error">{error}</div>}
     </form>
+    <div>
+      <br>
+      </br>
+      <br></br>
     </div>
+    </div>
+    
   )
 }
 

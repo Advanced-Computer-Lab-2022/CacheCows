@@ -129,7 +129,7 @@ const navigate=useNavigate();
       
       <br />
       <div>
-      <button
+      <button className="buttonlogin"
         onClick={() => {
           navigate("/Signup");
         }}
@@ -145,15 +145,8 @@ const navigate=useNavigate();
       <div>
       <br/>
       <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
 
-      <button
+      <button className="buttonlogin"
         onClick={() => {
           navigate("/");
         }}
@@ -162,6 +155,12 @@ const navigate=useNavigate();
         Continue As A Guest
       </button>
       </div>
+      <br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/>
 
 
       

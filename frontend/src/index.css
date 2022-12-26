@@ -15,6 +15,7 @@ body {
 header {
   background: #fff;
 }
+
 header .container {
   border-spacing: 5cm;
   display: flex;
@@ -58,6 +59,8 @@ background-color: white;
   gap: 100px;
 }
 .admin-details {
+  display: grid;
+  width:50%;
   background: #fff;
   border-radius: 4px;
   margin: 20px auto;
@@ -228,9 +231,11 @@ input {
 }
 form input {
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 20px;
-  width: 100%;
+  width: 60%;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
@@ -246,7 +251,11 @@ form button {
   cursor: pointer;
 }
 
+
+
 button {
+  position:relative;
+  
   background-color: transparent;
   border: #111111;
   border-style:inset;
@@ -258,6 +267,43 @@ button {
   cursor: pointer;
 }
 
+.buttoncolor {
+  position:relative;
+  left:32%;
+  right:50%;
+  width: 30%;
+  background-color: #a6607c;
+  border: white;
+  border-style:inset;
+  border-color: white;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+.buttoncolor:hover{
+  background: #c77395;
+}
+
+.filterbutton {
+  position:relative;
+  width: 70%;
+  background-color: transparent;
+  border: #111111;
+  border-width: 2.5px;
+  border-style:inset;
+  border-color: white;
+  color: white;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+.filterbutton:hover{
+  background: #c77395;
+}
+
 .buttonlogin {
   background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
   color: white;
@@ -265,6 +311,16 @@ button {
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
+}
+
+.loginpress {
+  background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+  color: white;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%
 }
 .buttonlogin:hover{
   background: #a6607c;
@@ -274,7 +330,7 @@ button:hover{
   background: #d9d9d9;
 }
 .instructorbutton {
-  background: #141415;
+  background: #33266e;
   border:rgb(218, 205, 205);
   border-style:inset;
   color: #d9d9d9;
@@ -285,46 +341,48 @@ button:hover{
 }
 
 .instructorbutton:hover{
-  background: #327163;
+  background: #5c41d3;
 }
 
 
 .editbiobutton {
   position: relative;
-  left :150px;
+  left :200px;
   bottom: 43px;
-  background: #56A996;
+  background: transparent;
   border:#9d9d9d;
-  border-color: white;
-  border-style:outset;
-  color: #d9d9d9;
+  border-color: #33266e;
+  border-width: 1.5px;
+  border-style:groove;
+  color: #111111;
   padding: 5px;
   font-family: "Poppins";
   border-radius:0.25cm;
   cursor: pointer;
 }
 
-.editbiobutton:hover{
-  background: #327163;
+.editemailbutton:hover{
+  background: #d9d9d9;
 
 }
 
 .editemailbutton {
   position: relative;
-  left :150px;
+  left :200px;
   bottom: 55px;
-  background: #56A996;
+  background: transparent;
   border:#9d9d9d;
-  border-color: white;
-  border-style:outset;
-  color: #d9d9d9;
+  border-color: #33266e;
+  border-width: 1.5px;
+  border-style:groove;
+  color: #111111;
   padding: 5px;
   font-family: "Poppins";
   border-radius:0.25cm;
   cursor: pointer;
 }
 .editbiobutton:hover{
-  background: #327163;
+  background: #d9d9d9;
 
 }
 
@@ -372,11 +430,14 @@ nav a {
 form.signup, form.login {
   border-color: #a6607c;
   border-style:outset;
-  max-width: 400px;
+  position: relative;
+width: 20%;
+height: 80%;
   margin: 40px auto;
-  padding: 20px;
+  padding: 70px;
   background: white;
   border-radius: 4px;
+  opacity:0.96;
 }
 
 nav button {
@@ -469,19 +530,38 @@ nav button {
   
 
   .filter {
-    background: #1c4c64;
+    background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
     border: #9d9d9d;
-    border-bottom: 5px solid rgb(13, 54, 92);
+    border-bottom: 5px solid #33266e ;
     width: 40%;
     color: #fff;
+    border-radius: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    opacity:0.95
+  }
+
+  .filtercolour {
+    background-image: linear-gradient(to top, #33266e 0%, #a6607c 100%);
+    border: #9d9d9d;
+    margin-top: 30%;
+    border-bottom: 5px solid rgb(13, 54, 92);
+    width: 50%;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 4px;
     margin: 5px auto;
     padding: 5px;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    cursor: pointer;
   }
+
+
   .instructorbuttons {
     background: transparent;
     position: relative;
@@ -501,15 +581,17 @@ nav button {
 
   .bio {
     position: relative;
-     
+     top: 20px;
     background: #1c4c64;
     background-color: white;
+    opacity:0.95;
     border: #9d9d9d;
     border-bottom: 5px solid rgb(13, 54, 92);
-    width: 25%;
+    width: 35%;
     height: fit-content;
     color: #fff;
-    border-radius: 4px;
+    border-style: double;
+    border-radius: 14px;
     margin: 5px auto;
     padding: 5px;
     justify-content: center;

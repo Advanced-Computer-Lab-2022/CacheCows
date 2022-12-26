@@ -173,53 +173,59 @@ const navigate=useNavigate();
 
 
 <div className="bio">
+      
+
       <h1>Hello, {username}!</h1>
-      <body className="biobody"> Email : {instructor_email}</body>
-      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
       <body className="biobody"> Biography : {instructor_biography}</body>
       <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
 
-    
+      <body className="biobody"> Email : {instructor_email}</body>
+      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
+      <br></br>
 
-      <br/>
-      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
-        key={instid}>New Style
-      </button>
-      <br/>
-      <br/>
+      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
 
-      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}>Show My Reviews
-      </button>
-      <br/>
-      <br/>
-      </div>
+    <br></br>
+    <br></br>
+
+      
+    <div className = "buttoncolor" onClick={()=>{
+      navigate("/AddCourse");
+      }}>Add Course</div>
 
 
-
-   <div className="instructorbuttons">
+      
+      <br/>
+      <br/>
       <button className = "instructorbutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
         key={instid}>View Reports
       </button>
 
       &nbsp;&nbsp;&nbsp;
 
+      <button className="instructorbutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+        key={instid}>Show My Reviews
+      </button>
+      </div>
 
-      <button className = "instructorbutton"onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
-      &nbsp;&nbsp;&nbsp;
 
-      
 
-      <button className = "instructorbutton" onClick={()=>{
-      navigate("/AddCourse");
-      }}>Add Course</button>
-           <br></br>
-           <br></br>
-           <br></br>
-           <br></br>
-           <br></br>
+   <div className="instructorbuttons">
+     
+     
 
+      <br/>
+      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
+        key={instid}>New Style
+      </button>
+   
     </div>
+
+    
+
+    <br/>
+    <br/>
+
 
 
      <div > 

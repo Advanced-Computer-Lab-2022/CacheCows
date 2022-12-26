@@ -30,10 +30,13 @@ const Login = () => {
 
 
   return (
+    <div className="pages">
+      <br></br>
     <form className="login" onSubmit={handleSubmit}>
-      <h3>Log In</h3>
+      <h1>Welcome</h1>
+      <br></br>
       
-      <label>Username :</label>
+      <label>Username </label>
       <input 
         type="username" 
         onChange={(e) => setUsername(e.target.value)} 
@@ -46,14 +49,25 @@ const Login = () => {
         value={password} 
       />
       
-         <button disabled={isLoading}>Log in</button>
-         <p>
-         <button onClick={() =>  navigate("/Admin")}>Login and take me home :(</button>
-         </p>
+         <button className="loginpress" disabled={isLoading}>Log in</button>
+         
          
        
       {error && <div className="error">{error}</div>}    </form>
+      
+      <div>
+      
+      <br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/>
+
+      </div>
+      </div>
   )
+  
 }
 
 export default Login

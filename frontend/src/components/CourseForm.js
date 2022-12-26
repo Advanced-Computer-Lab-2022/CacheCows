@@ -158,8 +158,9 @@ const CourseForm = ({user}) => {
     }
 
     return (
-       <form className="create" onSubmit={handleSubmit}>
+       <form className="filtercolour" onSubmit={handleSubmit}>
         <h3>Add a New Course!</h3>
+        <br></br>
 
         <label>Course ID: </label>
         <input
@@ -391,7 +392,7 @@ const CourseForm = ({user}) => {
       </Dropdown>
       <br/>
 
-        <button onClick={() => setter()}>Add Course</button>
+        <button className="filterbutton" onClick={() => setter()}>Add Course</button>
         {error && <div className="error">{error}</div>}
        </form>
     )
