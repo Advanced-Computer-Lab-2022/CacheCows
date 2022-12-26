@@ -157,11 +157,15 @@ res.status(400).json({error:error.message})
 const sendCertificateEmail=async (req,res)=>{
   try{
     const indvidual=await indv.findOne({indv_user : req.body.indv_user})
+    
     const email=indvidual.indv_email
 
     const coursesubject=await course.findOne({course_id : req.body.course_id})
+    
+    console.log(coursesubject)
 
     const subjectt = coursesubject.course_id;
+    console.log(subjectt)
 
     var MailOptions={
       from:process.env.MAIL,

@@ -114,33 +114,36 @@ const Admin = () => {
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
+       
+        </div>
         <div className="filter">
         <AdminForm />
-        </div>
         </div>
  
       
 
-      <div className="All-CorporateTrainees">
+      <div className="All-Admins">
         {crptrainees && crptrainees.map((CrpTrainee) => (
           <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
         ))}
+      
+      </div>
       <div className="filter">
       <AdminAddCrpTraineeForm />
-      </div>
       </div>
       
 
 
 
-      <div className="All-Instructors">
+      <div className="All-Admins">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />
         ))}
       </div> 
+      
+      </div>
       <div className="filter">
       <AdminAddInstForm />
-      </div>
       </div>
       <br/>
 

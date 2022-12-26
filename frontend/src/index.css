@@ -53,19 +53,27 @@ background-color: white;
 
 
 /* adminpage */
-.home {
+.All-Admins {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  align-items: stretch;
+  border-radius :31px;
 }
+
 .admin-details {
   display: grid;
-  width:50%;
+  width:60%;
   background: #fff;
   border-radius: 4px;
+  border-width: 2px;
+  border-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+  border-color: #a6607c;
   margin: 20px auto;
-  padding: 20px;
+  padding: 40px;
   position: relative;
+  align-items: stretch;
+  border-radius :31px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 .admin-details h4 {

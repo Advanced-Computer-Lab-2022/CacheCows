@@ -121,13 +121,22 @@ res.status(400).json({error:'Email Not Found'})
 
 const sendCertificateEmail=async (req,res)=>{
   try{
-    const croprate=await corp.findOne({corp_user:req.body.corp_user})
-    const email=croprate.corp_email
+    const corporate=await corp.findOne({corp_user : req.body.corp_user})
+    
+    const email=corporate.corp_email
+
+    const coursesubject=await course.findOne({course_id : req.body.course_id})
+    
+    console.log(coursesubject)
+
+    const subjectt = coursesubject.course_id;
+    console.log(subjectt)
+
     var MailOptions={
       from:process.env.MAIL,
       to:email,
-      subject:'Certificate of Completion',
-      text:'Congratulations '+ croprate.corp_name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
+      subject: "Certificate Of Completion  "   + subjectt,
+      text:'Congratulations '+ corporate.corp_name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
       attachments: [{
         filename: 'Certificate of Completion.pdf',
         path: '/Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/Certificate of Completion.pdf',

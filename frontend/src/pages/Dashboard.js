@@ -63,7 +63,7 @@ const Dashboard = () => {
 <div >
   <Box
   component="img"
-  sx={{ height: 225, width: 1500 , padding : 0, margins: 0}}
+  sx={{ height: 325, width: 1500 , padding : 0, margins: 0}}
   alt="Logo"
   src={stats}
 />
