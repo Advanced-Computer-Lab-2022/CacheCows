@@ -22,7 +22,6 @@ router.use(protect)
 
 router.get('/allindvtrainees',controlls.getAllinvdTrainee);
 router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
-router.get('/getAllinvdTrainees',getAllinvdTrainees);
 router.post('/addindvtrainee',controlls.setindvTrainee);
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
@@ -37,8 +36,8 @@ router.get('/del',controlls.del)
 router.post('/reviewinst',controlls.reviewinst)
 
 
-
 router.get('/me', protect, getMe);
+router.get('/getallreg', protect, controlls.getallreg);
 
 
 

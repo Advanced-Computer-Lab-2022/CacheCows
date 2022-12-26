@@ -9,4 +9,27 @@
     background-color: #EAEAF0;
     background: rgb(168, 168, 174);
   }
+
+  .MuiIconButton-edgeEnd{
+    margin-left: 450%;
+  }
+
+  .css-uym98a-MuiImageList-root {
+    display: inline-grid;
+    overflow-y: 70%;
+    overflow-x: auto;
+    /* list-style: katakana; */
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    width: 500px;
+    height: 200px;
+    justify-content: start;
+    align-items: unset;
+    align-content: center;
+    justify-items: center;
+}
+
+.xyz {
+  margin-left: -79px;
+}
   

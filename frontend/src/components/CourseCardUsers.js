@@ -34,6 +34,8 @@ import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded';
 import PercentRoundedIcon from '@mui/icons-material/PercentRounded';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import ReviewsRounded from '@mui/icons-material/ReviewsRounded';
+import ThumbsUpDownRoundedIcon from '@mui/icons-material/ThumbsUpDownRounded';
 
 const styles = theme => ({
   edgeEnd: {
@@ -44,7 +46,7 @@ const styles = theme => ({
   }
 });
 
- const CourseCard = ({course}) => {
+ const CourseCardUsers = ({course}) => {
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -129,7 +131,7 @@ function sub3() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} >
+    <Card sx={{ maxWidth: 345, marginTop : 20 }} >
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -178,22 +180,41 @@ function sub3() {
         <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
         </Typography>
       </CardContent>
-      <CardActions disableSpacing='false' sx={{marginTop : -4}}>
+      <CardActions disableSpacing='false' sx={{marginTop : -9}}>
       <IconButton aria-label="add to favorites" 
         color='primary'
-        onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
+        onClick={()=>window.location.href=`/Indvratecourse?userId=${course._id}`}
         sx={{ marginTop : -5,marginLeft : 12 }}
         size='small'>
-          Set Discount
-          <PercentRoundedIcon />
+          Rate Course
+          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}}/>
         </IconButton>
+
+        <IconButton aria-label="add to favorites" 
+        color='primary'
+        onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}
+        sx={{ marginTop : 2,marginLeft : -19 }}
+        size='small'>
+          Rate Instructor
+          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}} />
+        </IconButton>
+
+        <IconButton aria-label="add to favorites" 
+        color='primary'
+        onClick={()=>window.location.href=`/Indvreviewinst?userId=${course.instructor_id}`} 
+        sx={{ marginTop : 9,marginLeft : -21.8 }}
+        size='small'>
+          Add Review
+          <RateReviewRoundedIcon sx={{marginLeft : 1}} />
+        </IconButton>
+
         <IconButton aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 5,marginLeft : -19.5 }}
+        sx={{ marginTop : 16,marginLeft : -18.2 }}
         size='small'
         color='primary'>
           Check Reviews
-          <ReviewsRoundedIcon/>
+          <ReviewsRoundedIcon sx={{marginLeft : 1}} />
         </IconButton>
       </CardActions>
       <CardActions sx={{marginTop : 0}}>
@@ -231,4 +252,4 @@ function sub3() {
   );
 }
 
-export default CourseCard;
+export default CourseCardUsers;

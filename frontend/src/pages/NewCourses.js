@@ -19,6 +19,7 @@ import Grow from '@mui/material/Grow';
 
 
 import SearchBarInst from "../components/SearchBarInst";
+import { margin } from "@mui/system";
 
 const languages = [
     {
@@ -221,10 +222,10 @@ const navigate=useNavigate();
     </div>
 
 
-     <div className="reports"> 
+     <div > 
      <h3>All Courses: </h3>
      <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }}>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
             {courses && courses.map((course) =>(
           <Grid  key={course._id}>
             <CourseCard course={course} key={course._id} />

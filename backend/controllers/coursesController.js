@@ -369,11 +369,13 @@ const getCRate =  asyncHandler(async (req, res) => {
 })
 
 const getCourseHype = asyncHandler(async (req,res) => {
-    const crs = await courses.findOne({course_id : req.body.course_id})
-    if (crs.toString() === ""){
-        res.status(400).json({error:'No Rating Yet'})
+    const sort = { course_hype: -1 };
+    const crs = await courses.find().sort(sort)
+    const data=[];
+    for(let i=0;i<4;i++){
+     data[i]=crs[i]
     }
-     res.status(200).json({course_rating : crs.course_rating})
+    res.status(200).json(data)
 })
 
 

@@ -44,7 +44,7 @@ const styles = theme => ({
   }
 });
 
- const CourseCard = ({course}) => {
+ const CourseCardDB = ({course}) => {
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -179,21 +179,13 @@ function sub3() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
-      <IconButton aria-label="add to favorites" 
-        color='primary'
-        onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
-        sx={{ marginTop : -5,marginLeft : 12 }}
-        size='small'>
-          Set Discount
-          <PercentRoundedIcon />
-        </IconButton>
         <IconButton aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 5,marginLeft : -19.5 }}
+        sx={{ marginTop : 0,marginLeft : 11 }}
         size='small'
         color='primary'>
           Check Reviews
-          <ReviewsRoundedIcon/>
+          <ReviewsRoundedIcon sx={{marginLeft : 1 }}/>
         </IconButton>
       </CardActions>
       <CardActions sx={{marginTop : 0}}>
@@ -231,4 +223,4 @@ function sub3() {
   );
 }
 
-export default CourseCard;
+export default CourseCardDB;
