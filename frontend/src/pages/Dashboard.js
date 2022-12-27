@@ -8,6 +8,8 @@ import ResponsiveAppBar from "../components/NavBarBS";
 
 import bganim from '../assets/bganim.gif';
 import rubixgif from '../assets/Rubix.gif';
+import rubixgif2 from '../assets/Rubix2.gif';
+
 import stats from '../assets/stats.gif';
 
 import Typography from '@mui/material/Typography';
@@ -56,7 +58,7 @@ const Dashboard = () => {
   component="img"
   sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
   alt="Logo"
-  src={rubixgif}
+  src={rubixgif2}
 />
 </div>
 
