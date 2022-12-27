@@ -20,10 +20,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            {comment.user_id}
+          <Typography sx={{ width: '40%', flexShrink: 0 }}>
+            Report Comment
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>{comment.createdAt}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

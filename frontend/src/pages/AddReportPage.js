@@ -53,8 +53,7 @@ const AddReportPage = () => {
                 user_id,
                 user_name,
                 report_status,
-                report_comment
-                
+                report_comment,
             }
     
             const response = await fetch('/api/reports/setReport', {

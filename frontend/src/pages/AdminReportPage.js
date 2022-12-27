@@ -42,10 +42,10 @@ const AdminReportsPage = () => {
   }, [])
 
   return (
-    <div className="dashboardpage">
-      <div classname="filter"> 
-      <div className="">
-      <h3 className="filter">All Reports!</h3>
+    <div className="reports">
+      <div classname="reports"> 
+
+      <h3 className="reports">All Reports!</h3>
       <div className=""> 
         {reports && reports.map((report) =>(
         <AdminReports report={report} key={report._id} />))}          
@@ -54,7 +54,6 @@ const AdminReportsPage = () => {
       {error && <div className="error">{error}</div>}
       </div>
       </div>
-    </div>
   )
 }
 
