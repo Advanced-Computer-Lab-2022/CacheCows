@@ -13,15 +13,15 @@ import rubixgif2 from '../assets/Rubix2.gif';
 import stats from '../assets/stats.gif';
 
 import Typography from '@mui/material/Typography';
-
-
 import Box from '@mui/material/Box';
+import FeaturedCourses from "../components/FeaturedCourses";
 
 // components
 import CourseDetails from "../components/CourseDetails"
 
 const Dashboard = () => {
   const [courses, setCourses] = useState(null)
+  const [featured, setFeatured] = useState(null)
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -31,7 +31,15 @@ const Dashboard = () => {
       if (response.ok) {
         setCourses(json)
       }
+
+
+    const response1 = await fetch('/api/courses/getCHype')
+    const json1 = await response1.json()
+
+    if (response1.ok) {
+      setFeatured(json1)
     }
+  }
 
     fetchCourses()
   }, [])
@@ -70,6 +78,12 @@ const Dashboard = () => {
   src={stats}
 />
 </div>
+
+     <div className="reports">
+        {featured && featured.map((course) => (
+          <FeaturedCourses course={course} key={course._id} />
+        ))}
+      </div> 
 
     <div className="course">
       <FFormPrice></FFormPrice>

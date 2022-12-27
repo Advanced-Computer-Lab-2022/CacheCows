@@ -30,4 +30,4 @@ const FeaturedCourses = ({course}) => {
   );
 }
 
-export default FeaturedCourses
+export default FeaturedCourses;

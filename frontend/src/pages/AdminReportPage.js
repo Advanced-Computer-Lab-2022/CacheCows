@@ -43,7 +43,6 @@ const AdminReportsPage = () => {
 
   return (
     <div className="course">
-      <div classname="courses"> 
       <div className="reports">
       <h5 >All Reports!</h5>
       <div className="reports"> 
@@ -54,7 +53,6 @@ const AdminReportsPage = () => {
       {error && <div className="error">{error}</div>}
       </div>
       </div>
-    </div>
   )
 }
 

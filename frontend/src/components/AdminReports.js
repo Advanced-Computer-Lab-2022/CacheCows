@@ -87,7 +87,7 @@ const AdminReports = ({ report }) => {
 const navigate=useNavigate();
   return (
     <div>
-    <Card sx={{ maxWidth: 345 }} className='reports' onClick={() => window.location.href=`/ReportFUPage?_id=${report._id}`}>
+    <Card sx={{ maxWidth: 345 }} className='reports' >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -95,7 +95,7 @@ const navigate=useNavigate();
           image="https://dsu.edu/root-files/report-945x630.jpg"
           alt="green iguana"
         />
-        <CardContent>
+        <CardContent onClick={() => window.location.href=`/ReportFUPage?_id=${report._id}`}>
           <Typography gutterBottom variant="h5" component="div">
           Report #{report.course_id}
           </Typography>
