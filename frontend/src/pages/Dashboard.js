@@ -18,6 +18,8 @@ import FeaturedCourses from "../components/FeaturedCourses";
 
 // components
 import CourseDetails from "../components/CourseDetails"
+import CourseCardDB from "../components/CourseCardDB";
+import Grid from '@mui/material/Unstable_Grid2';
 
 const Dashboard = () => {
   const [courses, setCourses] = useState(null)
@@ -59,24 +61,22 @@ const Dashboard = () => {
 
   return (
     
-    <div className = "dashboardpage" >
+  <div className = "dashboardpage" >
                      
   <div>               
   <Box
   component="img"
   sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
   alt="Logo"
-  src={rubixgif2}
-/>
-</div>
+  src={rubixgif2} />
+  </div>
 
-<div >
+ <div>
   <Box
   component="img"
   sx={{ height: 325, width: 1500 , padding : 0, margins: 0}}
   alt="Logo"
-  src={stats}
-/>
+  src={stats} />
 </div>
 
      <div className="reports">
@@ -85,22 +85,37 @@ const Dashboard = () => {
         ))}
       </div> 
 
-    <div className="course">
+    <div className="">
       <FFormPrice></FFormPrice>
       <br/>
      <FForm></FForm>
      <br/>
+     </div>
 
      <div classname="filter"> 
 
      <SearchBar></SearchBar>
      </div>
-      <div className="filter">
-        {courses && courses.map((course) => (
-          <CourseDetails course={course} key={course._id} />
-        ))}
-      </div> 
+     <div className=""> 
+     <h3> Courses: </h3>
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCardDB course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+    </Box> 
     </div>
+
     </div>
   )
 }

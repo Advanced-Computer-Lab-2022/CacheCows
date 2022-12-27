@@ -34,6 +34,7 @@ import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded';
 import PercentRoundedIcon from '@mui/icons-material/PercentRounded';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 const styles = theme => ({
   edgeEnd: {
@@ -179,13 +180,22 @@ function sub3() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
-      <Button aria-label="add to favorites" 
+      <Button
+        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
+        sx={{ marginTop : 0,marginLeft : 11,border : 2 }}
+        size='small'
+        color='primary'>
+          Check Course
+          <CoPresentIcon sx={{marginLeft : 1 }}/>
+        </Button>
+
+      <Button aria-label="share" edge='end' 
         color='primary'
         onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
         sx={{ marginTop : 5,marginLeft : 12, border : 2 }}
         size='small'>
           Set Discount
-          <PercentRoundedIcon />
+
         </Button>
         <Button aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}

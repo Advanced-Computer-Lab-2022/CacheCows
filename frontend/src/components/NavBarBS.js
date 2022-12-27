@@ -187,7 +187,7 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:880}}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:850}}
                 >
                 <Typography textAlign="center"  position={{
                 vertical: 'top',

@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import { Typography } from "@mui/material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -22,7 +23,7 @@ const MenuProps = {
 };
 
 
-const InstSetCourseDiscount=()=>{
+const AdminSetPromo=()=>{
     const {user} = useAuthContext()
 
     const[course_discount_time,setDiscountTime]=useState('');
@@ -33,6 +34,7 @@ const InstSetCourseDiscount=()=>{
     const[error , setError] = useState(null);
     const [courses, setCourses] = useState(null)
     const [personName, setPersonName] = React.useState([]);
+    const [allFlag, setAll] = useState(false)
 
     const handleChange = (event) => {
       const {
@@ -92,6 +94,16 @@ if(response.ok) {
 
 }
 
+const selectAll = (event) => {
+  setAll(!allFlag);
+  
+    if(personName.length !== 0){
+      setPersonName('')
+    }
+    else{
+    setPersonName(courses)
+}
+};
 
 return(
 <div>
@@ -139,6 +151,10 @@ return(
                 </Select>
       </FormControl>
     </div>
+    <Typography>
+                <Checkbox checked={allFlag} onClick={selectAll}/>
+                Select All Courses
+      </Typography>
          <button>Set Discount</button>
          <br></br>
         {error && <div className="error">{error}</div>}
@@ -155,5 +171,5 @@ return(
     </div>
 )
 }
-export default InstSetCourseDiscount
+export default AdminSetPromo
     
