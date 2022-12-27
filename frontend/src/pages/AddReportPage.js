@@ -3,7 +3,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { TextField } from "@mui/material";
 
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
@@ -11,6 +10,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { BorderLeft } from "@material-ui/icons";
     
 const AddReportPage = () => {
         const params = new URLSearchParams(window.location.search);
@@ -25,6 +27,7 @@ const AddReportPage = () => {
         const [report_status, setStatus] = useState('')
         const[error , setError] = useState(null)
         const[success , setSuccess] = useState(null)
+        const [report_comment, setComment] = useState('')
     
         const handleChange = (event) => {
             settype(event.target.value);
@@ -49,7 +52,8 @@ const AddReportPage = () => {
                 admin_id,
                 user_id,
                 user_name,
-                report_status
+                report_status,
+                report_comment
                 
             }
     
@@ -75,6 +79,7 @@ const AddReportPage = () => {
             setUID('')
             setname('')
             setStatus('')
+            setComment('')
             setError(null)
     
             setSuccess(json.success)
@@ -87,7 +92,7 @@ const AddReportPage = () => {
     return (
         <form className="filter" onSubmit={handleSubmit}>
             <h3>Add a New Report!</h3>
-            <Stack spacing={2} direction="row">
+            <Stack spacing={2} direction="row" sx={{marginLeft : 3}}>
             
     
             <TextField 
@@ -103,7 +108,7 @@ const AddReportPage = () => {
             <br/>
     
             <FormControl sx={{ m: 1, minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-helper-label">Report Type:</InputLabel>
+              <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
               <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
@@ -117,6 +122,17 @@ const AddReportPage = () => {
                 <MenuItem value={'Financial'}>Financial</MenuItem>
                 <MenuItem value={'Other'}>Other</MenuItem>
             </Select>
+            <TextField 
+            sx={{ marginLeft : -27.5, marginTop : 1}}
+            multiline
+            maxRows={4}
+            id="outlined-basic" 
+            label="Comment" 
+            variant="outlined" 
+            type = "text"
+            onChange={(e) => setComment(e.target.value)}
+            value={report_comment}/>
+                                      
             </FormControl>
             </Stack>
             <br/>

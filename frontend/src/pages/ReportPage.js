@@ -67,7 +67,7 @@ const ReportsPage = () => {
       <br/>
       <br/>
       </div>
-    </div>
+      </div>
   )
 }
 
