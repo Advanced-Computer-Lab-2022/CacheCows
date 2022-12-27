@@ -11,6 +11,7 @@ const ReportSchema = new mongoose.Schema({
      admin_id : {type: String , required: [false, 'USER ID MISSING'] },
      user_name : {type: String , required: [true, 'USER NAME MISSING'] },
      report_status : {type: String , required: [true, 'REPORT STATUS MISSING'] },
+     report_comment : {type: String , required: [false] },
      
 } 
 , {timestamps: true }

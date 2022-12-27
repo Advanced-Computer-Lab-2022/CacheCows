@@ -9,6 +9,8 @@ router.post('/getCReport',controlls.getCReport);
 router.post('/setReport',controlls.setReport);
 router.put('/updateReport',controlls.updateReport);
 router.delete('/deleteReport',controlls.deleteReport);
+router.post('/addComment',controlls.AddComment);
+router.post('/getComments',controlls.getComments);
 
 
 module.exports = router  

@@ -42,11 +42,11 @@ const AdminReportsPage = () => {
   }, [])
 
   return (
-    <div className="course">
-      <div classname="courses"> 
-      <div className="reports">
-      <h3 className="header">All Reports!</h3>
-      <div className="reports"> 
+    <div className="dashboardpage">
+      <div classname="filter"> 
+      <div className="">
+      <h3 className="filter">All Reports!</h3>
+      <div className=""> 
         {reports && reports.map((report) =>(
         <AdminReports report={report} key={report._id} />))}          
       </div>
