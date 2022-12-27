@@ -11,7 +11,7 @@ const nodemailer=require('nodemailer')
 const validator = require('validator')
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
 const review=require('../models/IReviewModel')
-
+const stripe=require('stripe')(process.env.STRIP_KEY)
 
 var transporeter=nodemailer.createTransport({
   service:'gmail',
@@ -21,8 +21,41 @@ var transporeter=nodemailer.createTransport({
    pass:process.env.PASS
   }
 });
+const storeitem=new Map([[1,{priceinCents:10000,name:"acl"}],
+[2,{priceinCents:200000,name:"analysis"}]])
+const paycourse=async(req,res)=>{
+  try{
+   const course_name=req.query.course_name
+   const course_price=req.query.course_price
+  const session =await stripe.checkout.sessions.create({
+ payment_method_types:['card'],
+    mode:"payment",
+    
+    line_items:
+      
+        {price_data:{
+          currency:'usd',
+          product_data:{name:course_name},
+          amount:course_price
+       },quantity:req.query.quantity,
+       source: "tok_amex"}
+      
+  ,
+    success_url:`${process.env.SERVER_URL}/success.html`,
+    cancel_url:`${process.env.SERVER_URL}/cancel.html`
+   })
+   //console.log(session)
+  //res.json({url:session.url})
+  //console.log(session)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+  
+   
+      
 
-
+}
 const getAllinvdTrainee= (req,res)=>{
     indv.find((err,val)=>{
         if(err){
@@ -343,4 +376,4 @@ if (IndivTrainee) {
   
 
 module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst,sendCertificateEmail };
+  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst,sendCertificateEmail,paycourse };

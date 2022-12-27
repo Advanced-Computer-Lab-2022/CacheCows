@@ -15,7 +15,7 @@ router.post('/loginIndTrainee', loginIndTrainee);
 router.post('/forgetpassword',sendEmailIndv)
 router.put('/changepassword',changepassword);
 router.post('/sendCertificateEmail',sendCertificateEmail)
-
+router.post('/paycourse',controlls.paycourse)
 router.use(protect)
 
 

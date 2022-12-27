@@ -36,7 +36,7 @@ import InstructorAcceptTerms from "./pages/termsandconditions";
 import ResponsiveAppBar from "./components/NavBarBS";
 import Corpratecourse from "./pages/Corpratecourse"
 import Corpreviewinst from "./pages/Corpreviewinst"
-
+import Paycourse from"./pages/Paycourse"
 
 
 import Login from './pages/Login'
@@ -349,6 +349,10 @@ function App() {
             <Route 
             path="/AcceptRequests"
             element={<AcceptRequests/>}
+            />
+            <Route 
+            path="/Paycourse"
+            element={<Paycourse/>}
             />
            
 

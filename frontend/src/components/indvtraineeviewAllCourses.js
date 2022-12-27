@@ -73,6 +73,7 @@ const TCourseDetails = ({course}) => {
 
             <button onClick={() => window.location.href=`/AddReportPage?course_id=${course.course_id}`}
             >Report Course</button>
+            <button onClick={() => window.location.href=`/Paycourse?course_name=${course.course_name}&course_price=${course.course_price}`}>pay</button>
 
              <p>{course.createdAt}</p>
              </p>

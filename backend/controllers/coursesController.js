@@ -4,6 +4,9 @@ const courses = require('../models/coursesModel')
 
 //////////////////////////////////////////////////////////////////////////
 //GET ALL COURSES
+
+
+
 const getCourses = asyncHandler(async (req, res) => {
 
     const allcourses = await courses.find()
