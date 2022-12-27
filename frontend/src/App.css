@@ -79,6 +79,7 @@
     color: white;
     background-color: white;
     max-width: 100%;
+    height: max-content;
     padding: 0px;
     margin: 0 auto;
   }

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
 
 const Instchangepasssword=()=>{
     const {user} = useAuthContext()
@@ -40,6 +42,9 @@ const Instchangepasssword=()=>{
         }
     }
 return(
+    <div className="pagesplain"> 
+<br></br>
+
     <form className="filter" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
@@ -51,6 +56,19 @@ return(
          <div>{shown &&<p> your password was changed successfully </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
+        <div>
+            
+                                <Box
+                        component="img"
+                        sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+                        alt="Logo"
+                        src={rubixgif}
+                        />
+                        </div>
+
+        
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
 )
 }
 export default Instchangepasssword

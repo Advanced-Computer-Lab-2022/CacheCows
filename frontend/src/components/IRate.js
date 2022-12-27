@@ -44,7 +44,7 @@ const IRate = () => {
     <div className="course">
       <div classname="courses"> 
       <div className="filter">
-      <h3>Your Rating!</h3>
+      <h4>Your Rating!</h4>
         <h4>{rate}</h4>
       </div>
       {error1 && <div className="error">{error1}</div>}

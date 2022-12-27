@@ -46,19 +46,39 @@ const IReviews = () => {
 
   return (
     <div className="course">
+      <br/>
       <div classname="courses"> 
       <div className="filter">
         <IRate></IRate>
       </div>
       <div className="filter">
-      <h3>Your Reviews!</h3>
-      <div className="filter"> 
+      <h4>Your Reviews!</h4>
+      <div className="instrates"> 
         {reviews && reviews.map((review) =>(
         <IReviewDetails review={review} key={review._id} />))}          
       </div>
       <br />
       {error && <div className="error">{error}</div>}
       </div>
+      <br/>      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+
       </div>
     </div>
   )

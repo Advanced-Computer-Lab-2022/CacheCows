@@ -63,14 +63,36 @@ const ReportFUPage = () => {
   return (
     <div className="course">
       <div classname="courses"> 
+      <br></br>
+      <br></br>
+
+      <br></br>
+
       <div className="reports">
-      <h3 className="header">Report #{reports.course_id}!</h3>
+      <h3 className="reports-header">Report #{reports.course_id}!</h3>
       <div className="reports"> 
       {Uflag && (<ReportUnseen/>)}
       {Pflag && (<ReportPending/>)}
       {Rflag && (<ReportResolved/>)}      
       </div>
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       </div>
     </div>
   )

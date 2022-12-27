@@ -94,8 +94,10 @@ if(response.ok) {
 
 
 return(
-
+<div>
+  <br></br>
     <form className="reports" onSubmit={handleSubmit}>
+      <br></br>
     <label>Course Discount % </label>
         <input
             type = "text"
@@ -117,14 +119,14 @@ return(
     />
     <div>
     <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+        <InputLabel id="demo-multiple-checkbox-label">Course</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput label="Tag" />}
+          input={<OutlinedInput label="Course" />}
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
@@ -138,8 +140,19 @@ return(
       </FormControl>
     </div>
          <button>Set Discount</button>
+         <br></br>
         {error && <div className="error">{error}</div>}
+        <br></br>
     </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    </div>
 )
 }
 export default InstSetCourseDiscount

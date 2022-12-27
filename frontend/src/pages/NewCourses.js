@@ -169,7 +169,7 @@ const navigate=useNavigate();
     return(
     <div className="instructor">
 
-          
+          <br></br>
 
 
 <div className="bio">
@@ -204,7 +204,7 @@ const navigate=useNavigate();
       &nbsp;&nbsp;&nbsp;
 
       <button className="instructorbutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}>Show My Reviews
+        key={instid}>View Reviews
       </button>
       </div>
 
@@ -215,9 +215,7 @@ const navigate=useNavigate();
      
 
       <br/>
-      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
-        key={instid}>New Style
-      </button>
+    
    
     </div>
 
@@ -229,7 +227,7 @@ const navigate=useNavigate();
 
 
      <div > 
-     <h3>All Courses: </h3>
+     <h3> Courses </h3>
      <Box >
       <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
             {courses && courses.map((course) =>(

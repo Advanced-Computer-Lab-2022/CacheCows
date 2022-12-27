@@ -1,12 +1,12 @@
 const IReviewDetails = ({ review }) => {
 
     return (
-      <div className="course-details">
-        <p><strong>User Name: </strong>{review.user_id}</p>
+      <div className="griddetails">
+        <p><strong>User Name: </strong>{review.user_name}</p>
         <p><strong>Review: </strong>{review.review}</p>
  
 
-        <p>{review.createdAt}</p>
+        <p>Date : {review.createdAt}</p>
       </div>
     )
   }
