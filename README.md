@@ -319,6 +319,40 @@ Here is a sample of the text generated on it
  
  <img src="/jspdf.png" alt="Alt text" title="Optional title">
  
+## Fetching Methods API
+All methods created in the controller files shousl be added to the router file with their corresponding CRUD function. Then, these methods can be fetched to frontend in any component requested using the follwing as example : 
+
+### ` 
+
+`const response = await fetch(/api/instructors/InstructorEditBiography?userId=${userId} , { `
+  `          method: 'POST',`
+   `         body: JSON.stringify(inst),`
+    `        headers: {`
+     `           'Content-Type' : 'application/json',`
+      `          'Authorization': Bearer ${user.token} `
+       `     }`
+        `})`
+
+ Example of API Routes :
+
+  <img src="/routes.png" alt="Alt text" title="Optional title">
+
+
+
+## Hooks
+Main Hooks used in this project are 
+- #### `UseState` - We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. 
+  <img src="/usestate.png" alt="Alt text" title="Optional title">
+
+
+- #### `UseEffect` - adds the ability to perform side effects from a function component.
+
+  <img src="/useeffect.png" alt="Alt text" title="Optional title">
+- #### `Custom Login/Signup Hooks` - implements the functionality of a login from the client side, and does the storage in local storage
+
+  <img src="/loginhook.png" alt="Alt text" title="Optional title">
+
+
 
 
 # Color Reference
