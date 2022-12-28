@@ -16,7 +16,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
-import logo2 from '../assets/RUBIX3.png';
 import logonew from '../assets/rubixnew.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];

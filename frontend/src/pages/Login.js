@@ -31,7 +31,7 @@ const navigate=useNavigate();
                 <Box
                   component="img"
                   sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
-                    backgroundColor: '#33266e',
+                    backgroundColor: '#fff',
                     '&:hover': {
                       backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
@@ -56,7 +56,7 @@ const navigate=useNavigate();
                 <Box
                   component="img"
                   sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
-                    backgroundColor: '#33266e',
+                    backgroundColor: '#fff',
                     '&:hover': {
                       backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
@@ -81,7 +81,7 @@ const navigate=useNavigate();
                 <Box
                   component="img"
                   sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
-                    backgroundColor: '#33266e',
+                    backgroundColor: '#fff',
                     '&:hover': {
                       backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],
@@ -106,7 +106,7 @@ const navigate=useNavigate();
                 <Box
                   component="img"
                   sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
-                    backgroundColor: '#33266e',
+                    backgroundColor: '#fff',
                     '&:hover': {
                       backgroundColor: '#a6607c',
                       opacity: [0.9, 0.8, 0.7],

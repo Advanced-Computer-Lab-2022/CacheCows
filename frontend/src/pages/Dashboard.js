@@ -11,6 +11,9 @@ import rubixgif from '../assets/Rubix.gif';
 import rubixgif2 from '../assets/Rubix2.gif';
 import rubixphone from '../assets/rubixphone.gif';
 import rubixstudents from '../assets/rubixstudents.png';
+import rubixstudentsblack from '../assets/rubixstudentsblack.png';
+
+
 import { useNavigate, useParams } from "react-router-dom";
 
 
@@ -77,7 +80,8 @@ const Dashboard = () => {
   alt="Logo"
   src={rubixgif2} />
   </div>
-
+  <br></br>
+  <br></br>
  <div>
   <Box
   component="img"
@@ -85,14 +89,14 @@ const Dashboard = () => {
   alt="Logo"
   src={stats} />
 </div>
-
+{/* 
      <div className="reports">
         {featured && featured.map((course) => (
           <FeaturedCourses course={course} key={course._id} />
         ))}
-      </div> 
+      </div>  */}
 
-    <div className="">
+    {/* <div className="">
       <FFormPrice></FFormPrice>
       <br/>
      <FForm></FForm>
@@ -102,13 +106,30 @@ const Dashboard = () => {
      <div classname="filter"> 
 
      <SearchBar></SearchBar>
-     </div>
+     </div> */}
+
+
 
      <br></br>
      <br></br>
      <br></br>
 
-     <div>               
+
+     <div>   
+                  
+                  <Box
+                  component="img"
+                  sx={{ height: 400, width: 1200 , padding : 0, margins: 0}}
+                  alt="Logo"
+                  src={rubixstudentsblack} />
+                  </div>
+                
+                  <br></br>
+                  <br></br>
+                  <br></br>
+
+     <div>   
+                  
   <Box
   component="img"
   sx={{ height: 500, width: 1500 , padding : 0, margins: 0}}
@@ -121,8 +142,15 @@ const Dashboard = () => {
   <br></br>
 
 
+
      <div className=""> 
-     <h3> Courses: </h3>
+     <h3> ___________________________________________ </h3>
+     <br></br>
+     <h3> Courses </h3>
+
+     <br></br>
+     <br></br>
+     <br></br>
      <Box >
       <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
             {courses && courses.map((course) =>(
@@ -160,67 +188,17 @@ const Dashboard = () => {
   src={rubixstudents} />
   <br></br>
   <div>
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-  <button className="buttonlogin" onClick={()=>navigate("/IndTraineeSignup")}>Sign Up</button>
+  <br></br>
+  <br></br>
+
+  <body> Copyrights 2022</body>
+  <body> Developed By CacheCows </body>
+
 
   </div>
 
   </div>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
+
 
 
     </div>
