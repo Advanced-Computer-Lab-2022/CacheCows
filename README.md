@@ -301,14 +301,14 @@ A user can access Their Profile, and find all of the options they can do right a
 
 # API and Communications
 
-# Nodemailer
+## Nodemailer
 The module used for sending emails to users ( emails containing for instance password recovery links, Pdf geneated certficates, etc.)
 NodeMailer is a module for the Node JS applications that allow for easy email sending. Its API is simple: it requires you to create a transporter object, MailOptions Objects, and use the Transporter.sendMail method.
 Here is how it is initiliazed to be used :
 <img src="/nodemailer.png" alt="Alt text" title="Optional title">
 
 
-# JSPDF
+## JSPDF
 jsPDF is an open-source library for generating PDF documents using JavaScript. It provides multiple options to generate PDF files, with custom properties.
 Here is a sample of the text generated on it
  - Note : Image must be encoded in base64, this is done through https://www.base64-image.de/  for example
@@ -344,7 +344,7 @@ Created by Omar Aboelazm
 
 ## License
 
-Copyright (c) [2022] [Omar Aboelazm - CacheCows]
+Copyright (c) [2022] [CacheCows]
 
 Permission to use this project is hereby requested from a CacheCow team member, free of charge, for any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
