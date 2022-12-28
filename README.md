@@ -299,6 +299,24 @@ This piece of code in the login hooks allows so
 
 A user can access Their Profile, and find all of the options they can do right away. 
 
+# API and Communications
+
+# Nodemailer
+The module used for sending emails to users ( emails containing for instance password recovery links, Pdf geneated certficates, etc.)
+NodeMailer is a module for the Node JS applications that allow for easy email sending. Its API is simple: it requires you to create a transporter object, MailOptions Objects, and use the Transporter.sendMail method.
+Here is how it is initiliazed to be used :
+<img src="/nodemailer.png" alt="Alt text" title="Optional title">
+
+
+# JSPDF
+jsPDF is an open-source library for generating PDF documents using JavaScript. It provides multiple options to generate PDF files, with custom properties.
+Here is a sample of the text generated on it
+ - Note : Image must be encoded in base64, this is done through https://www.base64-image.de/  for example
+ 
+ <img src="/jspdf.png" alt="Alt text" title="Optional title">
+ 
+
+
 # Color Reference
 
 Inspired by thr following scheme found on https://visme.co/blog/website-color-schemes/
