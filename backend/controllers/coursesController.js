@@ -54,7 +54,8 @@ const setCourse = asyncHandler(async(req, res) => {
      instructor_id : req.body.instructor_id,
      course_rating : req.body.course_rating,
      course_discount : req.body.course_discount,
-     course_price : req.body.course_price,  
+     course_price : req.body.course_price, 
+     course_discount_start :  req.body.course_discount_start,
      course_discount_time : req.body.course_discount_time,
      course_summary : req.body.course_summary,
      course_total_hours : req.body.course_total_hours,  
@@ -87,6 +88,7 @@ const setCourse = asyncHandler(async(req, res) => {
      course_total_ratings:0,
      course_rating:0,
      course_price_after_discount : req.body.course_price,
+     course_hype : 0,
      
     })
     res.status(200).json({course})
@@ -369,6 +371,16 @@ const getCRate =  asyncHandler(async (req, res) => {
      
 })
 
+const getCourseHype = asyncHandler(async (req,res) => {
+    const sort = { course_hype: -1 };
+    const crs = await courses.find().sort(sort)
+    const data=[];
+    for(let i=0;i<4;i++){
+     data[i]=crs[i]
+    }
+    res.status(200).json(data)
+})
+
 
 
 
@@ -395,7 +407,8 @@ module.exports = {
     getInstCourses,
     filterCourseBySubjectOrRatingInst,
     SearchCourseByOptInst,
-    getCRate
+    getCRate,
+    getCourseHype
 
 }
 

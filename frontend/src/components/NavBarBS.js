@@ -16,10 +16,12 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
-import logo2 from '../assets/RUBIX.png';
+import logo2 from '../assets/RUBIX3.png';
+import logonew from '../assets/rubixnew.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 
 function ResponsiveAppBar() {
@@ -57,7 +59,11 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{
+              background: '#111111',
+              color : '#a6607c',
+              maxHeight : 100
+            }}>
 
           
         <Toolbar disableGutters>
@@ -74,15 +80,16 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
+              
               textDecoration: 'none',
             }}
           >
            <Link onClick={() => window.location.href=`/`}>
                 <Box
                   component="img"
-                  sx={{ height: 100, width: 100 }}
+                  sx={{ height: 100, width: 100 , padding : 0, margins: 0}}
                   alt="Logo"
-                  src={logo2}
+                  src={logonew}
                 />
               </Link>
 
@@ -153,7 +160,7 @@ function ResponsiveAppBar() {
 
               <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', left:20 }}
               >
                 <Typography textAlign="center" onClick={() => window.location.href=`/about`}> About Us</Typography>
               </Button>
@@ -162,14 +169,14 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block' ,left:25}}
                 >
                 <Typography textAlign="center" onClick={() => window.location.href=`Login`}> Login</Typography>
                </Button>
 
                <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block' ,left:45}}
                >
                 <Typography textAlign="center" onClick={() => window.location.href=`/Signup`}> Sign up</Typography>
                </Button>
@@ -180,9 +187,16 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:880}}
                 >
-                <Typography textAlign="center" > Welcome {user.username} !</Typography>
+                <Typography textAlign="center"  position={{
+                vertical: 'top',
+                horizontal: 'right',
+                
+            
+                
+              }}
+              > Welcome {user.username} !</Typography>
                </Button>
                </Box>
              )}

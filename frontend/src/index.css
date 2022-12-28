@@ -15,6 +15,7 @@ body {
 header {
   background: #fff;
 }
+
 header .container {
   border-spacing: 5cm;
   display: flex;
@@ -28,35 +29,77 @@ header a {
   color: #333;
   text-decoration: none;
 }
+.dashboardpage{
+  background-color: white;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
 .pages{
-  max-width: 1400px;
-  padding: 20px;
+background-color: white;
+  max-width: 100%;
+  padding: 0px;
   margin: 0 auto;
 }
 
+.signuppages{
+  background-image: '../assets/Rubix.gif';
+    max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+
+
 /* adminpage */
-.home {
+.All-Admins {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  align-items: stretch;
+  border-radius :31px;
+  min-height: 100%;
 }
+.Admin{
+  height: max-content;
+}
+
+.instrates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  align-items: stretch;
+  border-radius :31px;
+}
+
+
+
 .admin-details {
-  background: #fff;
+  display: grid;
+  width:40%;
+  border-style: double;
+  background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);;
   border-radius: 4px;
+  border-width: 2px;
+  border-color:  #a6607c;
   margin: 20px auto;
-  padding: 20px;
+  padding: 40px;
   position: relative;
+  align-items: stretch;
+  border-radius :31px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  color: #ffffff;
 }
 .admin-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #fff;
 }
 .admin-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: #fff;
 }
 .admin-details span {
   position: absolute;
@@ -66,7 +109,7 @@ header a {
   background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: #fff;
 }
 
 /* crppage */
@@ -153,6 +196,9 @@ header a {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
+
+
+
 .course-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
@@ -174,12 +220,54 @@ header a {
   color: #333;
 }
 
+.griddetails {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  width: 75%;
+  height: fit-content;
+}
+
+.griddetails h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.griddetails p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.griddetails span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+
 /* new workout form */
 label {
 
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #111111;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.title {
+
+  margin: 0 0 10px 0;
+  font-size: 1.6em;
+  color: #a6607c;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .terms {
   font-size: 5px;
@@ -193,7 +281,8 @@ label {
 h3 {
   margin: 0 0 10px 0;
   font-size: 1.6em;
-  color: var(--primary);
+  color: #33266e;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 input {
@@ -201,31 +290,161 @@ input {
 }
 form input {
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 20px;
-  width: 100%;
+  width: 60%;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
+  background-color: #33266e;
+  border: white;
+  color: white;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+
 button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
+  position:relative;
+  
+  background-color: transparent;
+  border: #111111;
+  border-style:inset;
+  border-color: #111111;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttoncolor {
+  position:relative;
+  left:32%;
+  right:50%;
+  width: 30%;
+  background-color: #a6607c;
+  border: white;
+  border-style:inset;
+  border-color: white;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+.buttoncolor:hover{
+  background: #c77395;
+}
+
+.filterbutton {
+  position:relative;
+  width: 70%;
+  background-color: transparent;
+  border: #111111;
+  border-width: 2.5px;
+  border-style:inset;
+  border-color: white;
+  color: white;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+.filterbutton:hover{
+  background: #c77395;
+}
+
+.buttonlogin {
+  background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+  color: white;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
 }
+
+.loginpress {
+  background-image: linear-gradient(to top, #a6607c 0%, #33266e 100%);
+  color: white;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%
+}
+.buttonlogin:hover{
+  background: #a6607c;
+}
+
+button:hover{
+  background: #d9d9d9;
+}
+.instructorbutton {
+  background: #33266e;
+  border:rgb(218, 205, 205);
+  border-style:inset;
+  color: #d9d9d9;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.instructorbutton:hover{
+  background: #5c41d3;
+}
+
+
+.editbiobutton {
+  position: relative;
+  left :200px;
+  bottom: 43px;
+  background: transparent;
+  border:#9d9d9d;
+  border-color: #33266e;
+  border-width: 1.5px;
+  border-style:groove;
+  color: #111111;
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius:0.25cm;
+  cursor: pointer;
+}
+
+.editemailbutton:hover{
+  background: #d9d9d9;
+
+}
+
+.editemailbutton {
+  position: relative;
+  left :200px;
+  bottom: 55px;
+  background: transparent;
+  border:#9d9d9d;
+  border-color: #33266e;
+  border-width: 1.5px;
+  border-style:groove;
+  color: #111111;
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius:0.25cm;
+  cursor: pointer;
+}
+.editbiobutton:hover{
+  background: #d9d9d9;
+
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -268,11 +487,16 @@ nav a {
 }
 /* auth forms */
 form.signup, form.login {
-  max-width: 400px;
+  border-color: #a6607c;
+  border-style:outset;
+  position: relative;
+width: 20%;
+height: 80%;
   margin: 40px auto;
-  padding: 20px;
-  background: #fff;
+  padding: 70px;
+  background: white;
   border-radius: 4px;
+  opacity:0.96;
 }
 
 nav button {
@@ -342,7 +566,7 @@ nav button {
   }
 
   .reports {
-    background: rgb(252, 252, 252);
+    background: #fff;
     border-bottom: 5px solid rgb(13, 54, 92);
     width: 90%;
     color: #135492;
@@ -350,25 +574,118 @@ nav button {
     margin: 5px auto;
     padding: 5px;
     justify-content: center;
-    margin-left: auto;
+    margin-left:auto;
     margin-right: auto;
-    cursor: pointer;
+    cursor:default;
+    opacity:0.98;
   }
-  .reports header {
+  .reports-header {
    padding: 10px;
-   background: #ffefef;
-   border: 1px solid rgb(13, 54, 92);
-   color: solid rgb(13, 54, 92);
+   background: transparent;
+   border: 1px solid #33266e ;
+   color: solid #33266e;
    border-radius: 4px;
    margin: 20px 0;
   }
+
+  h5 {
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #33266e ;
+    color: solid #33266e;
+    border-radius: 4px;
+    margin: 20px 0;
+   }
   
+   .adminform {
+    background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
+    border: #9d9d9d;
+    border-bottom: 5px solid #33266e ;
+    width: 40%;
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:737px;
+    margin-top: -737px;
+    padding: 5px;
+    justify-content: center;
+  
+    opacity:0.95
+  }
+
+  .crpform {
+    background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
+    border: #9d9d9d;
+    border-bottom: 5px solid #33266e ;
+    width: 40%;
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:737px;
+    margin-top: -1861px;
+    padding: 5px;
+    justify-content: center;
+  
+    opacity:0.95
+  }
+
+  .instform {
+    background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
+    border: #9d9d9d;
+    border-bottom: 5px solid #33266e ;
+    width: 40%;
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:737px;
+    margin-top: -737px;
+    padding: 5px;
+    justify-content: center;
+  
+    opacity:0.95
+  }
 
   .filter {
-    background: rgb(252, 252, 252);
+    background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
+    border: #9d9d9d;
+    border-bottom: 5px solid #33266e ;
+    width: 40%;
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    opacity:0.95
+  }
+
+  .filtercolour {
+    background-image: linear-gradient(to top, #33266e 0%, #a6607c 100%);
+    border: #9d9d9d;
+    margin-top: 30%;
     border-bottom: 5px solid rgb(13, 54, 92);
-    width: 90%;
-    color: #135492;
+    width: 50%;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .instructorbuttons {
+    background: transparent;
+    position: relative;
+    left : 0px;
+    border: #9d9d9d;
+    border-bottom: 1px solid rgb(13, 54, 92);
+    width: 40%;
+    color: #fff;
     border-radius: 4px;
     margin: 5px auto;
     padding: 5px;
@@ -377,6 +694,51 @@ nav button {
     margin-right: auto;
     cursor: pointer;
   }
+
+  .bio {
+    position: relative;
+     top: 20px;
+    background: #1c4c64;
+    background-color: white;
+    opacity:0.95;
+    border: #9d9d9d;
+    border-bottom: 2px solid #a6607c;
+    width: 35%;
+    height: fit-content;
+    color: #fff;
+    border-style: double;
+    border-radius: 14px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  
+
+  .biobody {
+    position: relative;
+    right:0px; 
+    background: transparent;
+    border: #9d9d9d;
+    border-bottom: 2px solid #a6607c;
+    width: 70%;
+    height: fit-content;
+    color: #33266e;
+    border-radius: 4px;
+    margin: 5px auto;
+    padding: 5px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+
 
   .filter h4 {
     font-size: 1.2em;
@@ -389,3 +751,31 @@ nav button {
     color: rgb(60, 65, 82);
     justify-content: center;
   }
+
+  h1 {
+    color: #33266e;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    font-size: 1.4em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.welcome {
+  background: transparent;
+  position: relative;
+  right : 360px;
+  top:156px;
+font-family: 'Times New Roman', Times, serif;
+font-size:40px;
+  width: 40%;
+  color: #d9d9d9;
+
+  margin: 5px auto;
+  padding: 5px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}

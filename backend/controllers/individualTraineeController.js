@@ -51,11 +51,23 @@ const paycourse=async(req,res)=>{
   catch(error){
     res.status(400).json({error:error.message})
   }
+}
   
    
       
 
+const getallreg= (req,res)=>{
+  reg.find((err,val)=>{
+      if(err){
+        console.log(err);
+      }
+      else{
+        res.status(200).json(val);
+      }
+      })
 }
+
+
 const getAllinvdTrainee= (req,res)=>{
     indv.find((err,val)=>{
         if(err){
@@ -101,11 +113,27 @@ const deleteIndvTrainee=  asyncHandler(async (req, res) => {
   const Indv = await indv.find({indv_user: req.body.indv_user})
   if (Indv.toString() === ""){
     res.status(400).json({error:'Trainee Not Found'})
+  }else{
+    try{
+      const courses=await reg.find({trainee_id : Indv._id})
+      for(let i=0;i<courses.length;i++){
+       await course.findOneAndUpdate({course_id : courses[i].course_id},{course_hype : 0},{new : true})
+      }
+      if(data.length === 0){
+        res.status(400).json({error:"No Courses Registered Yet"})
+      }else{
+        await indv.deleteOne({indv_user: req.body.indv_user})
+        res.status(200).json({Indv})
+      }
+    }
+    catch(error){
+      res.status(400).json({error:error.message})
+    }
   }
-   await indv.deleteOne({indv_user: req.body.indv_user})
-   res.status(200).json({Indv})
    
   })
+
+
 const updateindvtrainee=async(req,res)=>{
   try{
       await indv.findByIdAndUpdate(req.params.id,req.body,{new:true});
@@ -163,11 +191,20 @@ res.status(400).json({error:error.message})
 const sendCertificateEmail=async (req,res)=>{
   try{
     const indvidual=await indv.findOne({indv_user : req.body.indv_user})
+    
     const email=indvidual.indv_email
+
+    const coursesubject=await course.findOne({course_id : req.body.course_id})
+    
+    console.log(coursesubject)
+
+    const subjectt = coursesubject.course_id;
+    console.log(subjectt)
+
     var MailOptions={
       from:process.env.MAIL,
       to:email,
-      subject:'Certificate of Completion',
+      subject: "Certificate Of Completion  "   + subjectt,
       text:'Congratulations '+ indvidual.Name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
       attachments: [{
         filename: 'Certificate of Completion.pdf',
@@ -198,6 +235,7 @@ res.status(400).json({error:error.message})
 const del=async (req,res)=>{
 try{
   await reg.deleteMany()
+  await course.updateMany({},{course_hype : 0},{new : true})
   res.status(200).json("deleted")
 }
 catch(error){
@@ -207,19 +245,23 @@ res.status(400).json({error:error.message})
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
-  const course_id=req.body.userId
+  const course_id=req.body.course_id
+  const z = await course.findById(course_id)
+  const hype = z.course_hype
+  const newhype = (hype+1) 
   try{
     const indv=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
     if(indv){
       res.status(200).json("already registered")
     }
     else{
-   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
-   res.status(200).json(trainee_course)
+      const x = await course.findByIdAndUpdate(course_id,{course_hype : newhype },{new : true})
+      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
+      res.status(200).json(trainee_course,x)
     }
   }
   catch(error){
-    res.status(400).json({error:error.message})
+    res.status(400).json({error:error.message,z,hype,newhype})
   }
 }
 const getregistercourses=async (req,res)=>{
@@ -231,7 +273,11 @@ const getregistercourses=async (req,res)=>{
     for(let i=0;i<courses.length;i++){
      data[i]=await course.findById(courses[i].course_id)
     }
-    res.status(200).json(data)
+    if(data.length === 0){
+      res.status(400).json({error:"No Courses Registered Yet"})
+    }else{
+      res.status(200).json(data)
+    }
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -375,5 +421,22 @@ if (IndivTrainee) {
 
   
 
-module.exports={getAllinvdTrainee,getOneindvTrainee,setindvTrainee,deleteIndvTrainee, getAllinvdTrainees,
-  updateindvtrainee,registerIndTrainee, loginIndTrainee, getMe,changepassword,sendEmailIndv,registercourse,getregistercourses,rating,del,reviewinst,sendCertificateEmail,paycourse };
+module.exports={
+  getAllinvdTrainee,
+  getOneindvTrainee,
+  setindvTrainee,deleteIndvTrainee,
+  getAllinvdTrainees,
+  updateindvtrainee,
+  registerIndTrainee,
+  loginIndTrainee,
+  getMe,
+  changepassword,
+  sendEmailIndv,
+  registercourse,
+  getregistercourses,
+  rating,
+  del,
+  reviewinst,
+  sendCertificateEmail,
+paycourse , getallreg 
+}

@@ -216,7 +216,7 @@ const InstructorAcceptTerms =async(req,res)=>{
 }
 
 const InstructorSetDiscount =async(req,res)=>{
-  var g1 = new Date()
+  var g1 = new Date(req.body.course_discount_start)
   const g2 = new Date(req.body.course_discount_time)
   
   try{
@@ -235,7 +235,8 @@ const InstructorSetDiscount =async(req,res)=>{
 
     }
     else{
-      const Course1 = await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : 0},{new : true})
+      const TargetCourse = await course.findOne({course_id : req.body.course_id})
+      await course.findOneAndUpdate({course_id : req.body.course_id},{course_price_after_discount : TargetCourse.course_price},{new : true})
       res.status(400).json({error:'Invalid Date',g1,g2})
     }
   }

@@ -8,8 +8,15 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
+
+
 
 import SearchBarInst from "../components/SearchBarInst";
+import NewCourses from "./NewCourses";
+import Grid from '@mui/material/Unstable_Grid2';
+import CourseCard from "../components/CourseCard";
 
 const languages = [
     {
@@ -157,48 +164,60 @@ const handleSubmit = async(e) => {
 const navigate=useNavigate();
 
     return(
-    <div className="instructor">
+    <div className="">
 
-          
+      
 
-
-      <div className="filter">
+        
+      <div className="bio">
       <h1>Hello, {username}!</h1>
-      <body className="filter"> Email : {instructor_email}</body>
-      <body className="filter"> Biography : {instructor_biography}</body>
+      <body className="biobody"> Biography : {instructor_biography}</body>
+      <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
+
+      <body className="biobody"> Email : {instructor_email}</body>
+      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
+      <br></br>
+
+      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
+
+    <br></br>
+    <br></br>
+
+      
+    <div className = "buttoncolor" onClick={()=>{
+      navigate("/AddCourse");
+      }}>Add Course</div>
+
+
+      
+      <br/>
+      <br/>
+      <button className = "instructorbutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+        key={instid}>View Reports
+      </button>
+
+      &nbsp;&nbsp;&nbsp;
+
+      <button className="instructorbutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+        key={instid}>View Reviews
+      </button>
+      </div>
+
+
+
+   <div className="instructorbuttons">
+     
+     
+
+      <br/>
+      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
+        key={instid}>New Style
+      </button>
+   
+    </div>
 
     
 
-      <br/>
-      <button onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}>Show My Reviews
-      </button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
-        key={instid}>View Reports
-      </button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Change Biography</button>
-      <br/>
-      <br/>
-
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
-      <br/>
-      <br/>
-      
-      <button onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>change Email</button>
-      <br/>
-      <br/>
-      
-
-      <button onClick={()=>{
-      navigate("/AddCourse");
-      }}>Add Course</button>
-    </div>
     <br/>
     <br/>
 
@@ -216,10 +235,24 @@ const navigate=useNavigate();
      <br/>
      <br/>
 
-     <div className="filter"> 
-     <h3>All Courses: </h3>
-    {courses && courses.map((course) =>(
-    <CourseDetailsInst course={course} key={course._id} />))}          
+     <div className=""> 
+     <h3> Courses: </h3>
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCard course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+    </Box>            
     </div>
     <div className='filter'>
     <CountryForm/>
@@ -239,6 +272,7 @@ const navigate=useNavigate();
       <br />
       
 </div>
+
 
  )
 

@@ -14,9 +14,13 @@ const AddCoursePage=  ()=>{
 
 
     return(
-    <div className="filter">
+    <div className="pagesplain">
+        <br></br>
+    <div className="filtercolour">
+        <br></br>
     <CourseForm user={user} />
     {error && <div className="error">{error}</div>}
+    </div>
     </div>
 
  )

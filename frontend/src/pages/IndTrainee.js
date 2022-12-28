@@ -58,7 +58,7 @@ function IndTrainee() {
     
       const x = {query};
       const response = await fetch('/api/courses/SearchCourseByOpt', {
-        method: 'GET',
+        method: 'POST',
         body: JSON.stringify(x),
         headers: {
             'Content-Type' : 'application/json'

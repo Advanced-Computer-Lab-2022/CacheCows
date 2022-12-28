@@ -16,6 +16,8 @@ const CourseInfo = ({course}) => {
     const [show, setShow] = useState(false);    
     const { user } = useAuthContext()
 
+    const type = localStorage.getItem('type')
+      
     
 
   const handleClose = () => setShow(false);

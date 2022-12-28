@@ -44,10 +44,13 @@ const CoursesSchema = new mongoose.Schema({
 
      course_discount :{type: Number,  },
      course_price_after_discount :{type: Number,  },
+     course_discount_start : {type: Date},
      course_discount_time:{type: Date,  },
 
      course_total_ratings:{type:Number},
-     course_total_no_ratings:{type:Number}
+     course_total_no_ratings:{type:Number},
+
+     course_hype:{type:Number},
 
      
      

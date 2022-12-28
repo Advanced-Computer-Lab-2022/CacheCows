@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
+
 
 
 const InstEditBiography=()=>{
@@ -48,7 +51,9 @@ if(response.ok) {
 
 
 return(
-
+<div className="pagesplain"> 
+<br></br>
+<br></br>
     <form className="filter" onSubmit={handleSubmit}>
     <label>New Biography: </label>
         <input
@@ -59,6 +64,19 @@ return(
          <button>Change my Biography</button>
         {error && <div className="error">{error}</div>}
         </form>
+                        <div>
+            
+                                <Box
+                        component="img"
+                        sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+                        alt="Logo"
+                        src={rubixgif}
+                        />
+                        </div>
+
+        
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
 )
 }
 export default InstEditBiography

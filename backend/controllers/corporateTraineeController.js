@@ -135,13 +135,22 @@ res.status(400).json({error:'Email Not Found'})
 
 const sendCertificateEmail=async (req,res)=>{
   try{
-    const croprate=await corp.findOne({corp_user:req.body.corp_user})
-    const email=croprate.corp_email
+    const corporate=await corp.findOne({corp_user : req.body.corp_user})
+    
+    const email=corporate.corp_email
+
+    const coursesubject=await course.findOne({course_id : req.body.course_id})
+    
+    console.log(coursesubject)
+
+    const subjectt = coursesubject.course_id;
+    console.log(subjectt)
+
     var MailOptions={
       from:process.env.MAIL,
       to:email,
-      subject:'Certificate of Completion',
-      text:'Congratulations '+ croprate.corp_name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
+      subject: "Certificate Of Completion  "   + subjectt,
+      text:'Congratulations '+ corporate.corp_name+'! We are so proud of your achievment! Here is your certificate of Completion, Keep Grinding!',
       attachments: [{
         filename: 'Certificate of Completion.pdf',
         path: '/Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/Certificate of Completion.pdf',
@@ -172,14 +181,17 @@ const registercourse=async (req,res)=>{
   const corp_name=req.user.corp_name
   const flag=false
   try{
-    
-      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
+      const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id,flag:false})
       if(crop){
         res.status(200).json("already registered")
       }
       else{
-   const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:flag,trainee_name:corp_name,course_name:course_name,appeal:Appeal})
-   res.status(200).json(trainee_course)
+        const crs=await course.findOne({course_id:course_id})
+        const hype = crs.course_hype
+        const newhype = hype + 1
+        course.findOneAndUpdate({course_id : course_id},{course_hype : newhype },{new : true})
+        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
+        res.status(200).json(trainee_course)
       }
   }
   catch(error){

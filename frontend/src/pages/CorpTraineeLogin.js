@@ -15,8 +15,11 @@ const Login = () => {
   }
 
   return (
+    <div className="pages">
+      <br></br>
     <form className="login" onSubmit={handleSubmit}>
-      <h3>Log In</h3>
+      <br></br>
+      <h1> Welcome</h1>
       
       <label>Username :</label>
       <input 
@@ -31,12 +34,25 @@ const Login = () => {
         value={password} 
       />
       
-         <button disabled={isLoading}>Log in</button>
+         <button className="loginpress" disabled={isLoading}>Log in</button>
          <p>
-         <button onClick={()=>navigate("/cropforgetpassword")}>Forget password</button>
+         <button onClick={()=>navigate("/cropforgetpassword")}>Forgot password</button>
          </p>
        
       {error && <div className="error">{error}</div>}    </form>
+
+      <div>
+      
+      <br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/><br/>
+      <br/>
+
+      </div>
+
+      </div>
   )
 }
 

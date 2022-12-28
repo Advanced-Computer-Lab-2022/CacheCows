@@ -2,7 +2,8 @@ import "./App.css";
 import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from './hooks/useAuthContext'
 
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -33,6 +34,7 @@ import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
 import Indvregistered from "./pages/IndvregisterCourse"
 import AccessDenied from "./pages/AccessDenied"
 import InstructorAcceptTerms from "./pages/termsandconditions";
+
 import ResponsiveAppBar from "./components/NavBarBS";
 import Corpratecourse from "./pages/Corpratecourse"
 import Corpreviewinst from "./pages/Corpreviewinst"
@@ -78,6 +80,8 @@ import AddReportPage from "./pages/AddReportPage";
 import AdminReportsPage from "./pages/AdminReportPage";
 import ReportFUPage from "./pages/ReportFUPage";
 import Viewcourserequests from "./pages/Courserequests"
+import NewCourses from "./pages/NewCourses";
+import AdminPromo from "./pages/AdminPromo";
 import AcceptRequests from "./pages/Acceptreq";
 
 function App() {
@@ -93,8 +97,9 @@ function App() {
     
     <div className="App">
       <BrowserRouter>
-
+      <div> 
       <ResponsiveAppBar/>
+      </div>
        <div className="pages">
         <Routes>
         <Route 
@@ -356,12 +361,33 @@ function App() {
             />
            
 
+            <Route 
+            path="/NewCourses"
+            element={<NewCourses/>}
+            />
+
+            <Route 
+            path="/AdminPromo"
+            element={<AdminPromo/>}
+            />
+
+            <Route 
+            path="/NewCourses"
+            element={<NewCourses/>}
+            />
+
+            <Route 
+            path="/AdminPromo"
+            element={<AdminPromo/>}
+            />
+
 
 
         </Routes>
        
       </div>
       </BrowserRouter>
+      <ToastContainer />
       </div>
   );
       

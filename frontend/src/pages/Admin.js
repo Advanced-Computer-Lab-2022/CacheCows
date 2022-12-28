@@ -108,39 +108,51 @@ const Admin = () => {
   
     return (
       <div>
+        <br></br>
       <div className="Admin">    
-        <strong></strong>
+        <h2>Admins</h2>
         <div className="All-Admins">
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
+       
+        </div>
         <div className="filter">
         <AdminForm />
         </div>
-        </div>
  
-      
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <div className="All-CorporateTrainees">
+      
+      <h2>Corporate Trainees</h2>
+      <div className="All-Admins">
         {crptrainees && crptrainees.map((CrpTrainee) => (
           <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
         ))}
+      
+      </div>
       <div className="filter">
       <AdminAddCrpTraineeForm />
       </div>
-      </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
       
 
 
-
-      <div className="All-Instructors">
+      <h2>Instructors</h2>
+      <div className="All-Admins">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />
         ))}
       </div> 
+      
+      </div>
       <div className="filter">
       <AdminAddInstForm />
-      </div>
       </div>
       <br/>
 
@@ -166,6 +178,16 @@ const Admin = () => {
       >
         {" "}
         Check All Reports!
+      </button>
+
+      <br/>
+      <br/>
+
+      <button
+        onClick={() => window.location.href=`/AdminPromo?admin_id=${user._id}`}
+      >
+        {" "}
+        Add Promotions!
       </button>
       <button onClick={()=>{navigate("/viewcourserequests")}}>view courses requests</button>
       </div>

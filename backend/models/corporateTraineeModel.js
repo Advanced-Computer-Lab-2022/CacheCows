@@ -31,7 +31,10 @@ const corpTraineeSchema= new mongoose.Schema(
         },
         type:{
             type:String
-        }
+        },
+        acceptTerms:{type: String
+        },
+
     }
 
 )
