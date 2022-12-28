@@ -272,13 +272,17 @@ After Fnishing all of these, you should have your package.json file looking like
 # Frontend Process 
 
 ### 
-This was the previous Home page interface 
+This was the First Home page interface 
 <img src="/frontendold.jpeg" alt="Alt text" title="Optional title">
 
-Currently Developed to this 
+Then Developed into this 
 <img src="/frontendnow.png" alt="Alt text" title="Optional title">
 
-And will Soon develop to better one 
+And Now it is this  
+
+<img src="/frontendnow2.png" alt="Alt text" title="Optional title">
+
+
 
 # Tokens and local Storage 
 whenever a user logs in, a token is created and passed to the backend to verify the user and determine his access, In the next screenshot you can find the user data that are stored in the console, these values are retrieved from the database and keep passed through the website to retrieve user's correct information only. This Also creates a second layer of protection in the frontend as only the authorized user gets to access the allowed pages and information. 
