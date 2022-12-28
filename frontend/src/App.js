@@ -42,10 +42,13 @@ import Corpreviewinst from "./pages/Corpreviewinst"
 
 
 import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Signup from './pages/IndTraineeSignup'
 
 import IndTraineeSignup from './pages/IndTraineeSignup'
 import InstSignup from './pages/InstSignup'
+import IndTraineeNew from './pages/IndTraineeNew'
+
+
 
 import InstLogin from './pages/InstLogin'
 import IndTraineeLogin from './pages/IndTraineeLogin'
@@ -252,7 +255,10 @@ function App() {
             element={<InstEditBiography/>}
             />
             
-
+            <Route 
+            path="/IndTraineeNew"
+            element={<IndTraineeNew/>}
+            />
 
             <Route 
             path="/InstSetCourseDiscount"

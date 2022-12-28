@@ -167,6 +167,8 @@ const navigate=useNavigate();
     <div className="">
 
       
+<br></br>
+<br></br>
 
         
       <div className="bio">

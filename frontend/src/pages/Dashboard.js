@@ -212,7 +212,7 @@ const Dashboard = () => {
       &nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;
-  <button className="buttonlogin" onClick={()=>navigate("/Signup")}>Sign Up</button>
+  <button className="buttonlogin" onClick={()=>navigate("/IndTraineeSignup")}>Sign Up</button>
 
   </div>
 

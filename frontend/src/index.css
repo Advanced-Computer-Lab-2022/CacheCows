@@ -388,6 +388,22 @@ button {
 button:hover{
   background: #d9d9d9;
 }
+
+.buttonwhite {
+  background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+  color: #a6607c;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+.buttonwhite:hover{
+
+  background: #d9d9d9;
+
+}
+
+
 .instructorbutton {
   background: #33266e;
   border:rgb(218, 205, 205);

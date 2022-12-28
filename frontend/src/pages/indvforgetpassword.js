@@ -3,6 +3,19 @@ const Indvtforgetpassword=()=>{
 return(
     <div className="filter">
         <Forgetpass/>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
     </div>
 )
 }

@@ -43,7 +43,10 @@ const Indvrate=()=>{
         }
     }
     return(
-        
+        <div>
+            <br/>
+            <br/>
+
         <form className="filter" onSubmit={handleSubmit}>
             <h2>Rate your instructor</h2>
         <Stack spacing={50}>
@@ -58,7 +61,16 @@ const Indvrate=()=>{
            <p ></p>
             <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
             </form>
-          
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            </div>
+
      )
 
 }

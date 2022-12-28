@@ -19,17 +19,14 @@ const navigate=useNavigate();
       
       
 
-      <div>
-                      {''}
-
-                      
-                     </div>
-                     
+      <br/>
+      <br/>
+                           
 
 
       <div>
 
-      <button className="buttonlogin">
+      <button className="buttonwhite">
         <Link onClick={() => window.location.href=`/InstLogin`}>
                 <Box
                   component="img"
@@ -54,7 +51,7 @@ const navigate=useNavigate();
       &nbsp;&nbsp;&nbsp;
 
 
-      <button className="buttonlogin">
+      <button className="buttonwhite">
         <Link onClick={() => window.location.href=`/IndTraineeLogin`}>
                 <Box
                   component="img"
@@ -79,7 +76,7 @@ const navigate=useNavigate();
 
 
 
-      <button className="buttonlogin">
+      <button className="buttonwhite">
         <Link onClick={() => window.location.href=`/CorpTraineeLogin`}>
                 <Box
                   component="img"
@@ -104,7 +101,7 @@ const navigate=useNavigate();
 
 
 
-      <button className="buttonlogin">
+      <button className="buttonwhite">
         <Link onClick={() => window.location.href=`/AdminLogin`}>
                 <Box
                   component="img"
@@ -129,7 +126,7 @@ const navigate=useNavigate();
       
       <br />
       <div>
-      <button className="buttonlogin"
+      <button className="buttonwhite"
         onClick={() => {
           navigate("/Signup");
         }}
@@ -146,7 +143,7 @@ const navigate=useNavigate();
       <br/>
       <br/>
 
-      <button className="buttonlogin"
+      <button className="buttonwhite"
         onClick={() => {
           navigate("/");
         }}
