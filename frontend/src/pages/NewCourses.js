@@ -177,9 +177,11 @@ const navigate=useNavigate();
 
       <h1>Hello, {username}!</h1>
       <body className="biobody"> Biography : {instructor_biography}</body>
+      <br></br>
       <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
 
       <body className="biobody"> Email : {instructor_email}</body>
+      <br></br>
       <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
       <br></br>
 
