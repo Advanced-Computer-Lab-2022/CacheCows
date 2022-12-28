@@ -352,7 +352,7 @@ Main Hooks used in this project are
 
 - #### `UseEffect` - adds the ability to perform side effects from a function component.
 
-  <img src="/useeffect.png" alt="Alt text" title="Optional title">
+  <img src="/useffect.png" alt="Alt text" title="Optional title">
 - #### `Custom Login/Signup Hooks` - implements the functionality of a login from the client side, and does the storage in local storage
 
   <img src="/loginhook.png" alt="Alt text" title="Optional title">
