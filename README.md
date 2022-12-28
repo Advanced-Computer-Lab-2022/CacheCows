@@ -322,16 +322,20 @@ Here is a sample of the text generated on it
 ## Fetching Methods API
 All methods created in the controller files shousl be added to the router file with their corresponding CRUD function. Then, these methods can be fetched to frontend in any component requested using the follwing as example : 
 
-### ` 
+### 
+```
+const response = await fetch(/api/instructors/InstructorEditBiography?userId=${userId} , { 
+           method: 'POST',`
+           body: JSON.stringify(inst),`
+            headers: {`
+               'Content-Type' : 'application/json',`
+                'Authorization': Bearer ${user.token} 
+            }
+    })
+```
 
-`const response = await fetch(/api/instructors/InstructorEditBiography?userId=${userId} , { `
-  `          method: 'POST',`
-   `         body: JSON.stringify(inst),`
-    `        headers: {`
-     `           'Content-Type' : 'application/json',`
-      `          'Authorization': Bearer ${user.token} `
-       `     }`
-        `})`
+
+
 
  Example of API Routes :
 
@@ -342,6 +346,7 @@ All methods created in the controller files shousl be added to the router file w
 ## Hooks
 Main Hooks used in this project are 
 - #### `UseState` - We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. 
+
   <img src="/usestate.png" alt="Alt text" title="Optional title">
 
 
@@ -352,6 +357,35 @@ Main Hooks used in this project are
 
   <img src="/loginhook.png" alt="Alt text" title="Optional title">
 
+
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Advanced-Computer-Lab-2022/CacheCows
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
 
 
 

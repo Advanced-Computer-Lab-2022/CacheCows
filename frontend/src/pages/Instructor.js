@@ -166,10 +166,7 @@ const navigate=useNavigate();
     return(
     <div className="">
 
-      
-<br></br>
-<br></br>
-
+  
         
       <div className="bio">
       <h1>Hello, {username}!</h1>
