@@ -9,6 +9,11 @@ import ResponsiveAppBar from "../components/NavBarBS";
 import bganim from '../assets/bganim.gif';
 import rubixgif from '../assets/Rubix.gif';
 import rubixgif2 from '../assets/Rubix2.gif';
+import rubixphone from '../assets/rubixphone.gif';
+import rubixstudents from '../assets/rubixstudents.png';
+import { useNavigate, useParams } from "react-router-dom";
+
+
 
 import stats from '../assets/stats.gif';
 
@@ -24,6 +29,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 const Dashboard = () => {
   const [courses, setCourses] = useState(null)
   const [featured, setFeatured] = useState(null)
+  const navigate=useNavigate();
+
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -96,6 +103,24 @@ const Dashboard = () => {
 
      <SearchBar></SearchBar>
      </div>
+
+     <br></br>
+     <br></br>
+     <br></br>
+
+     <div>               
+  <Box
+  component="img"
+  sx={{ height: 500, width: 1500 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={rubixphone} />
+  </div>
+
+  <br></br>
+  <br></br>
+  <br></br>
+
+
      <div className=""> 
      <h3> Courses: </h3>
      <Box >
@@ -115,6 +140,88 @@ const Dashboard = () => {
       </Grid>
     </Box> 
     </div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+    <div>               
+  <Box
+  component="img"
+  sx={{ height: 500, width: 1500 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={rubixstudents} />
+  <br></br>
+  <div>
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+  <button className="buttonlogin" onClick={()=>navigate("/Signup")}>Sign Up</button>
+
+  </div>
+
+  </div>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+
 
     </div>
   )
