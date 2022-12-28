@@ -119,7 +119,7 @@ const Dashboard = () => {
                   
                   <Box
                   component="img"
-                  sx={{ height: 400, width: 1200 , padding : 0, margins: 0}}
+                  sx={{ height: 500, width: 1500 , padding : 0, margins: 0}}
                   alt="Logo"
                   src={rubixstudentsblack} />
                   </div>

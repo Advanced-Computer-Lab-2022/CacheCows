@@ -423,7 +423,7 @@ button:hover{
 .editbiobutton {
   position: relative;
   left :200px;
-  bottom: 43px;
+  bottom: 68px;
   background: transparent;
   border:#9d9d9d;
   border-color: #33266e;
@@ -444,7 +444,7 @@ button:hover{
 .editemailbutton {
   position: relative;
   left :200px;
-  bottom: 55px;
+  bottom: 63px;
   background: transparent;
   border:#9d9d9d;
   border-color: #33266e;
@@ -729,7 +729,7 @@ nav button {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    cursor: pointer;
+    cursor: auto;
     font-size: 1em;
   }
 
@@ -750,7 +750,7 @@ nav button {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    cursor: pointer;
+    cursor:auto;
     font-size: 1em;
   }
 
