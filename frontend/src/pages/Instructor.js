@@ -202,19 +202,6 @@ const navigate=useNavigate();
       </button>
       </div>
 
-
-
-   <div className="instructorbuttons">
-     
-     
-
-      <br/>
-      <button onClick={() => window.location.href=`/NewCourses?user_id=${instid}`}
-        key={instid}>New Style
-      </button>
-   
-    </div>
-
     
 
     <br/>

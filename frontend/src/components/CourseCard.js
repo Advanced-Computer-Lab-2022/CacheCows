@@ -133,7 +133,7 @@ function sub3() {
   };
 
   return (
-    <Card sx={{ maxWidth: 350, border : 4 }} >
+    <Card sx={{ maxWidth: 350}} >
       <CardHeader
         avatar={
           <Box
@@ -172,7 +172,7 @@ src={rubix}
         {prv3 && (<iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>)}
       </CardContent>
       
-      <CardContent sx={{border : 1}}>
+      <CardContent>
         <Typography variant="body2" color="text.secondary" justifyContent={"center"} boxSizing="fixed">
             {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
             {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
@@ -187,29 +187,33 @@ src={rubix}
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
       <Button
-        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
-        sx={{ marginTop : 0,marginLeft : 11,border : 2 ,background : '#a6607c', color: '#fff'}}
+        onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
+        sx={{ marginTop :5,marginLeft : 1 ,border : 2, background : '#a6607c', color: '#fff' }}
         size='small'
+        background-color= '#a6607c'
         color='primary'>
           Check Course
           <CoPresentIcon sx={{marginLeft : 1 }}/>
         </Button>
 
+        <Button aria-label="share" edge='end' 
+        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'
+         color= 'primary'>
+          Check Reviews
+          <ReviewsRoundedIcon/>
+        </Button>
+      </CardActions>
+      <CardActions>
+        
       <Button aria-label="share" edge='end' 
         color='primary'
         onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
-        sx={{ marginTop : 5,marginLeft : 12, border : 2 , color :'#a6607c'}}
+        sx={{ marginTop : 0,marginLeft : 15, border : 2 , color :'#a6607c'}}
         size='small'>
           Set Discount
-
-        </Button>
-        <Button aria-label="share" edge='end' 
-        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 15,marginLeft : -17, border : 2, color :'#a6607c' }}
-        size='small'
-        color='primary'>
-          Check Reviews
-          <ReviewsRoundedIcon/>
         </Button>
       </CardActions>
       <CardActions sx={{marginTop : 0}}>

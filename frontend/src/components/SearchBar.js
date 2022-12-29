@@ -2,6 +2,7 @@ import { useState } from "react";
 import { json } from "react-router-dom";
 import CourseDetails from "./CourseDetails";
 import { useAuthContext } from '../hooks/useAuthContext'
+import CourseCard from "./CourseCard";
 
 
 
@@ -64,7 +65,7 @@ const SearchBar = () => {
 
         <div className="courses"> 
         {courses && courses.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
+        <CourseCard course={course} key={course._id} />))}          
         </div>
        </form>
        </div>

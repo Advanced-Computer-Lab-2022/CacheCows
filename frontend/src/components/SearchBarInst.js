@@ -2,7 +2,7 @@ import { useState } from "react";
 import { json } from "react-router-dom";
 import CourseDetails from "./CourseDetails";
 import { useAuthContext } from '../hooks/useAuthContext'
-
+import CourseCard from "./CourseCard";
 
 
 
@@ -49,7 +49,7 @@ const SearchBarInst = () => {
     }
 
     return (
-        <div className="filter">
+        <div className="dashboardpage">
        <form className="create" onSubmit={handleSubmit}>
 
         <input
@@ -63,9 +63,9 @@ const SearchBarInst = () => {
         <button>Search</button>
         {error && <div className="error">{error}</div>}
 
-        <div className="courses"> 
+        <div className="dashboardpage"> 
         {courses && courses.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
+        <CourseCard course={course} key={course._id} />))}          
         </div>
        </form>
        </div>
