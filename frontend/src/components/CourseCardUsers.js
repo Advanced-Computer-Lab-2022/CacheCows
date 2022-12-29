@@ -38,6 +38,7 @@ import ReviewsRounded from '@mui/icons-material/ReviewsRounded';
 import ThumbsUpDownRoundedIcon from '@mui/icons-material/ThumbsUpDownRounded';
 import rubix from '../assets/rubixwhite.png';
 import Box from '@mui/material/Box';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 
 const styles = theme => ({
@@ -187,41 +188,61 @@ src={rubix}
         </Typography>
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -9}}>
-      <IconButton aria-label="add to favorites" 
-        color='primary'
+      <Button
+        onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
+        sx={{ marginTop :5,marginLeft : 3 ,border : 2, background : '#a6607c', color: '#fff' }}
+        size='small'
+        background-color= '#a6607c'
+        color='primary'>
+          Check Course
+          <CoPresentIcon sx={{marginLeft : 1 }}/>
+        </Button>
+
+      <Button aria-label="add to favorites" 
         onClick={()=>window.location.href=`/Indvratecourse?userId=${course._id}`}
-        sx={{ marginTop : -5,marginLeft : 12 }}
-        size='small'>
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'
+         color= 'primary' >
           Rate Course
           <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}}/>
-        </IconButton>
+        </Button>
+        </CardActions>
 
-        <IconButton aria-label="add to favorites" 
-        color='primary'
-        onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}
-        sx={{ marginTop : 2,marginLeft : -19 }}
-        size='small'>
-          Rate Instructor
-          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}} />
-        </IconButton>
+        <CardActions disableSpacing='false' sx={{marginTop : -5}}>
 
-        <IconButton aria-label="add to favorites" 
+        <Button aria-label="add to favorites" 
         color='primary'
         onClick={()=>window.location.href=`/Indvreviewinst?userId=${course.instructor_id}`} 
-        sx={{ marginTop : 9,marginLeft : -21.8 }}
-        size='small'>
+        sx={{marginRight : -9, marginTop : 5,marginLeft : 3, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'>
           Add Review
           <RateReviewRoundedIcon sx={{marginLeft : 1}} />
-        </IconButton>
+        </Button>
 
-        <IconButton aria-label="share" edge='end' 
-        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 16,marginLeft : -18.2 }}
+        <Button aria-label="add to favorites" 
+        color='primary'
+        onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}
+        sx={{ marginTop : 5,marginLeft : 15, border : 2 , color :'#a6607c' }}
         size='small'
-        color='primary'>
+        background-color='#a6607c'>
+          Rate Instructor
+          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}} />
+        </Button>
+        </CardActions>
+
+        <CardActions disableSpacing='false' sx={{marginTop : -5}}>
+        <Button aria-label="share" edge='end' 
+        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'
+         color= 'primary' >
           Check Reviews
           <ReviewsRoundedIcon sx={{marginLeft : 1}} />
-        </IconButton>
+        </Button>
+
       </CardActions>
       <CardActions sx={{marginTop : 0}}>
         <IconButton aria-label="share" edge='end'>
