@@ -571,6 +571,13 @@ nav button {
   cursor: pointer;
   
 }
+.btn:disabled {
+  margin-top: 20px;
+  padding: 10px 30px;
+  cursor: default;
+  background-color: #33266e;
+  
+}
 
 .terms {
   font-size: 5px;

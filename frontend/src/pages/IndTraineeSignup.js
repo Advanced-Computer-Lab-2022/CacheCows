@@ -81,7 +81,8 @@ const Signup = () => {
       />
       
       <div>
-      <label>  Accept our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
+        <br></br>
+      <label>  You can not Sign up without accepting our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
 
           <input type="checkbox" id="agree" onChange={checkboxHandler} />
         </div>
