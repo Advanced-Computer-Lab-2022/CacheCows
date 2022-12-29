@@ -41,7 +41,12 @@ const Indvratecourse=()=>{
         }
     }
     return(
-        
+        <div>
+
+<br></br>
+<br></br>
+<br></br>
+
         <form className="filter" onSubmit={handleSubmit} >
             <h2>Rate your course</h2>
         <Stack spacing={4}>
@@ -58,6 +63,20 @@ const Indvratecourse=()=>{
             
             {error && <div className="error">{error}</div>}
             </form>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    </div>
+
           
      )
 

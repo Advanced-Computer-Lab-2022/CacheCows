@@ -16,7 +16,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
-import logo2 from '../assets/RUBIX3.png';
 import logonew from '../assets/rubixnew.png';
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -169,14 +168,14 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' ,left:25}}
+                sx={{ my: 2, color: 'white', display: 'block' ,left:880}}
                 >
                 <Typography textAlign="center" onClick={() => window.location.href=`Login`}> Login</Typography>
                </Button>
 
                <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' ,left:45}}
+                sx={{ my: 2, color: 'white', display: 'block' ,left:900}}
                >
                 <Typography textAlign="center" onClick={() => window.location.href=`/Signup`}> Sign up</Typography>
                </Button>
@@ -187,7 +186,7 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:880}}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:850, cursor: 'text'}}
                 >
                 <Typography textAlign="center"  position={{
                 vertical: 'top',

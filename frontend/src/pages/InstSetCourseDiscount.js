@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
+
 
 
 const InstSetCourseDiscount=()=>{
@@ -55,6 +58,9 @@ if(response.ok) {
 
 
 return(
+<div className="pagesplain">
+
+
 
     <form className="filter" onSubmit={handleSubmit}>
     <label>Course Discount % </label>
@@ -79,6 +85,28 @@ return(
          <button>Set Discount</button>
         {error && <div className="error">{error}</div>}
     </form>
+
+
+<div>
+            
+            <Box
+    component="img"
+    sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+    alt="Logo"
+    src={rubixgif}
+    />
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+</div>
+
 )
 }
 export default InstSetCourseDiscount

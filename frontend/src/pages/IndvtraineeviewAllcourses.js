@@ -30,6 +30,9 @@ useEffect(()=>{
 },[user])
 return(
     <div >
+      <br/>
+      <br/>
+
         <FForm></FForm>
 
         <br/>
@@ -40,7 +43,17 @@ return(
  {courses && courses.map((course) =>(
     <TCourseDetails course={course} key={course._id} />))} 
 
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
     </div>
 )
 }

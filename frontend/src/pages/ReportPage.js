@@ -44,8 +44,15 @@ const ReportsPage = () => {
   }, [])
 
   return (
+    <div>
+            <br/>
+      <br/>
+
+      <br/>
+
     <div className="filter">
-      <br></br>
+            <br/>
+
       <div classname="courses"> 
       <div className="reports">
       <h5>Your Reports!</h5>
@@ -63,6 +70,26 @@ const ReportsPage = () => {
       <br/>
       <br/>
       <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      <br/>
+      <br/>
+      <br/>
+      <br/>      <br/>
+      <br/>
+      <br/>
+      <br/>      <br/>
+      <br/>
+      <br/>
+      <br/>      <br/>
       <br/>
       <br/>
       <br/>

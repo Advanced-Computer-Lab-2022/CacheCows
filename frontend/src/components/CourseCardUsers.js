@@ -36,6 +36,9 @@ import PercentRoundedIcon from '@mui/icons-material/PercentRounded';
 import { alignProperty } from '@mui/material/styles/cssUtils';
 import ReviewsRounded from '@mui/icons-material/ReviewsRounded';
 import ThumbsUpDownRoundedIcon from '@mui/icons-material/ThumbsUpDownRounded';
+import rubix from '../assets/rubixwhite.png';
+import Box from '@mui/material/Box';
+
 
 const styles = theme => ({
   edgeEnd: {
@@ -134,9 +137,12 @@ function sub3() {
     <Card sx={{ maxWidth: 345, marginTop : 20 }} >
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Box
+component="img"
+sx={{ height: 70, width: 70 , padding : 0, margins: 0}}
+alt="Logo"
+src={rubix}
+/>
         }
         action={
             <IconButton aria-label="settings"  variant="contained" onMouseEnter={handleClick} >
@@ -240,7 +246,7 @@ function sub3() {
         </CardActions>
         <CardActions sx={{marginTop : -15,marginLeft : 16.5,marginBottom : -5}}>
         {Dflag && (
-        <IconButton color='info' className='xyz' size='small' sx={{marginLeft : 10,marginRight : -20, marginTop : 10}}>
+        <IconButton color='info' className='xyz' size='small' sx={{marginLeft : 10,marginRight : -20, marginTop : 12, color : '#a6607c'}}>
         <MonetizationOnRoundedIcon/>
         {course.course_price_after_discount}
          </IconButton>

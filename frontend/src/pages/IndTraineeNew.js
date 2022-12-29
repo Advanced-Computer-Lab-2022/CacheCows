@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import "../App.css";
@@ -43,13 +44,23 @@ const languages = [
   }
 ]
 
-function IndTrainee() {
+function IndTraineeNew() {
+
+    const {user} = useAuthContext();
+
+
   const paramss = new URLSearchParams(window.location.search);
   const indvid = paramss.get('userId');
+
+
+
 
   const [query, setQuery] = useState("");
   const [courses, setCourses] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([])
+  const [username , setname] = useState('');
+//   setname(user.name);
+
   const navigate=useNavigate();
 
   useEffect(() => {
@@ -77,15 +88,35 @@ function IndTrainee() {
     };
     if (query.length === 0 || query.length > 2) fetchData();
   }, [query]);
-  const {user} = useAuthContext()
   
 
   return (
 
     <div >
+<br/>
 
+<div className="bio">
+      <h1> My Profile  </h1>
+      
 
+      <button on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
+    > Change password</button>
+    <br></br>
+    <br></br>
+    <button onClick={()=>navigate("/Indvview")}> View all Courses</button>
+      
+      <br/>
+      <br/>
+      <button onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
+        key={indvid}>View Reports
+      </button>
 
+      &nbsp;&nbsp;&nbsp;
+
+      
+      </div>
+<br>
+</br>
       
       <SearchBar></SearchBar>
       <br/>
@@ -107,13 +138,16 @@ function IndTrainee() {
         key={indvid}>View Reports
       </button>
       
-
-      <button onClick={() => window.location.href=`/IndTraineeNew?userId=${indvid}`}
-        key={indvid}>New Style
-      </button>
-
-
    </div>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+
    </div>
    
 
@@ -121,4 +155,35 @@ function IndTrainee() {
 }
 
 
-export default IndTrainee;
+export default IndTraineeNew;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

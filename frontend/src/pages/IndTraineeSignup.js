@@ -75,14 +75,15 @@ const Signup = () => {
       />
       <label>Birthday:</label>
       <input 
-        type="indv_bd" 
+        type="date" 
         onChange={(e) => setBirthday(e.target.value)} 
         value={indv_bd} 
       />
       
       <div>
+      <label>  Accept our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
+
           <input type="checkbox" id="agree" onChange={checkboxHandler} />
-          <label>  Accept our </label> <a rel="noopener noreferrer" href="http://localhost:3000/IndTraineetermsandconditions" target="_blank">Terms & Conditions</a>
         </div>
 
         <button disabled={!agree} className="btn" onClick={handleSubmit}>

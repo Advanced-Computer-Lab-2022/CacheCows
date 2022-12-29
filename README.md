@@ -272,13 +272,17 @@ After Fnishing all of these, you should have your package.json file looking like
 # Frontend Process 
 
 ### 
-This was the previous Home page interface 
+This was the First Home page interface 
 <img src="/frontendold.jpeg" alt="Alt text" title="Optional title">
 
-Currently Developed to this 
+Then Developed into this 
 <img src="/frontendnow.png" alt="Alt text" title="Optional title">
 
-And will Soon develop to better one 
+And Now it is this  
+
+<img src="/frontendnow2.png" alt="Alt text" title="Optional title">
+
+
 
 # Tokens and local Storage 
 whenever a user logs in, a token is created and passed to the backend to verify the user and determine his access, In the next screenshot you can find the user data that are stored in the console, these values are retrieved from the database and keep passed through the website to retrieve user's correct information only. This Also creates a second layer of protection in the frontend as only the authorized user gets to access the allowed pages and information. 
@@ -298,6 +302,92 @@ This piece of code in the login hooks allows so
 ### ` navigate(`/Home?userId=${user._id}`) `
 
 A user can access Their Profile, and find all of the options they can do right away. 
+
+# API and Communications
+
+## Nodemailer
+The module used for sending emails to users ( emails containing for instance password recovery links, Pdf geneated certficates, etc.)
+NodeMailer is a module for the Node JS applications that allow for easy email sending. Its API is simple: it requires you to create a transporter object, MailOptions Objects, and use the Transporter.sendMail method.
+Here is how it is initiliazed to be used :
+<img src="/nodemailer.png" alt="Alt text" title="Optional title">
+
+
+## JSPDF
+jsPDF is an open-source library for generating PDF documents using JavaScript. It provides multiple options to generate PDF files, with custom properties.
+Here is a sample of the text generated on it
+ - Note : Image must be encoded in base64, this is done through https://www.base64-image.de/  for example
+ 
+ <img src="/jspdf.png" alt="Alt text" title="Optional title">
+ 
+## Fetching Methods API
+All methods created in the controller files shousl be added to the router file with their corresponding CRUD function. Then, these methods can be fetched to frontend in any component requested using the follwing as example : 
+
+### 
+```
+const response = await fetch(/api/instructors/InstructorEditBiography?userId=${userId} , { 
+           method: 'POST',`
+           body: JSON.stringify(inst),`
+            headers: {`
+               'Content-Type' : 'application/json',`
+                'Authorization': Bearer ${user.token} 
+            }
+    })
+```
+
+
+
+
+ Example of API Routes :
+
+  <img src="/routes.png" alt="Alt text" title="Optional title">
+
+
+
+## Hooks
+Main Hooks used in this project are 
+- #### `UseState` - We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. 
+
+  <img src="/usestate.png" alt="Alt text" title="Optional title">
+
+
+- #### `UseEffect` - adds the ability to perform side effects from a function component.
+
+  <img src="/useffect.png" alt="Alt text" title="Optional title">
+- #### `Custom Login/Signup Hooks` - implements the functionality of a login from the client side, and does the storage in local storage
+
+  <img src="/loginhook.png" alt="Alt text" title="Optional title">
+
+
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Advanced-Computer-Lab-2022/CacheCows
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
 
 # Color Reference
 
@@ -326,7 +416,7 @@ Created by Omar Aboelazm
 
 ## License
 
-Copyright (c) [2022] [Omar Aboelazm - CacheCows]
+Copyright (c) [2022] [CacheCows]
 
 Permission to use this project is hereby requested from a CacheCow team member, free of charge, for any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

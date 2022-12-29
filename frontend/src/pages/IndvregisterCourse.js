@@ -2,6 +2,8 @@ import { useState,useEffect } from "react";
 import { json } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
     
 
     const Indvregistered=()=>{
@@ -37,6 +39,9 @@ import { useNavigate, useParams } from "react-router-dom"
         }
 
         return(
+            <div className="pagesplain">
+
+
             <form className="create" onSubmit={handleSubmit} >
             <h2>Enter your Appeal</h2>
             <input type="text" 
@@ -47,6 +52,27 @@ import { useNavigate, useParams } from "react-router-dom"
            <p ></p>
             <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
             </form>
+            <br></br>
+            <div>
+            
+                                <Box
+                        component="img"
+                        sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+                        alt="Logo"
+                        src={rubixgif}
+                        />
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+        </div>
+
         )
     }
     export default  Indvregistered

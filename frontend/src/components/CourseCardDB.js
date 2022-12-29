@@ -34,6 +34,12 @@ import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded';
 import PercentRoundedIcon from '@mui/icons-material/PercentRounded';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
+import rubix from '../assets/rubixwhite.png';
+import Box from '@mui/material/Box';
+
+
+
 
 const styles = theme => ({
   edgeEnd: {
@@ -132,9 +138,12 @@ function sub3() {
     <Card sx={{ maxWidth: 345 }} >
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Box
+component="img"
+sx={{ height: 70, width: 70 , padding : 0, margins: 0}}
+alt="Logo"
+src={rubix}
+/>
         }
         action={
             <IconButton aria-label="settings"  variant="contained" onMouseEnter={handleClick} >
@@ -179,18 +188,30 @@ function sub3() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
-        <IconButton aria-label="share" edge='end' 
-        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 0,marginLeft : 11 }}
+      <Button
+        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
+        sx={{ marginTop :5,marginLeft : 3 ,border : 2, background : '#a6607c', color: '#fff' }}
         size='small'
+        background-color= '#a6607c'
         color='primary'>
+          Check Course
+          <CoPresentIcon sx={{marginLeft : 1 }}/>
+        </Button>
+
+        <Button aria-label="share" edge='end' 
+        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'
+         color= 'primary' >
           Check Reviews
           <ReviewsRoundedIcon sx={{marginLeft : 1 }}/>
-        </IconButton>
+        </Button>
       </CardActions>
       <CardActions sx={{marginTop : 0}}>
-        <IconButton aria-label="share" edge='end'>
-          <StarRateRoundedIcon/>
+        <IconButton 
+        aria-label="share" edge='end'>
+          <StarRateRoundedIcon   />
           {course.course_rating}
         </IconButton>
         {!Dflag && (
@@ -202,7 +223,7 @@ function sub3() {
         {Dflag && (
         <CardActions>
         <IconButton color='info' disabled='true'
-        size='small' sx={{marginLeft : 20}}>
+        size='small' sx={{marginLeft : 20 }}>
           <MonetizationOnRoundedIcon />
           {course.course_price}
         </IconButton>
@@ -211,7 +232,7 @@ function sub3() {
         </CardActions>
         <CardActions sx={{marginTop : -15,marginLeft : 16.5,marginBottom : -5}}>
         {Dflag && (
-        <IconButton color='info' className='xyz' size='small' sx={{marginLeft : 10,marginRight : -20, marginTop : 10}}>
+        <IconButton color='info' className='xyz' size='small' sx={{marginLeft : 10,marginRight : -20, marginTop : 12, color : '#a6607c', }}>
         <MonetizationOnRoundedIcon/>
         {course.course_price_after_discount}
          </IconButton>
