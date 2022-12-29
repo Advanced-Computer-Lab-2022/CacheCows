@@ -41,6 +41,7 @@ import Box from '@mui/material/Box';
         return(
             <div className="pagesplain">
 
+<br></br>
 
             <form className="create" onSubmit={handleSubmit} >
             <h2>Enter your Appeal</h2>
@@ -48,7 +49,7 @@ import Box from '@mui/material/Box';
             onChange={(e) => setAppeal(e.target.value)}
             value={appeal}/>
             <button>confirm your appeal</button>
-            <div>{show &&<p> congrats you are registered</p>}</div>
+            <div>{show &&<h1> Congrats You Have Registered! </h1>}</div>
            <p ></p>
             <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
             </form>

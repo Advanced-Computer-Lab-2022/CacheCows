@@ -4,6 +4,13 @@ import jsPDF from 'jspdf';
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { SendCertificateEmail } from "../components/SendCertificateEmail"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom'
+
+import pdficon from '../assets/pdficon.png';
+import mailicon from '../assets/mailicon.png';
+
 
 
 
@@ -110,14 +117,82 @@ class TraineeResults extends Component{
 
     render(){
         return (
-            <div style ={{textAlign : 'center'}}><br/>
-            <button onClick={this.pdfGenerate} type="primary">Download PDF</button>
+          <div className='pagesplain'>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+         
+
+                                      <button className="buttonwhite">
+                                  <Link onClick={this.pdfGenerate}>
+                                          <Box
+                                            component="img"
+                                            sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                                              backgroundColor: '#fff',
+                                              '&:hover': {
+                                                backgroundColor: '#a6607c',
+                                                opacity: [0.9, 0.8, 0.7],
+                                              },
+                                            }}
+                                            alt="Logo"
+                                            src={pdficon}
+                                          />
+                                        </Link>
+                                        <br />
+                                        Download PDF
+                                        
+                                </button>
+
+                                
+                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+
+                                <button className="buttonwhite">
+                                  <Link onClick={this.pdfSend}>
+                                          <Box
+                                            component="img"
+                                            sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
+                                              backgroundColor: '#fff',
+                                              '&:hover': {
+                                                backgroundColor: '#a6607c',
+                                                opacity: [0.9, 0.8, 0.7],
+                                              },
+                                            }}
+                                            alt="Logo"
+                                            src={mailicon}
+                                          />
+                                        </Link>
+                                        <br />
+                                        Send By Email
+                                        
+                                </button>
+
+            <div>
+            <Box
+            component="img"
+            sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+            alt="Logo"
+            src={rubixgif}
+            />
+            </div>
+
             <br></br>
             <br></br>
-            <button onClick={this.pdfSend} type="primary">Send By Email</button>
-
-
-
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             </div>
         )
     }

@@ -35,7 +35,9 @@ useEffect(()=>{
           }
 },[user])
 return(
-<div className="" >
+<div  >
+    <br></br>
+    <h2> My Courses</h2>
 <Box >
       <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
             {courses && courses.map((course) =>(
