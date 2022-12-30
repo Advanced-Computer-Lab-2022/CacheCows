@@ -165,7 +165,7 @@ src={rubix}
           </IconButton>  
         }
         title={course.course_id}
-        subheader={course.createdAt}
+        subheader={course.course_name}
         onSubmit={handleClose}
       />
       <CardContent>
@@ -187,27 +187,34 @@ src={rubix}
         <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
         </Typography>
       </CardContent>
-      <CardActions disableSpacing='false' sx={{marginTop : -4}}>
+
+
+      <CardActions disableSpacing='false' sx={{marginTop : 0}}>
       <Button
         onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
-        sx={{ marginTop :5,marginLeft : 3 ,border : 2, background : '#a6607c', color: '#fff' }}
-        size='small'
+        sx={{ marginTop :0,marginLeft : 9 ,border : 2, background : '#a6607c', color: '#fff' }}
+        size='large'
         background-color= '#a6607c'
         color='primary'>
           Check Course
           <CoPresentIcon sx={{marginLeft : 1 }}/>
         </Button>
+        </CardActions>
 
+        <CardActions disableSpacing='false' sx={{marginTop : -4}}>
         <Button aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        
+        sx={{ marginTop : 5,marginLeft : 1.5, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'
          color= 'primary' >
-          Check Reviews
+          Reviews
           <ReviewsRoundedIcon sx={{marginLeft : 1 }}/>
         </Button>
       </CardActions>
+
+
       <CardActions sx={{marginTop : 0}}>
         <IconButton 
         aria-label="share" edge='end'>

@@ -76,6 +76,7 @@ import Corprateinst from "./pages/Corprateinst"
 import CoursePagePreview from "./pages/CoursePagePreview";
 import IndTraineetermsandconditions from "./pages/IndTraineetermsandconditions";
 import TraineeResults from "./pages/TraineeResults";
+import NewProfile from "./pages/NewProfile";
 
 
 import ReportsPage from "./pages/ReportPage";
@@ -388,6 +389,12 @@ function App() {
             path="/Paymentsuccess"
             element={<Paymentsuccess/>}
             />
+            <Route 
+            path="/NewProfile"
+            element={<NewProfile/>}
+            />
+
+
 
 
         </Routes>

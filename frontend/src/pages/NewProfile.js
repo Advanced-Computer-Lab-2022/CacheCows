@@ -8,7 +8,6 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
-import rubixgif from '../assets/Rubix.gif';
 import Box from '@mui/material/Box';
 
 
@@ -47,7 +46,7 @@ const languages = [
   ]
 
 
-const Instructor=  ()=>{
+const NewProfile=  ()=>{
   const paramss = new URLSearchParams(window.location.search);
   const instid = paramss.get('userId');
 
@@ -167,46 +166,113 @@ const navigate=useNavigate();
     <div className="">
 
   
-        
-      <div className="bio">
-      <h1>Hello, {username}!</h1>
-      <body className="biobody"> Biography : {instructor_biography}</body>
-      <button className="editbiobutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit</button>
+<div className="profilehead">
+<br></br>
+<br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>  <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 
-      <body className="biobody"> Email : {instructor_email}</body>
-      <button className="editemailbutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit</button>
+ 
+
+
+      <h1> {username}!</h1>
       <br></br>
 
-      <button onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>change Password</button>
 
+      <body className="biobody"> Biography : {instructor_biography}</body>
+      <br></br>
+      <body className="biobody"> Email : {instructor_email}</body>
+      <br></br>
+      <br></br>
     <br></br>
     <br></br>
+    <br></br>
 
-      
-    <div className = "buttoncolor" onClick={()=>{
-      navigate("/AddCourse");
-      }}>Add Course</div>
+</div>
+
+    
+<div className="profilebody"> 
+<br></br>
+    <br></br>
+    <br></br>
+     <h3> My Courses </h3>
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCard course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+    </Box>   
+    <br></br>
+    <button className="profilebutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit Email</button>
+
+    <br></br>
+    <button className="profilebutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit Biography</button>
+
+     <br></br>
+     <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>Edit Password</button>
+     <br></br>
+     <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}>Add Course</button>
+     <br></br>
+
+     <button className="profilebutton"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        {" "}
+        Check All Courses
+      </button>
+      <br></br>
 
 
-      
-      <br/>
-      <br/>
-      <button className = "instructorbutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
         key={instid}>View Reports
       </button>
-
-      &nbsp;&nbsp;&nbsp;
-
-      <button className="instructorbutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+      <br></br>
+      <button className="profilebutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
         key={instid}>View Reviews
       </button>
 
-      <button className = "instructorbutton" onClick={() => window.location.href=`/NewProfile?user_id=${instid}`}
-        key={instid}>New Profile
-      </button>
 
-      </div>
+    <br></br>
+    
+     <br></br>
+    <br></br> <br></br>
+    <br></br> <br></br>
+    <br></br> 
+         
+    </div>
 
+
+
+
+
+
+  
     
 
     <br/>
@@ -226,25 +292,7 @@ const navigate=useNavigate();
      <br/>
      <br/>
 
-     <div className=""> 
-     <h3> Courses: </h3>
-     <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
-            {courses && courses.map((course) =>(
-          <Grid >
-            <CourseCard course={course} key={course._id} sx={{
-            bgcolor: 'background.paper',
-            boxShadow: 1,
-            borderRadius: 2,
-            p: 2,
-            minWidth: 300,
-            display : "inline",
-            border : 2
-          }}/>
-          </Grid> ))}
-      </Grid>
-    </Box>            
-    </div>
+  
     <div className='filter'>
     <CountryForm/>
     </div>
@@ -268,6 +316,6 @@ const navigate=useNavigate();
  )
 
 }
-export default Instructor
+export default NewProfile
 
 

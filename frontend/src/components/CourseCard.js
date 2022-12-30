@@ -143,6 +143,9 @@ alt="Logo"
 src={rubix}
 />
         }
+        
+        
+        
         action={
             <IconButton aria-label="settings"  variant="contained" onMouseEnter={handleClick} >
             <MoreVertIcon/>
@@ -163,7 +166,7 @@ src={rubix}
           </IconButton>  
         }
         title={course.course_id}
-        subheader={course.createdAt}
+        subheader={course.course_name}
         onSubmit={handleClose}
       />
       <CardContent>
@@ -185,37 +188,43 @@ src={rubix}
         <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
         </Typography>
       </CardContent>
+
+
       <CardActions disableSpacing='false' sx={{marginTop : -4}}>
       <Button
         onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
-        sx={{ marginTop :5,marginLeft : 1 ,border : 2, background : '#a6607c', color: '#fff' }}
+        sx={{ marginTop :3,marginLeft : 12 ,border : 2, background : '#a6607c', color: '#fff', width: 140 }}
         size='small'
         background-color= '#a6607c'
         color='primary'>
           Check Course
           <CoPresentIcon sx={{marginLeft : 1 }}/>
         </Button>
+        </CardActions>
 
+
+      <CardActions disableSpacing='false' sx={{marginRight: 2.5 }}>
         <Button aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
-        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        sx={{ marginTop : 0,marginLeft : 3, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'
          color= 'primary'>
           Check Reviews
           <ReviewsRoundedIcon/>
         </Button>
-      </CardActions>
-      <CardActions>
-        
+      
       <Button aria-label="share" edge='end' 
         color='primary'
         onClick={() => window.location.href=`/InstSetCourseDiscount?course_id=${course.course_id}`} 
-        sx={{ marginTop : 0,marginLeft : 15, border : 2 , color :'#a6607c'}}
+        sx={{ marginTop : 0,marginLeft : 10, border : 2 , color :'#a6607c' , font : 0.7125 }}
         size='small'>
           Set Discount
         </Button>
       </CardActions>
+
+
+
       <CardActions sx={{marginTop : 0}}>
         <IconButton aria-label="share" edge='end'>
           <StarRateRoundedIcon/>
