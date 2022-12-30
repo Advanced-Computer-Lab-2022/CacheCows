@@ -284,6 +284,13 @@ h3 {
   color: #33266e;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+h2 {
+  margin: 0 0 -2px 0;
+  margin-left: -1200px;
+  font-size: 1.2em;
+  color: #111111;
+  font-family:'Times New Roman', Times, serif;
+}
 
 input {
   display: block;
@@ -806,6 +813,7 @@ nav button {
   
 
   .biobody {
+
     position: relative;
     right:0px; 
     background: transparent;

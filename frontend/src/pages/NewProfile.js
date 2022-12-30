@@ -238,7 +238,7 @@ const navigate=useNavigate();
      <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}>Add Course</button>
      <br></br>
 
-     <button className="profilebutton"
+     <button 
         onClick={() => {
           navigate("/");
         }}
