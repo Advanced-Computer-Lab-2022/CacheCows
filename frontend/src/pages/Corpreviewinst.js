@@ -48,6 +48,9 @@ const Indvreview=()=>{
 
 
 return(
+    <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
    <form className="create" onSubmit={handleSubmit}>
     <label>Add your review: </label>
         <input
@@ -61,6 +64,7 @@ return(
             <button onClick={()=>navigate("/Corpregisteredcourses")}>return to your courses</button>
         {error && <div className="error">{error}</div>}
         </form>
+        </div>
 )
 }
 export default Indvreview

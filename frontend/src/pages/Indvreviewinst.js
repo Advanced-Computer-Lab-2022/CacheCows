@@ -53,6 +53,7 @@ const Indvreview=()=>{
 
 return(
     <div className="pagesplain">
+        <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
    <form className="filter" onSubmit={handleSubmit}>
     <label>Add your review: </label>
         <input

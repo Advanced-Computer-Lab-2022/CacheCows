@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 // components
 import MyReports from "../components/MyReports";
@@ -43,8 +45,12 @@ const ReportsPage = () => {
     fetchReviews()
   }, [])
 
+  const navigate=useNavigate();
+
   return (
     <div>
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
             <br/>
       <br/>
 

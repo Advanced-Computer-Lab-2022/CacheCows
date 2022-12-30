@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CRate from "../components/CRate";
+import { useNavigate } from "react-router-dom";
+
 
 // components
 import CReviewDetails from "../components/CReviewDetails";
@@ -40,7 +42,13 @@ const CReviews = () => {
     fetchReviews()
   }, [])
 
+  const navigate=useNavigate();
+
   return (
+    <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
+
     <div className="filter">
       <div classname="courses"> 
       <CRate></CRate>
@@ -52,6 +60,7 @@ const CReviews = () => {
       <br />
       {error && <div className="error">{error}</div>}
       </div>
+    </div>
     </div>
   )
 }

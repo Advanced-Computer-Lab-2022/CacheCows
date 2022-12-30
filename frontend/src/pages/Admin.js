@@ -110,7 +110,7 @@ const Admin = () => {
       <div>
         <br></br>
       <div className="Admin">    
-        <h2>Admins</h2>
+        <h3>Admins</h3>
         <div className="All-Admins">
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
@@ -126,7 +126,7 @@ const Admin = () => {
         <br></br>
 
       
-      <h2>Corporate Trainees</h2>
+      <h3>Corporate Trainees</h3>
       <div className="All-Admins">
         {crptrainees && crptrainees.map((CrpTrainee) => (
           <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
@@ -143,7 +143,7 @@ const Admin = () => {
       
 
 
-      <h2>Instructors</h2>
+      <h3>Instructors</h3>
       <div className="All-Admins">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />

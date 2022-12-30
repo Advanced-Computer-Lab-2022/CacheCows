@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import rubixgif from '../assets/Rubix.gif';
 import Box from '@mui/material/Box';
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -55,11 +57,13 @@ if(response.ok) {
 }
 
 }
+const navigate=useNavigate();
 
 
 return(
 <div className="pagesplain">
 
+<button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
 
     <form className="filter" onSubmit={handleSubmit}>

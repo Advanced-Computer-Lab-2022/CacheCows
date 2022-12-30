@@ -12,9 +12,12 @@ const AddCoursePage=  ()=>{
     //console.log(user)
   
 
+    const navigate=useNavigate();
 
     return(
     <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
         <br></br>
     <div className="filtercolour">
         <br></br>

@@ -1,9 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function About() {
+  const navigate=useNavigate();
+
   return (
   <div className="backgroundimage" >
-  <strong>Rubix is educational website for adults that offers a personalized learning experience.
+                <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
+<div>
+<br/>
+<br/>
+<br/>
+</div>
+  <h3>
+
+    Rubix is educational website for adults that offers a personalized learning experience.
 
   This place has categories like art, literature, mathematics, science, history, and more. Memrise can be accessible from iOS and Android devices.
 
@@ -12,7 +25,12 @@ function About() {
 
 
 
-</strong>
+</h3>
+<br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/>
 <br></br>
 <br></br>
 <br></br>

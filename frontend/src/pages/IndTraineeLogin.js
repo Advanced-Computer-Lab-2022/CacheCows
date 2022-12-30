@@ -14,8 +14,11 @@ const Login = () => {
     await login(username, password)
   }
 
+
   return (
     <div className="pages">
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <br></br>
 
     <form className="login" onSubmit={handleSubmit}>

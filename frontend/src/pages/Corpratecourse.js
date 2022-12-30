@@ -41,8 +41,11 @@ const Corpratecourse=()=>{
         
         }
     }
+
     return(
-        
+        <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
         <form className="create" onSubmit={handleSubmit}>
             <h2>Rate your course</h2>
         <Stack spacing={4}>
@@ -57,7 +60,7 @@ const Corpratecourse=()=>{
             <p></p>
             <button onClick={()=>navigate("/Corpregisteredcourses")}>return to your courses</button>
             </form>
-          
+          </div>
      )
 
 }

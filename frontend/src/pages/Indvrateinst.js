@@ -42,8 +42,10 @@ const Indvrate=()=>{
         
         }
     }
+
     return(
         <div>
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
             <br/>
             <br/>
 

@@ -12,6 +12,8 @@ import Checkbox from '@mui/material/Checkbox';
 import { Typography } from "@mui/material";
 import rubixgif from '../assets/Rubix.gif';
 import Box from '@mui/material/Box';
+import { useNavigate } from "react-router-dom";
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -106,9 +108,14 @@ const selectAll = (event) => {
     setPersonName(courses)
 }
 };
+const navigate=useNavigate();
 
 return(
 <div className="pagesplain">
+<button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+<br></br>
+<br></br>
+
   <br></br>
     <form className="reports" onSubmit={handleSubmit}>
       <br></br>

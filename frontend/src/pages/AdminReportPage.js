@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 // components
 import AdminReports from "../components/AdminReports";
@@ -41,10 +43,14 @@ const AdminReportsPage = () => {
     fetchReviews()
   }, [])
 
+  const navigate=useNavigate();
+
   return (
     <div className="course">
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <div className="reports">
-      <h5 >All Reports!</h5>
+      <h3 >All Reports!</h3>
       <div className="reports"> 
         {reports && reports.map((report) =>(
         <AdminReports report={report} key={report._id} />))}          

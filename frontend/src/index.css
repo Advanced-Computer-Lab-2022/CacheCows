@@ -292,6 +292,7 @@ h2 {
   font-family:'Times New Roman', Times, serif;
 }
 
+
 input {
   display: block;
 }
@@ -327,6 +328,23 @@ button {
   border-style:inset;
   border-color: #111111;
   color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back {
+  
+  top:25px; left:-630px;  
+  background-color: transparent;
+  border-width: 0px;
+  border-style:inset;
+  border-color: #a6607c;
+  color: #a6607c;
+  text-align: center;
+  text-size-adjust: 5px;
+  text-underline-position: below;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 6px;
@@ -643,7 +661,7 @@ nav button {
 
   .reports {
     background: #fff;
-    border-bottom: 5px solid rgb(13, 54, 92);
+    border-bottom: 3px solid #a6607c;
     width: 90%;
     color: #135492;
     border-radius: 4px;
@@ -653,7 +671,7 @@ nav button {
     margin-left:auto;
     margin-right: auto;
     cursor:default;
-    opacity:0.98;
+    opacity:0.92;
   }
   .reports-header {
    padding: 10px;
@@ -741,7 +759,7 @@ nav button {
   .filter {
     background-image: linear-gradient(to top, #d9d9d9 0%, #fff 100%);
     border: #9d9d9d;
-    border-bottom: 5px solid #33266e ;
+    border-bottom: 3px solid #a6607c ;
     width: 40%;
     color: #fff;
     border-radius: 4px;

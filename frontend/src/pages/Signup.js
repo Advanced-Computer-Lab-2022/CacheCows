@@ -10,7 +10,8 @@ const navigate=useNavigate();
 
   return (
     <div>
-      
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <div>
       <button
         onClick={() => {

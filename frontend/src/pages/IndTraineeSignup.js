@@ -2,6 +2,8 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/IndTraineeSignup"
 import { Link } from 'react-router-dom'
+import { useNavigate, useParams } from "react-router-dom"
+
 
 
 const Signup = () => {
@@ -29,10 +31,13 @@ const Signup = () => {
 
     await signup(indv_email, indv_pass, Name, indv_user, Country, indv_bd)
   }
+  const navigate=useNavigate();
 
   return (
   
     <div className="signuppages">
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
         <br></br>
     <form className="signup" onSubmit={handleSubmit}>
 

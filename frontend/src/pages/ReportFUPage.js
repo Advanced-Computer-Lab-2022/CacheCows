@@ -7,6 +7,7 @@ import ReportResolved from "../components/ReportResolved";
 import TextField from '@mui/material/TextField';
 import Comments from "../components/NewText";
 import { Button, Icon } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 // components
 import MyReports from "../components/MyReports";
@@ -152,9 +153,12 @@ const ReportFUPage = () => {
     console.log('New Comment Added', json)
     }
 }
+const navigate=useNavigate();
 
   return (
     <div className="course">
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <div classname="courses"> 
       <br></br>
       <br></br>

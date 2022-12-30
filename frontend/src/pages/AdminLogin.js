@@ -31,6 +31,8 @@ const Login = () => {
 
   return (
     <div className="pages">
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <br></br>
     <form className="login" onSubmit={handleSubmit}>
       <h1>Welcome</h1>

@@ -43,9 +43,11 @@ if(response.ok) {
 
   }
   handleSubmit()
+  
   return(
     <div>
-      
+                  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       {show &&<p> Request Accepted  successfully</p>}
       <br></br> 
       {rejected &&<p> Error: Request could not be accepted  </p>}

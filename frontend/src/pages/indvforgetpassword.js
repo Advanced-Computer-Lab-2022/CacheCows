@@ -1,7 +1,12 @@
 import Forgetpass from "../components/Indvforgetpasswordform"
+import { useNavigate } from "react-router-dom";
+
 const Indvtforgetpassword=()=>{
+  const navigate=useNavigate();
+
 return(
     <div className="filter">
+      <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
          <br>
         </br>
         <br></br>

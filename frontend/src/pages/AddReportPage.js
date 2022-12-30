@@ -13,7 +13,8 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { BorderLeft } from "@material-ui/icons";
-    
+import { useNavigate } from "react-router-dom";
+
 const AddReportPage = () => {
         const params = new URLSearchParams(window.location.search);
         const course_id = params.get('course_id');
@@ -87,8 +88,11 @@ const AddReportPage = () => {
             }
         }
     
-    
+        const navigate=useNavigate();
+
     return (
+        <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
         <form className="filter" onSubmit={handleSubmit}>
             <h3>Add a New Report!</h3>
             <Stack spacing={2} direction="row" sx={{marginLeft : 3}}>
@@ -140,6 +144,7 @@ const AddReportPage = () => {
             {error && <div className="error">{error}</div>}
             {success && <div className="success">{success}</div>}
         </form>
+        </div>
         )
     }
     

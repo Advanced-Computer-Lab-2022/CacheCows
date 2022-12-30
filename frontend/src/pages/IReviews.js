@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 // components
 import IReviewDetails from "../components/IReviewDetails";
@@ -43,9 +45,13 @@ const IReviews = () => {
 
     fetchReviews()
   }, [])
+  const navigate=useNavigate();
+
 
   return (
     <div className="course">
+      <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
       <br/>
       <div classname="courses"> 
       <div className="filter">

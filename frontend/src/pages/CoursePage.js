@@ -40,9 +40,14 @@ useEffect(()=>{
     fetchCourses();
     
 },[])
+const navigate=useNavigate();
 
     return(
+      <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
     <div className="instructor">
+      
       <div> 
       {courses && courses.map((course) =>(
     <CourseInfo course={course} key={course._id} />))}  
@@ -50,6 +55,7 @@ useEffect(()=>{
     <div>
     <h3> Course Notes</h3>
       <Notes/>
+    </div>
     </div>
     </div>
 

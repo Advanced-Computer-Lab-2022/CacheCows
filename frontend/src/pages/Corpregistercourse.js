@@ -40,6 +40,9 @@ import { useNavigate, useParams } from "react-router-dom"
         }
 
         return(
+            <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
             <form className="create" onSubmit={handleSubmit} >
             <h2>Enter your Appeal</h2>
             <input type="text" 
@@ -50,6 +53,7 @@ import { useNavigate, useParams } from "react-router-dom"
            <p ></p>
             <button onClick={()=>navigate("/Corpregisteredcourses")}>return to your courses</button>
             </form>
+            </div>
         )
     }
     export default Corpregistered

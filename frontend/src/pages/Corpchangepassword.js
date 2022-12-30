@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
+import { useNavigate } from "react-router-dom";
+
+
+
 const Cropchangepasssword=()=>{
     const {user} = useAuthContext()
     const[shown,setShown]=useState(false)
@@ -7,6 +11,7 @@ const Cropchangepasssword=()=>{
     const[error , setError] = useState(null);
     const paramss = new URLSearchParams(window.location.search);
     const userId = paramss.get('userId');
+
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -37,8 +42,14 @@ const Cropchangepasssword=()=>{
         
         }
     }
+    const navigate=useNavigate();
 
 return(
+    <div className="pagesplain">
+            <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
+
+ 
     <form className="create" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
@@ -50,6 +61,7 @@ return(
          <div>{shown &&<p> your password was changed successfully </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
+        </div>
 )
 }
 export default Cropchangepasssword
