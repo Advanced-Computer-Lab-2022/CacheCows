@@ -20,13 +20,15 @@ const AddCoursePage=  ()=>{
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
         <br></br>
+        <Box>
     <Container className="" sx={{border : 2}}>
         <br></br>
     <CourseForm user={user} />
     {error && <div className="error">{error}</div>}
     </Container>
     </Box>
-
+    
+</div>
  )
 
 }
