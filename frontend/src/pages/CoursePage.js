@@ -8,6 +8,7 @@ import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CourseInfo from "../components/CourseInfo";
+import CourseInfoMui from "../components/CourseInfoMui";
 import { Nav } from "react-bootstrap";
 import Notes from "../components/Notes";
 
@@ -45,13 +46,15 @@ const navigate=useNavigate();
     return(
       <div className="pagesplain">
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
-
+            <br></br>
+            <br></br>
     <div className="instructor">
-      
+\      
       <div> 
       {courses && courses.map((course) =>(
     <CourseInfo course={course} key={course._id} />))}  
     </div>
+    <CourseInfoMui/>
     <div>
     <h3> Course Notes</h3>
       <Notes/>

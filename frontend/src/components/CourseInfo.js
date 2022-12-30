@@ -37,7 +37,7 @@ const CourseInfo = ({course}) => {
               <Popup 
               
               modal trigger={
-            <p><h4>{course.course_name}</h4></p>}>
+            <p><h3>{course.course_name}</h3></p>}>
             <h4 class='header'>{course.course_name}</h4>
             <iframe className='modalx'  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
 
