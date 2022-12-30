@@ -43,7 +43,7 @@ const Login = () => {
          <button className="loginpress" disabled={isLoading}>Log in</button>
          
          <p>
-         <button onClick={()=>navigate("/instforgetpassword")}>Forgot password</button>
+         <button className="forgotpass" onClick={()=>navigate("/instforgetpassword")}>Forgot password</button>
          </p>
       {error && <div className="error">{error}</div>}    </form>
 

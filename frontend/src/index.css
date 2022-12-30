@@ -461,6 +461,25 @@ button:hover{
 
 }
 
+.forgotpass {
+  margin-top: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #348df2;
+  font-size: medium;
+  text-decoration: underline;
+}
+.forgotpass:hover {
+  margin-top: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #e7195a;
+  font-size: medium;
+  text-decoration: underline;
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -578,6 +597,8 @@ nav button {
   background-color: #33266e;
   
 }
+
+
 
 .terms {
   font-size: 5px;

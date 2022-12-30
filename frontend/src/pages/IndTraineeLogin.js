@@ -36,7 +36,7 @@ const Login = () => {
       
          <button className="loginpress" disabled={isLoading}>Log in</button>
          <p>
-         <button onClick={()=>navigate("/indvforgetpassword")}>Forgot password</button>
+         <button className="forgotpass" onClick={()=>navigate("/indvforgetpassword")}>Forgot password</button>
          </p>
        
       {error && <div className="error">{error}</div>}    </form>
