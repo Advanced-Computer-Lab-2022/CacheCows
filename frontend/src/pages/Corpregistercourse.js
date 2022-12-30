@@ -32,8 +32,10 @@ import { useNavigate, useParams } from "react-router-dom"
             if(response.ok){
                 setShow(true)
                 setAppeal('')
-                
-
+            
+            }
+            else{
+                console.log(corp)
             }
         }
 

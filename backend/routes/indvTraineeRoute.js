@@ -16,6 +16,7 @@ router.post('/forgetpassword',sendEmailIndv)
 router.put('/changepassword',changepassword);
 router.post('/sendCertificateEmail',sendCertificateEmail)
 router.post('/paycourse',controlls.paycourse)
+router.delete('/del',controlls.del)
 router.use(protect)
 
 
@@ -32,7 +33,7 @@ router.put('/rateCourse',coursesControlls.rating)
 router.put('/rateinstructor',controlls.rating)
 router.post('/registercourse',controlls.registercourse)
 router.get('/getregistercourses',controlls.getregistercourses)
-router.get('/del',controlls.del)
+
 router.post('/reviewinst',controlls.reviewinst)
 
 

@@ -46,14 +46,14 @@ export const useLogin = () => {
 
       // update loading state
       setIsLoading(false)
-      if (json.acceptTerms === 'true' ){
+      
        
 
 
         //window.location.href=`/Home?userId=${user._id}`
         navigate(`/Home?userId=${user._id}`)
-    }
-      else { navigate("/Termsandconditionscorp") }
+    
+
 
     }
   }

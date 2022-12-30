@@ -68,12 +68,12 @@ const TCourseDetails = ({course}) => {
             <button onClick={sub3}>{course.course_subtitles3}</button>
             <br/>
             <br/>
-            <button onClick={()=>{window.location.href=`/Indvregistered?course_id=${course._id}`}}>register course</button>
+           
             <br/>
 
             <button onClick={() => window.location.href=`/AddReportPage?course_id=${course.course_id}`}
             >Report Course</button>
-            <button onClick={() => window.location.href=`/Paycourse?course_name=${course.course_name}&course_price=${course.course_price}`}>pay</button>
+            <button onClick={() => window.location.href=`/Paycourse?course_name=${course.course_name}&course_price=${course.course_price}&course_id=${course._id}&inst_id=${course.instructor_id}`}>Buy course</button>
 
              <p>{course.createdAt}</p>
              </p>

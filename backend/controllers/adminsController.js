@@ -125,8 +125,8 @@ const viewrequests=async(req,res)=>{
 }
 
 const acceptrequest=async(req,res)=>{
-  course_id=req.query.courseId
-  corp_id=req.query.userId
+  const course_id=req.query.courseId
+  const corp_id=req.query.userId
   const flag=true
   try{
    const req=await corprequests.findOneAndUpdate({trainee_id:corp_id,course_id:course_id},{flag:flag},{new:true})
@@ -283,7 +283,8 @@ const acceptrequest=async(req,res)=>{
             instructor_total_no_rate:0,
             instructor_total_rate:0,
             type : 'instructor',
-            acceptTerms : 'false'
+            acceptTerms : 'false',
+            owed:0
 
       })
       

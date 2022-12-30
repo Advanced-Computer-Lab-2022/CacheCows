@@ -31,7 +31,7 @@ import InstEditEmail from "./pages/InstEditEmail";
 import InstEditBiography from "./pages/InstEditBiography";
 
 import InstSetCourseDiscount from "./pages/InstSetCourseDiscount";
-import Indvregistered from "./pages/IndvregisterCourse"
+
 import AccessDenied from "./pages/AccessDenied"
 import InstructorAcceptTerms from "./pages/termsandconditions";
 
@@ -86,6 +86,7 @@ import Viewcourserequests from "./pages/Courserequests"
 import NewCourses from "./pages/NewCourses";
 import AdminPromo from "./pages/AdminPromo";
 import AcceptRequests from "./pages/Acceptreq";
+import Paymentsuccess from "./pages/Paymentsuccess";
 
 function App() {
 
@@ -268,10 +269,7 @@ function App() {
             path="/Indvregistercourses"
             element={<Indvregisteredcourses/>}
             />
-            <Route 
-            path="/Indvregistered"
-            element={<Indvregistered/>}
-            />
+           
             <Route 
             path="/Termsandconditions"
             element={<InstructorAcceptTerms/>}
@@ -386,7 +384,10 @@ function App() {
             path="/AdminPromo"
             element={<AdminPromo/>}
             />
-
+          <Route 
+            path="/Paymentsuccess"
+            element={<Paymentsuccess/>}
+            />
 
 
         </Routes>
