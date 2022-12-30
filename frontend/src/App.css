@@ -74,7 +74,7 @@
     margin: 0 auto;
   }
   .pages{
-    background-image: url("assets/newanim.gif") ; 
+    background-image: url("assets/bgplain.gif") ; 
     background-size: 100%;
     color: white;
     background-color: white;
@@ -90,6 +90,28 @@
     color: white;
     background-color: white;
     max-width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  .profilehead{
+    background-image: url("assets/profileheader.png") ; 
+    background-size: 100%;
+    color: white;
+    background-color: white;
+    max-width: 100%;
+    height: max-content;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  .profilebody{
+    background-image: url("assets/profilebody.png") ; 
+    background-size: 100%;
+    color: white;
+    background-color: white;
+    max-width: 100%;
+    height: max-content;
     padding: 0px;
     margin: 0 auto;
   }

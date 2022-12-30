@@ -46,7 +46,7 @@ const languages = [
   ]
 
 
-const Instructor=  ()=>{
+const NewProfile=  ()=>{
   const paramss = new URLSearchParams(window.location.search);
   const instid = paramss.get('userId');
 
@@ -209,20 +209,36 @@ const navigate=useNavigate();
 <br></br>
     <br></br>
     <br></br>
-    <h2> My Workspace </h2>
-    <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      My Courses </h3>
-
+     <h3> My Courses </h3>
+     <Box >
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCard course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+    </Box>   
+    <br></br>
     <button className="profilebutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit Email</button>
 
+    <br></br>
     <button className="profilebutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit Biography</button>
 
+     <br></br>
      <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>Edit Password</button>
      <br></br>
      <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}>Add Course</button>
      <br></br>
 
-     <button className="profilebutton"
+     <button 
         onClick={() => {
           navigate("/");
         }}
@@ -240,26 +256,9 @@ const navigate=useNavigate();
       <button className="profilebutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
         key={instid}>View Reviews
       </button>
-    <br></br>
 
-   
-     <br></br>
-     <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -115 }}>
-            {courses && courses.map((course) =>(
-          <Grid >
-            <CourseCard course={course} key={course._id} sx={{
-            bgcolor: 'background.paper',
-            boxShadow: 1,
-            borderRadius: 2,
-            p: 2,
-            minWidth: 300,
-            display : "inline",
-            border : 2
-          }}/>
-          </Grid> ))}
-      </Grid>
-    </Box>   
+
+    <br></br>
     
      <br></br>
     <br></br> <br></br>
@@ -317,6 +316,6 @@ const navigate=useNavigate();
  )
 
 }
-export default Instructor
+export default NewProfile
 
 

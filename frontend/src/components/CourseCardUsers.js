@@ -165,7 +165,7 @@ src={rubix}
           </IconButton>  
         }
         title={course.course_id}
-        subheader={course.createdAt}
+        subheader={course.course_name}
         onSubmit={handleClose}
       />
       <CardContent>
@@ -187,25 +187,38 @@ src={rubix}
         <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
         </Typography>
       </CardContent>
-      <CardActions disableSpacing='false' sx={{marginTop : -9}}>
+      <CardActions disableSpacing='false' sx={{marginTop : 0 }}>
       <Button
         onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
-        sx={{ marginTop :5,marginLeft : 3 ,border : 2, background : '#a6607c', color: '#fff' }}
-        size='small'
+        sx={{ marginTop :0,marginLeft : 10 ,border : 2, background : '#a6607c', color: '#fff' }}
+        size='large'
         background-color= '#a6607c'
         color='primary'>
-          Check Course
+          Go To Course
           <CoPresentIcon sx={{marginLeft : 1 }}/>
         </Button>
+        </CardActions>
+
+        <CardActions disableSpacing='false' sx={{marginTop : 0}}>
 
       <Button aria-label="add to favorites" 
         onClick={()=>window.location.href=`/Indvratecourse?userId=${course._id}`}
-        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        sx={{marginRight : -9, marginTop : 5,marginLeft : 3, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'
          color= 'primary' >
           Rate Course
           <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}}/>
+        </Button>
+
+        <Button aria-label="add to favorites" 
+        color='primary'
+        onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'>
+          Rate Instructor
+          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}} />
         </Button>
         </CardActions>
 
@@ -221,18 +234,7 @@ src={rubix}
           <RateReviewRoundedIcon sx={{marginLeft : 1}} />
         </Button>
 
-        <Button aria-label="add to favorites" 
-        color='primary'
-        onClick={()=>window.location.href=`/Indvrateinst?userId=${course.instructor_id}`}
-        sx={{ marginTop : 5,marginLeft : 15, border : 2 , color :'#a6607c' }}
-        size='small'
-        background-color='#a6607c'>
-          Rate Instructor
-          <ThumbsUpDownRoundedIcon sx={{marginLeft : 1}} />
-        </Button>
-        </CardActions>
-
-        <CardActions disableSpacing='false' sx={{marginTop : -5}}>
+       
         <Button aria-label="share" edge='end' 
         onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
         sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
