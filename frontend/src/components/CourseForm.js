@@ -3,10 +3,35 @@ import { json } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext'
 import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
+import ExamModal from "./ExamModal";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  color : '#a6607c'
+};
 //import { Subject } from "@material-ui/icons";
 
 
 const CourseForm = ({user}) => {
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const [course_id, setID] = useState('')
     const [course_name, setName] = useState('')
@@ -381,6 +406,20 @@ const CourseForm = ({user}) => {
      <label>Selected Subject: {course_subject}</label>
      <br/>
      <br/>
+     <TextField
+          color="primary" 
+          label="Choose Course Subject:"
+          onSelect={(v) => setSubj(v)}
+          id="outlined-select-currency"
+          select
+          defaultValue="EUR"
+          helperText="Please select your currency"
+        >
+        <MenuItem value="Hardware">Hardware</MenuItem>
+        <MenuItem value="IT and Software">IT and Software</MenuItem>
+        <MenuItem value="Biology">Biology</MenuItem>
+        <MenuItem value="Music">Music</MenuItem>
+        </TextField>
      
     <Dropdown color="primary" label="Choose Course Subject:" className='course_details' 
       onSelect={(v) => setSubj(v)}
@@ -390,6 +429,45 @@ const CourseForm = ({user}) => {
         <DropdownItem value="Biology">Biology</DropdownItem>
         <DropdownItem value="Music">Music</DropdownItem>
       </Dropdown>
+      <br/>
+      <div className="reports">
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} >
+        <TextField
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+
+        <TextField
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+        <TextField
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+        <TextField
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+        <TextField
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+        </Box>
+      </Modal>
+      </div>
       <br/>
 
         <button className="filterbutton" onClick={() => setter()}>Add Course</button>

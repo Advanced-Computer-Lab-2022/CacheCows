@@ -88,6 +88,8 @@ import AdminPromo from "./pages/AdminPromo";
 import AcceptRequests from "./pages/Acceptreq";
 import Paymentsuccess from "./pages/Paymentsuccess";
 
+import SearchResults from "./pages/SearchResults";
+
 function App() {
 
   const { user } = useAuthContext()
@@ -384,9 +386,15 @@ function App() {
             path="/AdminPromo"
             element={<AdminPromo/>}
             />
+
           <Route 
             path="/Paymentsuccess"
             element={<Paymentsuccess/>}
+            />
+
+            <Route 
+            path="/SearchResults"
+            element={<SearchResults/>}
             />
 
 

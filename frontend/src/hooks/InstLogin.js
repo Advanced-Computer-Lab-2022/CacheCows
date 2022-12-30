@@ -56,10 +56,10 @@ export const useLogin = () => {
        
 
 
-        //window.location.href=`/Home?userId=${user._id}`
-        navigate(`/Home?userId=${user._id}`)
+        window.location.href=`/Home?userId=${user._id}`
+        //navigate(`/Home?userId=${user._id}`)
     }
-      else { navigate("/Termsandconditions") }
+    else if (json.acceptTerms === 'false' ) { navigate("/Termsandconditions") }
 
     
   }
