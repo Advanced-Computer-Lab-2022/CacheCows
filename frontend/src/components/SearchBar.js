@@ -1,73 +1,87 @@
 import { useState } from "react";
 import { json } from "react-router-dom";
-import CourseDetails from "./CourseDetails";
-import { useAuthContext } from '../hooks/useAuthContext'
-import CourseCard from "./CourseCard";
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import { Box } from "@mui/system";
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
+    },
+  }));
 
 
 
 
 const SearchBar = () => {
-    const { user } = useAuthContext()
 
     const [text, setSearch] = useState('')
-    const [courses, setCourses] = useState('') 
-    const[error , setError] = useState(null)
 
    
     const handleSubmit = async(e) => {
         e.preventDefault()
-        if (!user) {
-            setError('You must be logged in')
-            return
-          }
-
         const value = {
             text
         }
 
-        const response = await fetch('/api/courses/SearchCourseByOpt', {
-            method: 'POST',
-            body: JSON.stringify(value),
-            headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const json = await response.json()
-
-        if(!response.ok) {
-            setError(json.error)
-            setCourses('')  
+        window.location.href=`/SearchResults?search=${text}`
         }
-        if(response.ok) {  
-        setCourses(json)  
-        setError(null)
-            
-        console.log('Search Done!', json)
-        }
-    }
 
     return (
-        <div className="filter">
-       <form className="create" onSubmit={handleSubmit}>
+        <div className="" >
+            <form onSubmit={handleSubmit}>
 
-        <input
-          className="search"
-          placeholder="Search..."
-          type = "text"
-          onChange={(e) => setSearch(e.target.value)}
-          value={text}
-        />
+            <Search  sx={{marginTop : 2, marginRight : -30, left : 40}} >
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+              value={text}
+            />
+          </Search>
   
-        <button>Search</button>
-        {error && <div className="error">{error}</div>}
+      
 
-        <div className="courses"> 
-        {courses && courses.map((course) =>(
-        <CourseCard course={course} key={course._id} />))}          
-        </div>
-       </form>
+
+        </form>
        </div>
     )
 }   

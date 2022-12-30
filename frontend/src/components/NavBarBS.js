@@ -17,6 +17,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
 import logonew from '../assets/rubixnew.png';
+import SearchBar from './SearchBar';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -95,60 +96,7 @@ function ResponsiveAppBar() {
 
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-               <MenuItem  onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" ><Link onClick={() => window.location.href=`/Home?userId=${user._id}`}> Home</Link></Typography>
-                </MenuItem>
-            </Menu>
-          </Box>
           
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 onClick={handleCloseNavMenu}
@@ -163,6 +111,10 @@ function ResponsiveAppBar() {
               >
                 <Typography textAlign="center" onClick={() => window.location.href=`/about`}> About Us</Typography>
               </Button>
+
+              <div>
+                <SearchBar></SearchBar>
+              </div>
 
               {!user && (
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

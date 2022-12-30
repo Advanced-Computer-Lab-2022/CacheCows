@@ -89,6 +89,8 @@ import AdminPromo from "./pages/AdminPromo";
 import AcceptRequests from "./pages/Acceptreq";
 import Paymentsuccess from "./pages/Paymentsuccess";
 
+import SearchResults from "./pages/SearchResults";
+
 function App() {
 
   const { user } = useAuthContext()
@@ -129,7 +131,7 @@ function App() {
           />
             <Route 
           path = "/instructor"
-          element = { (usertype == 'instructor') ?<Instructor /> :  <AccessDenied to="/" />}
+          element = { (usertype === 'instructor') ?<Instructor /> :  <AccessDenied to="/" />}
           />
             <Route 
           path = "/guest"
@@ -385,6 +387,7 @@ function App() {
             path="/AdminPromo"
             element={<AdminPromo/>}
             />
+
           <Route 
             path="/Paymentsuccess"
             element={<Paymentsuccess/>}
@@ -395,6 +398,11 @@ function App() {
             />
 
 
+
+            <Route 
+            path="/SearchResults"
+            element={<SearchResults/>}
+            />
 
 
         </Routes>

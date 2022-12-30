@@ -83,12 +83,6 @@ function IndTrainee() {
   return (
 
     <div >
-
-
-
-      
-      <SearchBar></SearchBar>
-      <br/>
       <CountryForm></CountryForm>
       <br/>
 
