@@ -21,32 +21,37 @@ var transporeter=nodemailer.createTransport({
    pass:process.env.PASS
   }
 });
-const storeitem=new Map([[1,{priceinCents:10000,name:"acl"}],
-[2,{priceinCents:200000,name:"analysis"}]])
+
 const paycourse=async(req,res)=>{
   try{
-   const course_name=req.query.course_name
-   const course_price=req.query.course_price
+   const course_name=req.body.course_name
+   const course_price=req.body.course_price
+   const course_id=req.query.course_id
+   const inst_id=req.query.inst_id
+   const courseinfo = [{ 
+    price_data: {
+     currency: "usd",
+     product_data: {
+         name: course_name,
+     },
+     unit_amount:course_price*100 ,
+  },
+     quantity:1,
+ }]
+
+   
   const session =await stripe.checkout.sessions.create({
  payment_method_types:['card'],
     mode:"payment",
     
-    line_items:
-      
-        {price_data:{
-          currency:'usd',
-          product_data:{name:course_name},
-          amount:course_price
-       },quantity:req.query.quantity,
-       source: "tok_amex"}
-      
-  ,
-    success_url:`${process.env.SERVER_URL}/success.html`,
+    line_items:courseinfo,
+    success_url:`http://localhost:3000/Paymentsuccess?course_id=${course_id}&inst_id=${inst_id}&course_price=${course_price}`,
     cancel_url:`${process.env.SERVER_URL}/cancel.html`
    })
-   //console.log(session)
-  //res.json({url:session.url})
-  //console.log(session)
+   
+  res.status(200).json(session.url)
+  console.log(inst_id)
+ // console.log(session.url)
   }
   catch(error){
     res.status(400).json({error:error.message})
@@ -257,7 +262,7 @@ const registercourse=async (req,res)=>{
     else{
       const x = await course.findByIdAndUpdate(course_id,{course_hype : newhype },{new : true})
       const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id})
-      res.status(200).json(trainee_course,x)
+      res.status(200).json("success")
     }
   }
   catch(error){

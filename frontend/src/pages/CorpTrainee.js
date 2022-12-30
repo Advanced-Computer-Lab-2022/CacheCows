@@ -86,7 +86,7 @@ const languages = [
       
 
       
-    <button onClick={() => {window.location.href=`/cropchangepassword?userId=${user._id}`}}>Change password</button>
+    <button onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}>Change password</button>
     <p></p>
     <button
        onClick={()=>navigate("/Corpview")}

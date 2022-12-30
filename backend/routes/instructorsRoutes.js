@@ -20,7 +20,9 @@ router.post('/getIRate',controlls.getIRate);
 router.put('/changepassword',changepassword);
 router.post('/InstructorEditBiography',controlls.InstructorEditBiography);
 router.post('/InstructorEditEmail',controlls.InstructorEditEmail);
-
+router.put('/owed',controlls.owed)
+router.put('/temp',controlls.temp)
+router.get('/viewowed',controlls.viewowed)
 
 //router.use(protect)
 

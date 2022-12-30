@@ -18,6 +18,7 @@ const InstructorSchema = new mongoose.Schema({
      acceptTerms:{type: String,required:false},
      type : {type: String , required : false},
      instructor_biography:{type: String,}, 
+     owed:{type:Number}
 
 
      

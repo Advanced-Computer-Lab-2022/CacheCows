@@ -23,12 +23,43 @@ var transporeter=nodemailer.createTransport({
 // @desc Get Instructors
 // @routes GET /api/Instructors
 // @access Private 
+const owed=async (req,res)=>{
+  try{
+    const inst_id=req.query.inst_id
+    const amount=req.query.course_price*0.5
+    const instructor=await instructors.findById({_id:inst_id})
+    const total_amount=amount+instructor.owed
+    const inst=await instructors.findByIdAndUpdate({_id:inst_id},{owed:total_amount},{new:true})
+    res.status(200).json(inst.owed)
+  }
+  catch(error){
+res.status(400).json({error:error.message})
+  }
+ 
+}
 
+
+const temp=async(req,res)=>{
+ await instructors.findByIdAndUpdate({_id:req.body._id},{owed:0},{new:true})
+ res.status(200).json("updated")
+}
 const getInstructors = asyncHandler(async (req, res) => {
 
     const allInstructors = await instructors.find()
     res.status(200).json(allInstructors)
 })
+
+
+const viewowed=async(req,res)=>{
+  try{
+  const inst_id=req.body._id
+  const inst=await instructors.findById({_id:inst_id})
+  res.status(200).json(inst.owed)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+}
 
 const getInstructor =  asyncHandler(async (req, res) => {
     
@@ -443,6 +474,9 @@ module.exports = {
     InstructorEditBiography,
     InstructorSetDiscount,
     InstructorAcceptTerms,
-    getIRate
+    getIRate,
+    owed,
+    temp,
+    viewowed
 }
 
