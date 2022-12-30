@@ -131,7 +131,7 @@ function App() {
           />
             <Route 
           path = "/instructor"
-          element = { (usertype == 'instructor') ?<Instructor /> :  <AccessDenied to="/" />}
+          element = { (usertype === 'instructor') ?<Instructor /> :  <AccessDenied to="/" />}
           />
             <Route 
           path = "/guest"

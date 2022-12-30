@@ -1,4 +1,5 @@
 
+import { Box, Container } from "@mui/material";
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseForm from "../components/CourseForm"
@@ -14,14 +15,14 @@ const AddCoursePage=  ()=>{
 
 
     return(
-    <div className="pagesplain">
+    <Box className="pagesplain" >
         <br></br>
-    <div className="filtercolour">
+    <Container className="" sx={{border : 2}}>
         <br></br>
     <CourseForm user={user} />
     {error && <div className="error">{error}</div>}
-    </div>
-    </div>
+    </Container>
+    </Box>
 
  )
 

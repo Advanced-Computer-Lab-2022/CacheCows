@@ -245,7 +245,7 @@ const navigate=useNavigate();
    
      <br></br>
      <Box >
-      <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -115 }}>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -93 }}>
             {courses && courses.map((course) =>(
           <Grid >
             <CourseCard course={course} key={course._id} sx={{
