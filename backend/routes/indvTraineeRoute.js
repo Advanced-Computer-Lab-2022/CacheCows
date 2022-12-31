@@ -44,6 +44,9 @@ router.post('/reviewinst',controlls.reviewinst)
 router.get('/me', protect, getMe);
 router.get('/getallreg', protect, controlls.getallreg);
 
+router.get('/updateProgress', protect, controlls.updateProgress);
+router.get('/getProgress', protect, controlls.getProgress);
+
 
 
 module.exports=router;

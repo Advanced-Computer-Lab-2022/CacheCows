@@ -254,7 +254,6 @@ const navigate=useNavigate();
     <br></br>
 
    
-     <br></br>
      <Box >
       <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -85 }}>
             {courses && courses.map((course) =>(
@@ -270,6 +269,29 @@ const navigate=useNavigate();
           }}/>
           </Grid> ))}
       </Grid>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </Box>   
     
      <br></br>

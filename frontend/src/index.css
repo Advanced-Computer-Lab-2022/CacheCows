@@ -304,6 +304,13 @@ h2 {
   font-family:'Times New Roman', Times, serif;
 }
 
+h6 {
+  margin: 0 0 10px 0;
+  font-size: 1.8em;
+  color: #a6607c;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 
 input {
   display: block;

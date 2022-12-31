@@ -11,6 +11,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
  const FForminst = () =>  {
   const {user} = useAuthContext();
 
@@ -78,7 +79,7 @@ function clear(){
     return (
       <div className='filter'>
         <h3>Subject: {filter}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -86,6 +87,7 @@ function clear(){
           value={filter}
           label="Age"
           onChange={handleChange1}
+          onClick={handleSubmit}
         >
         <MenuItem value=""><em>None</em></MenuItem>
         <MenuItem value="Biology">Biology</MenuItem>
@@ -98,7 +100,7 @@ function clear(){
       <br/>
 
       <h3>Rating: {filter2}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -106,6 +108,7 @@ function clear(){
           value={filter2}
           label="Age"
           onChange={handleChange2}
+          onClick={handleSubmit}
         >
         <MenuItem value="5" >5</MenuItem>
         <MenuItem value="4" >4</MenuItem>

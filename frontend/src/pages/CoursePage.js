@@ -23,6 +23,9 @@ const CoursePage=()=>{
     const course_id = params.get('course_id');
     const crs = {course_id : course_id}
 
+    const params1 = new URLSearchParams(window.location.search);
+    const wk = params.get('week');
+
 useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('api/courses/getCourse',{
@@ -48,12 +51,11 @@ const navigate=useNavigate();
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
             <br></br>
             <br></br>
-    <div className="instructor">
-\      
-      <div> 
+    <div className="instructor"> 
+        <div> 
       {courses && courses.map((course) =>(
-    <CourseInfo course={course} key={course._id} />))}  
-    </div>
+    <CourseInfo course={course} key={course._id}/>))}
+        </div>
     {courses && courses.map((course) =>(
     <CourseInfoMui course={course} key={course._id} />))}  
     <div>
