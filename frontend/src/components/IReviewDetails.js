@@ -2,11 +2,11 @@ const IReviewDetails = ({ review }) => {
 
     return (
       <div className="griddetails">
-        <p><strong>User Name: </strong>{review.user_name}</p>
-        <p><strong>Review: </strong>{review.review}</p>
+        <h5><strong>User Name: </strong>{review.user_name}</h5>
+        <h5><strong>Review: </strong>{review.review}</h5>
  
 
-        <p>Date : {review.createdAt}</p>
+        <h5>Date : {review.createdAt}</h5>
       </div>
     )
   }

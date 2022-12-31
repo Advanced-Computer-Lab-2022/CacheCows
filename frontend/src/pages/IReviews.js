@@ -57,7 +57,10 @@ const IReviews = () => {
       <div className="filter">
         <IRate></IRate>
       </div>
+      <br></br>
       <div className="filter">
+      <br></br>
+
       <h4>Your Reviews!</h4>
       <div className="instrates"> 
         {reviews && reviews.map((review) =>(
