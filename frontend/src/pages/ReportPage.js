@@ -56,13 +56,12 @@ const ReportsPage = () => {
 
       <br/>
 
-    <div className="filter">
+    <div className="reports">
             <br/>
 
-      <div classname="courses"> 
       <div className="reports">
-      <h5>Your Reports!</h5>
-      <div className="reports"> 
+      <h3>Your Reports!</h3>
+      <br></br>
         {reports && reports.map((report) =>(
         <MyReports report={report} key={report._id} />))}          
       </div>
@@ -82,7 +81,6 @@ const ReportsPage = () => {
       <br/>
 
 
-      </div>
       <br/>
       <br/>
       <br/>
@@ -99,7 +97,6 @@ const ReportsPage = () => {
       <br/>
       <br/>
       <br/>
-      </div>
       </div>
   )
 }

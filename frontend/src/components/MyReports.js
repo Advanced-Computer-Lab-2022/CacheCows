@@ -7,18 +7,21 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import reportbg from '../assets/report.gif';
+
 
 const MyReports = ({ report }) => {
   const navigate=useNavigate();
 
   return (
     <div>
-    <Card sx={{ maxWidth: 345 }} className='reports' >
+    <Card sx={{ maxWidth: 545 }} className='reports' >
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://dsu.edu/root-files/report-945x630.jpg"
+          src={reportbg}
+         // image="https://dsu.edu/root-files/report-945x630.jpg"
           alt="green iguana"
         />
         <CardContent onClick={() => window.location.href=`/ReportFUPage?_id=${report._id}`}>
