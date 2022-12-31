@@ -43,13 +43,11 @@ const IRate = () => {
   return (
     <div className="course">
       <div classname="courses"> 
-      <div className="filter">
       <h4>Your Rating!</h4>
         <h4>{rate}</h4>
       </div>
       {error1 && <div className="error">{error1}</div>}
       </div>
-    </div>
   )
 }
 

@@ -221,7 +221,7 @@ background-color: white;
 }
 
 .griddetails {
-  background: #fff;
+  background-image: linear-gradient(to top, #33266e 0%, #a6607c 100%);
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
@@ -229,6 +229,7 @@ background-color: white;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
   width: 75%;
   height: fit-content;
+  opacity: 0.85;
 }
 
 .griddetails h4 {
