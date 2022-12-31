@@ -101,19 +101,24 @@ const setGrade = asyncHandler(async (req, res) => {
 }
 })
 
-
-
 const getuserexam = asyncHandler(async (req, res) => {
 
     const exam = await answers.find({user_id,course_id})
     res.status(200).json(exam)
 })   
-     
+
+const del= asyncHandler(async (req, res) => {
+    const x = await exams.deleteMany();
+    res.status(200).json(x);
+})
+
+
     module.exports = {
 
         getExams,
         getCourseExams,
         getuserexam,
         setExam,
-        setGrade
+        setGrade,
+        del
     }

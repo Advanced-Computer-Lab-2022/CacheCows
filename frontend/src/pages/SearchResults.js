@@ -34,8 +34,6 @@ const SearchResults = () => {
     const paramss = new URLSearchParams(window.location.search);
     const text = paramss.get('search');
 
-    const { user } = useAuthContext()
-
   const [courses, setCourses] = useState(null)
   const[error , setError] = useState(null)
 
@@ -47,8 +45,7 @@ const SearchResults = () => {
             method: 'POST',
             body: JSON.stringify(value),
             headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
+                'Content-Type' : 'application/json'
             }
         })
         const json = await response.json()

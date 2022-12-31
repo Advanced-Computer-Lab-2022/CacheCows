@@ -5,6 +5,11 @@ import DropdownItem from 'muicss/lib/react/dropdown-item';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import CourseDetails from './indvtraineeviewAllCourses';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 
  const FFormPrice = () =>  {
   const {user} = useAuthContext();
@@ -12,6 +17,10 @@ import CourseDetails from './indvtraineeviewAllCourses';
   const [filter, setFilter] = useState('');
   const [courses, setCourses] = useState('');
   const[error , setError] = useState(null);
+
+  const handleChange1 = (event) => {
+    setFilter(event.target.value);
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -56,14 +65,23 @@ function clear(){
     return (
       <div className='filter'>
         <h3>Price: {filter}</h3>
-      <Dropdown color="primary" label="Filter By Price" className='filter' onClick={handleSubmit}
-      onSelect={(v) => setFilter(v)}
-      >
-        <DropdownItem value="100">Up to 100</DropdownItem>
-        <DropdownItem value="250">Up to 250</DropdownItem>
-        <DropdownItem value="400">Up to 400</DropdownItem>
-        <DropdownItem value="3000">up to 3000</DropdownItem>
-      </Dropdown>
+        <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
+        <InputLabel id="demo-simple-select-helper-label">Price</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={filter}
+          label="Age"
+          onChange={handleChange1}
+        >
+          <MenuItem value=""><em>None</em></MenuItem>
+        <MenuItem value="100">Up to 100</MenuItem>
+        <MenuItem value="250">Up to 250</MenuItem>
+        <MenuItem value="400">Up to 400</MenuItem>
+        <MenuItem value="3000">up to 3000</MenuItem>
+        </Select>
+        <FormHelperText>With label + helper text</FormHelperText>
+      </FormControl>
 
       {error && <div className="error">{error}</div>}
 

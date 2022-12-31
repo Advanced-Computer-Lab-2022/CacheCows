@@ -1,20 +1,29 @@
+import * as React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useState } from "react";
 import { json } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext'
 import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepButton from '@mui/material/StepButton';
 import { Container } from "@mui/system";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
+import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 
 const steps = ['Create Course Info', 'Add Material', 'Create Exams'];
 
@@ -35,7 +44,9 @@ const style = {
 
 
 const CourseForm = ({user}) => {
-
+    const [SubNo, setSN] = useState(1) 
+    const [exNo, setEN] = useState(1) 
+    
     const [exam_q1, setQ1] = useState('')
     const [exam_q1_answer1, setQ1A1] = useState('')
     const [exam_q1_answer2, setQ1A2] = useState('')
@@ -110,6 +121,63 @@ const CourseForm = ({user}) => {
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+
+  const extraex = () => {
+    if(SubNo <= 4){
+      const x = exNo + 1;
+      setEN(x);
+    }else{
+      setEN(4);
+    }
+  };
+
+
+
+  
+  const extrasub = () => {
+    if(SubNo <= 6){
+      const x = SubNo + 1;
+      setSN(x);
+    }else{
+      setSN(6);
+    }
+  };
+
+  const lesssub = () => {
+    if(SubNo === 6){
+      setDisc6('')
+      setPrev6('')
+      settop6('')
+      setSN(5);
+    }
+    if(SubNo === 5){
+      setDisc5('')
+      setPrev5('')
+      settop5('')
+      setSN(4);
+    }
+    if(SubNo === 4){
+      setDisc4('')
+      setPrev4('')
+      settop4('')
+      setSN(3);
+    }
+    if(SubNo === 3){
+      setDisc3('')
+      setPrev3('')
+      settop3('')
+      setSN(2);
+    }
+    if(SubNo === 2){
+      setDisc2('')
+      setPrev2('')
+      settop2('')
+      setSN(1);
+    }
+    if(SubNo === 1){
+      setSN(1);
+    }
+  };
   
   const totalSteps = () => {
     return steps.length;
@@ -166,19 +234,10 @@ const CourseForm = ({user}) => {
         setInstName(user.name);
     }
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
+    const addExam = async(e) => {
+      e.preventDefault();
 
-        setInstID(user._id)
-        setInstName(user.name)
-        
-
-        if (!user) {
-            setError('You must be logged in')
-            return
-          }
-
-        const exam = {
+      const exam = {
         course_id,
         exam_q1,
         exam_q1_answer1,
@@ -208,6 +267,65 @@ const CourseForm = ({user}) => {
         exam_q4_answer4,
         exam_q4_right_answer,
         }
+
+      const response1 = await fetch('/api/exams/setExam', {
+        method: 'POST',
+        body: JSON.stringify(exam),
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${user.token}`
+        }
+    })
+    const json1 = await response1.json()
+
+    if(!response1.ok) {
+        setError(json.error)
+        
+    }
+    if(response1.ok){
+        setQ1('')
+        setQ1A1('')
+        setQ1A2('')
+        setQ1A3('')
+        setQ1A4('')
+        setQ1R('')
+
+        setQ2('')
+        setQ2A1('')
+        setQ2A2('')
+        setQ2A3('')
+        setQ2A4('')
+        setQ2R('')
+
+        setQ3('')
+        setQ3A1('')
+        setQ3A2('')
+        setQ3A3('')
+        setQ3A4('')
+        setQ3R('')
+
+        setQ4('')
+        setQ4A1('')
+        setQ4A2('')
+        setQ4A3('')
+        setQ4A4('')
+        setQ4R('')
+
+        console.log("Exam: ",json1)
+    }
+}
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+
+        setInstID(user._id)
+        setInstName(user.name)
+        
+
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
 
         const course = {
             course_id,
@@ -296,53 +414,7 @@ const CourseForm = ({user}) => {
             
         console.log('New Course Added', json)
         }
-
-        const response1 = await fetch('/api/exams/setExam', {
-            method: 'POST',
-            body: JSON.stringify(exam),
-            headers: {
-                'Content-Type' : 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const json1 = await response1.json()
-
-        if(!response.ok) {
-            setError(json.error)
-            
-        }
-        if(response1.ok){
-            setQ1('')
-            setQ1A1('')
-            setQ1A2('')
-            setQ1A3('')
-            setQ1A4('')
-            setQ1R('')
-
-            setQ2('')
-            setQ2A1('')
-            setQ2A2('')
-            setQ2A3('')
-            setQ2A4('')
-            setQ2R('')
-
-            setQ3('')
-            setQ3A1('')
-            setQ3A2('')
-            setQ3A3('')
-            setQ3A4('')
-            setQ3R('')
-
-            setQ4('')
-            setQ4A1('')
-            setQ4A2('')
-            setQ4A3('')
-            setQ4A4('')
-            setQ4R('')
-
-            console.log("Exam: ",json1)
-        }
-    }
+      }
 
     return (
         <Box sx={{ width: '100%', color : '#1111', background : '#FFFFFF' }}>
@@ -426,7 +498,8 @@ const CourseForm = ({user}) => {
             label="Course Preview Link:"
         />
         <br></br>
-
+      {SubNo === 1 ?(
+        <Box>
         <TextField
             type = "text"
             onChange={(e) => settop1(e.target.value)}
@@ -450,8 +523,32 @@ const CourseForm = ({user}) => {
             label="Course Description 1:"
         />
         <br></br>
-
-        <TextField
+        </Box>
+        ) : SubNo === 2?(
+          <Box>
+          <TextField
+              type = "text"
+              onChange={(e) => settop1(e.target.value)}
+              value={course_subtopic1}
+              label="Course SubTopic 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setPrev1(e.target.value)}
+              value={course_preview1}
+              label="Course Preview 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setDisc1(e.target.value)}
+              value={course_description1}
+              label="Course Description 1:"
+          />
+          <br></br>        <TextField
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
@@ -475,6 +572,54 @@ const CourseForm = ({user}) => {
         />
         <br></br>
 
+          </Box>
+        ) : SubNo === 3 ? (
+          <Box>
+          <TextField
+              type = "text"
+              onChange={(e) => settop1(e.target.value)}
+              value={course_subtopic1}
+              label="Course SubTopic 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setPrev1(e.target.value)}
+              value={course_preview1}
+              label="Course Preview 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setDisc1(e.target.value)}
+              value={course_description1}
+              label="Course Description 1:"
+          />
+          <br></br>        <TextField
+            type = "text"
+            onChange={(e) => settop2(e.target.value)}
+            value={course_subtopic2}
+            label="Course SubTopic 2: "
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev2(e.target.value)}
+            value={course_preview2}
+            label="Course Preview 2:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc2(e.target.value)}
+            value={course_description2}
+            label="Course Description 2:"
+        />
+        <br></br>
         <TextField
             type = "text"
             onChange={(e) => settop3(e.target.value)}
@@ -499,6 +644,77 @@ const CourseForm = ({user}) => {
         />
         <br></br>
 
+        </Box>
+        ):SubNo===4?(
+          <Box>
+          <TextField
+              type = "text"
+              onChange={(e) => settop1(e.target.value)}
+              value={course_subtopic1}
+              label="Course SubTopic 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setPrev1(e.target.value)}
+              value={course_preview1}
+              label="Course Preview 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setDisc1(e.target.value)}
+              value={course_description1}
+              label="Course Description 1:"
+          />
+          <br></br>        <TextField
+            type = "text"
+            onChange={(e) => settop2(e.target.value)}
+            value={course_subtopic2}
+            label="Course SubTopic 2: "
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev2(e.target.value)}
+            value={course_preview2}
+            label="Course Preview 2:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc2(e.target.value)}
+            value={course_description2}
+            label="Course Description 2:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop3(e.target.value)}
+            value={course_subtopic3}
+            label="Course SubTopic 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev3(e.target.value)}
+            value={course_preview3}
+            label="Course Preview 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc3(e.target.value)}
+            value={course_description3}
+            label="Course Description 3:"
+        />
+        <br></br>
         <TextField
             type = "text"
             onChange={(e) => settop4(e.target.value)}
@@ -523,6 +739,100 @@ const CourseForm = ({user}) => {
         />
         <br></br>
 
+          </Box>
+        ):SubNo === 5?(          
+        <Box>
+          <TextField
+              type = "text"
+              onChange={(e) => settop1(e.target.value)}
+              value={course_subtopic1}
+              label="Course SubTopic 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setPrev1(e.target.value)}
+              value={course_preview1}
+              label="Course Preview 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setDisc1(e.target.value)}
+              value={course_description1}
+              label="Course Description 1:"
+          />
+          <br></br>        <TextField
+            type = "text"
+            onChange={(e) => settop2(e.target.value)}
+            value={course_subtopic2}
+            label="Course SubTopic 2: "
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev2(e.target.value)}
+            value={course_preview2}
+            label="Course Preview 2:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc2(e.target.value)}
+            value={course_description2}
+            label="Course Description 2:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop3(e.target.value)}
+            value={course_subtopic3}
+            label="Course SubTopic 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev3(e.target.value)}
+            value={course_preview3}
+            label="Course Preview 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc3(e.target.value)}
+            value={course_description3}
+            label="Course Description 3:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop4(e.target.value)}
+            value={course_subtopic4}
+            label="Course SubTopic 4:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev4(e.target.value)}
+            value={course_preview4}
+            label="Course Preview 4:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc4(e.target.value)}
+            value={course_description4}
+            label="Course Description 4:"
+        />
+        <br></br>
         <TextField
             type = "text"
             onChange={(e) => settop5(e.target.value)}
@@ -546,6 +856,125 @@ const CourseForm = ({user}) => {
             label="Course Description 5:"
         />
         <br></br>
+          </Box>
+
+        ): SubNo === 6?(
+          <Box>
+          <TextField
+              type = "text"
+              onChange={(e) => settop1(e.target.value)}
+              value={course_subtopic1}
+              label="Course SubTopic 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setPrev1(e.target.value)}
+              value={course_preview1}
+              label="Course Preview 1:"
+          />
+          <br></br>
+  
+          <TextField
+              type = "text"
+              onChange={(e) => setDisc1(e.target.value)}
+              value={course_description1}
+              label="Course Description 1:"
+          />
+          <br></br>        <TextField
+            type = "text"
+            onChange={(e) => settop2(e.target.value)}
+            value={course_subtopic2}
+            label="Course SubTopic 2: "
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev2(e.target.value)}
+            value={course_preview2}
+            label="Course Preview 2:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc2(e.target.value)}
+            value={course_description2}
+            label="Course Description 2:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop3(e.target.value)}
+            value={course_subtopic3}
+            label="Course SubTopic 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev3(e.target.value)}
+            value={course_preview3}
+            label="Course Preview 3:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc3(e.target.value)}
+            value={course_description3}
+            label="Course Description 3:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop4(e.target.value)}
+            value={course_subtopic4}
+            label="Course SubTopic 4:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev4(e.target.value)}
+            value={course_preview4}
+            label="Course Preview 4:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc4(e.target.value)}
+            value={course_description4}
+            label="Course Description 4:"
+        />
+        <br></br>
+        <TextField
+            type = "text"
+            onChange={(e) => settop5(e.target.value)}
+            value={course_subtopic5}
+            label="Course SubTopic 5:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setPrev5(e.target.value)}
+            value={course_preview5}
+            label="Course Preview 5:"
+        />
+        <br></br>
+
+        <TextField
+            type = "text"
+            onChange={(e) => setDisc5(e.target.value)}
+            value={course_description5}
+            label="Course Description 5:"
+        />
+        <br></br>
+                <br></br>
 
         <TextField
             type = "text"
@@ -569,51 +998,39 @@ const CourseForm = ({user}) => {
             value={course_description6}
             label="Course Description 6:"
         />
+          </Box>):(<div></div>)}
         <br></br>
+        <Fab color="primary" aria-label="add" onClick={lesssub}>
+        <RemoveCircleOutlineRoundedIcon />
+        </Fab>
 
-        <TextField
-            type = "text"
-            onChange={(e) => setSubt1(e.target.value)}
-            value={course_subtitles1}
-            label="Course Subtitle 1:"
-        />
-        <br></br>
-
-        <TextField
-            type = "text"
-            onChange={(e) => setSubt2(e.target.value)}
-            value={course_subtitles2}
-            label="Course Subtitle 2:"
-        />
-        <br></br>
-
-        <TextField
-            type = "text"
-            onChange={(e) => setSubt3(e.target.value)}
-            value={course_subtitles3}
-            label="Course Subtitle 3:"
-        />
+        <Fab color="primary" aria-label="add" onClick={extrasub}>
+        <AddCircleOutlineRoundedIcon />
+        </Fab>
         <br></br>
         <br/>
 
      <label>Selected Subject: {course_subject}</label>
      <br/>
-     <br/>
-     <TextField
-          color="primary" 
-          label="Choose Course Subject:"
-          onSelect={(v) => setSubj(v)}
-          id="outlined-select-currency"
-          select
-          defaultValue="Other"
-          helperText="Please select your currency"
+
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={course_subject}
+          label="Age"
+          onChange={(e) => setSubj(e.target.value)}
         >
         <MenuItem value="Hardware">Hardware</MenuItem>
         <MenuItem value="IT and Software">IT and Software</MenuItem>
         <MenuItem value="Biology">Biology</MenuItem>
         <MenuItem value="Music">Music</MenuItem>
-        <MenuItem value="Music">Other</MenuItem>
-        </TextField>
+        <MenuItem value="Music" onClick={(v) => setSubj(v)}>Other</MenuItem>
+        </Select>
+        <FormHelperText>With label + helper text</FormHelperText>
+      </FormControl>
+
       <br/>
       </div>
       ):activeStep === 2 ? (
@@ -840,7 +1257,11 @@ const CourseForm = ({user}) => {
         />
         </Box>
 
-        <Button sx={{marginLeft : 115, marginBottom : -3, border : 2, borderRadius : 1, marginRight : 3}}><h3>Save</h3></Button>
+        <Button onClick={addExam} 
+        sx={{marginLeft : 110, marginBottom : -5, marginRight : 0}}
+        size='small'>
+          <h3>Add Exam</h3>
+          </Button>
 
 
         </Box>

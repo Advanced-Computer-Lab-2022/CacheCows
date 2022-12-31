@@ -90,6 +90,7 @@ import AcceptRequests from "./pages/Acceptreq";
 import Paymentsuccess from "./pages/Paymentsuccess";
 
 import SearchResults from "./pages/SearchResults";
+import CoursePageInst from "./pages/CoursePageInst";
 
 function App() {
 
@@ -402,6 +403,11 @@ function App() {
             <Route 
             path="/SearchResults"
             element={<SearchResults/>}
+            />
+            
+            <Route 
+            path="/CoursePageInst"
+            element={<CoursePageInst/>}
             />
 
 
