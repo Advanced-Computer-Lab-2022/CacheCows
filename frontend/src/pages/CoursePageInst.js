@@ -7,17 +7,18 @@ import CountryForm from "../components/CountryForm"
 import CustomSelect from "../components/CustomSelect"
 import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
-import CourseInfo from "../components/CourseInfo";
 import CourseInfoMui from "../components/CourseInfoMui";
 import { Nav } from "react-bootstrap";
 import Notes from "../components/Notes";
+import CourseInfoInst from "../components/CourseInfoInst";
 
 
-const CoursePage=()=>{
+const CoursePageInst=()=>{
     const user = useAuthContext()
 
     
     const [courses,setCourses]=useState()
+    const [exams,setExams]=useState()
 
     const params = new URLSearchParams(window.location.search);
     const course_id = params.get('course_id');
@@ -36,9 +37,15 @@ useEffect(()=>{
 
         if(response.ok){
         setCourses(json)
+        console.log("Done: ",json)
+        }
+        if(!response.ok){
+            setCourses(json)
+            console.log("Not Done: ",json)
         }
     }
     fetchCourses();
+    
     
 },[])
 const navigate=useNavigate();
@@ -52,21 +59,19 @@ const navigate=useNavigate();
 \      
       <div> 
       {courses && courses.map((course) =>(
-    <CourseInfo course={course} key={course._id} />))}  
+    <CourseInfoInst course={course} key={course._id}/>
+       ))}
     </div>
     {courses && courses.map((course) =>(
-    <CourseInfoMui course={course} key={course._id} />))}  
-    <div>
-    <h3> Course Notes</h3>
-      <Notes/>
-    </div>
+    <CourseInfoMui course={course} key={course._id}/>
+    ))}
     </div>
     </div>
 
  )
 
 }
-export default CoursePage
+export default CoursePageInst
 
 
 

@@ -36,10 +36,8 @@ const getInstCourses =  asyncHandler(async (req, res) => {
 
 //ADD COURSE
 const setCourse = asyncHandler(async(req, res) => {
-    if (req.body.course_id == ""){
-        res.status(400).json({error: "Please add an ID"})
-        throw new Error('Please add a text field')
-    }
+
+    try{
     const checkcourses = await courses.findOne({ course_id: req.body.course_id })
   
     if (checkcourses) {
@@ -92,6 +90,10 @@ const setCourse = asyncHandler(async(req, res) => {
      
     })
     res.status(200).json({course})
+    }
+    catch(error){
+    res.status(400).json({error:"Please Fill Out All Fields"})
+    }
 })
 //UPDATE COURSE
 const updateCourse = asyncHandler(async (req, res) => {

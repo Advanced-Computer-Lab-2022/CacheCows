@@ -5,6 +5,11 @@ import DropdownItem from 'muicss/lib/react/dropdown-item';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import TCourseDetails from "./indvtraineeviewAllCourses";
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 
  const FForm = () =>  {
   const {user} = useAuthContext();
@@ -14,6 +19,14 @@ import TCourseDetails from "./indvtraineeviewAllCourses";
   const [courses, setCourses] = useState('');
   const[error , setError] = useState(null);
   const[error2 , setError2] = useState(null);
+
+  const handleChange1 = (event) => {
+    setFilter(event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setFilter2(event.target.value);
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -64,27 +77,46 @@ function clear(){
     return (
       <div className='filter'>
         <h3>Subject: {filter}</h3>
-      <Dropdown color="primary" label="Filter By Subject" className='filter' onClick={handleSubmit}
-      onSelect={(v) => setFilter(v)}
-      >
-        <DropdownItem value="Biology">Biology</DropdownItem>
-        <DropdownItem value="Hardware">Hardware</DropdownItem>
-        <DropdownItem value="IT and Software">IT and Software</DropdownItem>
-        <DropdownItem value="Music">Music</DropdownItem>
-      </Dropdown>
+      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
+        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={filter}
+          label="Age"
+          onChange={handleChange1}
+          onClick={handleSubmit}
+        >
+        <MenuItem value=""><em>None</em></MenuItem>
+        <MenuItem value="Biology">Biology</MenuItem>
+        <MenuItem value="Hardware">Hardware</MenuItem>
+        <MenuItem value="IT and Software">IT and Software</MenuItem>
+        <MenuItem value="Music">Music</MenuItem>
+        </Select>
+        <FormHelperText>With label + helper text</FormHelperText>
+      </FormControl>
       <br/>
 
       <h3>Rating: {filter2}</h3>
-      <Dropdown color="primary" label="Filter By Rating" className='filter' onClick={handleSubmit}
-      onSelect={(v) => setFilter2(v)}
-      >
-        <h4><DropdownItem value="5" >5</DropdownItem></h4>
-        <h4><DropdownItem value="4" >4</DropdownItem></h4>
-        <h4><DropdownItem value="3" >3</DropdownItem></h4>
-        <h4><DropdownItem value="2" >2</DropdownItem></h4>
-        <h4><DropdownItem value="1" >1</DropdownItem></h4>
-
-      </Dropdown>
+      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
+        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={filter2}
+          label="Age"
+          onChange={handleChange2}
+          onClick={handleSubmit}
+        >
+        <MenuItem value=""><em>None</em></MenuItem>
+        <MenuItem value="5" >5</MenuItem>
+        <MenuItem value="4" >4</MenuItem>
+        <MenuItem value="3" >3</MenuItem>
+        <MenuItem value="2" >2</MenuItem>
+        <MenuItem value="1" >1</MenuItem>
+        </Select>
+        <FormHelperText>With label + helper text</FormHelperText>
+      </FormControl>
 
       {error && <div className="error">{error}</div>}
 

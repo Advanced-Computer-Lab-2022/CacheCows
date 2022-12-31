@@ -90,8 +90,7 @@ import AcceptRequests from "./pages/Acceptreq";
 import Paymentsuccess from "./pages/Paymentsuccess";
 import Corpviewreq from "./pages/Corpviewreq";
 import SearchResults from "./pages/SearchResults";
-import Instviewbalance from "./pages/Instviewbalance"
-import Viewwallet from "./pages/Indvviewwallet";
+
 function App() {
 
   const { user } = useAuthContext()
@@ -404,19 +403,6 @@ function App() {
             path="/SearchResults"
             element={<SearchResults/>}
             />
-            <Route 
-            path="/corpviewreq"
-            element={<Corpviewreq/>}
-            />
-            <Route 
-            path="/instviewbalance"
-            element={<Instviewbalance/>}
-            />
-            <Route 
-            path="/viewwallet"
-            element={<Viewwallet/>}
-            />
-            
 
 
         </Routes>
