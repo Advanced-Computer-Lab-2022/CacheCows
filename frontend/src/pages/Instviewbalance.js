@@ -37,6 +37,7 @@ return(
 <div className="dashboardpage">
 
 <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
 <br></br>
 <h1><strong>Your balance:</strong>{owed}</h1>
     <br></br>
@@ -54,7 +55,7 @@ return(
     <br></br>  <br></br>
     <br></br>
     <br></br>
-    <br></br>\
+    <br></br>
     <br></br>
     <br></br>
     <br></br>

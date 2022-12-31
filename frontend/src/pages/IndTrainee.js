@@ -13,9 +13,10 @@ import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import FFormPrice from "../components/FilterFormPrice";
 import CountryForm from "../components/CountryForm";
-
+import CourseCardUsers from "../components/CourseCardUsers";
 import rubixgif2 from '../assets/Rubix2.gif';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 const languages = [
   {
     id: 0,
@@ -50,6 +51,7 @@ function IndTrainee() {
 
   const [query, setQuery] = useState("");
   const [courses, setCourses] = useState([]);
+  const [error,setError]=useState(null)
   const[name,setName]=useState('')
   const[email,setEmail]=useState('')
   const [selectedLanguages, setSelectedLanguages] = useState([])
@@ -101,8 +103,32 @@ if(response.ok){
 }
 getinst()
 
+const fetchcourses=async()=>{
+  const response=await fetch('/api/indvtrainee/getregistercourses',
+  {
+      method:'GET',
+      headers: {'Authorization': `Bearer ${user.token}`},
+  })
+  const json= await response.json()
+  if(response.ok){
+      setCourses(json)
+      setError(null)
+      console.log(json)
+
+  }
+  if(!response.ok){
+      setCourses('')
+      setError(json.error)
+      console.log(json.error)
+  }
+  
+}
+
+  fetchcourses()
+    
+
     if (query.length === 0 || query.length > 2) fetchData();
-  }, [query]);
+  }, [user]);
  
   
 
@@ -155,21 +181,20 @@ getinst()
       </div>
      
 
-  <CountryForm></CountryForm>
+  
       <br/>
     <div  className="profilebody" >
+
+
      <button className="profilebutton" onClick={()=>navigate("/Indvview")}> View all Courses</button>
-     <br/>
-     <br/>
+    
     <button className="profilebutton" on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
-    <br/>
-    <br/>
+    
     <button className="profilebutton" onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
 
     <button className="profilebutton" onClick={()=>window.location.href=`/viewwallet?userId=${indvid}`}> view wallet</button>
-    <br/>
-    <br/>
+   
     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
         key={indvid}>View Reports
       </button>
@@ -178,7 +203,20 @@ getinst()
       <button className="profilebutton" onClick={() => window.location.href=`/IndTraineeNew?userId=${indvid}`}
         key={indvid}>New Style
       </button>
+    
+      <div className="">
 
+      
+<h3> My Courses</h3>
+<Box >
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -85 }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+      <CourseCardUsers course={course} key={course._id} />
+    </Grid> ))}
+</Grid>
+</Box>  
+</div>
     <br></br>
     <br></br>
     <br></br>

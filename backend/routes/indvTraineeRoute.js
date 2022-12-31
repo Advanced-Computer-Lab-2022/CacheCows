@@ -19,6 +19,7 @@ router.post('/paycourse',controlls.paycourse)
 router.delete('/del',controlls.del)
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
 router.post('/viewwallet',controlls.viewwallet)
+router.put('/editwallet',controlls.editwallet)
 router.use(protect)
 
 

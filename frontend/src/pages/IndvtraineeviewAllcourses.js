@@ -6,7 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import FForm from "../components/Filterformindv";
 import FFormPrice from "../components/FilterformIndvprice";
-
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 function Indvview (){
     const navigate=useNavigate();
     const {user} = useAuthContext()
@@ -29,9 +30,10 @@ useEffect(()=>{
     
 },[user])
 return(
-    <div >
+    <div className="profilebody">
       <br/>
       <br/>
+      <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
         <FForm></FForm>
 
@@ -40,8 +42,15 @@ return(
       <FFormPrice></FFormPrice>
 
       <br/>
- {courses && courses.map((course) =>(
-    <TCourseDetails course={course} key={course._id} />))} 
+      
+      <Box >
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -20 }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+      <TCourseDetails course={course} key={course._id} />
+    </Grid> ))}
+</Grid>
+</Box>  
 
 <br/>
 <br/>

@@ -30,50 +30,51 @@ const Viewwallet=()=>{
             }
             
         }
-        getwallet()
+       getwallet()
 
         
                     
                 
     },[user])
-    return(
-        <div className="dashboardpage">
-        
-        <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+  return(
+    <div className="dashboardpage">
+
+    <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+    
+    <br></br>
+    <h1><strong>Your balance:</strong>{wallet}</h1>
         <br></br>
-        <h1><strong>Your balance:</strong>{wallet}</h1>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-        
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  <br></br>
-            <br></br>
-            <br></br>
-            <br></br>\
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-        </div>
-        )
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+    
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>  <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>  <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+    </div>
+  )
 }
 export default Viewwallet

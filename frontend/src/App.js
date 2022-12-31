@@ -410,6 +410,21 @@ function App() {
             element={<SearchResults/>}
             />
 
+             <Route 
+            path="/instviewbalance"
+            element={<Instviewbalance/>}
+            />
+
+          <Route 
+            path="/viewwallet"
+            element={<Viewwallet/>}
+            />
+             <Route 
+            path="/corpviewreq"
+            element={<Corpviewreq/>}
+            />
+            
+
 
         </Routes>
        

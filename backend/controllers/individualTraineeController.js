@@ -64,12 +64,20 @@ const paycourse=async(req,res)=>{
           const indv_id=req.body.indv_id
           const trainee=await indv.findById({_id:indv_id})
            console.log(trainee.wallet)
-           res.status(200).json("a7a")
+           res.status(200).json(trainee.wallet)
         }
         catch(error){
           res.status(400).json({error:error.message});
       }
 
+      }
+
+      const editwallet=async(req,res)=>{
+        const indv_id=req.body.indv_id
+        const trainee=await indv.findByIdAndUpdate({_id:indv_id},{wallet:0},{new:true})
+        res.status(200).json(trainee.wallet)
+        
+        
       }
 
 const getallreg= (req,res)=>{
@@ -457,5 +465,6 @@ module.exports={
   reviewinst,
   sendCertificateEmail,
 paycourse , getallreg ,
-viewwallet
+viewwallet,
+editwallet
 }

@@ -156,11 +156,9 @@ const languages = [
     <br></br>
 
       </div>
-      <div className= 'filter' >
-        <CountryForm></CountryForm>
-      </div>
+    
     <div className="profilebody" >
-      <SearchBar></SearchBar> 
+      
       <p> </p>
       
       <p> </p>
