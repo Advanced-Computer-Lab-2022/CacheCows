@@ -31,7 +31,7 @@ const Paymentsuccess=()=>{
     const json = await response.json()
     console.log(json)
     if(response.ok){
-        console.log("yes")
+        console.log(user.name)
         if(json==="success"){
             setShow(true)
             owed()

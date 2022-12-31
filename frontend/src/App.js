@@ -90,6 +90,9 @@ import AcceptRequests from "./pages/Acceptreq";
 import Paymentsuccess from "./pages/Paymentsuccess";
 import Corpviewreq from "./pages/Corpviewreq";
 import SearchResults from "./pages/SearchResults";
+import Instviewbalance from "./pages/Instviewbalance"
+import Viewwallet from "./pages/Indvviewwallet";
+import Countryform from "./components/CountryForm";
 
 function App() {
 
@@ -203,9 +206,12 @@ function App() {
               path="/InstLogin" 
              element={<InstLogin />} 
 
-              
-              
             />
+            <Route 
+            path="/Country" 
+           element={<Countryform />} 
+
+          />
             <Route 
               path="/IndTraineeLogin" 
               element={<IndTraineeLogin />} 

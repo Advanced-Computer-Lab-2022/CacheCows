@@ -18,6 +18,7 @@ router.post('/sendCertificateEmail',sendCertificateEmail)
 router.post('/paycourse',controlls.paycourse)
 router.delete('/del',controlls.del)
 router.get('/getOneindvTrainee',controlls.getOneindvTrainee);
+router.post('/viewwallet',controlls.viewwallet)
 router.use(protect)
 
 
@@ -25,7 +26,7 @@ router.use(protect)
 router.get('/allindvtrainees',controlls.getAllinvdTrainee);
 router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
 router.post('/addindvtrainee',controlls.setindvTrainee);
-router.post('/viewwallet',controlls.viewwallet)
+
 
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);

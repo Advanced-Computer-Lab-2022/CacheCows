@@ -47,6 +47,8 @@ const languages = [
     const [query, setQuery] = useState("");
     const [courses,setCourses]=useState()
     const [selectedLanguages, setSelectedLanguages] = useState([])
+    const[name,setName]=useState('')
+    const[email,setEmail]=useState('')
     const {user} = useAuthContext()
     useEffect(() => {
       const fetchData = async () => {
@@ -57,7 +59,8 @@ const languages = [
           method: 'GET',
           body: JSON.stringify(x),
           headers: {
-              'Content-Type' : 'application/json'
+              'Content-Type' : 'application/json',
+              
           }
       })
       const json = await response.json()
@@ -71,27 +74,100 @@ const languages = [
         
   
       };
+
+
+
+      const getindv=async()=>{
+        const trainee={crpid}
+        const response=await fetch('/api/corpTrainee/getOneTrainee',
+        {
+          method: 'post',
+          body:JSON.stringify(trainee),
+          headers: {
+              'Content-Type' : 'application/json'
+          
+          }
+      })
+      const json=await response.json()
+      console.log(json)
+      if(response.ok){
+        setName(json.corp_name)
+        setEmail(json.corp_email)
+        console.log("khalsona baa")
+      }
+      
+      
+      
+      }
+      getindv()
+
+
+
+
+
+
       if (query.length === 0 || query.length > 2) fetchData();
     }, [query]);
 
   return( 
-    <div className="dashboardpage">
+   
+     <div >
+      <div className="profilehead">
+      <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+   
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <h1> welcome :{name}!</h1>
+    <h1>Email:{email}!</h1>
+    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+      </div>
+      <div className= 'filter' >
+        <CountryForm></CountryForm>
+      </div>
+    <div className="profilebody" >
       <SearchBar></SearchBar> 
       <p> </p>
       
       <p> </p>
 
-      <div>               
-  <Box
-  component="img"
-  sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
-  alt="Logo"
-  src={rubixgif2} />
-  </div>
+
       
-  <div className= 'filter' >
-        <CountryForm></CountryForm>
-      </div>
+ 
       
     <button className="profilebutton"onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}>Change password</button>
     
@@ -104,6 +180,7 @@ const languages = [
     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
         key={crpid}>View Reports
       </button>
+  </div>
   </div>
   )
 }

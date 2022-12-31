@@ -167,7 +167,7 @@ getinst()
     <br/>
     <button className="profilebutton" onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
 
-    <button className="profilebutton" onClick={()=>navigate("/viewwallet")}> viewwallet</button>
+    <button className="profilebutton" onClick={()=>window.location.href=`/viewwallet?userId=${indvid}`}> view wallet</button>
     <br/>
     <br/>
     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
