@@ -417,11 +417,13 @@ const CourseForm = ({user}) => {
       }
 
     return (
-        <Box sx={{ width: '100%', color : '#1111', background : '#FFFFFF' }}>
+      <div className='pagesplain'>
+        <br></br>
+        <Box sx={{ width: '100%', color : '#1111', background : '#FFFFFF', opacity: 0.87 }}>
       <Stepper nonLinear activeStep={activeStep} sx={{marginBottom : 8}}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
+            <StepButton color="#a6607c" onClick={handleStep(index)}>
               {label}
             </StepButton>
           </Step>
@@ -429,592 +431,663 @@ const CourseForm = ({user}) => {
       </Stepper>
 
        <form className="" onSubmit={handleSubmit}>
-        <h3>Add a New Course!</h3>
+        <h6>Add a New Course!</h6>
         <br></br>
         {activeStep === 0 ? (
             <div>
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', color: '#a6607c'}}
             type = "text"
             onChange={(e) => setID(e.target.value)}
             value={course_id}
             label="Course ID:"
         />
          <br></br>
+         <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setName(e.target.value)}
             value={course_name}
             label="Course Name:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrice(e.target.value)}
             value={course_price}
             label="Course Price:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setSumm(e.target.value)}
             value={course_summary}
             label="Course Summary:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setTot(e.target.value)}
             value={course_total_hours}
             label="Course Total Hours:"
         />
         <br></br>
+        <br></br>
+
         </div>
         ): activeStep === 1 ? (
         <div>
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setEx(e.target.value)}
             value={course_exercise}
             label="Course Exercises:"
         />
+                 <br></br>
+
         <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setOutline(e.target.value)}
             value={course_outline}
             label="Course Outline:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setVideo(e.target.value)}
             value={course_video}
             label="Course Preview Link:"
         />
         <br></br>
+        <br></br>
+
       {SubNo === 1 ?(
         <Box>
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop1(e.target.value)}
             value={course_subtopic1}
             label="Course SubTopic 1:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev1(e.target.value)}
             value={course_preview1}
             label="Course Preview 1:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc1(e.target.value)}
             value={course_description1}
             label="Course Description 1:"
         />
         <br></br>
+        <br></br>
+
         </Box>
         ) : SubNo === 2?(
           <Box>
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => settop1(e.target.value)}
               value={course_subtopic1}
               label="Course SubTopic 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setPrev1(e.target.value)}
               value={course_preview1}
               label="Course Preview 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setDisc1(e.target.value)}
               value={course_description1}
               label="Course Description 1:"
           />
-          <br></br>        <TextField
+          <br></br>
+          <br></br>
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
             label="Course SubTopic 2: "
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev2(e.target.value)}
             value={course_preview2}
             label="Course Preview 2:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_description2}
             label="Course Description 2:"
         />
         <br></br>
+        <br></br>
+
 
           </Box>
         ) : SubNo === 3 ? (
           <Box>
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => settop1(e.target.value)}
               value={course_subtopic1}
               label="Course SubTopic 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setPrev1(e.target.value)}
               value={course_preview1}
               label="Course Preview 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setDisc1(e.target.value)}
               value={course_description1}
               label="Course Description 1:"
           />
-          <br></br>        <TextField
+          <br></br> 
+          <br></br>
+
+       <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
             label="Course SubTopic 2: "
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev2(e.target.value)}
             value={course_preview2}
             label="Course Preview 2:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_description2}
             label="Course Description 2:"
         />
         <br></br>
-        <TextField
+        <br></br>
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop3(e.target.value)}
             value={course_subtopic3}
             label="Course SubTopic 3:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev3(e.target.value)}
             value={course_preview3}
             label="Course Preview 3:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
             value={course_description3}
             label="Course Description 3:"
         />
         <br></br>
+        <br></br>
+
 
         </Box>
         ):SubNo===4?(
           <Box>
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => settop1(e.target.value)}
               value={course_subtopic1}
               label="Course SubTopic 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setPrev1(e.target.value)}
               value={course_preview1}
               label="Course Preview 1:"
           />
           <br></br>
+          <br></br>
+
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setDisc1(e.target.value)}
               value={course_description1}
               label="Course Description 1:"
           />
-          <br></br>        <TextField
+          <br></br> 
+          <br></br>
+     
+            <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
             label="Course SubTopic 2: "
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev2(e.target.value)}
             value={course_preview2}
             label="Course Preview 2:"
         />
         <br></br>
+        <br></br>
 
-        <TextField
+
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_description2}
             label="Course Description 2:"
         />
         <br></br>
-        <TextField
+        <br></br>
+
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop3(e.target.value)}
             value={course_subtopic3}
             label="Course SubTopic 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev3(e.target.value)}
             value={course_preview3}
             label="Course Preview 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
             value={course_description3}
             label="Course Description 3:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop4(e.target.value)}
             value={course_subtopic4}
             label="Course SubTopic 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev4(e.target.value)}
             value={course_preview4}
             label="Course Preview 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc4(e.target.value)}
             value={course_description4}
             label="Course Description 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
           </Box>
         ):SubNo === 5?(          
         <Box>
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => settop1(e.target.value)}
               value={course_subtopic1}
               label="Course SubTopic 1:"
           />
-          <br></br>
+          <br></br> <br></br>
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setPrev1(e.target.value)}
               value={course_preview1}
               label="Course Preview 1:"
           />
-          <br></br>
+          <br></br> <br></br>
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setDisc1(e.target.value)}
               value={course_description1}
               label="Course Description 1:"
           />
-          <br></br>        <TextField
+          <br></br> <br></br>        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
             label="Course SubTopic 2: "
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev2(e.target.value)}
             value={course_preview2}
             label="Course Preview 2:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_description2}
             label="Course Description 2:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop3(e.target.value)}
             value={course_subtopic3}
             label="Course SubTopic 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev3(e.target.value)}
             value={course_preview3}
             label="Course Preview 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
             value={course_description3}
             label="Course Description 3:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop4(e.target.value)}
             value={course_subtopic4}
             label="Course SubTopic 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev4(e.target.value)}
             value={course_preview4}
             label="Course Preview 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc4(e.target.value)}
             value={course_description4}
             label="Course Description 4:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop5(e.target.value)}
             value={course_subtopic5}
             label="Course SubTopic 5:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev5(e.target.value)}
             value={course_preview5}
             label="Course Preview 5:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}} 
             type = "text"
             onChange={(e) => setDisc5(e.target.value)}
             value={course_description5}
             label="Course Description 5:"
         />
-        <br></br>
+        <br></br> <br></br>
           </Box>
 
         ): SubNo === 6?(
           <Box>
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => settop1(e.target.value)}
               value={course_subtopic1}
               label="Course SubTopic 1:"
           />
-          <br></br>
+          <br></br> <br></br>
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setPrev1(e.target.value)}
               value={course_preview1}
               label="Course Preview 1:"
           />
-          <br></br>
+          <br></br> <br></br>
   
-          <TextField
+          <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
               type = "text"
               onChange={(e) => setDisc1(e.target.value)}
               value={course_description1}
               label="Course Description 1:"
           />
-          <br></br>        <TextField
+          <br></br> <br></br>        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop2(e.target.value)}
             value={course_subtopic2}
             label="Course SubTopic 2: "
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev2(e.target.value)}
             value={course_preview2}
             label="Course Preview 2:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc2(e.target.value)}
             value={course_description2}
             label="Course Description 2:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop3(e.target.value)}
             value={course_subtopic3}
             label="Course SubTopic 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev3(e.target.value)}
             value={course_preview3}
             label="Course Preview 3:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc3(e.target.value)}
             value={course_description3}
             label="Course Description 3:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop4(e.target.value)}
             value={course_subtopic4}
             label="Course SubTopic 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev4(e.target.value)}
             value={course_preview4}
             label="Course Preview 4:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc4(e.target.value)}
             value={course_description4}
             label="Course Description 4:"
         />
-        <br></br>
-        <TextField
+        <br></br> <br></br>
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop5(e.target.value)}
             value={course_subtopic5}
             label="Course SubTopic 5:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev5(e.target.value)}
             value={course_preview5}
             label="Course Preview 5:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc5(e.target.value)}
             value={course_description5}
             label="Course Description 5:"
         />
-        <br></br>
-                <br></br>
+        <br></br> <br></br>
+                <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => settop6(e.target.value)}
             value={course_subtopic6}
             label="Course SubTopic 6:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setPrev6(e.target.value)}
             value={course_preview6}
             label="Course Preview 6:"
         />
-        <br></br>
+        <br></br> <br></br>
 
-        <TextField
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c'}}
             type = "text"
             onChange={(e) => setDisc6(e.target.value)}
             value={course_description6}
             label="Course Description 6:"
         />
           </Box>):(<div></div>)}
-        <br></br>
-        <Fab color="primary" aria-label="add" onClick={lesssub}>
-        <RemoveCircleOutlineRoundedIcon />
+        <br></br> <br></br>
+        <Fab sx={{ marginRight: 5 , color : '#d9d9d9', backgroundColor : '#a6607c'}}
+          aria-label="add" onClick={lesssub}>
+        <RemoveCircleOutlineRoundedIcon background-color ="#a6607c" />
         </Fab>
 
-        <Fab color="primary" aria-label="add" onClick={extrasub}>
+
+        <Fab  sx={{ marginLeft: 5 , color : '#d9d9d9', backgroundColor : '#a6607c'}}
+        color="#a6607c" aria-label="add" onClick={extrasub}>
         <AddCircleOutlineRoundedIcon />
         </Fab>
-        <br></br>
+        <br></br> <br></br>
         <br/>
 
-     <label>Selected Subject: {course_subject}</label>
+     <label>Select Subject: {course_subject}</label>
+     <br/>
      <br/>
 
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 220 }}>
+        <InputLabel id="demo-simple-select-helper-label">Course Subject</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -1028,14 +1101,14 @@ const CourseForm = ({user}) => {
         <MenuItem value="Music">Music</MenuItem>
         <MenuItem value="Music" onClick={(v) => setSubj(v)}>Other</MenuItem>
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
 
       <br/>
       </div>
       ):activeStep === 2 ? (
       <div className="reports">
-      <Button onClick={handleOpen}>Add Quiz</Button>
+      <Button sx={{ color: '#a6607c' }} 
+      onClick={handleOpen}>Add Exam</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -1046,51 +1119,45 @@ const CourseForm = ({user}) => {
         <Box sx={style} >
         <Box>
         <h3>First Question!</h3>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '30%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 , marginRight: 1}}
+           type = "text"
           onChange={(e) => setQ1(e.target.value)}
           value={exam_q1}
           label="Exam Question :"
         />
          <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ1A1(e.target.value)}
           value={exam_q1_answer1}
           label="First Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ1A2(e.target.value)}
           value={exam_q1_answer2}
           label="Second Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ1A3(e.target.value)}
           value={exam_q1_answer3}
           label="Third Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ1A4(e.target.value)}
           value={exam_q1_answer4}
           label="Fourth Choice:"
         />
         <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ1R(e.target.value)}
           value={exam_q1_right_answer}
           label="Right Choice:"
@@ -1100,51 +1167,45 @@ const CourseForm = ({user}) => {
 
         <Box sx={{marginLeft : 32.5, marginTop : -53}}>
         <h3>Second Question!</h3>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2(e.target.value)}
           value={exam_q2}
           label="Exam Question :"
         />
          <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2A1(e.target.value)}
           value={exam_q2_answer1}
           label="First Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2A2(e.target.value)}
           value={exam_q2_answer2}
           label="Second Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2A3(e.target.value)}
           value={exam_q2_answer3}
           label="Third Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2A4(e.target.value)}
           value={exam_q2_answer4}
           label="Fourth Choice:"
         />
         <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ2R(e.target.value)}
           value={exam_q2_right_answer}
           label="Right Choice:"
@@ -1153,51 +1214,45 @@ const CourseForm = ({user}) => {
 
         <Box sx={{marginLeft : 65, marginTop : -53}}>
         <h3>Third Question!</h3>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3(e.target.value)}
           value={exam_q3}
           label="Exam Question :"
         />
          <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3A1(e.target.value)}
           value={exam_q3_answer1}
           label="First Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3A2(e.target.value)}
           value={exam_q3_answer2}
           label="Second Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3A3(e.target.value)}
           value={exam_q3_answer3}
           label="Third Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3A4(e.target.value)}
           value={exam_q3_answer4}
           label="Fourth Choice:"
         />
         <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '50%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ3R(e.target.value)}
           value={exam_q3_right_answer}
           label="Right Choice:"
@@ -1206,50 +1261,44 @@ const CourseForm = ({user}) => {
 
         <Box sx={{marginLeft : 97.5, marginTop : -53}}>
         <h3>Fourth Question!</h3>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ4(e.target.value)}
           value={exam_q4}
           label="Exam Question :"
         />
          <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ4A1(e.target.value)}
           value={exam_q4_answer1}
           label="First Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ4A2(e.target.value)}
           value={exam_q4_answer2}
           label="Second Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ4A3(e.target.value)}
           value={exam_q4_answer3}
           label="Third Choice:"
         />
          <br/>
-        <TextField
-        sx={{marginBottom : 1}}
-          type = "text"
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
+           type = "text"
           onChange={(e) => setQ4A4(e.target.value)}
           value={exam_q4_answer4}
           label="Fourth Choice:"
         />
         <br/>
 
-        <TextField
-        sx={{marginBottom : 1}}
+        <TextField sx={{ width: '100%', background : '#FFFFFF', borderBlockColor: '#a6607c', marginBottom : 1 }}
           type = "text"
           onChange={(e) => setQ4R(e.target.value)}
           value={exam_q4_right_answer}
@@ -1269,7 +1318,7 @@ const CourseForm = ({user}) => {
       <br/>
       <br/>
       <br/>
-        <Button className="filterbutton" onClick={handleSubmit}>Add Course</Button>
+        <Button sx={{ color: '#a6607c' }}className="filterbutton" onClick={handleSubmit}>Add Course</Button>
         {error && <div className="error">{error}</div>}
       <br/>
       </div>
@@ -1278,17 +1327,17 @@ const CourseForm = ({user}) => {
        <div>
         {allStepsCompleted() ? (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1 }}>
+            <Typography sx={{ mt: 2, mb: 1 , color: '#111111'}}>
               All steps completed - you&apos;re finished
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
+              <Box sx={{ flex: '1 1 auto' , color: '#a6607c' }} />
+              <Button sx={{ color: '#a6607c' }} onClick={handleReset}>Reset</Button>
             </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
+            <Typography sx={{ mt: 2, mb: 1, py: 1 , color: '#111111'}}>
               Step {activeStep + 1}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -1296,21 +1345,22 @@ const CourseForm = ({user}) => {
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                sx={{ mr: 1 }}
+                sx={{ mr: 1, color: '#a6607c' }}
               >
-                Back
+                Previous
               </Button>
               <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
+              <Button onClick={handleNext} sx={{ mr: 1 , color: '#111111'}}>
                 Next
               </Button>
+           
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
-                  <Typography variant="caption" sx={{ display: 'inline-block' }}>
+                  <Typography variant="caption" sx={{ display: 'inline-block' , color: '#111111' }}>
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
-                  <Button onClick={handleComplete}>
+                  <Button sx={{color: '#a6607c'}} onClick={handleComplete}>
                     {completedSteps() === totalSteps() - 1
                       ? 'Finish'
                       : 'Complete Step'}
@@ -1318,9 +1368,21 @@ const CourseForm = ({user}) => {
                 ))}
             </Box>
           </React.Fragment>
-        )}
+          
+        )
+        }
       </div>
+      <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
     </Box>
+    </div>
     )
 }   
 

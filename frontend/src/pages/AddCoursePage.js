@@ -21,13 +21,28 @@ const AddCoursePage=  ()=>{
 
         <br></br>
         <Box>
-    <Container className="" sx={{border : 2}}>
+    <Container className="" sx={{border : 2, opacity:0.97}}>
         <br></br>
-    <CourseForm user={user} />
+    <CourseForm sx={{ opacity:0.97}} user={user} />
     {error && <div className="error">{error}</div>}
     </Container>
     </Box>
-    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
 </div>
  )
 
