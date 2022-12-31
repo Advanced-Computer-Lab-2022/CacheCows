@@ -18,12 +18,13 @@ router.post('/sendCertificateEmail',sendCertificateEmail)
 router.put('/changepassword',changepassword);
 router.get('/viewregistered',controlls.viewAll);
 router.delete('/delete',controlls.del);
+router.post('/getOneTrainee',controlls.getOnecrpTrainee);
 router.use(protect)
 
 router.get('/viewmyreq',controlls.viewmyreq)
 router.get('/alltrainees',controlls.getAllcrpTrainee);
 router.post('/addtrainee',controlls.setcrpTrainee);
-router.get('/getOneTrainee/:id',controlls.getOnecrpTrainee);
+
 router.delete('/deletetrainee',controlls.deletecrpTrainee);
 router.put('/updatecorptrainee/:id',controlls.updatecrptrainee);
 

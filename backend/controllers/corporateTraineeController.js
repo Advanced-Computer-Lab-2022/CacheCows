@@ -44,7 +44,8 @@ catch(error){
 
 const getOnecrpTrainee=async (req,res)=>{
     try{
-        const crpTrainee=await corp.findById(req.params.id);
+        const crpTrainee=await corp.findById(req.body.crpid);
+        console.log(crpTrainee)
         res.status(200).json(crpTrainee);
     }
     catch(error){

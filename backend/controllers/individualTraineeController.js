@@ -61,10 +61,10 @@ const paycourse=async(req,res)=>{
    
       const viewwallet=async(req,res)=>{
         try{
-          const indv_id=req.user._id
+          const indv_id=req.body.indv_id
           const trainee=await indv.findById({_id:indv_id})
            console.log(trainee.wallet)
-           res.status(200).json(trainee.wallet)
+           res.status(200).json("a7a")
         }
         catch(error){
           res.status(400).json({error:error.message});
