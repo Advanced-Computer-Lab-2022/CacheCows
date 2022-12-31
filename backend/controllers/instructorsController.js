@@ -52,7 +52,7 @@ const getInstructors = asyncHandler(async (req, res) => {
 
 const viewowed=async(req,res)=>{
   try{
-  const inst_id=req.body._id
+  const inst_id=req.query.inst_id
   const inst=await instructors.findById({_id:inst_id})
   res.status(200).json(inst.owed)
   }

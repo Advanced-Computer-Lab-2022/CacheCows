@@ -29,7 +29,8 @@ const indvTraineeSchema= new mongoose.Schema(
             type:String,
             required:false,
         },
-        type : {type: String , required : false}
+        type : {type: String , required : false},
+        wallet:{type:Number,required:true}
 
         
     }

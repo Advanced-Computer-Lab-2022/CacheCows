@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from "../hooks/useAuthContext"
-import Reqdetails from "../components/viewCourseReq"
+import Reqdetails from "../components/AdminCourseReq"
 import { useNavigate } from "react-router-dom";
 
 const Viewrequests=()=>{

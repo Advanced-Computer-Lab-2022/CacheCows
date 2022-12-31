@@ -14,7 +14,8 @@ import FForminst from "../components/FilterForm";
 import FFormPrice from "../components/FilterFormPrice";
 import CountryForm from "../components/CountryForm";
 
-
+import rubixgif2 from '../assets/Rubix2.gif';
+import Box from '@mui/material/Box';
 const languages = [
   {
     id: 0,
@@ -49,12 +50,15 @@ function IndTrainee() {
 
   const [query, setQuery] = useState("");
   const [courses, setCourses] = useState([]);
+  const[name,setName]=useState('')
+  const[email,setEmail]=useState('')
   const [selectedLanguages, setSelectedLanguages] = useState([])
+  const {user} = useAuthContext()
   const navigate=useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-          
+    
     
       const x = {query};
       const response = await fetch('/api/courses/SearchCourseByOpt', {
@@ -75,37 +79,134 @@ function IndTrainee() {
       
 
     };
+const getinst=async()=>{
+  const response=await fetch(`/api/indvtrainee/getOneindvTrainee?userId=${indvid}`,
+  {
+    method: 'GET',
+    headers: {
+        'Content-Type' : 'application/json'
+       
+    }
+})
+const json=await response.json()
+console.log(json)
+if(response.ok){
+  setName(json.Name)
+  setEmail(json.indv_email)
+  console.log("khalsona baa")
+}
+
+
+
+}
+getinst()
+
     if (query.length === 0 || query.length > 2) fetchData();
   }, [query]);
-  const {user} = useAuthContext()
+ 
   
 
   return (
 
     <div >
-      <CountryForm></CountryForm>
-      <br/>
+      <div className="profilehead">
+      <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+   
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <h1> welcome :{name}!</h1>
+    <h1>Email:{email}!</h1>
+    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 
-    <div className= 'filter' >
-     <button onClick={()=>navigate("/Indvview")}> View all Courses</button>
+      </div>
+     
+
+  <CountryForm></CountryForm>
+      <br/>
+    <div  className="profilebody" >
+     <button className="profilebutton" onClick={()=>navigate("/Indvview")}> View all Courses</button>
      <br/>
      <br/>
-    <button on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
+    <button className="profilebutton" on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
     <br/>
     <br/>
-    <button onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
+    <button className="profilebutton" onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
+
+    <button className="profilebutton" onClick={()=>navigate("/viewwallet")}> viewwallet</button>
     <br/>
     <br/>
-    <button onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
+    <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
         key={indvid}>View Reports
       </button>
       
 
-      <button onClick={() => window.location.href=`/IndTraineeNew?userId=${indvid}`}
+      <button className="profilebutton" onClick={() => window.location.href=`/IndTraineeNew?userId=${indvid}`}
         key={indvid}>New Style
       </button>
 
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 
    </div>
    </div>

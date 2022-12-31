@@ -220,6 +220,7 @@ const navigate=useNavigate();
      <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>Edit Password</button>
      <br></br>
      <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}>Add Course</button>
+     <button className="profilebutton" onClick={()=> window.location.href=`/instviewbalance?inst_id=${instid}`}> My balance </button>
      <br></br>
 
      <button className="profilebutton"

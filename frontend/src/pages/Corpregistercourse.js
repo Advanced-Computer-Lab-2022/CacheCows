@@ -1,18 +1,21 @@
 import { useState,useEffect } from "react";
-import { json } from "react-router-dom";
+import { Await, json } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import CorpviewRequests from "../components/Corpviewrequests";
 import { useNavigate, useParams } from "react-router-dom"
 
     const Corpregistered=()=>{
         const  [show,setShow]=useState(false)
         const [Appeal,setAppeal]=useState('')
+        const [request,setRequest]=useState('')
+        const [shown,setShown]=useState(false)
         const params = new URLSearchParams(window.location.search);
         const userId = params.get('userId');
         const coursename=params.get('coursename');
         const {user} = useAuthContext()
         const navigate=useNavigate();
         //console.log(coursename)
+    
         const handleSubmit = async(e) => {
             e.preventDefault()
             const corp={Appeal}
@@ -30,28 +33,56 @@ import { useNavigate, useParams } from "react-router-dom"
             const json = await response.json()
             console.log(json)
             if(response.ok){
-                setShow(true)
-                setAppeal('')
+                if(json==="already registered"){
+                    setAppeal('')
+                    setShown(true)
+                }
+                else{
+                    setRequest(json)
+                    setShow(true)
+                    setAppeal('')
+                }
+               
+                
+                
             
             }
             else{
                 console.log(corp)
             }
+
+         
         }
+        
+        
+ 
+           
 
         return(
             <div className="pagesplain">
+                
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
-
+         
             <form className="create" onSubmit={handleSubmit} >
-            <h2>Enter your Appeal</h2>
+            <p><h3>        Enter your Appeal</h3></p>
             <input type="text" 
             onChange={(e) => setAppeal(e.target.value)}
             value={Appeal}/>
-            <button>confirm your appeal</button>
-            <div>{show &&<p> congrats you are registered</p>}</div>
+            <button >confirm your appeal</button>
+            <div>{show &&<p><h1> your request is pending </h1></p>}</div>
+            <div>{shown &&<p><h1> already registered </h1></p>}</div>
            <p ></p>
-            <button onClick={()=>navigate("/Corpregisteredcourses")}>return to your courses</button>
+           <div className="inst-details"  >
+
+{show &&<p>
+<p><h3> Your request details</h3></p>
+<p><strong>Traniee Name: </strong>{request.trainee_name}</p>
+<p><strong>course Title: </strong>{request.course_name}</p>
+        <p><strong>Appeal: </strong>{request.appeal}</p>
+        </p>}
+      </div>
+
+           
             </form>
             </div>
         )

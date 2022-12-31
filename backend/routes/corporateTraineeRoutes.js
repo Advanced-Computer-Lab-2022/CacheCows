@@ -10,6 +10,7 @@ const router = express.Router()
 
 router.post('/loginCorpTrainee',loginCorpTrainee);
 
+
 router.post('/forgetpassword',sendEmailcrop)
 router.post('/sendCertificateEmail',sendCertificateEmail)
 
@@ -19,7 +20,7 @@ router.get('/viewregistered',controlls.viewAll);
 router.delete('/delete',controlls.del);
 router.use(protect)
 
-
+router.get('/viewmyreq',controlls.viewmyreq)
 router.get('/alltrainees',controlls.getAllcrpTrainee);
 router.post('/addtrainee',controlls.setcrpTrainee);
 router.get('/getOneTrainee/:id',controlls.getOnecrpTrainee);

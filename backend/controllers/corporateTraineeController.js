@@ -55,6 +55,20 @@ const getOnecrpTrainee=async (req,res)=>{
    
 }
 
+const viewmyreq=async (req,res)=>{
+  try{
+    const corp_id=req.user._id
+    const flag=false
+    const requests=await reg.find({trainee_id:corp_id,flag:flag})
+    res.status(200).json(requests)
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+  
+
+}
+
 
 const deletecrpTrainee=  asyncHandler(async (req, res) => {
     
@@ -179,14 +193,14 @@ const registercourse=async (req,res)=>{
   const course_id=req.query.userId
   const course_name=req.query.coursename
   const corp_name=req.user.corp_name
-  const flag=false
+  const flag1=false
   try{
       const crop=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
       if(crop){
         res.status(200).json("already registered")
       }
       else{
-        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:false,appeal:Appeal,course_name:course_name,trainee_name:corp_name})
+        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:flag1,appeal:Appeal,course_name:course_name,trainee_name:corp_name})
         res.status(200).json(trainee_course)
       }
   }
@@ -296,4 +310,4 @@ const reviewinst=async(req,res)=>{
     } 
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail,del,viewAll};
+module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail,del,viewAll,viewmyreq};

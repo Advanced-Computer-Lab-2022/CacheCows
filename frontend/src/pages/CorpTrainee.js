@@ -7,7 +7,8 @@ import SearchBar from "../components/SearchBar";
 import CourseDetails from "../components/CourseDetails";
 import { useAuthContext } from "../hooks/useAuthContext"
 import CountryForm from "../components/CountryForm";
-
+import rubixgif2 from '../assets/Rubix2.gif';
+import Box from '@mui/material/Box';
 
 const languages = [
   {
@@ -74,30 +75,33 @@ const languages = [
     }, [query]);
 
   return( 
-    <div className="CorpTrainee">
+    <div className="dashboardpage">
       <SearchBar></SearchBar> 
       <p> </p>
-      <div className= 'filter' >
-        <CountryForm></CountryForm>
-      </div>
+      
       <p> </p>
 
+      <div>               
+  <Box
+  component="img"
+  sx={{ height: 625, width: 1100 , padding : 0, margins: 0}}
+  alt="Logo"
+  src={rubixgif2} />
+  </div>
       
+  <div className= 'filter' >
+        <CountryForm></CountryForm>
+      </div>
       
-
+    <button className="profilebutton"onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}>Change password</button>
+    
+    <button className="profilebutton" onClick={()=>navigate("/Corpview")}>view all courses</button>
       
-    <button onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}>Change password</button>
-    <p></p>
-    <button
-       onClick={()=>navigate("/Corpview")}
-      >
-        view all courses
-      </button>
-      <p></p>
-      <button  onClick={()=>navigate("/Corpregisteredcourses")}>view registered courses</button>
+      <button className="profilebutton" onClick={()=>navigate("/Corpregisteredcourses")}>view registered courses</button>
+      <button  className="profilebutton" onClick={()=>navigate("/corpviewreq")}>view requested courses</button>
       <br/>
-    <br/>
-    <button onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
+  
+    <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
         key={crpid}>View Reports
       </button>
   </div>

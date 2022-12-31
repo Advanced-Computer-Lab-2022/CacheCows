@@ -59,7 +59,18 @@ const paycourse=async(req,res)=>{
 }
   
    
-      
+      const viewwallet=async(req,res)=>{
+        try{
+          const indv_id=req.user._id
+          const trainee=await indv.findById({_id:indv_id})
+           console.log(trainee.wallet)
+           res.status(200).json(trainee.wallet)
+        }
+        catch(error){
+          res.status(400).json({error:error.message});
+      }
+
+      }
 
 const getallreg= (req,res)=>{
   reg.find((err,val)=>{
@@ -105,7 +116,7 @@ const setindvTrainee =async (req,res)=>{
 const getOneindvTrainee=async (req,res)=>{
     
   try{
-    const crpTrainee=await indv.findById(req.params.id);
+    const crpTrainee=await indv.findById(req.query.userId);
     res.status(200).json(crpTrainee);
 }
 catch(error){
@@ -369,6 +380,7 @@ const IndivTrainee = await indv.create({
       Country : req.body.Country,
       indv_bd : req.body.indv_bd,
       type : 'indvtrainee',
+      wallet:0
 })
 
 if (IndivTrainee) {
@@ -444,5 +456,6 @@ module.exports={
   del,
   reviewinst,
   sendCertificateEmail,
-paycourse , getallreg 
+paycourse , getallreg ,
+viewwallet
 }
