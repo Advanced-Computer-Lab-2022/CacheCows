@@ -17,6 +17,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import { Link } from 'react-router-dom'
 //import logo from '/assets/RUBIX.png';
 import logonew from '../assets/rubixnew.png';
+import egypt from '../assets/egypt.png';
 import SearchBar from './SearchBar';
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -138,7 +139,7 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:850, cursor: 'text'}}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:820, cursor: 'text'}}
                 >
                 <Typography textAlign="center"  position={{
                 vertical: 'top',
@@ -151,6 +152,14 @@ function ResponsiveAppBar() {
                </Button>
                </Box>
              )}
+             <Box 
+             onClick={() => window.location.href=`/Country?userId=${user._id}`}
+                  component="img"
+                  sx={{ height: 15, width: 20 , padding : 0, marginTop: 3.5, marginRight: 2, cursor: 'pointer' }}
+                  alt="Logo"
+                  src={egypt}
+                />
+
           </Box>
         {user && (
           <Box sx={{ flexGrow: 0 }}>
@@ -181,6 +190,10 @@ function ResponsiveAppBar() {
 
               <MenuItem  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" onClick={() => window.location.href=`/Home?userId=${user._id}`}> Settings</Typography>
+              </MenuItem>
+
+              <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" onClick={() => window.location.href=`/Country?userId=${user._id}`}> Update Country</Typography>
               </MenuItem>
 
               <MenuItem  onClick={() => window.location.href=`/`}>

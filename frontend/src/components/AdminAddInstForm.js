@@ -78,6 +78,8 @@ const AdminAddInstForm = () => {
     return (
        <form className="create" onSubmit={handleSubmit}>
         
+<h3> Add Instructor</h3>
+<br></br>
 
         <label>instructor Name: </label>
         <input

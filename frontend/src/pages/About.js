@@ -15,6 +15,9 @@ function About() {
 <br/>
 </div>
   <h3>
+    Rubik's cube Explained!
+    <br></br>
+    <br></br>
 
     Rubix is educational website for adults that offers a personalized learning experience.
 

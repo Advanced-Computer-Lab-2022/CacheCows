@@ -21,6 +21,12 @@ import SearchBar from "../components/SearchBar";
 import Countryform from "../components/CountryForm";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+import SellIcon from '@mui/icons-material/Sell';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import ReportIcon from '@mui/icons-material/Report';
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import { Report } from "@material-ui/icons";
+
 const languages = [
   {
     id: 0,
@@ -108,15 +114,113 @@ const Admin = () => {
   
     return (
       <div>
+
+
+        <div className="profilehead">
+<br></br>
+<br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>  <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+ 
+
+
+      <h1> Admin!</h1>
+      <br></br>
+
+
+      <body className="biobody"> Email : </body>
+      <br></br>
+      <br></br>
+      
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+  
+
+</div>
+<br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+<div>
+  <h3> My Workspace </h3>
+  <br></br>
+  <br></br>
+
+<button className="buttonadmin"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <LibraryBooksIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#fff' }} ></LibraryBooksIcon>
+        Check All Courses
+      </button>
+    
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button className="buttonadmin"
+        onClick={() => window.location.href=`/AdminReportPage?admin_id=${user._id}`}
+      >
+<ReportIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#fff' }} ></ReportIcon>        Check All Reports
+      </button>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+      <button className="buttonadmin"
+        onClick={() => window.location.href=`/AdminPromo?admin_id=${user._id}`}
+      >
+<SellIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#fff' }} ></SellIcon>        Add Promotions
+      </button>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button className="buttonadmin" onClick={()=>{navigate("/viewcourserequests")}}>
+      <AddTaskIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#fff' }} ></AddTaskIcon>View Courses Requests</button>
+
+
+  </div>
+
+
+
+
+
+      <div className="Admin">  
+      <br></br>
+    <br></br>
+    <br></br>
+    <br></br>  
+        <h3> All Admins</h3>
         <br></br>
-      <div className="Admin">    
-        <h3>Admins</h3>
+
         <div className="All-Admins">
           {admins && admins.map((admin) => (
             <AdminDetails admin={admin} key={admin._id} />
           ))}
+                <br></br>
+                <br></br>
+
        
         </div>
+        <br></br>
+        <br></br>
+
         <div className="filter">
         <AdminForm />
         </div>
@@ -126,13 +230,21 @@ const Admin = () => {
         <br></br>
 
       
-      <h3>Corporate Trainees</h3>
+      <h3>All Corporate Trainees</h3>
+      <br></br>
+
       <div className="All-Admins">
         {crptrainees && crptrainees.map((CrpTrainee) => (
           <CrpTraineeDetails CrpTrainee={CrpTrainee} key={CrpTrainee._id} />
         ))}
+              <br></br>
+              <br></br>
+
       
       </div>
+      <br></br>
+      <br></br>
+
       <div className="filter">
       <AdminAddCrpTraineeForm />
       </div>
@@ -143,12 +255,19 @@ const Admin = () => {
       
 
 
-      <h3>Instructors</h3>
+      <h3>All Instructors</h3>
+      <br></br>
       <div className="All-Admins">
         {instructors && instructors.map((instructor) => (
           <InstructorDetails instructor={instructor} key={instructor._id} />
         ))}
+              <br></br>
+              <br></br>
+
       </div> 
+      <br></br>
+      <br></br>
+
       
       </div>
       <div className="filter">
@@ -156,41 +275,9 @@ const Admin = () => {
       </div>
       <br/>
 
-      <div className="filter">
-      <Countryform></Countryform>
-      </div>
-      <br/>
+     
 
-      <div className="filter">
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Check All Courses!
-      </button>
-      <br/>
-      <br/>
-
-      <button
-        onClick={() => window.location.href=`/AdminReportPage?admin_id=${user._id}`}
-      >
-        {" "}
-        Check All Reports!
-      </button>
-
-      <br/>
-      <br/>
-
-      <button
-        onClick={() => window.location.href=`/AdminPromo?admin_id=${user._id}`}
-      >
-        {" "}
-        Add Promotions!
-      </button>
-      <button onClick={()=>{navigate("/viewcourserequests")}}>view courses requests</button>
-      </div>
+      
       </div>
 
 

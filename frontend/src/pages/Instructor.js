@@ -13,6 +13,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import ReportIcon from '@mui/icons-material/Report';
 import ReviewsIcon from '@mui/icons-material/Reviews';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 
 
@@ -219,17 +220,18 @@ const navigate=useNavigate();
     <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       My Courses </h3>
 
-    <button className="profilebutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Email</button>
+    <button className="profilebuttoninst" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Email</button>
 
-    <button className="profilebutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Biography</button>
+    <button className="profilebuttoninst" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Biography</button>
 
-     <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Edit Password</button>
+     <button className="profilebuttoninst" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Edit Password</button>
      <br></br>
-     <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}> <AddCircleIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></AddCircleIcon>Add Course</button>
-     <button className="profilebutton" onClick={()=> window.location.href=`/instviewbalance?inst_id=${instid}`}> My balance </button>
+     <button className="profilebuttoninst" onClick={()=> window.location.href=`/instviewbalance?inst_id=${instid}`}> <MonetizationOnIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></MonetizationOnIcon>My balance </button>
+
+     <button  className="profilebuttoninst"onClick={() => window.location.href=`/AddCourse`}> <AddCircleIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></AddCircleIcon>Add Course</button>
      <br></br>
 
-     <button className="profilebutton"
+     <button className="profilebuttoninst"
         onClick={() => {
           navigate("/");
         }}
@@ -238,13 +240,14 @@ const navigate=useNavigate();
         Check All Courses
       </button>
       <br></br>
+      
 
 
-     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
+     <button className="profilebuttoninst" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
         key={instid}> <ReportIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReportIcon>View Reports
       </button>
       <br></br>
-      <button className="profilebutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
+      <button className="profilebuttoninst" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
         key={instid}> <ReviewsIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReviewsIcon>View Reviews
       </button>
     <br></br>

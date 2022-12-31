@@ -54,12 +54,16 @@ background-color: white;
 
 /* adminpage */
 .All-Admins {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
-  gap: 0px;
+  gap: 20px;
   align-items: stretch;
   border-radius :31px;
   min-height: 100%;
+  max-height: 25%;
+  margin: auto;
+  width: 70%;
+  overflow-y: scroll;
 }
 .Admin{
   height: max-content;
@@ -436,6 +440,20 @@ button:hover{
 
 }
 
+.buttonadmin {
+  background-color: #a6607c ;
+  color: white;
+  font-family: "Poppins";
+  cursor: pointer;
+  padding:20px;
+  border-radius: 15px;
+  border-width: 2px;
+}
+.buttonadmin:hover{
+  background-color: #d9d9d9;
+
+}
+
 .profilebutton {
   background-color: transparent;
   color: #111111;
@@ -460,6 +478,33 @@ button:hover{
   border-width: 1px;
   cursor: pointer;
 }
+
+.profilebuttoninst {
+  background-color: transparent;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  border-style: inset;
+  border-color: #111111;
+  border-width: 1px;
+  cursor: pointer;
+  margin-right: 1200px;
+  margin-top: 50px;
+}
+.profilebutton:hover {
+  background-color: #d9d9d9;
+  color: #111111;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  border-style: inset;
+  border-color: #111111;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+
 
 
 .instructorbutton {

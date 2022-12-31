@@ -92,6 +92,7 @@ import Corpviewreq from "./pages/Corpviewreq";
 import SearchResults from "./pages/SearchResults";
 import Instviewbalance from "./pages/Instviewbalance"
 import Viewwallet from "./pages/Indvviewwallet";
+import Country from "./pages/Country";
 function App() {
 
   const { user } = useAuthContext()
@@ -204,9 +205,12 @@ function App() {
               path="/InstLogin" 
              element={<InstLogin />} 
 
-              
-              
             />
+            <Route 
+            path="/Country" 
+           element={<Country />} 
+
+          />
             <Route 
               path="/IndTraineeLogin" 
               element={<IndTraineeLogin />} 
