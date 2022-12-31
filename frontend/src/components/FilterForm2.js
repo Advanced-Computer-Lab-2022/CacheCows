@@ -11,6 +11,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 
+
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import FeaturedCourses from "../components/FeaturedCourses";
+
+import CourseCardDB from "../components/CourseCardDB";
+import Grid from '@mui/material/Unstable_Grid2';
+
  const FForm = () =>  {
   const {user} = useAuthContext();
 
@@ -75,20 +83,21 @@ function clear(){
 }
   
     return (
-      <div className='filter'>
+      <div className='dashboardpage'>
         <h3>Subject: {filter}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 120 }} >
+        <InputLabel id="demo-simple-select-helper-label">Subject</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={filter}
           label="Age"
           onChange={handleChange1}
+          onClick={handleSubmit}
         >
-        <MenuItem value=""><em>None</em></MenuItem>
+        <MenuItem value="" onClick={handleSubmit}><em>None</em></MenuItem>
         <MenuItem value="Biology">Biology</MenuItem>
-        <MenuItem value="Hardware">Hardware</MenuItem>
+        <MenuItem value="Hardware" onClick={handleSubmit}>Hardware</MenuItem>
         <MenuItem value="IT and Software">IT and Software</MenuItem>
         <MenuItem value="Music">Music</MenuItem>
         </Select>
@@ -97,14 +106,15 @@ function clear(){
       <br/>
 
       <h3>Rating: {filter2}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-helper-label">Rating</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={filter2}
           label="Age"
           onChange={handleChange2}
+          onClick={handleSubmit}
         >
           <MenuItem value=""><em>None</em></MenuItem>
         <MenuItem value="5" >5</MenuItem>
@@ -119,15 +129,28 @@ function clear(){
       {error && <div className="error">{error}</div>}
 
       <br/>
-
-      <button onClick={clear}>Clear Filters</button>
-
-      <div className="courses"> 
-        {courses && courses.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
-      </div> 
-
-    
+      {courses && (
+      <Box >
+      <h3> ___________________________________________ </h3>
+     <br></br>
+     <h3> Filter Results</h3>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCardDB course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+      {error && <div className="error">{error}</div>}
+    </Box> 
+      )}
       </div>
     );
   }

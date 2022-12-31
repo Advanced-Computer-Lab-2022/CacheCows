@@ -201,7 +201,7 @@ const registercourse=async (req,res)=>{
         res.status(200).json("already registered")
       }
       else{
-        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:flag1,appeal:Appeal,course_name:course_name,trainee_name:corp_name})
+        const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,flag:flag1,appeal:Appeal,course_name:course_name,trainee_name:corp_name,course_progress : 0, course_progress_percentage : 0})
         res.status(200).json(trainee_course)
       }
   }
@@ -261,7 +261,6 @@ const reviewinst=async(req,res)=>{
     res.status(400).json({error:error.message})
   }
   }
-
 //////////////
 //Authentication
 // corp_name, 
@@ -309,6 +308,72 @@ const reviewinst=async(req,res)=>{
         expiresIn: '30d',
       })
     } 
+
+    const updateProgress = async(req,res)=>{
+      const x = req.body.value
+      const course_id = req.body.course_id
+      const corp_id = req.user._id
+      const total = 1;
+      try{
+      const data = await reg.findOne({trainee_id:corp_id,course_id : course_id})
+      const oprog = data.course_progress
+      const nprog = oprog + x
+      const crs = await course.find({course_id : course_id})
+      if(crs.course_subtopic6 != ""){
+        total = 6
+      }else if(crs.course_subtopic5 != ""){
+        total = 5
+      }else if(crs.course_subtopic4 != ""){
+        total = 4
+      }else if(crs.course_subtopic3 != ""){
+        total = 3
+      }else if(crs.course_subtopic2 != ""){
+        total = 2
+      }else if(crs.course_subtopic1 != ""){
+        total = 1
+      }
+  
+      const nperc = (nprog/total)*100
+      const updated = await reg.findOneAndUpdate({trainee_id:corp_id,course_id : course_id},{course_progress : nprog,course_progress_percentage : nperc})
+        res.status(200).json(updated)
+      }
+      catch(error){
+        res.status(400).json({error:error.message})
+      }
+      }
+
+      const getProgress = async(req,res)=>{
+        const course_id = req.body.course_id
+        const corp_id = req.user._id
+        try{
+        const data = await reg.findOne({trainee_id:corp_id,course_id : course_id})
+        res.status(200).json(data)
+        }
+        catch(error){
+          res.status(400).json({error:error.message})
+        }
+        }
+
+  
   
 
-module.exports={getAllcrpTrainee,getOnecrpTrainee,setcrpTrainee,deletecrpTrainee,updatecrptrainee, loginCorpTrainee, getMe,changepassword,sendEmailcrop,registercourse,getregistercourses,rating,reviewinst, sendCertificateEmail,del,viewAll,viewmyreq};
+module.exports={
+  getAllcrpTrainee,
+  getOnecrpTrainee,
+  setcrpTrainee,
+  deletecrpTrainee,
+  updatecrptrainee,
+  loginCorpTrainee,
+  getMe,
+  changepassword,
+  sendEmailcrop,
+  registercourse,
+  getregistercourses,
+  rating,reviewinst,
+  sendCertificateEmail,
+  del,
+  viewAll,
+  viewmyreq,
+  updateProgress,
+  getProgress
+};

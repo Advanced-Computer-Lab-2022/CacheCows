@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 
 import pdficon from '../assets/pdficon.png';
 import mailicon from '../assets/mailicon.png';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -113,11 +114,15 @@ class TraineeResults extends Component{
 
         }
 
-    
+
 
     render(){
         return (
           <div className='pagesplain'>
+          <button className="back" onClick={() => useNavigate(-1)}> ❮ Back </button>
+          <br></br>
+          <br></br>
+
                         <br></br>
                         <br></br>
                         <br></br>

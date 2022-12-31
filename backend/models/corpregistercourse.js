@@ -7,7 +7,9 @@ const registercourse=new mongoose.Schema({
     trainee_name:{type:String,required:true},
     course_name:{type:String,required:true},
     flag:{type:Boolean,required:true},
-    appeal:{type:String,required:true}
+    appeal:{type:String,required:true},
+    course_progress:{type:Number ,required:false},
+    course_progress_percentage:{type:Number ,required:false}
 })
 
 

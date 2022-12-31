@@ -37,4 +37,7 @@ router.put('/rateinstructor',controlls.rating)
 router.get('/me',protect, controlls.getMe);
 router.post('/reviewinst',controlls.reviewinst)
 
+router.get('/updateProgress', protect, controlls.updateProgress);
+router.get('/getProgress', protect, controlls.getProgress);
+
 module.exports=router;
