@@ -9,6 +9,12 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext"
 import FForminst from "../components/FilterForm";
 import Box from '@mui/material/Box';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import EditIcon from '@mui/icons-material/Edit';
+import ReportIcon from '@mui/icons-material/Report';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+
+
 
 
 
@@ -213,13 +219,13 @@ const navigate=useNavigate();
     <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       My Courses </h3>
 
-    <button className="profilebutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}>Edit Email</button>
+    <button className="profilebutton" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Email</button>
 
-    <button className="profilebutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}>Edit Biography</button>
+    <button className="profilebutton" onClick={() => window.location.href=`/InstEditBiography?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Biography</button>
 
-     <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}>Edit Password</button>
+     <button className="profilebutton" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Edit Password</button>
      <br></br>
-     <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}>Add Course</button>
+     <button  className="profilebutton"onClick={() => window.location.href=`/AddCourse`}> <AddCircleIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></AddCircleIcon>Add Course</button>
      <br></br>
 
      <button className="profilebutton"
@@ -234,11 +240,11 @@ const navigate=useNavigate();
 
 
      <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${instid}`}
-        key={instid}>View Reports
+        key={instid}> <ReportIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReportIcon>View Reports
       </button>
       <br></br>
       <button className="profilebutton" onClick={() => window.location.href=`/ireviews?user_id=${instid}`}
-        key={instid}>View Reviews
+        key={instid}> <ReviewsIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReviewsIcon>View Reviews
       </button>
     <br></br>
 

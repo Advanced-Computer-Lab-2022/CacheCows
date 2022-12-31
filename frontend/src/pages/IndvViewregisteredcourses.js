@@ -4,6 +4,8 @@ import Registeredcoursedetails from "../components/Registercoursedetails"
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import CourseCardUsers from "../components/CourseCardUsers";
+import { useNavigate } from "react-router-dom";
+
 
 const Indvregistercourses =()=>{
     const {user} = useAuthContext()
@@ -34,10 +36,15 @@ useEffect(()=>{
         fetchcourses()
           }
 },[user])
+
+const navigate=useNavigate();
+
 return(
-<div  >
+
+<div className="pagesplain"> 
+    <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
     <br></br>
-    <h2> My Courses</h2>
+    <h3> My Courses</h3>
 <Box >
       <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
             {courses && courses.map((course) =>(
@@ -46,7 +53,34 @@ return(
           </Grid> ))}
       </Grid>
 </Box>  
+<br/>
+<br/>
+<br/>
+
 {error && <div className="error">{error}</div>}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 </div>
 );
 }
