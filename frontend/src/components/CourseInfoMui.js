@@ -48,8 +48,29 @@ const CourseInfoMui = ({course}) => {
   
     const getList = () => (
       <div style={{ width: 250 }} onClick={() => setOpen(false)}>
+          {course.course_name && (<ListItem button >
+            <ListItemText primary={course.course_name} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${1}`}/>
+          </ListItem>)}
+          {course.course_subtopic1 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${2}`}/>
+          </ListItem>)}
+          {course.course_subtopic2 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${3}`}/>
+          </ListItem>)}
+          {course.course_subtopic3 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${4}`}/>
+          </ListItem>)}
+          {course.course_subtopic4 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${5}`}/>
+          </ListItem>)}
+          {course.course_subtopic5 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${6}`}/>
+          </ListItem>)}
+          {course.course_subtopic6 && (<ListItem button >
+            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${7}`}/>
+          </ListItem>)}
           <ListItem button >
-            <ListItemText primary={course.course_subtopic1} />
+            <ListItemText primary="My Results" onClick={() => window.location.href=`/TraineeResults?course_id=${course.course_id}&username=${user.username}`}/>
           </ListItem>
       </div>
     );

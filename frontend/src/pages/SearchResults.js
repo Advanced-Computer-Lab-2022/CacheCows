@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext'
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/FilterForm";
-import FForm from "../components/FilterForm2";
-import FFormPrice from "../components/FilterFormPrice";
 import ResponsiveAppBar from "../components/NavBarBS";
 
 import bganim from '../assets/bganim.gif';
@@ -29,6 +27,9 @@ import FeaturedCourses from "../components/FeaturedCourses";
 import CourseDetails from "../components/CourseDetails"
 import CourseCardDB from "../components/CourseCardDB";
 import Grid from '@mui/material/Unstable_Grid2';
+
+import FForm from "../components/FilterForm2";
+import FFormPrice from "../components/FilterFormPrice";
 
 const SearchResults = () => {
     const paramss = new URLSearchParams(window.location.search);
@@ -82,6 +83,16 @@ const SearchResults = () => {
   return (
     
   <div className = "dashboardpage" >
+         <div className="dashboardpage"> 
+         <br/>
+         <h3> Filter </h3>
+     <h3> ___________________________________________ </h3>
+     <br></br>
+     <FForm></FForm>
+     <br/>
+     <FFormPrice></FFormPrice>
+     </div>
+
 
 
      <div className=""> 

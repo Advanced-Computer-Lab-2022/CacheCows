@@ -11,6 +11,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import FeaturedCourses from "../components/FeaturedCourses";
+
+import CourseCardDB from "../components/CourseCardDB";
+import Grid from '@mui/material/Unstable_Grid2';
+
  const FFormPrice = () =>  {
   const {user} = useAuthContext();
 
@@ -63,7 +70,7 @@ function clear(){
 }
   
     return (
-      <div className='filter'>
+      <div className='dashboardpage'>
         <h3>Price: {filter}</h3>
         <FormControl sx={{ m: 1, minWidth: 120 }} onSubmit={handleSubmit}>
         <InputLabel id="demo-simple-select-helper-label">Price</InputLabel>
@@ -86,13 +93,28 @@ function clear(){
       {error && <div className="error">{error}</div>}
 
       <br/>
-
-      <button onClick={clear}>Clear Filter</button>
-
-      <div className="courses"> 
-        {courses && courses.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
-      </div> 
+      {courses && (
+      <Box >
+      <h3> ___________________________________________ </h3>
+     <br></br>
+     <h3> Filter Results</h3>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CourseCardDB course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+      {error && <div className="error">{error}</div>}
+    </Box> 
+    )}
 
     
       </div>
