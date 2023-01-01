@@ -26,6 +26,9 @@ const CoursePage=()=>{
     const params1 = new URLSearchParams(window.location.search);
     const wk = params.get('week');
 
+    const type = localStorage.getItem('type')
+    const [exams, setExams] = useState();  
+
 useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('api/courses/getCourse',{
@@ -43,7 +46,7 @@ useEffect(()=>{
     }
     fetchCourses();
     
-},[])
+},[crs,user.token])
 const navigate=useNavigate();
 
     return(
@@ -59,23 +62,6 @@ const navigate=useNavigate();
     <CourseInfo course={course} key={course._id}/>))}
         </div>
     <div>
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <div>
-    </div>
     <br/> 
     <br/> 
 

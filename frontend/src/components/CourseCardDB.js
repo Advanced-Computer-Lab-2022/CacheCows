@@ -191,7 +191,7 @@ src={rubix}
 
       <CardActions disableSpacing='false' sx={{marginTop : 0}}>
       <Button
-        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
+        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${1}`}
         sx={{ marginTop :0,marginLeft : 9 ,border : 2, background : '#a6607c', color: '#fff' }}
         size='large'
         background-color= '#a6607c'

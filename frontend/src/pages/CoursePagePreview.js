@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CourseInfoGuest from "../components/CourseInfoGuest";
 import { Nav } from "react-bootstrap";
+import CourseInfoMuiPrev from "../components/CourseInfoMuiPrev";
 
 const CoursePagePreview =()=>{
     const user = useAuthContext()
@@ -43,6 +44,12 @@ const navigate=useNavigate();
     return(
       <div className="pagesplain">
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+
+            <div> 
+      {courses && courses.map((course) =>(
+    <CourseInfoMuiPrev course={course} key={course._id}/>
+       ))}
+    </div>
 
     <div className="instructor">
       {courses && courses.map((course) =>(
