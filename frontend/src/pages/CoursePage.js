@@ -46,31 +46,7 @@ useEffect(()=>{
     }
     fetchCourses();
     
-},[])
-
-useEffect(()=>{
-  const fetchExams=async ()=>{
-      const response1= await fetch('api/exams/getCExams',{
-          method: 'POST',
-          body: JSON.stringify(crs),
-          headers: {
-            'Content-Type' : 'application/json',
-            'Authorization': `Bearer ${user.token}`},
-        })
-        const json1= await response1.json()
-
-        if(response1.ok){
-        setExams(json1)
-        console.log("yess: ",json1,course_id)
-        }
-        if(!response1.ok){
-          setExams('')
-          console.log("WTF: ",json1)
-          }
-  }
-  fetchExams();
-  
-},[])
+},[crs,user.token])
 const navigate=useNavigate();
 
     return(
@@ -86,23 +62,6 @@ const navigate=useNavigate();
     <CourseInfo course={course} key={course._id}/>))}
         </div>
     <div>
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <br/> 
-    <div>
-    </div>
     <br/> 
     <br/> 
 

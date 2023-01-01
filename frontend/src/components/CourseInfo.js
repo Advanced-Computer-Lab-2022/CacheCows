@@ -14,6 +14,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
+import ExamQs from './ExamQs';
 
 
 
@@ -144,7 +145,7 @@ const CourseInfo = ({course}) => {
               </FormGroup>
               <Notes/>
               </Box>
-            ):(<div>xxx</div>)}
+            ): week === '8'?(<ExamQs></ExamQs>):(<div></div>)}
         </Container>
         </div>
     )

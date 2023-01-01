@@ -56,7 +56,7 @@ const CourseInfoInst = ({course}) => {
     }
     fetchCourses();
     
-},[])
+},[course_id,user.token])
 
 
     return(
