@@ -43,8 +43,8 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleCloseUserMenu =  () => {
+     setAnchorElUser(null);
   };
 
   function navigate(page) {
@@ -53,8 +53,8 @@ function ResponsiveAppBar() {
     }
   };
 
-  const handleClick = () => {
-    logout()
+  const handleClick =  () => {
+     logout()
   }
 
 

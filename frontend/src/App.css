@@ -97,6 +97,17 @@
     margin: 0 auto;
   }
 
+  .pagesplain2{
+    background-image: url("assets/bgplain.gif") ; 
+    background-size: 100%;
+    color: white;
+    background-color: white;
+    max-width: 70%;
+    height: max-content;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
   .profilehead{
     background-image: url("assets/profileheader.png") ; 
     background-size: 100%;

@@ -147,7 +147,7 @@ const CourseInfoMuiPrev = ({course}) => {
       <div>
         < h7>  {course.course_name} </ h7>
 
-        <Button sx = {{color : '#fff', marginRight : 150, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginBottom : 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
+        <Button sx = {{color : '#fff', marginRight : 150, MarginTop:20, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginTop: 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
 Content </Button>
 
         <Drawer open={open} anchor={"left"} onClose={() => setOpen(false)}>

@@ -55,6 +55,11 @@ const navigate=useNavigate();
       {courses && courses.map((course) =>(
     <CourseInfoGuest course={course} key={course._id} />))}  
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </div>
 
  )

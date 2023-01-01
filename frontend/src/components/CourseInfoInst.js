@@ -70,7 +70,7 @@ const CourseInfoInst = ({course}) => {
             <h4 class='header1'>{course.course_name}</h4>
             <br/>
             <div className="ratio ratio-16x9">
-            <iframe className=''  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
+            <iframe className='modalx'  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
             </div>
             <br/><br/>
             <h4 class='header'>{course.course_summary}</h4>

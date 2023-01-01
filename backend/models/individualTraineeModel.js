@@ -7,6 +7,10 @@ const indvTraineeSchema= new mongoose.Schema(
             type:String,
             required:true,
         },
+        last_name:{
+            type:String,
+            required:true,
+        },
         Country:{
             type:String,
             required:false,

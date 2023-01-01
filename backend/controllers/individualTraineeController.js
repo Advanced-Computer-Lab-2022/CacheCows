@@ -380,7 +380,7 @@ const reviewcourse=async(req,res)=>{
 
 const registerIndTrainee = asyncHandler(async(req, res) => {
   if (!req.body.Name || !req.body.indv_user || !req.body.indv_email  || !req.body.indv_pass 
-    || !req.body.Country || !req.body.indv_bd ){
+    || !req.body.Country || !req.body.indv_bd  ){
       res.status(400).json({error:'Please Add all Fields'})
   }
   if (!validator.isEmail(req.body.indv_email)) {
@@ -401,6 +401,7 @@ const registerIndTrainee = asyncHandler(async(req, res) => {
 
 const IndivTrainee = await indv.create({
       Name : req.body.Name,
+      last_name : req.body.last_name,
       indv_user : req.body.indv_user,
       indv_email : req.body.indv_email,
       indv_pass : hashedPassword,
