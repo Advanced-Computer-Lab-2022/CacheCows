@@ -264,7 +264,16 @@ label {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: #111111;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  max-width: 70%;
+}
+
+.label2 {
+
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: #33266e;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   max-width: 70%;
 }
 
@@ -311,6 +320,12 @@ h6 {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.h7 {
+  margin: 0 0 0px 0;
+  font-size: 1em;
+  color: #a6607c;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 input {
   display: block;
@@ -644,6 +659,19 @@ height: 80%;
   opacity:0.96;
 }
 
+form.notes {
+  border-color: #a6607c;
+  border-style:groove;
+  position: relative;
+width: 70%;
+height: 30%;
+  margin: 40px auto;
+  padding: 10px;
+  background: transparent;
+  border-radius: 4px;
+  opacity:0.96;
+}
+
 nav button {
   background: #fff;
   color: var(--primary);
@@ -673,14 +701,34 @@ nav button {
   border-radius: 10px;
 
 }
-.header {
-  width: 98%;
-  border-bottom: 5px solid rgb(13, 54, 92);
-  border-top: 5px solid rgb(13, 54, 92);
+.header1 {
+  margin:auto;
+  margin-bottom: 40px;
+  width: 70%;
+  border-bottom: 5px solid #33266e;
+  border-top: 5px solid #33266e;
   font-size: 18px solid ;
   color: #135492;
   text-align: center;
   padding: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #33266e;
+  font-size: 0.7cm;
+}
+
+.header {
+  margin:auto;
+  margin-bottom: 20px;
+  width: 70%;
+  border-bottom: 3px solid #33266e;
+  border-top: 3px solid #33266e;
+  font-size: 18px solid ;
+  color: #135492;
+  text-align: center;
+  padding: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #33266e;
+
 }
 .headerC {
   width: 98%;

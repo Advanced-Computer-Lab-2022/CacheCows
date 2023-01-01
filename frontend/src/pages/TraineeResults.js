@@ -28,6 +28,7 @@ class TraineeResults extends Component{
 
     pdfGenerate =()=>{
         
+      const navigate=useNavigate();
 
         // const {user} = useAuthContext();
         // const [username , setname] = useState('');
@@ -77,10 +78,12 @@ class TraineeResults extends Component{
         doc.save('certificate.pdf')
             
         }
+        
 
          pdfSend = async ()=>{
            // const  [show,setShow]=useState(false)
              
+           const navigate=useNavigate();
 
             
             const params = new URLSearchParams(window.location.search);
@@ -117,9 +120,12 @@ class TraineeResults extends Component{
 
 
     render(){
+
+      const paramss = new URLSearchParams(window.location.search);
+            const course_id = paramss.get('course_id');
         return (
           <div className='pagesplain'>
-          <button className="back" onClick={() => useNavigate(-1)}> ❮ Back </button>
+          <button className="back" onClick={() => {window.location.href=`/CoursePage?course_id=${course_id}`}}> ❮ Back </button>
           <br></br>
           <br></br>
 

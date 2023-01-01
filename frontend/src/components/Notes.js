@@ -72,9 +72,9 @@ doc.save('notes.pdf')
   
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
+    <form className="notes" onSubmit={handleSubmit}>
       
-      <label>Notes</label>
+      <label className="label2">Notes</label>
       <input 
         type="text" 
         onChange={(e) => setNotes(e.target.value)} 
