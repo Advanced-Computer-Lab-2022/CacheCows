@@ -302,19 +302,13 @@ const navigate=useNavigate();
     <br></br> <br></br>
     <br></br> <br></br>
     <br></br> 
-         
+    <br></br>
+    <br></br> <br></br>
+    <br></br> <br></br>
+    <br></br> 
     </div>
 
-    <div className="filter">
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Check All Courses!
-      </button>
-      </div>
+    
       <br />
       
 </div>
