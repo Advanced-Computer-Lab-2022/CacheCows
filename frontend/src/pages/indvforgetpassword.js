@@ -5,7 +5,7 @@ const Indvtforgetpassword=()=>{
   const navigate=useNavigate();
 
 return(
-    <div className="filter">
+    <div className="pagesplain">
       <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
          <br>
         </br>
@@ -30,6 +30,11 @@ return(
       <br></br>
       <br></br>
       <br></br>        <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>

@@ -44,7 +44,7 @@ return(
       <br/>
       
       <Box >
-<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -20 }}>
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 35, marginTop : -20 }}>
             {courses && courses.map((course) =>(
           <Grid >
       <TCourseDetails course={course} key={course._id} />

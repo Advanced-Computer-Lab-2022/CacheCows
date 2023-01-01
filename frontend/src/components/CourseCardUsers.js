@@ -68,6 +68,7 @@ const styles = theme => ({
   const [checked2, setChecked2] = React.useState(false);
   const [report_status, setstatus] = React.useState('')
 
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen(true)
@@ -230,13 +231,13 @@ src={rubix}
         sx={{marginRight : -9, marginTop : 5,marginLeft : 3, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'>
-          Add Review
+          Review  instructor
           <RateReviewRoundedIcon sx={{marginLeft : 1}} />
         </Button>
 
        
         <Button aria-label="share" edge='end' 
-        onClick={() => window.location.href=`/creviews?course_id=${course.course_id}`}
+        onClick={() => window.location.href=`/creviews?course_id=${course._id}`}
         sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'
@@ -246,6 +247,28 @@ src={rubix}
         </Button>
 
       </CardActions>
+
+      <CardActions disableSpacing='false' sx={{marginTop : -5}}>
+      <Button aria-label="add to favorites" 
+        color='primary'
+        onClick={()=>window.location.href=`/indvreviewcourse?userId=${course._id}`}
+        sx={{marginRight : -9, marginTop : 5,marginLeft : 3, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'>
+          Review Course
+          <RateReviewRoundedIcon sx={{marginLeft : 1}} />
+        </Button>
+        
+        <Button aria-label="share" edge='end' 
+        color='primary'
+        onClick={()=>window.location.href=`/indvviewwallet`}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'>
+          Refund
+          <RateReviewRoundedIcon sx={{marginLeft : 1}} />
+        </Button>
+        </CardActions>
       <CardActions sx={{marginTop : 0}}>
         <IconButton aria-label="share" edge='end'>
           <StarRateRoundedIcon/>

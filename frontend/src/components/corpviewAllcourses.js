@@ -1,9 +1,56 @@
+import * as React from 'react';
+import '../styles.css';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { red } from '@mui/material/colors';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Container } from 'react-bootstrap'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import DiscountIcon from '@mui/icons-material/Discount';
+import Popover from '@mui/material/Popover';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { Button, Icon } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
+import ReviewsRoundedIcon from '@mui/icons-material/ReviewsRounded';
+import ReportRoundedIcon from '@mui/icons-material/ReportRounded';
+import ReportGmailerrorredRoundedIcon from '@mui/icons-material/ReportGmailerrorredRounded';
+import RateReviewRoundedIcon from '@mui/icons-material/RateReviewRounded';
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded';
+import PercentRoundedIcon from '@mui/icons-material/PercentRounded';
+import { alignProperty } from '@mui/material/styles/cssUtils';
+import ReviewsRounded from '@mui/icons-material/ReviewsRounded';
+import ThumbsUpDownRoundedIcon from '@mui/icons-material/ThumbsUpDownRounded';
+import rubix from '../assets/rubixwhite.png';
+import Box from '@mui/material/Box';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
-const CCourseDetails = ({course}) => {
-  
+
+const styles = theme => ({
+  edgeEnd: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch"
+    }
+  }
+});
+
+ const CCourseDetails= ({course}) => {
     const [isShown, setIsShown] = useState(false);
     const [prv1, setprv1] = useState(true);
     const [prv2, setprv2] = useState(false);
@@ -11,68 +58,203 @@ const CCourseDetails = ({course}) => {
     const [disc1, setDisc1] = useState(true);
     const [disc2, setDisc2] = useState(false);
     const [disc3, setDisc3] = useState(false);
+    const [Dflag, setDflag] = useState(true);
+  const [expanded, setExpanded] = React.useState(false);
 
-    function sub1() {
-        setprv1(true) 
-        setprv2(false) 
-        setprv3(false)
-        setDisc1(true)
-        setDisc2(false)
-        setDisc3(false)
-      }
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-      function sub2() {
-        setprv1(false) 
-        setprv2(true) 
-        setprv3(false)
-        setDisc1(false)
-        setDisc2(true)
-        setDisc3(false)
-      }
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [report_status, setstatus] = React.useState('')
 
-      function sub3() {
-        setprv1(false) 
-        setprv2(false) 
-        setprv3(true)
-        setDisc1(false)
-        setDisc2(false)
-        setDisc3(true)
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setOpen(true)
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false)
+  };
+
+  const handlereport1 = () => {
+    setChecked1(!checked1)
+    setChecked2(false)
+   }
+
+   const handlereport2 = () => {
+    setChecked1(false)
+    setChecked2(!checked2)
+   }
+
+  useEffect(()=>{ 
+
+    const fetchCourses=async ()=>{
+
+      if(course.cource_price_after_discount !== 0){
+        setDflag(true)
+      }else{
+        setDflag(false)
       }
-      const navigate=useNavigate();
+    }
+  
+      fetchCourses()
+    
+},[course.cource_price_after_discount])
+
+function sub1() {
+  setprv1(true) 
+  setprv2(false) 
+  setprv3(false)
+  setDisc1(true)
+  setDisc2(false)
+  setDisc3(false)
+}
+
+function sub2() {
+  setprv1(false) 
+  setprv2(true) 
+  setprv3(false)
+  setDisc1(false)
+  setDisc2(true)
+  setDisc3(false)
+}
+
+function sub3() {
+  setprv1(false) 
+  setprv2(false) 
+  setprv3(true)
+  setDisc1(false)
+  setDisc2(false)
+  setDisc3(true)
+}
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  return (
+    <Card sx={{ maxWidth: 345, marginTop : 20 }} >
+      <CardHeader
+        avatar={
+          <Box
+component="img"
+sx={{ height: 70, width: 70 , padding : 0, margins: 0}}
+alt="Logo"
+src={rubix}
+/>
+        }
+        action={
+            <IconButton aria-label="settings"  variant="contained" onMouseEnter={handleClick} >
+            <MoreVertIcon/>
+            <Popover
+            onClose={handleClose}
+            open={open}
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+          >
+            <FormGroup>
+            <Button sx={{ p: 2 }} onClick={() => window.location.href=`/AddReportPage?course_id=${course.course_id}`}>Report Course</Button>
+            <Button onClick={handleClose} color="secondary">Close</Button>
+        </FormGroup>
+         </Popover>
+          </IconButton>  
+        }
+        title={course.course_id}
+        subheader={course.course_name}
+        onSubmit={handleClose}
+      />
+      <CardContent>
+        {prv1 && (<iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>)}
+        {prv2 && (<iframe src={course.course_preview2} title="YouTube video" allowFullScreen></iframe>)}
+        {prv3 && (<iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>)}
+      </CardContent>
       
-    return(
-        <Container onMouseOver={() => setIsShown(true)} onMouseOut={() => setIsShown(false)} className="course-details" >
-            <div className="ratio ratio-16x9">
-                {prv1 && (<iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>)}
-                {prv2 && (<iframe src={course.course_preview2} title="YouTube video" allowFullScreen></iframe>)}
-                {prv3 && (<iframe src={course.course_preview3} title="YouTube video" allowFullScreen></iframe>)}
-            <p onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
-              key={course._id}><h4>{course.course_name}</h4></p>
-            <p><strong>Course ID: </strong>{course.course_id}</p>
-            <p><strong>Course rating: </strong>{course.course_rating}</p>
-            <p><strong>Course hours: </strong>{course.course_total_hours}</p>
-            <p><strong>Course price: </strong>{course.cource_price}</p>
-            
-            </div>
-
-            {isShown && (
-             <p>
-            <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
+      <CardContent>
+        <Typography variant="body2" color="text.secondary" justifyContent={"center"} boxSizing="fixed">
             {disc1 && (<p><strong>Course Description: </strong>{course.course_description1}</p>)}
             {disc2 && (<p><strong>Course Description: </strong>{course.course_description2}</p>)}
             {disc3 && (<p><strong>Course Description: </strong>{course.course_description3}</p>)}
-            <p><strong>Choose Language: </strong></p>
-            <button onClick={sub1}>{course.course_subtitles1}</button>
-            <button onClick={sub2}>{course.course_subtitles2}</button>
-            <button onClick={sub3}>{course.course_subtitles3}</button>
-            <button onClick={()=>{window.location.href=`/Corpregister?userId=${course._id}&coursename=${course.course_name}` }}>register course</button>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" justifyContent={"center"} boxSizing="fixed">
+            <p><strong>Course hours: </strong>{course.course_total_hours}</p>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" justifyContent={"center"} boxSizing="fixed">
+        <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing='false' sx={{marginTop : 0}}>
+      <Button
+        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
+        sx={{ marginTop :0,marginLeft : 9 ,border : 2, background : '#a6607c', color: '#fff' }}
+        size='large'
+        background-color= '#a6607c'
+        color='primary'>
+          Check Course
+          <CoPresentIcon sx={{marginLeft : 1 }}/>
+        </Button>
+        </CardActions>
 
-             <p>{course.createdAt}</p>
-             </p>
-             
-             )}
-        </Container>
-    )
+        <CardActions disableSpacing='false' sx={{marginTop : 0}}>
+
+      
+
+    
+        </CardActions>
+
+        <CardActions disableSpacing='false' sx={{marginTop : -5}}>
+
+       
+
+       
+        <Button aria-label="share" edge='end' 
+       onClick={()=>{window.location.href=`/Corpregister?userId=${course._id}&coursename=${course.course_name}` }}
+        sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
+        size='small'
+        background-color='#a6607c'
+         color= 'primary' >
+          Register course
+          <ReviewsRoundedIcon sx={{marginLeft : 1}} />
+        </Button>
+
+      </CardActions>
+      <CardActions sx={{marginTop : 0}}>
+        <IconButton aria-label="share" edge='end'>
+          <StarRateRoundedIcon/>
+          {course.course_rating}
+        </IconButton>
+        {!Dflag && (
+        <IconButton  aria-label="share" color='info' sx={{ marginLeft : 22 }} size='small'>
+          <MonetizationOnRoundedIcon />
+          {course.course_price}
+        </IconButton>
+        )}
+        {Dflag && (
+        <CardActions>
+        <IconButton color='info' disabled='true'
+        size='small' sx={{marginLeft : 20}}>
+          <MonetizationOnRoundedIcon />
+          {course.course_price}
+        </IconButton>
+        </CardActions>
+        )}
+        </CardActions>
+        <CardActions sx={{marginTop : -15,marginLeft : 16.5,marginBottom : -5}}>
+        {Dflag && (
+        <IconButton color='info' className='xyz' size='small' sx={{marginLeft : 10,marginRight : -20, marginTop : 12, color : '#a6607c'}}>
+        <MonetizationOnRoundedIcon/>
+        {course.course_price_after_discount}
+         </IconButton>
+         )}
+      </CardActions>
+      <CardContent>
+      </CardContent>
+    </Card>
+  );
 }
 
-export default CCourseDetails
+export default CCourseDetails;

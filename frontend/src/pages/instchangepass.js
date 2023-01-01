@@ -60,7 +60,7 @@ return(
             value={instructor_pass}
         />
          <button>Change Password</button>
-         <div>{shown &&<p> your password was changed successfully </p>}</div>
+         <div>{shown &&<p> <h1>your password was changed successfully </h1></p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
         <div>

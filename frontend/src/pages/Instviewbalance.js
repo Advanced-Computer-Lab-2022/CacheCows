@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom"
-import rubixgif2 from '../assets/Rubix2.gif';
+import rubixgif from '../assets/Rubix.gif';
 import Box from '@mui/material/Box';
 const Viewbalance=()=>{
     const [owed,setOwed]=useState('')
@@ -34,7 +34,7 @@ useEffect(()=>{
   fetchowed()
 },[])
 return(
-<div className="dashboardpage">
+<div className="pagesplain">
 
 <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
@@ -45,7 +45,15 @@ return(
     <br></br>
     <br></br>
     <br></br>
-
+    <div>
+            
+            <Box
+    component="img"
+    sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+    alt="Logo"
+    src={rubixgif}
+    />
+    </div>
     <br></br>
     <br></br>
     <br></br>

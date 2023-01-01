@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-
+import rubixgif2 from '../assets/Rubix2.gif';
+import Box from '@mui/material/Box';
 const Paycourse=()=>{
 const [pay,setpay] = useState('')
 
@@ -35,8 +36,9 @@ const handleSubmit=async ()=>{
 }
 handleSubmit()
 return(
-    <div>
-        please wait 
+    <div className="pagesplain">
+        <h3>Please wait </h3>
+   
         <br></br>
         <br></br>
         <br></br>

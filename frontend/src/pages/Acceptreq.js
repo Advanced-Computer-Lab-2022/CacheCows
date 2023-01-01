@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
 const AcceptRequests=()=>{
   const {user} = useAuthContext()
   const navigate=useNavigate();
@@ -45,12 +46,21 @@ if(response.ok) {
   handleSubmit()
   
   return(
-    <div>
+    <div className="pagesplain">
                   <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
-      {show &&<p> Request Accepted  successfully</p>}
+      {show &&<p><h1> Request Accepted  successfully </h1></p>}
       <br></br> 
-      {rejected &&<p> Error: Request could not be accepted  </p>}
+      {rejected &&<p><h1> Error: Request could not be accepted </h1> </p>}
+      <div>
+            
+            <Box
+    component="img"
+    sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+    alt="Logo"
+    src={rubixgif}
+    />
+    </div>
       <br></br> 
       <br></br> 
       <br></br> 
@@ -75,12 +85,29 @@ if(response.ok) {
       <br></br> 
       <br></br> 
       <br></br> 
-
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
+      <br></br> 
 
    
  
     
-   <button onClick={()=>navigate('/admin')}>Back</button>
+ 
 
   </div>
   )

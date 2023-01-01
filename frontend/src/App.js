@@ -93,6 +93,8 @@ import SearchResults from "./pages/SearchResults";
 import Instviewbalance from "./pages/Instviewbalance"
 import Viewwallet from "./pages/Indvviewwallet";
 import Countryform from "./components/CountryForm";
+import Corpreviewcourse from  "./pages/Corpreviewcourse"
+import Indvreviewcourse from "./pages/indvreviewcourse"
 
 function App() {
 
@@ -422,6 +424,14 @@ function App() {
              <Route 
             path="/corpviewreq"
             element={<Corpviewreq/>}
+            />
+            <Route 
+            path="/corpreviewcourse"
+            element={<Corpreviewcourse/>}
+            />
+            <Route 
+            path="/indvreviewcourse"
+            element={<Indvreviewcourse/>}
             />
             
 

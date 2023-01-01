@@ -11,6 +11,7 @@ const nodemailer=require('nodemailer')
 const validator = require('validator')
 const { protect } = require('../middleware/IndivTraineeAuthMiddleware')
 const review=require('../models/IReviewModel')
+const revcourse=require('../models/CReviewModel')
 const stripe=require('stripe')(process.env.STRIP_KEY)
 
 var transporeter=nodemailer.createTransport({
@@ -46,7 +47,7 @@ const paycourse=async(req,res)=>{
     
     line_items:courseinfo,
     success_url:`http://localhost:3000/Paymentsuccess?course_id=${course_id}&inst_id=${inst_id}&course_price=${course_price}`,
-    cancel_url:`${process.env.SERVER_URL}/cancel.html`
+    cancel_url:`${process.env.CANCEL_SERVER}`
    })
    
   res.status(200).json(session.url)
@@ -339,7 +340,7 @@ if(rev){
   res.status(200).json("already added review ")
 }
 else{
-  const revw=await review.create({user_id:indv_id,instructor_id:inst_id,review:req.body.review})
+  const revw=await review.create({user_id:indv_id,instructor_id:inst_id,review:req.body.review,user_name:req.body.username})
   res.status(200).json(revw)
 }
 }
@@ -347,6 +348,24 @@ catch(error){
   res.status(400).json({error:error.message})
 }
 }
+
+const reviewcourse=async(req,res)=>{
+  try{
+    const indv_id=req.user._id
+    const course_id=req.query.userId
+  const rev=await revcourse.findOne({user_id:indv_id,course_id:course_id})
+  if(rev){
+    res.status(200).json("already added review ")
+  }
+  else{
+    const revw=await revcourse.create({user_id:indv_id,course_id:course_id,review:req.body.review,user_name:req.body.username})
+    res.status(200).json(revw)
+  }
+  }
+  catch(error){
+    res.status(400).json({error:error.message})
+  }
+  }
 
 
 
@@ -511,5 +530,6 @@ paycourse , getallreg ,
 viewwallet,
 updateProgress,
 getProgress,
-editwallet
+editwallet,
+reviewcourse
 }

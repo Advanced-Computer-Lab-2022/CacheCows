@@ -9,7 +9,8 @@ import { useAuthContext } from "../hooks/useAuthContext"
 import CountryForm from "../components/CountryForm";
 import rubixgif2 from '../assets/Rubix2.gif';
 import Box from '@mui/material/Box';
-
+import Registeredcoursedetails from "../components/Corpregisteredcoursedetails"
+import Grid from '@mui/material/Unstable_Grid2';
 const languages = [
   {
     id: 0,
@@ -50,6 +51,7 @@ const languages = [
     const[name,setName]=useState('')
     const[email,setEmail]=useState('')
     const {user} = useAuthContext()
+    const [error,setError]=useState(null)
     useEffect(() => {
       const fetchData = async () => {
             
@@ -102,12 +104,31 @@ const languages = [
       getindv()
 
 
+      const fetchcourses=async()=>{
+        const response=await fetch('/api/corpTrainee/getregistercourses',
+        {
+            method:'GET',
+            headers: {'Authorization': `Bearer ${user.token}`},
+        })
+        const json= await response.json()
+        if(response.ok){
+            setCourses(json)
+            setError(null)
+            console.log(json)
 
+        }
+        if(!response.ok){
+            setCourses('')
+            setError(json.error)
+            console.log(json.error)
+        }
+    }
+    fetchcourses()
 
 
 
       if (query.length === 0 || query.length > 2) fetchData();
-    }, [query]);
+    }, [user]);
 
   return( 
    
@@ -154,11 +175,14 @@ const languages = [
     <br></br>
     <br></br>
     <br></br>
+    <br></br>
+    <br></br>
+ 
 
       </div>
     
     <div className="profilebody" >
-      
+      <h1>My courses</h1>
       <p> </p>
       
       <p> </p>
@@ -171,15 +195,44 @@ const languages = [
     
     <button className="profilebutton" onClick={()=>navigate("/Corpview")}>view all courses</button>
       
-      <button className="profilebutton" onClick={()=>navigate("/Corpregisteredcourses")}>view registered courses</button>
-      <button  className="profilebutton" onClick={()=>navigate("/corpviewreq")}>view requested courses</button>
+      
+      <button  className="profilebutton" onClick={()=>navigate("/corpviewreq")}>view my requests</button>
       <br/>
   
     <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
         key={crpid}>View Reports
       </button>
+
+     
+
+      
+<div>
+<Box >
+
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 35, marginTop : -60 }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+      <Registeredcoursedetails course={course} key={course._id} />
+    </Grid> ))}
+</Grid>
+</Box> 
+ 
+</div>
+<br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+</div>
   </div>
-  </div>
+ 
   )
 }
 

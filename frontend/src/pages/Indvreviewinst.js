@@ -10,6 +10,7 @@ const Indvreview=()=>{
     const [review,setReview]=useState('')
     const [username,setname]=useState('')
     const  [show,setShow]=useState(false)
+    const[reject,setReject]=useState(false)
     const[error , setError] = useState(null);
     const params = new URLSearchParams(window.location.search);
     const userId = params.get('userId');
@@ -20,7 +21,7 @@ const Indvreview=()=>{
         e.preventDefault()
        
 
-        const indv={review}
+        const indv={review,username}
 
         const response=await fetch(`/api/indvtrainee/reviewinst?userId=${userId}`,{
             method: 'POST',
@@ -38,10 +39,21 @@ const Indvreview=()=>{
             setError(json.error)
         }
         if(response.ok) {
+            if(json==="already added review "){
+                setReject(true)
+                setReview('');
+            setname('')
+            setError(null);
+            }
+            else{
+
+            
             setReview('');
+            setname('')
             setShow(true);
             setError(null);
             console.log(json)
+            }
         
         }
     }
@@ -55,16 +67,26 @@ return(
     <div className="pagesplain">
         <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
    <form className="filter" onSubmit={handleSubmit}>
-    <label>Add your review: </label>
+   <h3>Review Instructor</h3>
+   <label><h1>Enter your username:</h1> </label>
+        <input
+            type = "text"
+            onChange={(e) => setname(e.target.value)}
+            value={username}
+        />
+    <label><h1>Add your review:</h1> </label>
         <input
             type = "text"
             onChange={(e) => setReview(e.target.value)}
             value={review}
         />
+      
          <button>Add review</button>
-         <div>{show &&<p> your review was added successfully</p>}</div>
+         <div>{show &&<p> <h1>your review was added successfully</h1></p>}</div>
+         <div>{reject &&<p> <h1>Already added review before</h1></p>}</div>
          <p></p>
-            <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
+         <p></p>
+          
         {error && <div className="error">{error}</div>}
         </form>
 

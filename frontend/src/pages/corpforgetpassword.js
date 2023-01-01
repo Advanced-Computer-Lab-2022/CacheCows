@@ -8,11 +8,41 @@ return(
     <div className="pagesplain">
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
-    <div className="filter">
-                    <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+    <div >
+   
 
         <Forgetpass/>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         </div>
 )
 }

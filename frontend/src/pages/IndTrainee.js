@@ -184,14 +184,15 @@ const fetchcourses=async()=>{
   
       <br/>
     <div  className="profilebody" >
-
+      
+ <h3>My courses</h3>
 
      <button className="profilebutton" onClick={()=>navigate("/Indvview")}> View all Courses</button>
     
     <button className="profilebutton" on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
     > Change password</button>
     
-    <button className="profilebutton" onClick={()=>navigate("/Indvregistercourses")}> view registered courses</button>
+ 
 
     <button className="profilebutton" onClick={()=>window.location.href=`/viewwallet?userId=${indvid}`}> view wallet</button>
    
@@ -200,16 +201,13 @@ const fetchcourses=async()=>{
       </button>
       
 
-      <button className="profilebutton" onClick={() => window.location.href=`/IndTraineeNew?userId=${indvid}`}
-        key={indvid}>New Style
-      </button>
-    
       <div className="">
 
       
-<h3> My Courses</h3>
+
 <Box >
-<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 32, marginTop : -85 }}>
+
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 35, marginTop : -60 }}>
             {courses && courses.map((course) =>(
           <Grid >
       <CourseCardUsers course={course} key={course._id} />

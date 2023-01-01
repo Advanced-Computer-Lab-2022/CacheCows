@@ -27,7 +27,7 @@ router.use(protect)
 router.get('/allindvtrainees',controlls.getAllinvdTrainee);
 router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
 router.post('/addindvtrainee',controlls.setindvTrainee);
-
+router.post('/reviewcourse',controlls.reviewcourse)
 
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);

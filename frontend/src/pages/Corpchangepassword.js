@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate } from "react-router-dom";
 
-
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
 
 const Cropchangepasssword=()=>{
     const {user} = useAuthContext()
@@ -50,7 +51,7 @@ return(
 
 
  
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="filter" onSubmit={handleSubmit}>
     <label>New Password: </label>
         <input
             type = "password"
@@ -58,9 +59,48 @@ return(
             value={corp_pass}
         />
          <button>Change Password</button>
-         <div>{shown &&<p> your password was changed successfully </p>}</div>
+         <div>{shown &&<p> <h1>your password was changed successfully </h1> </p>}</div>
         {error && <div className="error">{error}</div>}
         </form>
+        <div>
+            
+            <Box
+    component="img"
+    sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+    alt="Logo"
+    src={rubixgif}
+    />
+    </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         </div>
 )
 }

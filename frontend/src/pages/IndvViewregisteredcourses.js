@@ -46,6 +46,7 @@ return(
     <br></br>
     <h3> My Courses</h3>
 <Box >
+<h3> My Courses</h3>
       <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11 }}>
             {courses && courses.map((course) =>(
           <Grid  key={course._id}>

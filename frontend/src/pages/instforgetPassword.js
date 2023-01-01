@@ -13,19 +13,38 @@ return(
 
         <br></br>
         <br></br>
-    <div className="filter">
+    <div >
         <Forgetpass/>
     </div>
 
-    <div>
-            
-            <Box
-            component="img"
-            sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
-            alt="Logo"
-            src={rubixgif}
-            />
-            </div>
+   
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
             <br></br>
             <br></br>

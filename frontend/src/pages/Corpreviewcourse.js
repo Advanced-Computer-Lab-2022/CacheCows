@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import rubixgif from '../assets/Rubix.gif';
 import Box from '@mui/material/Box';
 
-const Indvreview=()=>{
+const Revcourse=()=>{
     const {user} = useAuthContext()
     
     const [review,setReview]=useState('')
@@ -22,7 +22,7 @@ const Indvreview=()=>{
 
         const indv={review}
 
-        const response=await fetch(`/api/corpTrainee/reviewinst?userId=${userId}`,{
+        const response=await fetch(`/api/corpTrainee/reviewcourse?userId=${userId}`,{
             method: 'POST',
             body:JSON.stringify(indv),
             headers: {
@@ -67,7 +67,7 @@ return(
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
    <form className="filter" onSubmit={handleSubmit}>
-    <h3>Review Instructor</h3>
+   <h3>Review Course</h3>
    <input
             type = "text"
             onChange={(e) => setname(e.target.value)}
@@ -127,4 +127,4 @@ return(
         </div>
 )
 }
-export default Indvreview
+export default Revcourse

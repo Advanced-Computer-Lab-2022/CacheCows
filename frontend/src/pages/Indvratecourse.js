@@ -2,6 +2,8 @@ import { Rating,Stack } from "@mui/material";
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom"
+import rubixgif from '../assets/Rubix.gif';
+import Box from '@mui/material/Box';
 const Indvratecourse=()=>{
     const {user} = useAuthContext()
     const [course_rating,setRating]=useState(Number|null)
@@ -50,7 +52,7 @@ const Indvratecourse=()=>{
 <br></br>
 
         <form className="filter" onSubmit={handleSubmit} >
-            <h2>Rate your course</h2>
+            <h1>Rate your course</h1>
         <Stack spacing={4}>
             <Rating className="course_details" value={course_rating} onChange={(event, newValue) => {
             setRating(newValue)}} precision={1} size='large'
@@ -58,13 +60,30 @@ const Indvratecourse=()=>{
             ></Rating>
             </Stack>
             <button   > confirm your rating</button>
-            <div>{show &&<p> your rating was added successfully</p>}</div>
+            <div>{show &&<p><h1> your rating was added successfully</h1></p>}</div>
             
                 <p></p>
-            <button onClick={()=>navigate("/Indvregistercourses")}>return to your courses</button>
+         
             
             {error && <div className="error">{error}</div>}
             </form>
+            <div>
+            
+            <Box
+    component="img"
+    sx={{ height: 438, width: 825 , padding : 0, margins: 0}}
+    alt="Logo"
+    src={rubixgif}
+    />
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
                     <br></br>
                     <br></br>
                     <br></br>

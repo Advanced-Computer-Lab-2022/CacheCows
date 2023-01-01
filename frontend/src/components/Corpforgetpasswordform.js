@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const ForgotpasswordForm=()=>{
 const [corp_email,setemail]=useState('');
+const [show,setShow]=useState(false)
+const [reject,setReject]=useState(false)
 const[error , setError] = useState(null);
 const handleSubmit = async(e) => {
     e.preventDefault()
@@ -17,12 +19,16 @@ const response = await fetch('/api/corpTrainee/forgetpassword', {
     }
 })
 const json = await response.json()
-if(!response) {
+if(!response.ok) {
     setError(json.error)
+    setReject(true)
+    setemail('');
+  
 }
 if(response.ok) {
     setemail('');
     setError(null);
+    setShow(true)
     console.log('mail sent', json)
 
 }
@@ -31,7 +37,7 @@ if(response.ok) {
 
 return(
 
-    <form className="filter" onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
     <label>Email Address: </label>
         <input
             type = "text"
@@ -39,7 +45,9 @@ return(
             value={corp_email}
         />
          <button>Send Email</button>
-        {error && <div className="error">{error}</div>}
+        
+        <div>{show &&<p> <h1>An email was sent to your mail</h1> </p>}</div>
+        <div>{reject &&<p> <h1>Incorrect mail</h1> </p>}</div>
         </form>
 )
 }

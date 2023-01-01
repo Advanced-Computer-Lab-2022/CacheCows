@@ -10,7 +10,7 @@ const validator = require('validator')
 const course=require('../models/coursesModel')
 const reg=require('../models/corpregistercourse')
 const review=require('../models/IReviewModel')
-
+const revcourse=require('../models/CReviewModel')
 var transporeter=nodemailer.createTransport({
   service:'gmail',
   
@@ -253,7 +253,7 @@ const reviewinst=async(req,res)=>{
     res.status(200).json("already added review ")
   }
   else{
-    const revw=await review.create({user_id:corp_id,instructor_id:inst_id,review:req.body.review})
+    const revw=await review.create({user_id:corp_id,instructor_id:inst_id,review:req.body.review,user_name:req.body.username})
     res.status(200).json(revw)
   }
   }
@@ -261,6 +261,25 @@ const reviewinst=async(req,res)=>{
     res.status(400).json({error:error.message})
   }
   }
+
+
+  const reviewcourse=async(req,res)=>{
+    try{
+      const corp_id=req.user._id
+      const course_id=req.query.userId
+    const rev=await revcourse.findOne({user_id:corp_id,course_id:course_id})
+    if(rev){
+      res.status(200).json("already added review ")
+    }
+    else{
+      const revw=await revcourse.create({user_id:corp_id,course_id:course_id,review:req.body.review,user_name:req.body.username})
+      res.status(200).json(revw)
+    }
+    }
+    catch(error){
+      res.status(400).json({error:error.message})
+    }
+    }
 //////////////
 //Authentication
 // corp_name, 
@@ -375,5 +394,6 @@ module.exports={
   viewAll,
   viewmyreq,
   updateProgress,
-  getProgress
+  getProgress,
+  reviewcourse
 };

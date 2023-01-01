@@ -187,14 +187,14 @@ src={rubix}
         <p><strong>Instructor Name: </strong>{course.instructor_name}</p>
         </Typography>
       </CardContent>
-      <CardActions disableSpacing='false' sx={{marginTop : 0 }}>
+      <CardActions disableSpacing='false' sx={{marginTop : 0}}>
       <Button
-        onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}`}
-        sx={{ marginTop :0,marginLeft : 10 ,border : 2, background : '#a6607c', color: '#fff' }}
+        onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
+        sx={{ marginTop :0,marginLeft : 9 ,border : 2, background : '#a6607c', color: '#fff' }}
         size='large'
         background-color= '#a6607c'
         color='primary'>
-          Go To Course
+          Check Course
           <CoPresentIcon sx={{marginLeft : 1 }}/>
         </Button>
         </CardActions>

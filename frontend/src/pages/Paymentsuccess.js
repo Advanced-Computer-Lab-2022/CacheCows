@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate, useParams } from "react-router-dom"
+import rubixgif2 from '../assets/Rubix2.gif';
+import Box from '@mui/material/Box';
 const Paymentsuccess=()=>{
     const  [show,setShow]=useState(false)
     const [rej,setRej]=useState(false)
@@ -70,25 +72,14 @@ if(user){
 
 //console.log("one")
  return(
-    <div>
+    <div className="pagesplain">
 
 <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        
-                        <div>{show &&<p> congrats you are registered</p>}</div>
-<div>{rej &&<p> Already registered</p>}</div>
+                       
+<button className="back" onClick={() => navigate(-1)}> ❮ Back </button>           
+                        <div>{show &&<p> <h3>congrats you are registered</h3></p>}</div>
+<div>{rej &&<p> <h3>Already registered</h3></p>}</div>
+
                         <br></br>
                         <br></br>
                         <br></br>
@@ -99,6 +90,29 @@ if(user){
                         <br></br>
                         <br></br>
 
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                         <br></br>
                         <br></br>
                         <br></br>
