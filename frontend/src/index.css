@@ -10,7 +10,7 @@
 body {
   background: #f1f1f1;
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 header {
   background: #fff;
@@ -264,7 +264,7 @@ label {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: #111111;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Poppins";
   max-width: 70%;
 }
 
@@ -871,7 +871,7 @@ nav button {
     width: 40%;
     color: #fff;
     border-radius: 4px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 5px auto;
     padding: 5px;
     justify-content: center;
