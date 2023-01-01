@@ -406,6 +406,10 @@ Inspired by thr following scheme found on https://visme.co/blog/website-color-sc
 | Example Color | ![#111111](https://via.placeholder.com/10/111111?text=+) #111111 |
 | Example Color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
 
+## Fonts
+
+  font-family: "Poppins";
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 ## Logo
 Created by Omar Aboelazm
