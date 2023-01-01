@@ -1,7 +1,7 @@
+import { useEffect,useState } from "react";
 import { Container } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState } from "react";
 import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -24,19 +24,24 @@ import {
   
 
 
-const CourseInfoMuiPrev = ({course}) => {
+const CourseInfoMuiInst = ({course}) => {
+    const params = new URLSearchParams(window.location.search);
+    const course_id = params.get('course_id');
+    const crs = {course_id : course_id}
+
     const [show, setShow] = useState(false);    
     const { user } = useAuthContext()
 
+
+    const [open, setOpen] = useState(false);
+
     const type = localStorage.getItem('type')
+    const [exams, setExams] = useState();  
       
     
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-    const [open, setOpen] = useState(false);
-
   
     const getList = () => (
       <div style={{ width: 250 ,color: '#a6607c' }} onClick={() => setOpen(false)}>
@@ -44,7 +49,7 @@ const CourseInfoMuiPrev = ({course}) => {
           {course.course_name && (
           <div>
           <ListItem   button >
-            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${1}`}/>
+            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${1}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
@@ -53,15 +58,15 @@ const CourseInfoMuiPrev = ({course}) => {
           {course.course_subtopic1 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${2}`}/>
+            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${2}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
           </div>
           )}
 
-          <ListItem button disabled>
-            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${8}`}/>
+          <ListItem button >
+            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${8}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -69,7 +74,7 @@ const CourseInfoMuiPrev = ({course}) => {
           {course.course_subtopic2 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${3}`}/>
+            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${3}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -78,22 +83,24 @@ const CourseInfoMuiPrev = ({course}) => {
 
           {course.course_subtopic3 && (
           <div>
-          <ListItem button disabled>
-            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${4}`}/>
+          <ListItem button >
+            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${4}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
           </div>
           )}
 
-          <ListItem button disabled>
-            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${9}`}/>
+          <ListItem button >
+            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${9}`}/>
           </ListItem>
+
+          < h6 className='h7'>___________________________</ h6>
 
           {course.course_subtopic4 && (
           <div>
-          <ListItem button disabled>
-            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${5}`}/>
+          <ListItem button >
+            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${5}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -102,37 +109,35 @@ const CourseInfoMuiPrev = ({course}) => {
 
           {course.course_subtopic5 && (
             <div>
-          <ListItem button disabled>
-            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${6}`}/>
+          <ListItem button >
+            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${6}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
           </div>
           )}
 
-          <ListItem button disabled>
-            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${10}`}/>
+          <ListItem button >
+            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${10}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
 
           {course.course_subtopic6 && (
           <div>
-            <ListItem button disabled>
-            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${7}`}/>
+            <ListItem button >
+            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${7}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
           )}
 
-          <ListItem button disabled>
-            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${11}`}/>
+          <ListItem button >
+            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${11}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
-          <br></br>
-          <br></br>
-          <br></br>
+          
       </div>
     );
     return (
@@ -145,9 +150,10 @@ Content </Button>
         <Drawer open={open} anchor={"left"} onClose={() => setOpen(false)}>
           {getList()}
         </Drawer>
+        <br></br>
       </div>
     );
   }
 
 
-  export default CourseInfoMuiPrev;
+  export default CourseInfoMuiInst

@@ -305,37 +305,6 @@ const navigate=useNavigate();
          
     </div>
 
-
-
-
-
-
-  
-    
-
-    <br/>
-    <br/>
-
-      <FForminst></FForminst>
-      <br/>
-      <br/>
-
-     <div className="filter"> 
-
-     <SearchBarInst></SearchBarInst>
-     <br/>
-     <br/>
-     </div>
-
-     <br/>
-     <br/>
-
-  
-    <div className='filter'>
-    <CountryForm/>
-    </div>
-    <br/>
-
     <div className="filter">
       <button
         onClick={() => {

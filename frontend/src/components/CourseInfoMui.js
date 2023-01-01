@@ -21,14 +21,6 @@ import {
     
   } from "@material-ui/core";
   import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-  import {
-    CheckBoxOutlineBlankOutlined,
-    DraftsOutlined,
-    HomeOutlined,
-    InboxOutlined,
-    MailOutline,
-    ReceiptOutlined,
-  } from "@material-ui/icons";
   
 
 
@@ -50,30 +42,6 @@ const CourseInfoMui = ({course}) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  useEffect(()=>{
-    const fetchCourses=async ()=>{
-        const response1= await fetch('api/exams/getCExams',{
-            method: 'POST',
-            body: JSON.stringify(crs),
-            headers: {
-              'Content-Type' : 'application/json'},
-          })
-          const json1= await response1.json()
-  
-          if(response1.ok){
-          setExams(json1)
-          console.log("yess: ",json1,course_id)
-          }
-          if(!response1.ok){
-            setExams('')
-            console.log("WTF: ",json1)
-            }
-    }
-    fetchCourses();
-    
-},[course_id])
-
   
     const getList = () => (
       <div style={{ width: 250 ,color: '#a6607c' }} onClick={() => setOpen(false)}>
@@ -81,7 +49,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_name && (
           <div>
           <ListItem   button >
-            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${1}`}/>
+            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${1}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
@@ -90,7 +58,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic1 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${2}`}/>
+            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${2}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -106,7 +74,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic2 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${3}`}/>
+            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${3}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -116,7 +84,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic3 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${4}`}/>
+            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${4}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -132,7 +100,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic4 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${5}`}/>
+            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${5}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -142,7 +110,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic5 && (
             <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${6}`}/>
+            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${6}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -158,7 +126,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic6 && (
           <div>
             <ListItem button >
-            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${7}`}/>
+            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${7}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
@@ -180,7 +148,7 @@ const CourseInfoMui = ({course}) => {
       <div>
         < h7>  {course.course_name} </ h7>
 
-        <Button sx = {{color : '#fff', marginRight : 150, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginBottom : 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
+        <Button sx = {{color : '#fff', marginRight : 150, MarginTop:20, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginTop: 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
 Content </Button>
 
         <Drawer open={open} anchor={"left"} onClose={() => setOpen(false)}>

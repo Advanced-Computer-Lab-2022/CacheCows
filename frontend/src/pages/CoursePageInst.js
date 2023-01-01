@@ -1,16 +1,10 @@
 
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CourseDetails from "../components/CourseDetails"
-import CourseForm from "../components/CourseForm"
-import CountryForm from "../components/CountryForm"
-import CustomSelect from "../components/CustomSelect"
-import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
-import CourseInfoMui from "../components/CourseInfoMui";
-import { Nav } from "react-bootstrap";
-import Notes from "../components/Notes";
+
 import CourseInfoInst from "../components/CourseInfoInst";
+import CourseInfoMuiInst from "../components/CourseInfoMuiInst";
 
 
 const CoursePageInst=()=>{
@@ -18,7 +12,6 @@ const CoursePageInst=()=>{
 
     
     const [courses,setCourses]=useState()
-    const [exams,setExams]=useState()
 
     const params = new URLSearchParams(window.location.search);
     const course_id = params.get('course_id');
@@ -36,16 +29,15 @@ useEffect(()=>{
         const json= await response.json()
 
         if(response.ok){
-        setCourses(json)
-        console.log("Done: ",json)
-        }
-        if(!response.ok){
-            setCourses(json)
-            console.log("Not Done: ",json)
-        }
+          setCourses(json)
+          console.log("Done: ",json)
+          }
+          if(!response.ok){
+              setCourses(json)
+              console.log("Not Done: ",json)
+          }
     }
     fetchCourses();
-    
     
 },[])
 const navigate=useNavigate();
@@ -55,7 +47,6 @@ const navigate=useNavigate();
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
             <br></br>
             <br></br>
-    <div className="instructor">
 \      
       <div> 
       {courses && courses.map((course) =>(
@@ -63,9 +54,8 @@ const navigate=useNavigate();
        ))}
     </div>
     {courses && courses.map((course) =>(
-    <CourseInfoMui course={course} key={course._id}/>
+    <CourseInfoMuiInst course={course} key={course._id}/>
     ))}
-    </div>
     </div>
 
  )
