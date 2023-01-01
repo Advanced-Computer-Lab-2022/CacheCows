@@ -127,7 +127,7 @@ return(
     <br></br>
 
     <h3>By Clicking on the Agree Button, you give us all the rights to the posted videos and materials
-      as well as the 10% taken by RUBIX on each video per registered trainee. </h3>
+      as well as the 50% taken by RUBIX on each video per registered trainee. </h3>
       <br>
       
       </br> 

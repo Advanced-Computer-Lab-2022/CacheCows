@@ -47,15 +47,19 @@ const navigate=useNavigate();
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
             <br></br>
             <br></br>
-\      
+
+     <div>
+     {courses && courses.map((course) =>(
+    <CourseInfoMuiInst course={course} key={course._id}/>
+    ))}
+
+     </div>
       <div> 
       {courses && courses.map((course) =>(
     <CourseInfoInst course={course} key={course._id}/>
        ))}
     </div>
-    {courses && courses.map((course) =>(
-    <CourseInfoMuiInst course={course} key={course._id}/>
-    ))}
+    
     </div>
 
  )
