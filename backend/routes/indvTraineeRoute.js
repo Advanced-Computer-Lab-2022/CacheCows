@@ -28,7 +28,7 @@ router.get('/allindvtrainees',controlls.getAllinvdTrainee);
 router.get('/getAllinvdTrainees',controlls.getAllinvdTrainees);
 router.post('/addindvtrainee',controlls.setindvTrainee);
 router.post('/reviewcourse',controlls.reviewcourse)
-
+router.put('/refund',controlls.refund)
 router.delete('/deleteindvTrainee',controlls.deleteIndvTrainee);
 router.put('/updateindvtrainee/:id',controlls.updateindvtrainee);
 

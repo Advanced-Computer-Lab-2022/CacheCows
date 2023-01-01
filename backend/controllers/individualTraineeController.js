@@ -267,6 +267,38 @@ catch(error){
 res.status(400).json({error:error.message})
 }
 }
+const refund =async(req,res)=>{
+  try{
+    const indv_id=req.user._id
+    const course_id=req.query.course_id
+    const inst_id=req.query.inst_id
+    const regcourse = await reg.findOne({trainee_id:indv_id,course_id:course_id})
+    
+   // console.log(regcourse.course_progress)
+    if(regcourse.course_progress_percentage<=50){
+
+      const crs=await course.findById({_id:course_id})
+      const price=crs.course_price
+      await reg.deleteOne({trainee_id:indv_id,course_id:course_id})
+      const trainee=await indv.findById({_id:indv_id})
+      const wallet=trainee.wallet
+      const updatedprice=price+wallet
+      const instructor=await instructors.findById({_id:inst_id})
+      const balance =instructor.owed
+      const newowed=balance-price*0.5
+      await instructors.findByIdAndUpdate({_id:inst_id},{owed:newowed},{new:true})
+      await indv.findByIdAndUpdate({_id:indv_id},{wallet:updatedprice},{new:true})
+      res.status(200).json("updated")
+    }
+    else{
+      res.status(200).json("cannnot refund course progress exceeded 50%")
+    }
+   
+    }
+    catch(error){
+      res.status({error:error.message})
+    }
+    }
 
 const registercourse=async (req,res)=>{
   const trainee_id=req.user._id
@@ -274,6 +306,7 @@ const registercourse=async (req,res)=>{
   const z = await course.findById(course_id)
   const hype = z.course_hype
   const newhype = (hype+1) 
+  const progress=0
   try{
     const indv=await reg.findOne({trainee_id:trainee_id,course_id:course_id})
     if(indv){
@@ -281,7 +314,7 @@ const registercourse=async (req,res)=>{
     }
     else{
       const x = await course.findByIdAndUpdate(course_id,{course_hype : newhype },{new : true})
-      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,course_progress : 0, course_progress_percentage : 0})
+      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,course_progress : progress, course_progress_percentage : progress})
       res.status(200).json("success")
     }
   }
@@ -532,5 +565,6 @@ viewwallet,
 updateProgress,
 getProgress,
 editwallet,
-reviewcourse
+reviewcourse,
+refund
 }

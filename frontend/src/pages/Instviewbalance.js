@@ -39,7 +39,7 @@ return(
 <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
 <br></br>
-<h1><strong>Your balance:</strong>{owed}</h1>
+<h1><strong> Balance Per Month :</strong>{owed}</h1>
     <br></br>
     <br></br>
     <br></br>

@@ -262,7 +262,7 @@ src={rubix}
         
         <Button aria-label="share" edge='end' 
         color='primary'
-        onClick={()=>window.location.href=`/indvviewwallet`}
+        onClick={()=>window.location.href=`/Refund?course_id=${course._id}&inst_id=${course.instructor_id}`}
         sx={{ marginTop : 5,marginLeft : 11, border : 2 , color :'#a6607c' }}
         size='small'
         background-color='#a6607c'>
