@@ -96,6 +96,9 @@ import Countryform from "./components/CountryForm";
 import Corpreviewcourse from  "./pages/Corpreviewcourse"
 import Indvreviewcourse from "./pages/indvreviewcourse"
 import CoursePageInst from "./pages/CoursePageInst";
+import Instviewallcourses from "./pages/Instviewallcourses";
+
+
 
 function App() {
 
@@ -272,6 +275,13 @@ function App() {
             path="/IndTraineeNew"
             element={<IndTraineeNew/>}
             />
+
+<Route 
+            path="/Instviewallcourses"
+            element={<Instviewallcourses/>}
+            />
+
+
 
             <Route 
             path="/InstSetCourseDiscount"

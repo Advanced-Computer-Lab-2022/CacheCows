@@ -239,7 +239,7 @@ const navigate=useNavigate();
 
      <button className="profilebuttoninst"
         onClick={() => {
-          navigate("/");
+          navigate("/Instviewallcourses");
         }}
       >
 <SummarizeIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></SummarizeIcon>        Check All Courses
