@@ -128,7 +128,23 @@ const Dashboard = () => {
                   <br></br>
                   <br></br>
 
-     <div>   
+     <div>  
+
+      <h3> ___________________________________________ </h3>
+     <br></br>
+     <h3> Popular Courses </h3>
+     <br></br>
+     <br></br>
+
+  <div>
+  {featured && featured.map((course) =>(
+    <FeaturedCourses course={course} key={course._id}/>
+  ))}
+  </div>
+
+  <br></br>
+                  <br></br>
+                  <br></br>
                   
   <Box
   component="img"
@@ -140,17 +156,10 @@ const Dashboard = () => {
   <br></br>
   <br></br>
   <br></br>
-  <h3> ___________________________________________ </h3>
+  
+  <br></br>
+     <br></br><br></br>
      <br></br>
-     <h3> Featured </h3>
-
-  <div>
-  {featured && featured.map((course) =>(
-    <FeaturedCourses course={course} key={course._id}/>
-  ))}
-  </div>
-
-
 
      <div className=""> 
      <h3> ___________________________________________ </h3>

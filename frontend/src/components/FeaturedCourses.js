@@ -10,7 +10,7 @@ import '../styles.css';
 const FeaturedCourses = ({course}) => {
   return (
     <ImageList sx={{ width: 400, height: 200 , display: 'inline-grid', marginLeft:10}}>
-        <ImageListItem key={course._id}>
+        <ImageListItem sx={{color : '#fff'}} key={course._id}>
           <iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>
           <ImageListItemBar
             subtitle={course.course_instructor_name}

@@ -192,7 +192,12 @@ const navigate=useNavigate();
     <br></br>  <br></br>
     <br></br>
     <br></br>
+    <br></br> <br></br>  <br></br>
     <br></br>
+    <br></br>
+    <br></br> <br></br>  <br></br>
+    <br></br>
+  
 
  
 
@@ -217,8 +222,8 @@ const navigate=useNavigate();
 <br></br>
     <br></br>
     <br></br>
-    <h2> My Workspace </h2>
-    <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 className="h8"> My Workspace </h2>
+        <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       My Courses </h3>
 
     <button className="profilebuttoninst" onClick={() => window.location.href=`/InstEditEmail?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon>Edit Email</button>
