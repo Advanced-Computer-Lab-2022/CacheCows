@@ -43,8 +43,8 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleCloseUserMenu =  () => {
+     setAnchorElUser(null);
   };
 
   function navigate(page) {
@@ -53,8 +53,8 @@ function ResponsiveAppBar() {
     }
   };
 
-  const handleClick = () => {
-    logout()
+  const handleClick =  () => {
+     logout()
   }
 
 
@@ -139,7 +139,7 @@ function ResponsiveAppBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:780, cursor: 'text'}}
+                sx={{ my: 2, color: 'white', display: 'block', position: 'right', left:800, cursor: 'text'}}
                 >
                 <Typography textAlign="center"  position={{
                 vertical: 'top',

@@ -18,6 +18,8 @@ const Signup = () => {
   const [indv_email, setEmail] = useState('')
   const [indv_pass, setPassword] = useState('')
   const [Name, setName] = useState('')
+  const [last_name, setLastName] = useState('')
+
   const [indv_user, setUser] = useState('')
   const [Country, setCountry] = useState('')
   const [indv_bd, setBirthday] = useState('')
@@ -37,7 +39,7 @@ const Signup = () => {
     e.preventDefault()
 
 
-    await signup(indv_email, indv_pass, Name, indv_user, Country, indv_bd)
+    await signup(indv_email, indv_pass, Name, indv_user, Country, indv_bd, last_name)
   }
 
     const [open, setOpen] = React.useState(false);
@@ -87,6 +89,15 @@ const Signup = () => {
         onChange={(e) => setName(e.target.value)} 
         value={Name} 
       />
+     
+
+      <label>Last Name:</label>
+      <input 
+        type="Last Name" 
+        onChange={(e) => setLastName(e.target.value)} 
+        value={last_name} 
+      />
+
       <label>Username:</label>
       <input 
         type="indv_user" 

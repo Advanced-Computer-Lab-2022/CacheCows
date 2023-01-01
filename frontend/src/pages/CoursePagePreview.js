@@ -1,14 +1,8 @@
 
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CourseDetails from "../components/CourseDetails"
-import CourseForm from "../components/CourseForm"
-import CountryForm from "../components/CountryForm"
-import CustomSelect from "../components/CustomSelect"
-import SearchBar from "../components/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CourseInfoGuest from "../components/CourseInfoGuest";
-import { Nav } from "react-bootstrap";
 import CourseInfoMuiPrev from "../components/CourseInfoMuiPrev";
 
 const CoursePagePreview =()=>{
@@ -33,8 +27,13 @@ useEffect(()=>{
         const json= await response.json()
 
         if(response.ok){
-        setCourses(json)
-        }
+          setCourses(json)
+          console.log("Done: ",json)
+          }
+          if(!response.ok){
+              setCourses(json)
+              console.log("Not Done: ",json)
+          }
     }
     fetchCourses();
     
@@ -51,10 +50,15 @@ const navigate=useNavigate();
        ))}
     </div>
 
-    <div className="instructor">
+    <div className="">
       {courses && courses.map((course) =>(
     <CourseInfoGuest course={course} key={course._id} />))}  
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </div>
 
  )

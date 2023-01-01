@@ -302,50 +302,13 @@ const navigate=useNavigate();
     <br></br> <br></br>
     <br></br> <br></br>
     <br></br> 
-         
+    <br></br>
+    <br></br> <br></br>
+    <br></br> <br></br>
+    <br></br> 
     </div>
 
-
-
-
-
-
-  
     
-
-    <br/>
-    <br/>
-
-      <FForminst></FForminst>
-      <br/>
-      <br/>
-
-     <div className="filter"> 
-
-     <SearchBarInst></SearchBarInst>
-     <br/>
-     <br/>
-     </div>
-
-     <br/>
-     <br/>
-
-  
-    <div className='filter'>
-    <CountryForm/>
-    </div>
-    <br/>
-
-    <div className="filter">
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Check All Courses!
-      </button>
-      </div>
       <br />
       
 </div>

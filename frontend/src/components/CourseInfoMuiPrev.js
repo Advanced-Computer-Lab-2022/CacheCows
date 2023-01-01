@@ -21,14 +21,6 @@ import {
     
   } from "@material-ui/core";
   import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-  import {
-    CheckBoxOutlineBlankOutlined,
-    DraftsOutlined,
-    HomeOutlined,
-    InboxOutlined,
-    MailOutline,
-    ReceiptOutlined,
-  } from "@material-ui/icons";
   
 
 
@@ -69,7 +61,7 @@ const CourseInfoMuiPrev = ({course}) => {
           )}
 
           <ListItem button disabled>
-            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${8}`}/>
+            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${8}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -95,7 +87,7 @@ const CourseInfoMuiPrev = ({course}) => {
           )}
 
           <ListItem button disabled>
-            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${9}`}/>
+            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${9}`}/>
           </ListItem>
 
           {course.course_subtopic4 && (
@@ -119,7 +111,7 @@ const CourseInfoMuiPrev = ({course}) => {
           )}
 
           <ListItem button disabled>
-            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${10}`}/>
+            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${10}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -134,7 +126,7 @@ const CourseInfoMuiPrev = ({course}) => {
           )}
 
           <ListItem button disabled>
-            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${11}`}/>
+            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}&week=${11}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -147,7 +139,7 @@ const CourseInfoMuiPrev = ({course}) => {
       <div>
         < h7>  {course.course_name} </ h7>
 
-        <Button sx = {{color : '#fff', marginRight : 150, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginBottom : 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
+        <Button sx = {{color : '#fff', marginRight : 150, MarginTop:22, borderBlockColor: '#a6607c', backgroundColor:'#a6607c' }} onClick={() => setOpen(true)}> <FormatListBulletedIcon sx={{ marginTop: 0 , marginRight : 1 , color : '#fff' }} ></FormatListBulletedIcon>
 Content </Button>
 
         <Drawer open={open} anchor={"left"} onClose={() => setOpen(false)}>

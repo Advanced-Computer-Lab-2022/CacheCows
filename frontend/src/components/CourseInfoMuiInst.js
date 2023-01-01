@@ -24,7 +24,7 @@ import {
   
 
 
-const CourseInfoMui = ({course}) => {
+const CourseInfoMuiInst = ({course}) => {
     const params = new URLSearchParams(window.location.search);
     const course_id = params.get('course_id');
     const crs = {course_id : course_id}
@@ -49,7 +49,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_name && (
           <div>
           <ListItem   button >
-            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${1}`}/>
+            <ListItemText  primary={course.course_name} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${1}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
@@ -58,7 +58,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic1 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${2}`}/>
+            <ListItemText primary={course.course_subtopic1} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${2}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -66,7 +66,7 @@ const CourseInfoMui = ({course}) => {
           )}
 
           <ListItem button >
-            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${8}`}/>
+            <ListItemText primary="Exam 1" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${8}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -74,7 +74,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic2 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${3}`}/>
+            <ListItemText primary={course.course_subtopic2} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${3}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -84,7 +84,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic3 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${4}`}/>
+            <ListItemText primary={course.course_subtopic3} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${4}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -92,7 +92,7 @@ const CourseInfoMui = ({course}) => {
           )}
 
           <ListItem button >
-            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${9}`}/>
+            <ListItemText primary="Exam 2" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${9}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -100,7 +100,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic4 && (
           <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${5}`}/>
+            <ListItemText primary={course.course_subtopic4} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${5}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -110,7 +110,7 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic5 && (
             <div>
           <ListItem button >
-            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${6}`}/>
+            <ListItemText primary={course.course_subtopic5} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${6}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -118,7 +118,7 @@ const CourseInfoMui = ({course}) => {
           )}
 
           <ListItem button >
-            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${10}`}/>
+            <ListItemText primary="Exam 3" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${10}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
@@ -126,21 +126,17 @@ const CourseInfoMui = ({course}) => {
           {course.course_subtopic6 && (
           <div>
             <ListItem button >
-            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${7}`}/>
+            <ListItemText primary={course.course_subtopic6} onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${7}`}/>
           </ListItem>
           < h6 className='h7'>___________________________</ h6>
           </div>
           )}
 
           <ListItem button >
-            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePage?course_id=${course.course_id}&week=${11}`}/>
+            <ListItemText primary="Exam 4" onClick={() => window.location.href=`/CoursePageInst?course_id=${course.course_id}&week=${11}`}/>
           </ListItem>
 
           < h6 className='h7'>___________________________</ h6>
-
-          <ListItem  button >
-            <ListItemText sx = {{marginLeft : 5}} primary="My Results" onClick={() => window.location.href=`/TraineeResults?course_id=${course.course_id}&username=${user.username}`}/>
-          </ListItem>
           
       </div>
     );
@@ -160,4 +156,4 @@ Content </Button>
   }
 
 
-  export default CourseInfoMui
+  export default CourseInfoMuiInst

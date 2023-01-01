@@ -13,7 +13,7 @@ export const useSignup = () => {
 
 
 
-  const signup = async (indv_email, indv_pass, Name, indv_user, Country, indv_bd) => {
+  const signup = async (indv_email, indv_pass, Name, indv_user, Country, indv_bd, last_name) => {
     setIsLoading(true)
     setError(null)
 
@@ -22,7 +22,7 @@ export const useSignup = () => {
     const response = await fetch('/api/indvtrainee/registerIndTrainee', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ indv_email, indv_pass, Name, indv_user, Country, indv_bd })
+      body: JSON.stringify({ indv_email, indv_pass, Name, indv_user, Country, indv_bd , last_name})
     })
     const json = await response.json()
 

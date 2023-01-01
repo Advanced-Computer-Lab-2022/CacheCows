@@ -409,6 +409,7 @@ Inspired by thr following scheme found on https://visme.co/blog/website-color-sc
 ## Fonts
 
   font-family: "Poppins";
+  
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 ## Logo

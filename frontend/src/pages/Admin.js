@@ -134,7 +134,11 @@ const Admin = () => {
     <br></br>  <br></br>
     <br></br>
     <br></br>
+    <br></br><br></br>  <br></br>
     <br></br>
+    <br></br>
+    <br></br><br></br>  <br></br>
+   
 
  
 
@@ -146,7 +150,9 @@ const Admin = () => {
       <body className="biobody"> Email : </body>
       <br></br>
       <br></br>
-      
+      <br></br>
+    <br></br>
+    <br></br>
     <br></br>
     <br></br>
     <br></br>
