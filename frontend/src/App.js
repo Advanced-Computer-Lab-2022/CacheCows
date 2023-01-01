@@ -95,6 +95,7 @@ import Viewwallet from "./pages/Indvviewwallet";
 import Countryform from "./components/CountryForm";
 import Corpreviewcourse from  "./pages/Corpreviewcourse"
 import Indvreviewcourse from "./pages/indvreviewcourse"
+import Refund from "./pages/Refund";
 
 function App() {
 
@@ -432,6 +433,11 @@ function App() {
             <Route 
             path="/indvreviewcourse"
             element={<Indvreviewcourse/>}
+            />
+
+          <Route 
+            path="/Refund"
+            element={<Refund/>}
             />
             
 
