@@ -26,6 +26,9 @@ const CoursePage=()=>{
     const params1 = new URLSearchParams(window.location.search);
     const wk = params.get('week');
 
+    const type = localStorage.getItem('type')
+    const [exams, setExams] = useState();  
+
 useEffect(()=>{
     const fetchCourses=async ()=>{
         const response= await fetch('api/courses/getCourse',{
@@ -43,6 +46,30 @@ useEffect(()=>{
     }
     fetchCourses();
     
+},[])
+
+useEffect(()=>{
+  const fetchExams=async ()=>{
+      const response1= await fetch('api/exams/getCExams',{
+          method: 'POST',
+          body: JSON.stringify(crs),
+          headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${user.token}`},
+        })
+        const json1= await response1.json()
+
+        if(response1.ok){
+        setExams(json1)
+        console.log("yess: ",json1,course_id)
+        }
+        if(!response1.ok){
+          setExams('')
+          console.log("WTF: ",json1)
+          }
+  }
+  fetchExams();
+  
 },[])
 const navigate=useNavigate();
 
