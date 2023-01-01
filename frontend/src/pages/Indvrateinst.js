@@ -52,7 +52,7 @@ const Indvrate=()=>{
             <br/>
 
         <form className="filter" onSubmit={handleSubmit}>
-            <h1>Rate your instructor</h1>
+            <h1>Rate Instructor</h1>
         <Stack spacing={300}>
             <Rating value={instructor_rate} onChange={(event, newValue) => {
     setRating(newValue)}} precision={1} size='large'
@@ -60,8 +60,8 @@ const Indvrate=()=>{
             ></Rating>
             </Stack>
             
-            <button > confirm your rating</button>
-            <div>{show &&<p><h1> your rating was added successfully </h1></p>}</div>
+            <button > Confirm Rating</button>
+            <div>{show &&<p><h1> Your Rating was Added Successfully </h1></p>}</div>
            <p ></p>
            
             </form>

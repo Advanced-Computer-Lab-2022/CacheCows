@@ -17,6 +17,12 @@ import CourseCardUsers from "../components/CourseCardUsers";
 import rubixgif2 from '../assets/Rubix2.gif';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
+import EditIcon from '@mui/icons-material/Edit';
+import ReportIcon from '@mui/icons-material/Report';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+
 const languages = [
   {
     id: 0,
@@ -161,8 +167,18 @@ const fetchcourses=async()=>{
     <br></br>
     <br></br>
     <br></br>
-    <h1> welcome :{name}!</h1>
-    <h1>Email:{email}!</h1>
+    <br></br>
+    <br></br>
+
+    <h1> {name}</h1>
+      <br></br>
+
+
+      <body className="biobody"> Email : {email}</body>
+      <br></br>
+      <br></br>
+
+  
     
     <br></br>
     <br></br>
@@ -173,10 +189,7 @@ const fetchcourses=async()=>{
     <br></br>
     <br></br>
     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+  
 
       </div>
      
@@ -184,22 +197,26 @@ const fetchcourses=async()=>{
   
       <br/>
     <div  className="profilebody" >
-      
- <h3>My courses</h3>
-
-     <button className="profilebutton" onClick={()=>navigate("/Indvview")}> View all Courses</button>
-    
-    <button className="profilebutton" on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}}
-    > Change password</button>
-    
- 
-
-    <button className="profilebutton" onClick={()=>window.location.href=`/viewwallet?userId=${indvid}`}> view wallet</button>
+    <br></br>
+    <br></br>
+    <h2 className="h8"> My Workspace </h2>
+    <br></br>
    
-    <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
-        key={indvid}>View Reports
+ <h3>My courses</h3>
+ <br></br>
+
+ <button className="profilebuttoninst" on onClick={() => {window.location.href=`/indvchangepassword?userId=${user._id}`}} 
+    > <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Change Password</button>
+     
+
+    <button className="profilebuttoninst" onClick={()=>window.location.href=`/viewwallet?userId=${indvid}`}> <MonetizationOnIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></MonetizationOnIcon> My Wallet</button>
+   
+    <button className="profilebuttoninst" onClick={() => window.location.href=`/ReportsPage?user_id=${indvid}`}
+        key={indvid}> <ReportIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReportIcon>  My Reports
       </button>
       
+      <button className="profilebuttoninst" onClick={()=>navigate("/Indvview")}> <SummarizeIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></SummarizeIcon> All Courses</button>
+
 
       <div className="">
 
@@ -207,7 +224,7 @@ const fetchcourses=async()=>{
 
 <Box >
 
-<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 35, marginTop : -60 }}>
+<Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 5 }} sx={{ marginLeft : 35, marginTop : -62 }}>
             {courses && courses.map((course) =>(
           <Grid >
       <CourseCardUsers course={course} key={course._id} />

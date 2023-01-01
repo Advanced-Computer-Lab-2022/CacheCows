@@ -310,7 +310,14 @@ h2 {
   margin-left: -1200px;
   font-size: 1.2em;
   color: #111111;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Poppins";
+}
+.h8 {
+  margin: 0 0 -40px 0;
+  margin-left: -1200px;
+  font-size: 1.2em;
+  color: #33266e;
+  font-family:inherit
 }
 
 h6 {
@@ -871,7 +878,7 @@ nav button {
     width: 40%;
     color: #fff;
     border-radius: 4px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Poppins";
     margin: 5px auto;
     padding: 5px;
     justify-content: center;
@@ -879,6 +886,24 @@ nav button {
     margin-right: auto;
     opacity:0.95
   }
+
+  .realfilter {
+    background-image: transparent;
+    border: #9d9d9d;
+    border: 1.5px solid #9d9d9d ;
+    width: 70%;
+    color: #fff;
+    border-radius: 4px;
+    font-family: "Poppins";
+    margin: 5px auto;
+    padding: -3px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    opacity:1
+  }
+  
 
   .filtercolour {
     background-image: linear-gradient(to top, #33266e 0%, #a6607c 100%);

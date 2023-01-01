@@ -135,7 +135,13 @@ function sub3() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, marginTop : 20 }} >
+
+
+
+
+
+    
+    <Card sx={{ maxWidth: 345, marginTop : 25, marginRight:10 }} >
       <CardHeader
         avatar={
           <Box
@@ -254,6 +260,7 @@ src={rubix}
       <CardContent>
       </CardContent>
     </Card>
+
   );
 }
 

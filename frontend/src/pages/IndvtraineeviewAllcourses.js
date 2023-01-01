@@ -30,15 +30,21 @@ useEffect(()=>{
     
 },[user])
 return(
-    <div className="profilebody">
-      <br/>
-      <br/>
-      <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
-
-        <FForm></FForm>
-
+  <div className="allcoursesbg">
+  <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
         <br/>
-
+<FForm></FForm>
       <FFormPrice></FFormPrice>
 
       <br/>
@@ -52,8 +58,7 @@ return(
 </Grid>
 </Box>  
 
-<br/>
-<br/>
+
 <br/>
 <br/>
 <br/>

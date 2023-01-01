@@ -62,7 +62,8 @@ return(
         <br></br>
         <br></br>
       <div className="indterms"> 
-    <label>Except as provided by law, all purchases are final and non-refundable. Taxes are non-refundable. If you believe that RUBIX has charged you in error, you must contact RUBIX within 30 days of such charge. No refunds will be given for any transaction which is more than 30 days old. When you purchase any digital content or services from RUBIX, any right you may have to withdraw from or cancel the purchase will be terminated once the digital content is delivered to you upon your request, and you will not be entitled to claim any refund, except where you believe RUBIX has charged you in error. If you use third party services to purchase any of our Services, such purchase is subject to the refund terms of the applicable third party (including with respect to payment terms, refunds, etc.).
+    <label>
+        Except as provided by law, all purchases are final and non-refundable. Taxes are non-refundable. If you believe that RUBIX has charged you in error, you must contact RUBIX within 30 days of such charge. No refunds will be given for any transaction which is more than 30 days old. When you purchase any digital content or services from RUBIX, any right you may have to withdraw from or cancel the purchase will be terminated once the digital content is delivered to you upon your request, and you will not be entitled to claim any refund, except where you believe RUBIX has charged you in error. If you use third party services to purchase any of our Services, such purchase is subject to the refund terms of the applicable third party (including with respect to payment terms, refunds, etc.).
     </label>
     </div> 
     <br></br>

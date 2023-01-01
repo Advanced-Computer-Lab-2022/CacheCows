@@ -15,7 +15,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import ReportIcon from '@mui/icons-material/Report';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 
 
@@ -237,8 +237,7 @@ const navigate=useNavigate();
           navigate("/");
         }}
       >
-        {" "}
-        Check All Courses
+<SummarizeIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></SummarizeIcon>        Check All Courses
       </button>
       <br></br>
       

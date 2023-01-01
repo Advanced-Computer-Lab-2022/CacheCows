@@ -39,6 +39,7 @@ import ThumbsUpDownRoundedIcon from '@mui/icons-material/ThumbsUpDownRounded';
 import rubix from '../assets/rubixwhite.png';
 import Box from '@mui/material/Box';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 
 const styles = theme => ({
@@ -266,7 +267,7 @@ src={rubix}
         size='small'
         background-color='#a6607c'>
           Refund
-          <RateReviewRoundedIcon sx={{marginLeft : 1}} />
+          <MonetizationOnIcon sx={{marginLeft : 1}} />
         </Button>
         </CardActions>
       <CardActions sx={{marginTop : 0}}>

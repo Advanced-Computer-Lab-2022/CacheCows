@@ -135,7 +135,7 @@ function sub3() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, marginTop : 20 }} >
+    <Card sx={{ maxWidth: 345, marginTop : 20, marginRight:10 }} >
       <CardHeader
         avatar={
           <Box

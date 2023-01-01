@@ -10,6 +10,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import Button from '@mui/material/Button';
+
 
  const FForm = () =>  {
   const {user} = useAuthContext();
@@ -75,52 +77,52 @@ function clear(){
 }
   
     return (
-      <div className='filter'>
-        <h3>Subject: {filter}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <div className='realfilter'>
+<br></br>
+      <FormControl sx={{ m: 1, minWidth: 120 , marginRight :85}} onSelect={handleSubmit}>
+        <InputLabel id="demo-simple-select-helper-label">Subject</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={filter}
-          label="Age"
+          label="Subject"
           onChange={handleChange1}
         >
-        <MenuItem value=""><em>None</em></MenuItem>
+        
         <MenuItem value="Biology">Biology</MenuItem>
         <MenuItem value="Hardware">Hardware</MenuItem>
         <MenuItem value="IT and Software">IT and Software</MenuItem>
         <MenuItem value="Music">Music</MenuItem>
+        <MenuItem value=""><em>None</em></MenuItem>
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
+        <FormHelperText>Choose The Subject</FormHelperText>
       </FormControl>
-      <br/>
 
-      <h3>Rating: {filter2}</h3>
-      <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 120 ,marginRight :35, marginTop: -11}} onSelect={handleSubmit}>
+        <InputLabel id="demo-simple-select-helper-label">Rating</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={filter2}
-          label="Age"
+          label="Rating"
           onChange={handleChange2}
         >
-          <MenuItem value=""><em>None</em></MenuItem>
         <MenuItem value="5" >5</MenuItem>
         <MenuItem value="4" >4</MenuItem>
         <MenuItem value="3" >3</MenuItem>
         <MenuItem value="2" >2</MenuItem>
         <MenuItem value="1" >1</MenuItem>
+        <MenuItem value=""><em>None</em></MenuItem>
+
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
+        <FormHelperText>Choose The Rating</FormHelperText>
       </FormControl>
 
       {error && <div className="error">{error}</div>}
 
-      <br/>
+    
 
-      <button onClick={clear}>Clear Filters</button>
+      <Button sx={{marginLeft: 80, marginTop : -20}} onClick={clear}>Clear Filters</Button>
 
       <div className="courses"> 
         {courses && courses.map((course) =>(

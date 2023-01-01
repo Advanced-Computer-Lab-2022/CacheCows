@@ -52,15 +52,15 @@ const Indvratecourse=()=>{
 <br></br>
 
         <form className="filter" onSubmit={handleSubmit} >
-            <h1>Rate your course</h1>
+            <h1>Rate Course</h1>
         <Stack spacing={4}>
             <Rating className="course_details" value={course_rating} onChange={(event, newValue) => {
             setRating(newValue)}} precision={1} size='large'
              
             ></Rating>
             </Stack>
-            <button   > confirm your rating</button>
-            <div>{show &&<p><h1> your rating was added successfully</h1></p>}</div>
+            <button   > Confirm Rating</button>
+            <div>{show &&<p><h1> Your Rating was Added Successfully</h1></p>}</div>
             
                 <p></p>
          

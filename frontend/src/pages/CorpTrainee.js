@@ -11,6 +11,13 @@ import rubixgif2 from '../assets/Rubix2.gif';
 import Box from '@mui/material/Box';
 import Registeredcoursedetails from "../components/Corpregisteredcoursedetails"
 import Grid from '@mui/material/Unstable_Grid2';
+import EditIcon from '@mui/icons-material/Edit';
+import ReportIcon from '@mui/icons-material/Report';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+
+
 const languages = [
   {
     id: 0,
@@ -135,7 +142,7 @@ const languages = [
      <div >
       <div className="profilehead">
       <br></br>
-    <br></br>
+      <br></br>
     <br></br>
     <br></br>
     <br></br>
@@ -159,8 +166,18 @@ const languages = [
     <br></br>
     <br></br>
     <br></br>
-    <h1> welcome :{name}!</h1>
-    <h1>Email:{email}!</h1>
+    <br></br>
+    <br></br>
+
+    <h1> {name}</h1>
+      <br></br>
+
+
+      <body className="biobody"> Email : {email}</body>
+      <br></br>
+      <br></br>
+
+  
     
     <br></br>
     <br></br>
@@ -171,17 +188,19 @@ const languages = [
     <br></br>
     <br></br>
     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
- 
+  
 
       </div>
-    
-    <div className="profilebody" >
+     
+
+  
+      <br/>
+    <div  className="profilebody" >
+    <br></br>
+    <br></br>
+    <h2 className="h8"> My Workspace </h2>
+    <br></br>
+   
       <h1>My courses</h1>
       <p> </p>
       
@@ -191,17 +210,18 @@ const languages = [
       
  
       
-    <button className="profilebutton"onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}>Change password</button>
+    <button className="profilebuttoninst"onClick={() => {window.location.href=`/corpchangepassword?userId=${user._id}`}}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Change password</button>
     
-    <button className="profilebutton" onClick={()=>navigate("/Corpview")}>view all courses</button>
       
       
-      <button  className="profilebutton" onClick={()=>navigate("/corpviewreq")}>view my requests</button>
+      <button  className="profilebuttoninst" onClick={()=>navigate("/corpviewreq")}> <AddTaskIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></AddTaskIcon> My Requests</button>
       <br/>
   
-    <button className="profilebutton" onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
-        key={crpid}>View Reports
+    <button className="profilebuttoninst" onClick={() => window.location.href=`/ReportsPage?user_id=${crpid}`}
+        key={crpid}><ReportIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></ReportIcon>  My Reports
       </button>
+      <button className="profilebuttoninst" onClick={()=>navigate("/Corpview")}> <SummarizeIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></SummarizeIcon>  All Courses</button>
+
 
      
 

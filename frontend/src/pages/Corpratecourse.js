@@ -49,15 +49,15 @@ const Corpratecourse=()=>{
             <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
         <form className="filter" onSubmit={handleSubmit}>
-            <h1>Rate your course</h1>
-        <Stack spacing={4}>
-            <Rating value={course_rating} onChange={(event, newValue) => {
-    setRating(newValue)}} precision={1} size='large'
+            <h1>Rate Course</h1>
+        <Stack sx={{marginRight: -100 , color:'#fff'}} spacing={5}>
+            <Rating sx={{marginRight: -100 , color:'#fff'}} value={course_rating} onChange={(event, newValue) => {
+    setRating(newValue)}} precision={1} size='large' marginRight = '10px'
              
             ></Rating>
             </Stack>
-            <button> confirm your rating</button>
-            <div>{show &&<p><h1> your rating was added successfully </h1></p>}</div>
+            <button> Confirm Rating</button>
+            <div>{show &&<p><h1> Your rating was Added Successfully </h1></p>}</div>
             
             <p></p>
             

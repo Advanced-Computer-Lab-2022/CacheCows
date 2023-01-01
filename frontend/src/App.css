@@ -119,6 +119,17 @@
     margin: 0 auto;
   }
 
+  .allcoursesbg{
+    background-image: url("assets/allcoursesbg.png") ; 
+    background-size: 100%;
+    color: white;
+    background-color: white;
+    max-width: 100%;
+    height: max-content;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
   .signuppages{
     background-image: '../assets/Rubix.gif';
       max-width: 100%;

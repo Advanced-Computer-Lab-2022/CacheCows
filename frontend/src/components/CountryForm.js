@@ -46,6 +46,9 @@ const handleSubmit = async(e) => {
 }
 
 return(
+    <div className="pagesplain">
+
+   
     <form className="filter" onSubmit={handleSubmit}>
     <h3>choose country!</h3>
 
@@ -62,7 +65,7 @@ return(
     <button>Update Country</button>
         {error && <div className="error">{error}</div>}
     </form>
-
+    </div>
 )
 }
 export default Countryform

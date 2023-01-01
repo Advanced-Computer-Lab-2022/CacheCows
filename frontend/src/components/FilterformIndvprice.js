@@ -10,6 +10,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import Button from '@mui/material/Button';
+
 
  const FFormPrice = () =>  {
   const {user} = useAuthContext();
@@ -63,10 +65,10 @@ function clear(){
 }
   
     return (
-      <div className='filter'>
-        <h3>Price: {filter}</h3>
-        <FormControl sx={{ m: 1, minWidth: 120 }} onSelect={handleSubmit}>
-        <InputLabel id="demo-simple-select-helper-label">Price</InputLabel>
+      <div className='realfilter'>
+<br></br>
+<FormControl sx={{ m: 1, minWidth: 120 , marginRight :85}} onSelect={handleSubmit}>
+          <InputLabel id="demo-simple-select-helper-label">Price</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -80,14 +82,14 @@ function clear(){
         <MenuItem value="400">Up to 400</MenuItem>
         <MenuItem value="3000">up to 3000</MenuItem>
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
+        <FormHelperText>Choose Price Range</FormHelperText>
       </FormControl>
 
       {error && <div className="error">{error}</div>}
 
       <br/>
 
-      <button onClick={clear}>Clear Filter</button>
+      <Button sx={{marginLeft: 80, marginTop : -17}} onClick={clear}>Clear Filter</Button>
 
       <div className="courses"> 
         {courses && courses.map((course) =>(
