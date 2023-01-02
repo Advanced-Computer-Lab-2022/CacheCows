@@ -76,9 +76,9 @@ if(user){
 
 <br></br>
                        
-<button className="back" onClick={() => navigate(-1)}> ❮ Back </button>           
-                        <div>{show &&<p> <h3>congrats you are registered</h3></p>}</div>
-<div>{rej &&<p> <h3>Already registered</h3></p>}</div>
+<button className="back" onClick={() => {window.location.href=`/Home?userId=${user._id}`}}> ❮ Back </button>
+                        <div>{show &&<p> <h3>Congrats You Are Registered</h3></p>}</div>
+<div>{rej &&<p> <h3>Already Registered</h3></p>}</div>
 
                         <br></br>
                         <br></br>

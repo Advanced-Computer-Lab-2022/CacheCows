@@ -108,7 +108,7 @@ const Admin = () => {
           }
       
           fetchcorptrainees()
-        }, [])
+        }, [user])
         
 
   
@@ -143,11 +143,11 @@ const Admin = () => {
  
 
 
-      <h1> Admin! </h1>
+     <h1>  admin:{user.name} </h1>
       <br></br>
 
 
-      <body className="biobody"> Email : </body>
+      <body className="biobody"> Email :  {user.email}</body>
       <br></br>
       <br></br>
       <br></br>
