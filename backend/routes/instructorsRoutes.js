@@ -39,7 +39,8 @@ router.post('/createcourse/:id',controlls.createCourse)
 router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);
 router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);
 
-
+router.use(protect)
+router.post('/InstructorAcceptTerms',controlls.InstructorAcceptTerms);
 
 
 //router.post('/InstructorSetDiscount',controlls.InstructorSetDiscount);

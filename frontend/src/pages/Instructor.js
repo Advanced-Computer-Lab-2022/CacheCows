@@ -71,7 +71,7 @@ const Instructor=  ()=>{
   const [username , setname] = useState('');
   const [instructor_email , setEmail] = useState('');
   const [instructor_biography , setBio] = useState('');
-
+  const [owed,setOwed]=useState('')
 
   function SearchOn() {
     setSflag(true);
@@ -133,6 +133,31 @@ useEffect(()=>{
     if (user) {
       fetchCourses()
         }
+
+
+        const fetchowed=async()=>{
+          const response=await fetch(`/api/instructors/viewowed?inst_id=${instid}`,
+          {
+              method: 'GET',
+             
+              headers: {
+                  'Content-Type' : 'application/json',
+                  
+              }
+                  
+              })
+              const json=await response.json()
+              console.log(json)
+              if(response.ok){
+                  setOwed(json)
+              }
+              if(!response.ok){
+                  console.log(json)
+                  console.log("error")
+              }
+      
+        }
+        fetchowed()
     
 },[error,user])
 
@@ -175,6 +200,7 @@ const navigate=useNavigate();
 
   
 <div className="profilehead">
+
 <br></br>
 <br></br>
     <br></br>
@@ -210,6 +236,9 @@ const navigate=useNavigate();
       <br></br>
       <body className="biobody"> Email : {instructor_email}</body>
       <br></br>
+      <body className="biobody">  Balance Per Month :{owed}</body>
+     
+      <br></br>
       <br></br>
     <br></br>
     <br></br>
@@ -232,14 +261,14 @@ const navigate=useNavigate();
 
      <button className="profilebuttoninst" onClick={() => window.location.href=`/instchangepassword?userId=${user._id}`}> <EditIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></EditIcon> Edit Password</button>
      <br></br>
-     <button className="profilebuttoninst" onClick={()=> window.location.href=`/instviewbalance?inst_id=${instid}`}> <MonetizationOnIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></MonetizationOnIcon>My balance </button>
+    
 
      <button  className="profilebuttoninst"onClick={() => window.location.href=`/AddCourse`}> <AddCircleIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></AddCircleIcon>Add Course</button>
      <br></br>
 
      <button className="profilebuttoninst"
         onClick={() => {
-          navigate("/");
+          navigate("/Instviewallcourses");
         }}
       >
 <SummarizeIcon sx={{ marginBottom : -1 , marginRight : 1 , color : '#a6607c' }} ></SummarizeIcon>        Check All Courses
@@ -302,19 +331,13 @@ const navigate=useNavigate();
     <br></br> <br></br>
     <br></br> <br></br>
     <br></br> 
-         
+    <br></br>
+    <br></br> <br></br>
+    <br></br> <br></br>
+    <br></br> 
     </div>
 
-    <div className="filter">
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Check All Courses!
-      </button>
-      </div>
+    
       <br />
       
 </div>
