@@ -1350,7 +1350,7 @@ const CourseForm = ({user}) => {
                 Previous
               </Button>
               <Box sx={{ flex: '1 1 auto' , marginLeft: 20}} />
-              <Button onClick={handleNext} sx={{ mr: 1 , color: '#111111', marginLeft: 21}}>
+              <Button onClick={handleNext} sx={{ mr: 1 , color: '#111111', right: 830}}>
                 Next
               </Button>
            
