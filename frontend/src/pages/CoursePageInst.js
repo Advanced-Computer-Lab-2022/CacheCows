@@ -96,12 +96,13 @@ const navigate=useNavigate();
             <br></br>
             <br></br>
             
-    {courses && courses.map((course) =>(
-    <CourseInfoInst course={course} key={course._id} />))}  
-    <div> 
+            <div> 
       {courses && courses.map((course) =>(
     <CourseInfoMuiInst course={course} key={course._id}/>))}
         </div>
+    {courses && courses.map((course) =>(
+    <CourseInfoInst course={course} key={course._id} />))}  
+    
       {exam1 && week === '8'?(
         <div> 
             <ExamQsInst exam={exam1}/>
