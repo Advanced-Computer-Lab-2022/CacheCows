@@ -490,7 +490,7 @@ const CourseForm = ({user}) => {
             type = "text"
             onChange={(e) => setEx(e.target.value)}
             value={course_exercise}
-            label="Course Exercises:"
+            label="Number of Course Exercises:"
         />
                  <br></br>
 
@@ -1349,8 +1349,8 @@ const CourseForm = ({user}) => {
               >
                 Previous
               </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 , color: '#111111'}}>
+              <Box sx={{ flex: '1 1 auto' , marginLeft: 20}} />
+              <Button onClick={handleNext} sx={{ mr: 1 , color: '#111111', marginLeft: 20}}>
                 Next
               </Button>
            
