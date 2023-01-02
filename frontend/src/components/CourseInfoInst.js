@@ -1,5 +1,4 @@
 import { useEffect,useState } from "react";
-import { Container } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import React from 'react';
@@ -14,7 +13,9 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Box } from '@mui/material';
-import ExamQs from "./ExamQs";
+import Container from '@mui/material/Container';
+import ExamQs from './ExamQs';
+
 
 
 
@@ -24,11 +25,17 @@ const CourseInfoInst = ({course}) => {
 
     const [show, setShow] = useState(false);    
     const { user } = useAuthContext()
+
+    const type = localStorage.getItem('type')
+    const [exams, setExams] = useState();  
+
+    const course_id = {course_id : course.course_id};
       
     
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
 
     return(
@@ -42,11 +49,15 @@ const CourseInfoInst = ({course}) => {
             <h4 class='header1'>{course.course_name}</h4>
             <br/>
             <div className="ratio ratio-16x9">
-            <iframe className='modalx'  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
+            <iframe className=''  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
             </div>
             <br/><br/>
             <h4 class='header'>{course.course_summary}</h4>
-            </Box>
+                          <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
+              </Box>
             ): week === '2'?(
               <Box>
               <h4 class='header1'>{course.course_subtopic1}</h4>
@@ -57,6 +68,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description1}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
 
             ): week === '3'?(
@@ -69,6 +84,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description2}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
             ): week === '4'?(
               <Box>
@@ -80,6 +99,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description3}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
             ): week === '5'?(
               <Box>
@@ -91,6 +114,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description4}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
             ): week === '6'?(
               <Box>
@@ -102,6 +129,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description5}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
             ): week === '7'?(
               <Box>
@@ -113,11 +144,15 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description6}</h4>
+              <FormGroup>
+              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
+              </FormGroup>
+              <Notes/>
               </Box>
-            ):week === '8'?(<ExamQs></ExamQs>):(<div></div>)}
+            ):(<div></div>)}
         </Container>
         </div>
     )
 }
 
-export default CourseInfoInst
+export default CourseInfoInst;
