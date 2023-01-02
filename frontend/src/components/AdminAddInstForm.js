@@ -13,7 +13,7 @@ const AdminAddInstForm = () => {
     const [instructor_bd, setBd] = useState('')
     const [instructor_biography, setBio] = useState('')
     const [acceptTerms, setAT] = useState('')
-
+    const[shown,setShown]=useState(false)  
     const[error , setError] = useState(null)
 
    
@@ -59,6 +59,7 @@ const AdminAddInstForm = () => {
         setBio('')
         setBd('')
         setAT('')
+        setShown(true)
         
         setError(null)
         //localStorage.setItem('acceptTerms' = false)
@@ -136,6 +137,7 @@ const AdminAddInstForm = () => {
    
         <button>Add Instructor!</button>
         {error && <div className="error">{error}</div>}
+        <div>{shown &&<p> <h1>Instructor was added successfully </h1> </p>}</div>
        </form>
     )
 }   
