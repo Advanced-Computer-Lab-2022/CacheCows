@@ -53,10 +53,10 @@ const CourseInfoInst = ({course}) => {
             </div>
             <br/><br/>
             <h4 class='header'>{course.course_summary}</h4>
-                          <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+                          
+              
+              
+
               </Box>
             ): week === '2'?(
               <Box>
@@ -68,10 +68,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description1}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
 
             ): week === '3'?(
@@ -84,10 +84,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description2}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
             ): week === '4'?(
               <Box>
@@ -99,10 +99,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description3}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
             ): week === '5'?(
               <Box>
@@ -114,10 +114,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description4}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
             ): week === '6'?(
               <Box>
@@ -129,10 +129,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description5}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
             ): week === '7'?(
               <Box>
@@ -144,10 +144,10 @@ const CourseInfoInst = ({course}) => {
               <br/><br/>
 
               <h4 class='header'>{course.course_description6}</h4>
-              <FormGroup>
-              <FormControlLabel sx={{marginLeft : 45, color:'#a6607c'}}control={<Checkbox defaultChecked />}   label= "Finished" />
-              </FormGroup>
-              <Notes/>
+              
+              
+              
+
               </Box>
             ):(<div></div>)}
         </Container>
