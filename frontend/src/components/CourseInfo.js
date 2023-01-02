@@ -36,29 +36,6 @@ const CourseInfo = ({course}) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  useEffect(()=>{
-    const fetchCourses=async ()=>{
-        const response1= await fetch('api/exams/getCExams',{
-            method: 'POST',
-            body: JSON.stringify(course_id),
-            headers: {
-              'Content-Type' : 'application/json',
-              'Authorization': `Bearer ${user.token}`},
-          })
-          const json1= await response1.json()
-  
-          if(response1.ok){
-          setExams(json1)
-          console.log("yess: ",json1,course_id)
-          }
-          if(!response1.ok){
-            setExams('')
-            console.log("WTF: ",json1)
-            }
-    }
-    fetchCourses();
-    
-},[course_id,user.token])
 
 
     return(
@@ -172,7 +149,7 @@ const CourseInfo = ({course}) => {
               </FormGroup>
               <Notes/>
               </Box>
-            ): week === '8'?(<ExamQs></ExamQs>):(<div></div>)}
+            ):(<div></div>)}
         </Container>
         </div>
     )
