@@ -84,8 +84,10 @@ useEffect(()=>{
           }
   }
   fetchExams();
+
+  console.log("ex: ",exam1)
     
-},[])
+},[crs,course_id,exam1,user.token])
 
 
 const navigate=useNavigate();
@@ -118,7 +120,7 @@ const navigate=useNavigate();
         <div> 
         <ExamQsInst exam={exam4} />
     </div>
-      ):(<div></div>)}
+      ):(<div><h7>aaa</h7></div>)}
     <div>
     <br/> 
     <br/>
