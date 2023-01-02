@@ -79,18 +79,19 @@ const InstructorAcceptTerms=()=>{
     const {user} = useAuthContext()
 
     const [acceptTerms,setTerms]=useState('');
-    const[inst_id,setID]=useState('');
+    
     const[error , setError] = useState(null);
     
 
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        setID(JSON.stringify(user._id))
+        
+      const _id=user._id
 
         const inst = {
-            inst_id,
-            acceptTerms
+           _id
+           
         }
 
 
@@ -104,7 +105,7 @@ const InstructorAcceptTerms=()=>{
         })
         const json = await response.json()
 if(!response.ok) {
-    console.log('a7',inst_id)
+    console.log('a7',_id)
     setError(json.error)
 }
 if(response.ok) {

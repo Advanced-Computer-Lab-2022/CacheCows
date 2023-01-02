@@ -235,7 +235,7 @@ const InstructorAcceptTerms =async(req,res)=>{
 
     
 
-    const instructor =await instructors.findByIdAndUpdate(req.user._id,{acceptTerms: 'true'},{new:true})
+    const instructor =await instructors.findByIdAndUpdate({_id:req.body._id},{acceptTerms: 'true'},{new:true})
    // const instructor = await instructors.findById(inst_id)
    res.status(200).json(instructor)
   
