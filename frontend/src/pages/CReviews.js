@@ -50,7 +50,11 @@ const CReviews = () => {
 
 
     <div className="filter">
+    <br></br>
+    <br></br>
+
       <div classname="courses"> 
+
       <CRate></CRate>
       <h3>Course Reviews!</h3>
       <div className="courses"> 
@@ -61,6 +65,22 @@ const CReviews = () => {
       {error && <div className="error">{error}</div>}
       </div>
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </div>
   )
 }
