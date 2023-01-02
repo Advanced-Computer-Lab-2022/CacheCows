@@ -8,6 +8,7 @@ router.post('/setExam',controlls.setExam);
 router.post('/setGrade',controlls.setGrade);
 router.get('/getUserExams',controlls.getuserexam);
 router.delete('/',controlls.del);
-
+router.delete('/a',controlls.dela);
+router.post('/getAnswer',controlls.getAnswer);
 
 module.exports = router  

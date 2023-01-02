@@ -63,32 +63,43 @@ const setExam = asyncHandler(async (req, res) => {
 })
 
 const setGrade = asyncHandler(async (req, res) => {
-    const g1 = 0;
-    const g2 = 0;
-    const g3 = 0;
-    const g4 = 0;
+    var g1 = 0;
+    var g2 = 0;
+    var g3 = 0;
+    var g4 = 0;
 
 
     try{
-        const exam = exams.findById(req.body.exam_id)
-        if(req.body.exam_q1_answer1 == exam.exam_q1_right_answer ){
+        const exam = await exams.findById(req.body.exam_id)
+        if(req.body.exam_q1_answer === exam.exam_q1_right_answer ){
              g1 = 1
         }
-        if(req.body.exam_q2_answer2 == exam.exam_q2_right_answer ){
+        if(req.body.exam_q2_answer === exam.exam_q2_right_answer ){
              g2 = 1    
         }
-        if(req.body.exam_q3_answer3 == exam.exam_q3_right_answer ){
+        if(req.body.exam_q3_answer === exam.exam_q3_right_answer ){
              g3 = 1
         }
-        if(req.body.exam_q4_answer4 == exam.exam_q4_right_answer ){
+        if(req.body.exam_q4_answer === exam.exam_q4_right_answer ){
              g4 = 1
         }
 
+        const maybe = await answers.find({exam_id : req.body.exam_id, user_id : req.body.user_id})
 
-        const answer = await answers.creat({
+        if(maybe.toString() === ""){
+            res.status(400).json({error:"Exam Already Submitted"})
+        }else{
+
+
+        const answer = await answers.create({
         exam_id : req.body.exam_id,
         user_id : req.body.user_id,
         course_id : req.body.course_id,
+
+        exam_q1_answer : req.body.exam_q1_answer,
+        exam_q2_answer : req.body.exam_q2_answer,
+        exam_q3_answer : req.body.exam_q3_answer,
+        exam_q4_answer : req.body.exam_q4_answer,
 
         exam_q1_grade : g1,
         exam_q2_grade : g2,
@@ -96,6 +107,7 @@ const setGrade = asyncHandler(async (req, res) => {
         exam_q4_grade : g4
     })
     res.status(200).json(answer)
+}
 }catch(error){
     res.status(400).json({error:error.message})
 }
@@ -103,12 +115,23 @@ const setGrade = asyncHandler(async (req, res) => {
 
 const getuserexam = asyncHandler(async (req, res) => {
 
-    const exam = await answers.find({user_id,course_id})
+    const exam = await answers.find()
     res.status(200).json(exam)
+})   
+
+const getAnswer = asyncHandler(async (req, res) => {
+
+    const ans = await answers.find({exam_id : req.body.exam_id , user_id : req.body.user_id})
+    res.status(200).json(ans)
 })   
 
 const del= asyncHandler(async (req, res) => {
     const x = await exams.deleteMany();
+    res.status(200).json(x);
+})
+
+const dela= asyncHandler(async (req, res) => {
+    const x = await answers.deleteMany();
     res.status(200).json(x);
 })
 
@@ -120,5 +143,7 @@ const del= asyncHandler(async (req, res) => {
         getuserexam,
         setExam,
         setGrade,
-        del
+        del,
+        dela,
+        getAnswer
     }

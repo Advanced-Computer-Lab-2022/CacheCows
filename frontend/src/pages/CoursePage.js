@@ -74,7 +74,6 @@ useEffect(()=>{
         setExam2(ex2)
         setExam3(ex3)
         setExam4(ex4)
-        console.log("yess: ",json1)
         }
         if(!response1.ok){
           setExams('')
@@ -82,7 +81,6 @@ useEffect(()=>{
           setExam2('')
           setExam3('')
           setExam4('')
-          console.log("WTF: ",json1)
           }
   }
   fetchExams();
@@ -136,6 +134,14 @@ const navigate=useNavigate();
     <br/> 
     <br/> 
     <br/> 
+    <br/> 
+    <br/> 
+    <br/> 
+    <br/>
+    <br/> 
+    <br/> 
+    <br/> 
+    <br/>
     <br/> 
     <br/> 
     <br/> 

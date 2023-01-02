@@ -4,16 +4,24 @@ import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
-import CourseDetails from './corpviewAllcourses';
+import CourseDetails from './CourseDetailsInst';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-import Button from '@mui/material/Button';
 
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import FeaturedCourses from "../components/FeaturedCourses";
 
- const FFormPrice = () =>  {
+import CourseCardDB from "../components/CourseCardDB";
+import Grid from '@mui/material/Unstable_Grid2';
+
+import TCourseDetail from './indvtraineeviewAllCourses';
+import CCourseDetails from './corpviewAllcourses';
+
+ const FFormPriceCRP = () =>  {
   const {user} = useAuthContext();
 
   const [filter, setFilter] = useState('');
@@ -66,9 +74,8 @@ function clear(){
   
     return (
       <div className='realfilter'>
-        <br></br>
-        
-        <FormControl sx={{ m: 1, minWidth: 120 , marginRight :85}} onSelect={handleSubmit}>
+
+        <FormControl sx={{ m: 1, minWidth: 120 , marginRight :85}} onSubmit={handleSubmit}>
         <InputLabel id="demo-simple-select-helper-label">Price</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -83,19 +90,34 @@ function clear(){
         <MenuItem value="400">Up to 400</MenuItem>
         <MenuItem value="3000">up to 3000</MenuItem>
         </Select>
-        <FormHelperText>Choose Price Range</FormHelperText>
+        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
 
       {error && <div className="error">{error}</div>}
 
       <br/>
-
-      <Button sx={{marginLeft: 80, marginTop : -17}} onClick={clear}>Clear Filter</Button>
-
-      <div className="courses"> 
-        {courses && courses.map((course) =>(
-        <CourseDetails course={course} key={course._id} />))}          
-      </div> 
+      {courses && (
+      <Box >
+      <h3> ___________________________________________ </h3>
+     <br></br>
+     <h3> Filter Results</h3>
+      <Grid container rowSpacing={4} columnSpacing={{ xs: 7, sm: 2, md: 7 }} sx={{ marginLeft : 11, }}>
+            {courses && courses.map((course) =>(
+          <Grid >
+            <CCourseDetails course={course} key={course._id} sx={{
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+            borderRadius: 2,
+            p: 2,
+            minWidth: 300,
+            display : "inline",
+            border : 2
+          }}/>
+          </Grid> ))}
+      </Grid>
+      {error && <div className="error">{error}</div>}
+    </Box> 
+    )}
 
     
       </div>
@@ -103,4 +125,4 @@ function clear(){
   }
 
 
-  export default FFormPrice
+  export default FFormPriceCRP

@@ -19,7 +19,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 // Inspired by the former Facebook spinners.
-function TraineeProgress(props) {
+const TraineeProgress=(props) =>{
   return (
     <Box sx={{ position: 'relative' }}>
       <CircularProgress
@@ -42,12 +42,4 @@ function TraineeProgress(props) {
   );
 }
 
-export default function CustomizedProgressBars() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <TraineeProgress />
-      <br />
-      <TraineeProgress variant="determinate" value={50} />
-    </Box>
-  );
-}
+export default TraineeProgress;
