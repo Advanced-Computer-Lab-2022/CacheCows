@@ -117,7 +117,7 @@ const navigate=useNavigate();
         <div> 
         <ExamQs exam={exam4} />
     </div>
-      ):(<div><h3>No Exam, Lucky You!</h3></div>)}
+      ):(<div></div>)}
     <div>
     <br/> 
     <br/>

@@ -108,6 +108,17 @@
     margin: 0 auto;
   }
 
+  .exams{
+    background-size: 80%;
+    color: white;
+    background-color: white;
+    max-width: 70%;
+    height: max-content;
+    padding: 0px;
+    margin: 0 auto;
+    opacity:0.92;
+  }
+
   .profilehead{
     background-image: url("assets/profileheader.png") ; 
     background-size: 100%;

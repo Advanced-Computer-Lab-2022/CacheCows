@@ -136,11 +136,13 @@ const Dashboard = () => {
      <br></br>
      <br></br>
 
-  <div>
+  <div className="All-Admins">
   {featured && featured.map((course) =>(
     <FeaturedCourses course={course} key={course._id}/>
   ))}
   </div>
+
+  
 
   <br></br>
                   <br></br>

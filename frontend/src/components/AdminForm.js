@@ -11,7 +11,7 @@ const AdminForm = () => {
     const [admin_email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [admin_bd, setBd] = useState('')
-  
+    const[shown,setShown]=useState(false)  
     const[error , setError] = useState(null)
 
     const handleSubmit = async(e) => {
@@ -50,7 +50,7 @@ const AdminForm = () => {
         setEmail('')
         setCountry('')
         setBd('')
-        
+        setShown(true)
         setError(null)
             
         console.log('New Admin Added', json)
@@ -111,6 +111,7 @@ const AdminForm = () => {
    
         <button>Add Admin!</button>
         {error && <div className="error">{error}</div>}
+        <div>{shown &&<p> <h1>Instructor was added successfully </h1> </p>}</div>
        </form>
     )
 }   

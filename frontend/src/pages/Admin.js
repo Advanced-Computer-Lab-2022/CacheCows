@@ -143,7 +143,7 @@ const Admin = () => {
  
 
 
-      <h1> Admin!</h1>
+      <h1> Admin! </h1>
       <br></br>
 
 

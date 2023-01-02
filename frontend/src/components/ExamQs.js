@@ -175,39 +175,42 @@ import { Form } from 'react-router-dom';
   };  
 
   return (
-    <div>
+    <div className="exams">
     {!cheater && (
     <Container >
       <FormControl sx={{ m: 3 }} error={error1} variant="standard" disabled={done}>
-        <FormLabel id="demo-error-radios">{exam.exam_q1}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios"> 1- {exam.exam_q1}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz1"
           value={ans1}
           onChange={handleRadioChange1}
         >
-          <FormControlLabel onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer1} control={<Radio />} label={exam.exam_q1_answer1} />
-          <FormControlLabel onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer2} control={<Radio />} label={exam.exam_q1_answer2} />
-          <FormControlLabel onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer3} control={<Radio />} label={exam.exam_q1_answer3} />
-          <FormControlLabel onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer4} control={<Radio />} label={exam.exam_q1_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer1} control={<Radio />} label={exam.exam_q1_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer2} control={<Radio />} label={exam.exam_q1_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer3} control={<Radio />} label={exam.exam_q1_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns1(e.target.value)} value={exam.exam_q1_answer4} control={<Radio />} label={exam.exam_q1_answer4} />
         </RadioGroup>
+        <h1> ________________________ </h1>
+        <br/>
+
         <FormHelperText>{help1}</FormHelperText>
 
         </FormControl>
         <br/>
 
-        <FormControl sx={{ m: 3 }} error={error2} variant="standard" disabled={done}>
-        <FormLabel id="demo-error-radios">{exam.exam_q2}</FormLabel>
+        <FormControl error={error2} variant="standard" disabled={done}>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">2- {exam.exam_q2}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz2"
           value={ans2}
           onChange={handleRadioChange2}
         >
-          <FormControlLabel onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer1} control={<Radio />} label={exam.exam_q2_answer1} />
-          <FormControlLabel onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer2} control={<Radio />} label={exam.exam_q2_answer2} />
-          <FormControlLabel onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer3} control={<Radio />} label={exam.exam_q2_answer3} />
-          <FormControlLabel onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer4} control={<Radio />} label={exam.exam_q2_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer1} control={<Radio />} label={exam.exam_q2_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer2} control={<Radio />} label={exam.exam_q2_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer3} control={<Radio />} label={exam.exam_q2_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns2(e.target.value)} value={exam.exam_q2_answer4} control={<Radio />} label={exam.exam_q2_answer4} />
         </RadioGroup>
         <FormHelperText>{help2}</FormHelperText>
 
@@ -217,18 +220,21 @@ import { Form } from 'react-router-dom';
 
         <FormControl sx={{ m: 3 }} error={error3} variant="standard" disabled={done}>
 
-        <FormLabel id="demo-error-radios">{exam.exam_q3}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">3- {exam.exam_q3}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz3"
           value={ans3}
           onChange={handleRadioChange3}
         >
-          <FormControlLabel onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer1} control={<Radio />} label={exam.exam_q3_answer1} />
-          <FormControlLabel onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer2} control={<Radio />} label={exam.exam_q3_answer2} />
-          <FormControlLabel onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer3} control={<Radio />} label={exam.exam_q3_answer3} />
-          <FormControlLabel onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer4} control={<Radio />} label={exam.exam_q3_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer1} control={<Radio />} label={exam.exam_q3_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer2} control={<Radio />} label={exam.exam_q3_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer3} control={<Radio />} label={exam.exam_q3_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns3(e.target.value)} value={exam.exam_q3_answer4} control={<Radio />} label={exam.exam_q3_answer4} />
         </RadioGroup>
+
+        <h1> ________________________ </h1>
+        <br/>
         <FormHelperText>{help3}</FormHelperText>
 
         </FormControl>
@@ -237,18 +243,22 @@ import { Form } from 'react-router-dom';
 
         <FormControl sx={{ m: 3 }} error={error4} variant="standard" disabled={done}>
 
-        <FormLabel id="demo-error-radios">{exam.exam_q4}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">4- {exam.exam_q4}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz4"
           value={ans4}
           onChange={handleRadioChange4}
         >
-          <FormControlLabel onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer1} control={<Radio />} label={exam.exam_q4_answer1} />
-          <FormControlLabel onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer2} control={<Radio />} label={exam.exam_q4_answer2} />
-          <FormControlLabel onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer3} control={<Radio />} label={exam.exam_q4_answer3} />
-          <FormControlLabel onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer4} control={<Radio />} label={exam.exam_q4_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer1} control={<Radio />} label={exam.exam_q4_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer2} control={<Radio />} label={exam.exam_q4_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer3} control={<Radio />} label={exam.exam_q4_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} onClick={(e)=> setAns4(e.target.value)} value={exam.exam_q4_answer4} control={<Radio />} label={exam.exam_q4_answer4} />
         </RadioGroup>
+
+        
+        <h1> ________________________ </h1>
+        <br/>
         <FormHelperText>{help4}</FormHelperText>
         </FormControl>
 
@@ -269,8 +279,8 @@ import { Form } from 'react-router-dom';
       </div>
     )}
 
-    </div>
 
+    </div>
   );
 }
 

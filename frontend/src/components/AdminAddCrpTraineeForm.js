@@ -15,7 +15,8 @@ const AdminAddCrpTraineeForm = () => {
     const [corp_email, setEmail] = useState('')
     const [Country, setCountry] = useState('')
     const [corp_bd, setBd] = useState('')
-  
+    const[shown,setShown]=useState(false)  
+    const [rej,setRej]=useState(false)
     const[error , setError] = useState(null)
 
     
@@ -51,6 +52,7 @@ const AdminAddCrpTraineeForm = () => {
 
         if(!response.ok) {
             setError(json.error)
+            setRej(true)
         }
         if(response.ok) {
       
@@ -60,6 +62,7 @@ const AdminAddCrpTraineeForm = () => {
         setEmail('')
         setCountry('')
         setBd('')
+        setShown(true)
         
         setError(null)
             
@@ -122,6 +125,8 @@ const AdminAddCrpTraineeForm = () => {
    
         <button>Add Corporate Trainee!</button>
         {error && <div className="error">{error}</div>}
+        <div>{shown &&<p> <h1>Corprate trainee was added successfully </h1> </p>}</div>
+        
        </form>
     )
 }   
