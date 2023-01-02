@@ -9,16 +9,16 @@ import '../styles.css';
 
 const FeaturedCourses = ({course}) => {
   return (
-    <ImageList sx={{ width: 400, height: 200 , display: 'inline-grid', marginLeft:10}}>
-        <ImageListItem sx={{color : '#fff'}} key={course._id}>
+    <ImageList sx={{ width: 400, height: 200 , display: 'inline-grid', marginLeft:10, color : '#a6607c'}}>
+        <ImageListItem sx={{color : '#a6607c'}} key={course._id}>
           <iframe src={course.course_preview1} title="YouTube video" allowFullScreen></iframe>
-          <ImageListItemBar
+          <ImageListItemBar sx={{background : '#a6607c', opacity: 0.9}}
             subtitle={course.course_instructor_name}
             actionIcon={
               <IconButton
-                color='info'
+                color='#111111'
                 onClick={() => window.location.href=`/CoursePagePreview?course_id=${course.course_id}`}
-                sx={{marginLeft : 10 ,marginRight : 17, justifyItems : 'center' }}
+                sx={{marginLeft : 10 ,marginRight : 17, justifyItems : 'center', color : '#fff' }}
                 aria-label={`info about ${course.title}`}
               >
                 {course.course_id}
