@@ -78,7 +78,7 @@ const Admin = () => {
 
 
     fetchadmins()
-  }, [])
+  }, [user])
 ///////////////////////////////////////////////////////////
     const [instructors, setinstructors] = useState(null)
   
@@ -93,7 +93,7 @@ const Admin = () => {
       }
   
       fetchinstructors()
-    }, [])
+    }, [user])
 ///////////////////////////////////////////////////////////
     const [crptrainees, setcrpTrainee] = useState(null)
       
@@ -143,11 +143,11 @@ const Admin = () => {
  
 
 
-     <h1>  admin:{user.name} </h1>
+     <h1>  Admin! </h1>
       <br></br>
 
 
-      <body className="biobody"> Email :  {user.email}</body>
+      {/* <body className="biobody"> Email :  {user.email}</body> */}
       <br></br>
       <br></br>
       <br></br>
