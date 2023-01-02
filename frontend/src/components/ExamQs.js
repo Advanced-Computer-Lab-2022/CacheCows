@@ -45,76 +45,87 @@ import Button from '@mui/material/Button';
   console.log("exam",exam)
 
   return (
+    <div className="exams">
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
-        <FormLabel id="demo-error-radios">{exam.exam_q1}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios"> 1- {exam.exam_q1}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"
           value={value}
           onChange={handleRadioChange}
         >
-          <FormControlLabel value={exam.exam_q1_answer1} control={<Radio />} label={exam.exam_q1_answer1} />
-          <FormControlLabel value={exam.exam_q1_answer2} control={<Radio />} label={exam.exam_q1_answer2} />
-          <FormControlLabel value={exam.exam_q1_answer3} control={<Radio />} label={exam.exam_q1_answer3} />
-          <FormControlLabel value={exam.exam_q1_answer4} control={<Radio />} label={exam.exam_q1_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q1_answer1} control={<Radio />} label={exam.exam_q1_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q1_answer2} control={<Radio />} label={exam.exam_q1_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q1_answer3} control={<Radio />} label={exam.exam_q1_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q1_answer4} control={<Radio />} label={exam.exam_q1_answer4} />
         </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
+        <h1> ________________________ </h1>
         <br/>
 
-        <FormLabel id="demo-error-radios">{exam.exam_q2}</FormLabel>
+        <br/>
+
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">2- {exam.exam_q2}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"
           value={value}
           onChange={handleRadioChange}
         >
-          <FormControlLabel value={exam.exam_q2_answer1} control={<Radio />} label={exam.exam_q2_answer1} />
-          <FormControlLabel value={exam.exam_q2_answer2} control={<Radio />} label={exam.exam_q2_answer2} />
-          <FormControlLabel value={exam.exam_q2_answer3} control={<Radio />} label={exam.exam_q2_answer3} />
-          <FormControlLabel value={exam.exam_q2_answer4} control={<Radio />} label={exam.exam_q2_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q2_answer1} control={<Radio />} label={exam.exam_q2_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q2_answer2} control={<Radio />} label={exam.exam_q2_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q2_answer3} control={<Radio />} label={exam.exam_q2_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q2_answer4} control={<Radio />} label={exam.exam_q2_answer4} />
         </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
+
+        <h1> ________________________ </h1>
+        <br/>
 
         <br/>
 
-        <FormLabel id="demo-error-radios">{exam.exam_q3}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">3- {exam.exam_q3}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"
           value={value}
           onChange={handleRadioChange}
         >
-          <FormControlLabel value={exam.exam_q3_answer1} control={<Radio />} label={exam.exam_q3_answer1} />
-          <FormControlLabel value={exam.exam_q3_answer2} control={<Radio />} label={exam.exam_q3_answer2} />
-          <FormControlLabel value={exam.exam_q3_answer3} control={<Radio />} label={exam.exam_q3_answer3} />
-          <FormControlLabel value={exam.exam_q3_answer4} control={<Radio />} label={exam.exam_q3_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q3_answer1} control={<Radio />} label={exam.exam_q3_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q3_answer2} control={<Radio />} label={exam.exam_q3_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q3_answer3} control={<Radio />} label={exam.exam_q3_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q3_answer4} control={<Radio />} label={exam.exam_q3_answer4} />
         </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
+
+        <h1> ________________________ </h1>
+        <br/>
 
         <br/>
 
-        <FormLabel id="demo-error-radios">{exam.exam_q4}</FormLabel>
+        <FormLabel sx={{color:'#111111', marginLeft: -40, background: '#c7739554', fontSize: 20}} id="demo-error-radios">4- {exam.exam_q4}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"
           value={value}
           onChange={handleRadioChange}
         >
-          <FormControlLabel value={exam.exam_q4_answer1} control={<Radio />} label={exam.exam_q4_answer1} />
-          <FormControlLabel value={exam.exam_q4_answer2} control={<Radio />} label={exam.exam_q4_answer2} />
-          <FormControlLabel value={exam.exam_q4_answer3} control={<Radio />} label={exam.exam_q4_answer3} />
-          <FormControlLabel value={exam.exam_q4_answer4} control={<Radio />} label={exam.exam_q4_answer4} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q4_answer1} control={<Radio />} label={exam.exam_q4_answer1} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q4_answer2} control={<Radio />} label={exam.exam_q4_answer2} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q4_answer3} control={<Radio />} label={exam.exam_q4_answer3} />
+          <FormControlLabel sx={{ marginLeft: -40}} value={exam.exam_q4_answer4} control={<Radio />} label={exam.exam_q4_answer4} />
         </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
 
-        <br/>
         
+        <h1> ________________________ </h1>
+        <br/>
+
+        <br/>
+
         <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
           Check Answer
         </Button>
       </FormControl>
     </form>
+    </div>
   );
 }
 
