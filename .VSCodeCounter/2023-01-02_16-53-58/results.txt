@@ -1,0 +1,255 @@
+Date : 2023-01-02 16:53:58
+Directory : /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows
+Total : 210 files,  67392 codes, 566 comments, 1275463 blanks, all 1343421 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JSON             |          6 |     48,948 |          0 |  1,270,933 |  1,319,881 |
+| JavaScript       |        198 |     16,949 |        527 |      4,194 |     21,670 |
+| CSS              |          3 |      1,208 |         16 |        155 |      1,379 |
+| Markdown         |          1 |        257 |          0 |        179 |        436 |
+| HTML             |          1 |         22 |         23 |          1 |         46 |
+| JavaScript React |          1 |          8 |          0 |          1 |          9 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |        210 |     67,392 |        566 |  1,275,463 |  1,343,421 |
+| backend                                                                                              |         45 |      2,804 |        274 |        818 |      3,896 |
+| backend/config                                                                                       |          1 |         11 |          0 |          2 |         13 |
+| backend/controllers                                                                                  |         11 |      2,116 |        205 |        559 |      2,880 |
+| backend/middleware                                                                                   |          6 |        126 |         62 |         60 |        248 |
+| backend/models                                                                                       |         16 |        330 |          1 |        102 |        433 |
+| backend/routes                                                                                       |         10 |        200 |          6 |         90 |        296 |
+| frontend                                                                                             |        162 |     60,782 |        292 |  1,189,640 |  1,250,714 |
+| frontend/public                                                                                      |          2 |         47 |         23 |          2 |         72 |
+| frontend/src                                                                                         |        158 |     16,363 |        269 |      3,532 |     20,164 |
+| frontend/src/app                                                                                     |          1 |          0 |          0 |          1 |          1 |
+| frontend/src/components                                                                              |         66 |      6,901 |         47 |      1,381 |      8,329 |
+| frontend/src/context                                                                                 |          2 |         29 |          0 |         10 |         39 |
+| frontend/src/features                                                                                |          2 |        113 |          6 |         17 |        136 |
+| frontend/src/features/auth                                                                           |          2 |        113 |          6 |         17 |        136 |
+| frontend/src/hooks                                                                                   |          8 |        228 |         24 |        100 |        352 |
+| frontend/src/pages                                                                                   |         73 |      6,482 |        170 |      1,783 |      8,435 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                             | language         | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/README.md                                              | Markdown         |        257 |          0 |        179 |        436 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/config/db.js                                   | JavaScript       |         11 |          0 |          2 |         13 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/adminsController.js                | JavaScript       |        290 |         46 |         77 |        413 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/answerController.js                | JavaScript       |         26 |          0 |         38 |         64 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/corporateTraineeController.js      | JavaScript       |        330 |         13 |         56 |        399 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/countriesController.js             | JavaScript       |          9 |          0 |          4 |         13 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/coursesController.js               | JavaScript       |        325 |         32 |         61 |        418 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/examsController.js                 | JavaScript       |        117 |          0 |         33 |        150 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/guestsController.js                | JavaScript       |         52 |         12 |         21 |         85 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/individualTraineeController.js     | JavaScript       |        468 |         18 |         85 |        571 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/instructorsController.js           | JavaScript       |        297 |         82 |        104 |        483 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/reportsController.js               | JavaScript       |        103 |          1 |         40 |        144 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/controllers/reviewsController.js               | JavaScript       |         99 |          1 |         40 |        140 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/AdminAuthMiddleware.js              | JavaScript       |         28 |         20 |         15 |         63 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/CorpTraineeAuthMiddleware.js        | JavaScript       |         19 |         15 |          9 |         43 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/IndivTraineeAuthMiddleware.js       | JavaScript       |         19 |         16 |         13 |         48 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/InstructorAuthMiddleware.js         | JavaScript       |         20 |         11 |         11 |         42 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/errorMiddleware.js                  | JavaScript       |         11 |          0 |          3 |         14 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/middleware/upload.js                           | JavaScript       |         29 |          0 |          9 |         38 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/CReviewModel.js                         | JavaScript       |         13 |          0 |          4 |         17 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/IReviewModel.js                         | JavaScript       |         13 |          0 |          4 |         17 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/adminsModel.js                          | JavaScript       |         14 |          1 |         10 |         25 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/answersModel.js                         | JavaScript       |         20 |          0 |          8 |         28 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/corporateTraineeModel.js                | JavaScript       |         39 |          0 |          7 |         46 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/corpregistercourse.js                   | JavaScript       |         13 |          0 |          4 |         17 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/countriesModel.js                       | JavaScript       |          8 |          0 |          7 |         15 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/coursesModel.js                         | JavaScript       |         50 |          0 |         13 |         63 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/examModel.js                            | JavaScript       |         34 |          0 |          8 |         42 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/guestsModel.js                          | JavaScript       |         11 |          0 |          6 |         17 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/individualTraineeModel.js               | JavaScript       |         40 |          0 |          7 |         47 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/indvtraineeregistercourse.js            | JavaScript       |          9 |          0 |          4 |         13 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/instructorsModel.js                     | JavaScript       |         21 |          0 |          8 |         29 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/reportcommentsModel.js                  | JavaScript       |         14 |          0 |          4 |         18 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/reportsModel.js                         | JavaScript       |         17 |          0 |          4 |         21 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/models/subtopicsModel.js                       | JavaScript       |         14 |          0 |          4 |         18 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/adminsRoutes.js                         | JavaScript       |         22 |          1 |         19 |         42 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/corporateTraineeRoutes.js               | JavaScript       |         30 |          0 |         13 |         43 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/countriesRoutes.js                      | JavaScript       |          5 |          0 |          4 |          9 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/courseRoutes.js                         | JavaScript       |         27 |          0 |          7 |         34 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/examsRoutes.js                          | JavaScript       |         12 |          0 |          2 |         14 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/guestsRoutes.js                         | JavaScript       |          9 |          0 |          3 |         12 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/indvTraineeRoute.js                     | JavaScript       |         34 |          1 |         17 |         52 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/instructorsRoutes.js                    | JavaScript       |         34 |          4 |         18 |         56 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/reportsRoutes.js                        | JavaScript       |         13 |          0 |          3 |         16 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/routes/reviewRoutes.js                         | JavaScript       |         14 |          0 |          4 |         18 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/backend/server.js                                      | JavaScript       |         21 |          0 |          5 |         26 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/package-lock.json                             | JSON             |     44,304 |          0 |  1,185,081 |  1,229,385 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/package.json                                  | JSON             |         68 |          0 |      1,025 |      1,093 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/public/index.html                             | HTML             |         22 |         23 |          1 |         46 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/public/manifest.json                          | JSON             |         25 |          0 |          1 |         26 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/App.css                                   | CSS              |        246 |          6 |         36 |        288 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/App.js                                    | JavaScript       |        387 |          6 |         82 |        475 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/Data.json                                 | JSON             |      1,002 |          0 |          0 |      1,002 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/app/store.js                              | JavaScript       |          0 |          0 |          1 |          1 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminAddCrpTraineeForm.js      | JavaScript       |         99 |          0 |         35 |        134 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminAddInstForm.js            | JavaScript       |        115 |          1 |         29 |        145 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminCourseReq.js              | JavaScript       |         14 |          0 |         20 |         34 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminDetails.js                | JavaScript       |         12 |          0 |          7 |         19 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminForm.js                   | JavaScript       |         96 |          0 |         23 |        119 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminPromotion.js              | JavaScript       |         24 |          1 |          7 |         32 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/AdminReports.js                | JavaScript       |        129 |          0 |         14 |        143 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CRate.js                       | JavaScript       |         42 |          0 |         15 |         57 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CReviewDetails.js              | JavaScript       |         11 |          0 |          8 |         19 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CReviewForm.js                 | JavaScript       |         67 |          0 |         16 |         83 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Checkbox.js                    | JavaScript       |         11 |          0 |          0 |         11 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Corpforgetpasswordform.js      | JavaScript       |         44 |          0 |         10 |         54 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Corpregisteredcoursedetails.js | JavaScript       |        267 |          0 |         35 |        302 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Corpviewrequests.js            | JavaScript       |         10 |          0 |         18 |         28 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CountryForm.js                 | JavaScript       |         57 |          0 |         14 |         71 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseCard.js                  | JavaScript       |        231 |          0 |         32 |        263 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseCardDB.js                | JavaScript       |        225 |          0 |         29 |        254 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseCardUsers.js             | JavaScript       |        276 |          0 |         32 |        308 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseDetails.js               | JavaScript       |         82 |          0 |         17 |         99 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseDetailsInst.js           | JavaScript       |         94 |          0 |         17 |        111 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseForm.js                  | JavaScript       |      1,219 |          3 |        167 |      1,389 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfo.js                  | JavaScript       |        137 |          0 |         21 |        158 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfoGuest.js             | JavaScript       |        107 |          0 |         14 |        121 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfoInst.js              | JavaScript       |        109 |          0 |         49 |        158 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfoMui.js               | JavaScript       |        126 |          0 |         37 |        163 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfoMuiInst.js           | JavaScript       |        123 |          0 |         36 |        159 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CourseInfoMuiPrev.js           | JavaScript       |        120 |          0 |         33 |        153 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CrpTraineeDetails.js           | JavaScript       |         13 |          0 |         10 |         23 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/CustomSelect.js                | JavaScript       |         27 |          0 |          5 |         32 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ExamQs.js                      | JavaScript       |        232 |          0 |         55 |        287 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ExamQsInst.js                  | JavaScript       |        163 |          0 |         37 |        200 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FeaturedCourse2.js             | JavaScript       |         17 |          0 |          4 |         21 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FeaturedCourses.js             | JavaScript       |         33 |          0 |          2 |         35 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FilterForm.js                  | JavaScript       |        115 |          0 |         24 |        139 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FilterForm2.js                 | JavaScript       |        137 |          0 |         22 |        159 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FilterFormPrice.js             | JavaScript       |        104 |          0 |         21 |        125 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/FilterformIndvprice.js         | JavaScript       |        104 |          0 |         23 |        127 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Filterformcorp.js              | JavaScript       |        138 |          0 |         23 |        161 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Filterformcorpprice.js         | JavaScript       |        105 |          0 |         23 |        128 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Filterformindv.js              | JavaScript       |        136 |          0 |         24 |        160 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/IRate.js                       | JavaScript       |         42 |          0 |         14 |         56 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/IReviewDetails.js              | JavaScript       |         10 |          0 |          8 |         18 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/IReviewForm.js                 | JavaScript       |         66 |          0 |         17 |         83 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Indvforgetpasswordform.js      | JavaScript       |         46 |          0 |          8 |         54 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/InstforgetpasswordForm.js      | JavaScript       |         45 |          0 |          8 |         53 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/InstructorDetails.js           | JavaScript       |         14 |          0 |         15 |         29 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ListPage.js                    | JavaScript       |          9 |          0 |          4 |         13 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/MyReports.js                   | JavaScript       |         40 |          1 |          8 |         49 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/NavBarBS.js                    | JavaScript       |        178 |          1 |         31 |        210 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/NavigationBar.js               | JavaScript       |         37 |          0 |         14 |         51 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/NewText.js                     | JavaScript       |         34 |          0 |          4 |         38 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Notes.js                       | JavaScript       |         53 |          5 |         38 |         96 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/PopUp.js                       | JavaScript       |         15 |          0 |          1 |         16 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Post.js                        | JavaScript       |         10 |          0 |          0 |         10 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Registercoursedetails.js       | JavaScript       |         81 |          0 |         12 |         93 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ReportPending.js               | JavaScript       |        126 |         16 |         20 |        162 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ReportResolved.js              | JavaScript       |        117 |          1 |         23 |        141 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/ReportUnseen.js                | JavaScript       |        126 |         16 |         20 |        162 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/SearchBar.js                   | JavaScript       |         70 |          1 |         18 |         89 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/SearchBarInst.js               | JavaScript       |         60 |          0 |         15 |         75 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/SendCertificateEmail.js        | JavaScript       |         36 |          0 |         18 |         54 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/Spinner.jsx                    | JavaScript React |          8 |          0 |          1 |          9 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/TraineeProgress.js             | JavaScript       |         41 |          1 |          3 |         45 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/corpviewAllcourses.js          | JavaScript       |        228 |          0 |         32 |        260 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/coursepricedetails.js          | JavaScript       |         10 |          0 |          2 |         12 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/components/indvtraineeviewAllCourses.js   | JavaScript       |        228 |          0 |         39 |        267 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/context/AdminAuthContext.js               | JavaScript       |          0 |          0 |          1 |          1 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/context/AuthContext.js                    | JavaScript       |         29 |          0 |          9 |         38 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/features/auth/authService.js              | JavaScript       |         25 |          3 |         10 |         38 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/features/auth/authSlice.js                | JavaScript       |         88 |          3 |          7 |         98 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/AdminLogin.js                       | JavaScript       |         33 |          3 |         12 |         48 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/CorpTraineeLogin.js                 | JavaScript       |         38 |          4 |         20 |         62 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/IndTraineeLogin.js                  | JavaScript       |         33 |          3 |         13 |         49 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/IndTraineeSignup.js                 | JavaScript       |         33 |          3 |         16 |         52 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/InstLogin.js                        | JavaScript       |         44 |          6 |         20 |         70 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/InstSignup.js                       | JavaScript       |         27 |          3 |          9 |         39 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/useAuthContext.js                   | JavaScript       |          9 |          0 |          3 |         12 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/hooks/useLogout.js                        | JavaScript       |         11 |          2 |          7 |         20 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/index.css                                 | CSS              |        933 |          9 |        114 |      1,056 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/index.js                                  | JavaScript       |         13 |          0 |          3 |         16 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/About.js                            | JavaScript       |         43 |          0 |         14 |         57 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Acceptreq.js                        | JavaScript       |         96 |          0 |         20 |        116 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AccessDenied.js                     | JavaScript       |         33 |          0 |          8 |         41 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AddCoursePage.js                    | JavaScript       |         39 |          1 |         10 |         50 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AddReportPage.js                    | JavaScript       |        129 |          0 |         22 |        151 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Admin.js                            | JavaScript       |        212 |          3 |         84 |        299 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AdminLogin.js                       | JavaScript       |         47 |          1 |         27 |         75 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AdminPromo.js                       | JavaScript       |        175 |          1 |         30 |        206 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AdminReportPage.js                  | JavaScript       |         48 |          2 |         17 |         67 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/AdmincourseReq.js                   | JavaScript       |         74 |          0 |         17 |         91 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CReviews.js                         | JavaScript       |         72 |          1 |         17 |         90 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CorpTrainee.js                      | JavaScript       |        215 |          0 |         61 |        276 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CorpTraineeLogin.js                 | JavaScript       |         48 |          0 |         14 |         62 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CorpViewregisteredcourses.js        | JavaScript       |         39 |          0 |          3 |         42 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpchangepassword.js               | JavaScript       |         91 |          0 |         16 |        107 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpratecourse.js                   | JavaScript       |         71 |          0 |         15 |         86 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corprateinst.js                     | JavaScript       |         71 |          0 |         16 |         87 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpregistercourse.js               | JavaScript       |        103 |          1 |         23 |        127 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpreviewcourse.js                 | JavaScript       |        109 |          0 |         21 |        130 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpreviewinst.js                   | JavaScript       |        109 |          0 |         21 |        130 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CorpviewAllcourses.js               | JavaScript       |         57 |          0 |          4 |         61 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Corpviewreq.js                      | JavaScript       |         35 |          0 |          6 |         41 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Country.js                          | JavaScript       |         36 |          1 |         21 |         58 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CoursePage.js                       | JavaScript       |        135 |          0 |         26 |        161 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CoursePageInst.js                   | JavaScript       |        136 |          0 |         28 |        164 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/CoursePagePreview.js                | JavaScript       |         54 |          0 |         17 |         71 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Courses.js                          | JavaScript       |         27 |          0 |         14 |         41 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Dashboard.js                        | JavaScript       |        153 |         24 |         53 |        230 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/ErrorPage.js                        | JavaScript       |         12 |          0 |          6 |         18 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Guest.js                            | JavaScript       |         56 |          0 |          7 |         63 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/HomePage.js                         | JavaScript       |         88 |          0 |         16 |        104 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IReviews.js                         | JavaScript       |         76 |          2 |         20 |         98 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndTrainee.js                       | JavaScript       |        219 |          0 |         53 |        272 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndTraineeLogin.js                  | JavaScript       |         47 |          0 |         15 |         62 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndTraineeNew.js                    | JavaScript       |        121 |          1 |         68 |        190 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndTraineeSignup.js                 | JavaScript       |        145 |          2 |         46 |        193 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndTraineetermsandconditions.js     | JavaScript       |         54 |         32 |         29 |        115 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndvViewregisteredcourses.js        | JavaScript       |         79 |          0 |          9 |         88 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Indvchangepassword.js               | JavaScript       |         85 |          0 |         24 |        109 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Indvratecourse.js                   | JavaScript       |         87 |          0 |         18 |        105 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Indvrateinst.js                     | JavaScript       |         81 |          0 |         17 |         98 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Indvreviewinst.js                   | JavaScript       |         92 |          0 |         25 |        117 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/IndvtraineeviewAllcourses.js        | JavaScript       |         68 |          0 |          6 |         74 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Indvviewwallet.js                   | JavaScript       |         79 |          1 |          9 |         89 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstEditBiography.js                | JavaScript       |         63 |          3 |         22 |         88 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstEditEmail.js                    | JavaScript       |         62 |          3 |         24 |         89 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstLogin.js                        | JavaScript       |         47 |          3 |         16 |         66 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstSetCourseDiscount.js            | JavaScript       |         88 |          0 |         30 |        118 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstSignup.js                       | JavaScript       |         76 |          3 |         34 |        113 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Instructor.js                       | JavaScript       |        274 |          1 |         76 |        351 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/InstrutorcourseByprice.js           | JavaScript       |         24 |          0 |          5 |         29 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Instviewallcourses.js               | JavaScript       |         68 |          0 |          7 |         75 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Instviewbalance.js                  | JavaScript       |         78 |          0 |          7 |         85 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Login.js                            | JavaScript       |        140 |          0 |         34 |        174 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/NewCourses.js                       | JavaScript       |        179 |          1 |         72 |        252 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/NewProfile.js                       | JavaScript       |        244 |          1 |         77 |        322 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Paycourse.js                        | JavaScript       |         72 |          1 |         17 |         90 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Paymentsuccess.js                   | JavaScript       |        108 |          2 |         20 |        130 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Refund.js                           | JavaScript       |         68 |          2 |         13 |         83 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/ReportFUPage.js                     | JavaScript       |        176 |          3 |         39 |        218 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/ReportPage.js                       | JavaScript       |         82 |          2 |         22 |        106 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/SearchResults.js                    | JavaScript       |        114 |         11 |         38 |        163 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/Signup.js                           | JavaScript       |         33 |          0 |         12 |         45 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/StartMockUp.js                      | JavaScript       |          0 |          0 |          1 |          1 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/TraineeResults.js                   | JavaScript       |        151 |          8 |         54 |        213 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/TraineeResultsCorp.js               | JavaScript       |         76 |          8 |         43 |        127 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/corpforgetpassword.js               | JavaScript       |         44 |          0 |          5 |         49 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/indvforgetpassword.js               | JavaScript       |         43 |          0 |          5 |         48 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/indvreviewcourse.js                 | JavaScript       |         92 |          0 |         25 |        117 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/instchangepass.js                   | JavaScript       |         63 |          0 |         20 |         83 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/instforgetPassword.js               | JavaScript       |         54 |          0 |          8 |         62 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/previewinstructorcourse.js          | JavaScript       |         27 |          0 |          6 |         33 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/pages/termsandconditions.js               | JavaScript       |         90 |         45 |         58 |        193 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/frontend/src/styles.css                                | CSS              |         29 |          1 |          5 |         35 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/package-lock.json                                      | JSON             |      3,504 |          0 |     84,273 |     87,777 |
+| /Users/omarashraf/Desktop/Sem 7/ACL/CacheCows/package.json                                           | JSON             |         45 |          0 |        553 |        598 |
+| Total                                                                                                |                  |     67,392 |        566 |  1,275,463 |  1,343,421 |
++------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
