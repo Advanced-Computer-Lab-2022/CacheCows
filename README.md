@@ -7,7 +7,7 @@ The website includes challenges that increase user's learning experience. It off
 
 
 
-## Tech Stack
+## Framework Tech Stack
 
 Website is created using MERN Stack :
 
@@ -19,7 +19,16 @@ Website is created using MERN Stack :
 
 **Languages** : HTML, CSS, JavaScript
 
+# Build Status
 
+Project can currently run only on localhost, it is still not be deployed. 
+Moreover, RUBIX achieves the functionalities mentioned below, except the functionality of the progress bar (40) and it is currently being developed. Hence, the functionality of receving results works ok as requested but depends on calculating the progress in the course so it can only appear when a cindidate finsihes the course.
+Some changes to the UI are also planned to done as following : Change profile cards to be in scrollable integrated pages through mui, reduce navigation through pages by showing more info in the profile, and applying changes suggested by projet manager. 
+Features added inlcude the usage of MUI elemtns for frontend, using API for more proffesional usgae like stripe and nodemailer. Also development of specific proffesional logo and color template.
+
+Functionalities : 
+
+<img src="/reqs.png" alt="Alt text" title="Optional title">
 
 ## Installation
 
@@ -387,6 +396,80 @@ Start the server
   npm run start
 ```
 
+# Testing
+
+We used Postman to test our backend methods. Following is a code exmaple and how it is tested using postman 
+<img src="/codetest1.png" alt="Alt text" title="Optional title">
+
+Methods require Authorization token for users to use them, ofcourse methods like login, register, and forget password do not require so. To use other methods, enter the JsonWebToken of the user as a bearer token in the Authorization tab in postman, and then test your function. The example shows all of this.
+<img src="/codetest2.png" alt="Alt text" title="Optional title">
+
+And here is the method testing, note that no variables are entered in the body or params because this method does not require so. Else, they shouls be entered.
+
+<img src="/codetest2.png" alt="Alt text" title="Optional title">
+
+
+You can test the frontend using localhost running on port 3000 ( or the specified port in case you change it) and type the name of page you want to access. 
+
+- Note : user must have access to this page 
+
+
+# Code Style
+
+**Asynchronous Code**
+
+Writing asynchronous code improves performance and should be used when possible. In particular, we use:
+- async/await
+We prefer using the simpler async/await syntax. Unfortunately, you can't use await at the top level unless you are in an ECMAScript module. CommonJS modules used by Node.js are not ES modules. If your example is intended to be used everywhere, avoid top-level await.
+
+ **Namings**
+
+ For function names, we use camelCase, starting with a lowercase character. Using concise, human-readable, and semantic names where appropriate.
+
+When defining a class, we use PascalCase (starting with a capital letter) for the class name and camelCase (starting with a lowercase letter) for the object property and method names.
+**Backend Namings**
+
+We decided to use convention namings for methods to represent their functionlities in the backend, export with the same name, and call them in the router with their same name for ease of testing and usage. Main objects to route to from the server.js file are the following :
+
+And for each route file, we use the correct method name from the controller
+
+**Frontend Namigs**
+
+Likewise, we name each component imported in a page with its first initial name, that also explains its functionality, and then create the router in App.js file using the same initial name, too, for easier navigation and tracing.
+
+**Comments**
+
+You will find explaining the implmentation of many methods and their applications.
+
+You can find other comments on whole methods in code, this is because we intend not to delete a function that achieves different functionality because we might use some of its details later, so we comment it untel further usage.
+In general, we use single-line comments to comment code. Writers must mark each line of the comment with //, so that it's easier to notice commented-out code visually. In addition, this convention allows to comment out sections of code using /* … */ while debugging.
+
+**Operators**
+
+
+*Strict equality operator*
+
+Prefer the strict equality (triple equals) and inequality operators over the loose equality (double equals) and inequality operators.
+```bash
+name === "Omar";
+age !== 25;
+```
+
+**Strings**
+
+For inserting values into strings, use *template literals*
+
+```bash
+
+const name = "Omar";
+console.log(`Hi! I'm ${name}!`);
+```
+
+**Errors**
+
+You can find that we always output the type of error any function holds so that it helps in tracing and solving problems during implementation. Also, frontend uses these error to define the error type for the user to achieve responsivness.
+
+*console.log()* is quiet used a lot for the similar intention, and it  encouraged to be used by the developer to trace errors and solve them.
 
 
 # Color Reference
@@ -417,6 +500,11 @@ Created by Omar Aboelazm
 
 <img src="/rubixnew.png" alt="Alt text" title="Optional title">
 
+# Credits 
+
+We learned a lot about developing such project from this repo by Net Ninja 
+
+https://github.com/iamshaunjp/MERN-Stack-Tutorial
 
 
 ## License
@@ -432,4 +520,16 @@ Software was developed by : Omar Aboelazm, Mohammed Shoheib, Ahmed Essam, Amr Ba
 You can contact the Scrum Master through : omarashraff22@gmail.com
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+
+
+
+
+
+
+
+
 
