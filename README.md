@@ -175,7 +175,9 @@ $ npm run build // this will build the server code to es5 js codes and generate 
 ```
 
 
-## Frontend Initialization
+# Frontend 
+
+## Initialization
 
 
 Since this project will hold both the client application and the server application there will be node modules in two different places. First run `npm install` from the root. After this you will run `npm run-script install-all` from the root. From now on run this command anytime you want to install all modules again. This is a script we have defined in package.json .
@@ -185,7 +187,7 @@ After installing react as mentioned above, frontend main structure is created us
 `npx create-react-app frontend `
 which will create a new folder called frontend with the basic structure. Make sure the port used for frontend is 3000 or change it from package.json file in the frontend folder
 
-## File structure
+##  Frontend Structure
 #### `client` - Holds the client application
 - #### `public` - This holds all of our static files
 - #### `src`
@@ -202,6 +204,9 @@ which will create a new folder called frontend with the basic structure. Make su
 #### `package.json` - Defines npm behaviors like the scripts defined above in the README
 
 
+# Use of Styled Components
+
+ instead of using html classes and css files for styling each page we have used styled components library that enable us to write React Components that could inherit css styling from any html , mui or even another React component style and override that style.
 
 ## Frontend Scripts
 
@@ -314,6 +319,10 @@ A user can access Their Profile, and find all of the options they can do right a
 
 # API and Communications
 
+## REST API
+
+REST is a set of standards used to build web APIs. To elaborate, an Admin resource can be represented using REST standards. To view all users, an API request using the GET method and the URI /admins would be sent to the server. To add a new user, an API request using the POST method and the same URI would be sent. To view a single user, an API request using the GET method and the URI /admins/:id would be sent, where :id is the ID of the user. Similarly, to update a user, an API request using the PUT method and the same URI would be sent. Finally, to delete a user, an API request using the DELETE method and the same URI would be sent.
+
 ## Nodemailer
 The module used for sending emails to users ( emails containing for instance password recovery links, Pdf geneated certficates, etc.)
 NodeMailer is a module for the Node JS applications that allow for easy email sending. Its API is simple: it requires you to create a transporter object, MailOptions Objects, and use the Transporter.sendMail method.
@@ -416,11 +425,14 @@ You can test the frontend using localhost running on port 3000 ( or the specifie
 
 # Code Style
 
-**Asynchronous Code**
+ Having a clear and consistent coding style is critical for any project, as it helps ensure the codebase is maintainable and future changes can be implemented without unexpected issues. Code reviews are essential for this process, as they provide oversight to ensure all code is written to the same standards and any discrepancies are identified and resolved quickly.
 
-Writing asynchronous code improves performance and should be used when possible. In particular, we use:
-- async/await
-We prefer using the simpler async/await syntax. Unfortunately, you can't use await at the top level unless you are in an ECMAScript module. CommonJS modules used by Node.js are not ES modules. If your example is intended to be used everywhere, avoid top-level await.
+**Pair Programming**
+
+
+Pair programming is a great way to help a team work better. Working together allows the team to share ideas, come up with solutions quickly, and learn from each other. It also builds friendships and strengthens the team. Pair programming divides difficult tasks into smaller parts, and having someone review the work helps ensure accuracy. Ultimately, pair programming is an excellent tool for improving efficiency, productivity, and collaboration.
+
+
 
  **Namings**
 
@@ -436,6 +448,12 @@ And for each route file, we use the correct method name from the controller
 **Frontend Namigs**
 
 Likewise, we name each component imported in a page with its first initial name, that also explains its functionality, and then create the router in App.js file using the same initial name, too, for easier navigation and tracing.
+
+**Asynchronous Code**
+
+Writing asynchronous code improves performance and should be used when possible. In particular, we use:
+- async/await
+We prefer using the simpler async/await syntax. Unfortunately, you can't use await at the top level unless you are in an ECMAScript module. CommonJS modules used by Node.js are not ES modules. If your example is intended to be used everywhere, avoid top-level await.
 
 **Comments**
 
@@ -471,6 +489,8 @@ You can find that we always output the type of error any function holds so that 
 
 *console.log()* is quiet used a lot for the similar intention, and it  encouraged to be used by the developer to trace errors and solve them.
 
+**Use of Styled Components**
+ instead of using html classes and css files for styling each page we have used styled components library that enable us to write React Components that could inherit css styling from any html , mui or even another React component style and override that style.
 
 # Color Reference
 
