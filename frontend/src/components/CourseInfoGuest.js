@@ -39,7 +39,6 @@ const CourseInfoGuest = ({course}) => {
             <iframe className='modalx'  src={course.course_video} title="YouTube video" allowFullScreen></iframe>
             </div>
             <br/><br/>
-            <h4 className='desc'> Description </h4>
 
             <h4 class='header'>
               <br></br>
