@@ -49,8 +49,8 @@ return(
     <div className="pagesplain">
          <button className="back" onClick={() => navigate(-1)}> ❮ Back </button>
 
-<div>{show &&<p><h1> Refund was maded successfully </h1></p>}</div>
-<div>{rej &&<p><h1> Can not refund course your progress exceeded 50 percent </h1></p>}</div>
+<div>{show &&<p><h1> Refund was made Successfully </h1></p>}</div>
+<div>{rej &&<p><h1> Can not refund course, your progress exceeded 50 percent </h1></p>}</div>
 <div>
             
             <Box

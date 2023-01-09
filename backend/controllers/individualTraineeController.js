@@ -314,7 +314,7 @@ const registercourse=async (req,res)=>{
     }
     else{
       const x = await course.findByIdAndUpdate(course_id,{course_hype : newhype },{new : true})
-      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,course_progress : progress, course_progress_percentage : progress})
+      const trainee_course= await reg.create({trainee_id:trainee_id,course_id:course_id,course_progress : progress, course_progress_percentage : 60})
       res.status(200).json("success")
     }
   }

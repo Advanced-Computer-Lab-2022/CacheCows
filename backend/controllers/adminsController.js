@@ -383,7 +383,7 @@ const acceptrequest=async(req,res)=>{
         }
         }
         catch(error){
-          res.status(400).json({error:error.message,crs,TargetCourse,x,y,newprice})
+          res.status(400).json({error:error.message,crs})
         
         }
       }

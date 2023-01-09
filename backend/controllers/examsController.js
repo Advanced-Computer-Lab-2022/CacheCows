@@ -84,9 +84,9 @@ const setGrade = asyncHandler(async (req, res) => {
              g4 = 1
         }
 
-        const maybe = await answers.find({exam_id : req.body.exam_id, user_id : req.body.user_id})
+        const maybe = await answers.findOne({exam_id : req.body.exam_id, user_id : req.body.user_id})
 
-        if(maybe.toString() === ""){
+        if(maybe === ""){
             res.status(400).json({error:"Exam Already Submitted"})
         }else{
 

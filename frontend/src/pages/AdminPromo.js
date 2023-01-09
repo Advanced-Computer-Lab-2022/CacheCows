@@ -89,7 +89,7 @@ if(response.ok) {
     setDiscountTime('');
     setDiscountTimeStart('');
     setDiscount('');
-    setPersonName('')
+    setPersonName([])
     console.log(json)
     setError(null)
 

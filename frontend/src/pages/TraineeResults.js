@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, SplitButton} from 'react-bootstrap';
 import jsPDF from 'jspdf';
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext"
@@ -28,7 +28,6 @@ class TraineeResults extends Component{
 
     pdfGenerate =()=>{
         
-      const navigate=useNavigate();
 
         // const {user} = useAuthContext();
         // const [username , setname] = useState('');
@@ -83,7 +82,6 @@ class TraineeResults extends Component{
          pdfSend = async ()=>{
            // const  [show,setShow]=useState(false)
              
-           const navigate=useNavigate();
 
             
             const params = new URLSearchParams(window.location.search);
@@ -135,7 +133,7 @@ class TraineeResults extends Component{
          
 
                                       <button className="buttonwhite">
-                                  <Link onClick={this.pdfGenerate}>
+                                  <Button onClick={this.pdfGenerate}>
                                           <Box
                                             component="img"
                                             sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
@@ -148,7 +146,7 @@ class TraineeResults extends Component{
                                             alt="Logo"
                                             src={pdficon}
                                           />
-                                        </Link>
+                                        </Button>
                                         <br />
                                         Download PDF
                                         
@@ -163,7 +161,7 @@ class TraineeResults extends Component{
                                 &nbsp;&nbsp;&nbsp;
 
                                 <button className="buttonwhite">
-                                  <Link onClick={this.pdfSend}>
+                                  <Button onClick={this.pdfSend}>
                                           <Box
                                             component="img"
                                             sx={{ height: 150, width: 150 , padding : 0, margins: 0, 
@@ -176,7 +174,7 @@ class TraineeResults extends Component{
                                             alt="Logo"
                                             src={mailicon}
                                           />
-                                        </Link>
+                                        </Button>
                                         <br />
                                         Send By Email
                                         
