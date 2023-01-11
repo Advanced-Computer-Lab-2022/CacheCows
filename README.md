@@ -407,6 +407,8 @@ Start the server
 
 # Testing
 
+## Backend
+
 We used Postman to test our backend methods. Following is a code exmaple and how it is tested using postman 
 <img src="/codetest1.png" alt="Alt text" title="Optional title">
 
@@ -421,6 +423,13 @@ And here is the method testing, note that no variables are entered in the body o
 You can test the frontend using localhost running on port 3000 ( or the specified port in case you change it) and type the name of page you want to access. 
 
 - Note : user must have access to this page 
+
+## Frontend
+
+Check this video to know how to use the website from server side
+
+https://drive.google.com/file/d/1jiBDmPZyO0M6IfifGPNiRTnGwinZne-d/view?usp=sharing
+
 
 
 # Code Style
