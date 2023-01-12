@@ -154,25 +154,6 @@ it should show up in the terminal like this
 <img src="/terminal running backend.png" alt="Alt text" title="Optional title">
 
 
-# Frontend
-
-
-## Server-side usage
-
-Prepare your secret
-run the script at the first level:
-
-(You need to add a JWT_SECRET in .env to connect to MongoDB)
-####  in the root level
-```
-$ cd server
-$ echo "JWT_SECRET=YOUR_JWT_SECRET" >> src/.env
-Start
-$ cd server   // go to server folder
-$ npm i       // npm install packages
-$ npm run dev // run it locally
-$ npm run build // this will build the server code to es5 js codes and generate a dist file
-```
 
 
 # Frontend 
